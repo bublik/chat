@@ -1,0 +1,20 @@
+!!!
+%html
+  %head
+    %title Management
+    = stylesheet_link_tag "management", media: "all", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body
+    %header
+      %p= link_to 'Home', root_path
+
+      - if user_signed_in?
+        #user_login_box{style: 'float:right'}
+          = current_user.email
+          |
+          = link_to 'My info', edit_user_registration_path
+          |
+          = link_to 'Sign out', destroy_user_session_path, method: :delete
+      = render 'layouts/admin_auth'
+    = yield
+    = javascript_include_tag "management", "data-turbolinks-track" => true

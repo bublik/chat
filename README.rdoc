@@ -1,0 +1,5 @@
+== README
+
+rake db:create
+rake db:mongoid:create_indexes
+rake db:seed
