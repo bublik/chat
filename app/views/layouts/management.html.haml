@@ -5,16 +5,20 @@
     = stylesheet_link_tag "management", media: "all", "data-turbolinks-track" => true
     = csrf_meta_tags
   %body
-    %header
+
+    = nav_bar brand: 'Management', inverse: true, responsive: true do
+      = menu_group do
+        = menu_item 'Home', root_path
+        = menu_divider
+        = menu_item 'About Us', about_path
+        = menu_item 'Contact', contact_path
+      - if user_signed_in?
+        = menu_group(pull: 'right') do
+          %p.navbar-text #{my_profile} #{sign_out}
+    .container
+      = render 'layouts/admin_auth'
+      = yield
+      = javascript_include_tag 'management', 'data-turbolinks-track' => true
+-#%header
       %p= link_to 'Home', root_path
 
-      - if user_signed_in?
-        #user_login_box{style: 'float:right'}
-          = current_user.email
-          |
-          = link_to 'My info', edit_user_registration_path
-          |
-          = link_to 'Sign out', destroy_user_session_path, method: :delete
-      = render 'layouts/admin_auth'
-    = yield
-    = javascript_include_tag "management", "data-turbolinks-track" => true

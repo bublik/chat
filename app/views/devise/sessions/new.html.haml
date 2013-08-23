@@ -9,6 +9,6 @@
           = f.input :password, input_html: { class: 'form-control'}
           - if devise_mapping.rememberable?
             = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
-          %div= f.submit "Sign in", :class => 'btn btn-primary'
+          %div= f.submit 'Sign in', :class => 'btn btn-primary'
       -#.panel-footer
-        = render "devise/shared/links"
+        = render 'devise/shared/links'

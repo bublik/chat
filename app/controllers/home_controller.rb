@@ -10,4 +10,7 @@ class HomeController < ApplicationController
 
   def price
   end
+
+  def about
+  end
 end
