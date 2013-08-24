@@ -45,15 +45,29 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :span, class: :error }
   end
 
-  config.wrappers :bootstrap, :tag => 'div', :class => 'form-group', :error_class => 'error' do |b|
+  config.wrappers :bootstrap, class: 'control-group', hint_class: :field_with_hint, error_class: :field_with_errors do |b|
     b.use :html5
     b.use :placeholder
-    b.wrapper :tag => 'div', :class => 'col-lg-5' do |ba|
-      ba.use :label
-    end
+    # Calculates maxlength from length validations for string inputs
+    b.optional :maxlength
 
-    b.wrapper :tag => 'div', :class => 'col-lg-5' do |ba|
-      ba.use :input, :class => 'form-control'
+    # Calculates pattern from format validations for string inputs
+    b.optional :pattern
+
+    # Calculates min and max from length validations for numeric inputs
+    b.optional :min_max
+
+    # Calculates readonly automatically from readonly attributes
+    b.optional :readonly
+
+    #b.wrapper :tag => 'div', :class => 'span5' do |ba|
+    #  ba.use :label
+    #end
+
+    b.use :label, class: 'control-label'
+
+    b.wrapper :tag => 'div', :class => 'controls' do |ba|
+      ba.use :input
       ba.use :error, :wrap_with => { :tag => 'span', :class => 'help-inline' }
       ba.use :hint,  :wrap_with => { :tag => 'p', :class => 'help-block' }
     end

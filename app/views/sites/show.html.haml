@@ -1,0 +1,42 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @site.name
+%p
+  %b Domain:
+  = @site.domain
+%p
+  %b Site category:
+  = @site.site_category_id
+%p
+  %b Color:
+  = @site.color
+%p
+  %b Side:
+  = @site.side
+%p
+  %b Position:
+  = @site.position
+%p
+  %b Title online:
+  = @site.title_online
+%p
+  %b Title offline:
+  = @site.title_offline
+%p
+  %b Collect stats:
+  = @site.collect_stats
+%p
+  %b Show offline:
+  = @site.show_offline
+%p
+  %b Show offline:
+  = @site.show_offline
+%p
+  %b Disabled:
+  = @site.disabled
+
+= link_to 'Edit', edit_site_path(@site)
+\|
+= link_to 'Back', sites_path

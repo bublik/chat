@@ -1,4 +1,6 @@
 class ManagementController < ApplicationController
+  include Auth
+
   def index
   end
 

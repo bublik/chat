@@ -1,0 +1,41 @@
+%h1 Listing sites
+
+%table
+  %tr
+    %th Name
+    %th Domain
+    %th Site category
+    %th Color
+    %th Side
+    %th Position
+    %th Title online
+    %th Title offline
+    %th Collect stats
+    %th Show offline
+    %th Show offline
+    %th Disabled
+    %th
+    %th
+    %th
+
+  - @sites.each do |site|
+    %tr
+      %td= site.name
+      %td= site.domain
+      %td= site.site_category_id
+      %td= site.color
+      %td= site.side
+      %td= site.position
+      %td= site.title_online
+      %td= site.title_offline
+      %td= site.collect_stats
+      %td= site.show_offline
+      %td= site.show_offline
+      %td= site.disabled
+      %td= link_to 'Show', site
+      %td= link_to 'Edit', edit_site_path(site)
+      %td= link_to 'Destroy', site, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Site', new_site_path

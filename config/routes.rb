@@ -1,14 +1,21 @@
 Chat::Application.routes.draw do
 
+  resources :sites
+
+  resources :site_categories
+
+  devise_for :admins
+
   get "management/index"
   get "management/report"
-  devise_for :admins
   get "home/index"
   get "home/contact", as: :contact
   get "home/help", as: :help
   get "home/price", as: :price
   get "home/about", as: :about
-  devise_for :users, :controllers => {:sessions => 'devise/sessions', :registrations => 'devise/registrations'} do
+
+  devise_for :users, :controllers => {:sessions => 'devise/sessions', :registrations => 'devise/registrations'}
+  as :user do
     get "/login", :to => "devise/sessions#new", :as => :login
     get "/signup", :to => "devise/registrations#new", :as => :signup
     get "/logout", :to => "devise/sessions#destroy", :as => :logout

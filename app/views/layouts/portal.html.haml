@@ -1,4 +1,3 @@
-
 !!! 5
 %html(lang="en")
   %head
@@ -13,20 +12,14 @@
     = stylesheet_link_tag "portal", :media => "all", "data-turbolinks-track" => true
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
   %body
-    .navbar.navbar-fixed-top.navbar-inverse
-      .container
-        %button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse")
-          %span.icon-bar
-            tt
-          %span.icon-bar
-          %span.icon-bar
-        = link_to('Portal', root_path, class: 'navbar-brand')
-        .nav-collapse.collapse.navbar-responsive-collapse
-          %ul.nav.navbar-nav
-            %li= link_to "Link 1", "/path1"
-            %li= link_to "Link 2", "/path2"
-        .pull-right
-          = raw user_header_auth_links
+    = nav_bar brand: 'Portal', inverse: true, responsive: true do
+      = menu_group do
+        = menu_item 'Home', root_path
+        = menu_divider
+        = menu_item 'About Us', about_path
+        = menu_item 'Contact', contact_path
+      = menu_group(pull: 'right') do
+        %p.navbar-text= raw user_header_auth_links
     .container
       = bootstrap_flash
       = yield

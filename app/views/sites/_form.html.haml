@@ -1,0 +1,32 @@
+= simple_form_for(@site) do |f|
+  = f.error_notification
+
+  .control-group
+    = f.input :name
+    = f.input :domain
+    .control-group
+      = f.label :site_category_id, 'Категория', class: 'string optional control-label'
+      .controls
+        = f.collection_select :site_category_id, @sites_categories, :id, :name
+    = f.input :color
+    = f.input :side
+    = f.input :position
+    = f.input :title_online
+    = f.input :title_offline
+    .control-group
+      = f.label :collect_stats, 'Собирать статистику', class: 'control-label'
+      .controls
+        = f.check_box :collect_stats
+    .control-group
+      = f.label :show_online, 'Показывать виджет в онлайне', class: 'control-label'
+      .controls
+        = f.check_box :show_online
+    .control-group
+      = f.label :show_offline, 'Показывать виджет в офлайне', class: 'control-label'
+      .controls
+        = f.check_box :show_offline
+    .control-group
+      = f.label :disabled, 'Отключить виджет', class: 'control-label red'
+      .controls
+        = f.check_box :disabled
+    = f.button :submit

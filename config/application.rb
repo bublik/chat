@@ -27,9 +27,10 @@ module Chat
     config.filter_parameters += [:password, :password_confirmation]
 
     config.generators do |g|
-      g.test_framework :rspec, views: false, fixture: true
+     # g.orm :active_record
       g.template_engine :haml
       g.stylesheets false
+      g.test_framework :rspec, views: false, fixture: true
       g.fixture_replacement :factory_girl
     end
 

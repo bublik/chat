@@ -1,19 +1,11 @@
 module ApplicationHelper
+
   def user_header_auth_links
     if user_signed_in?
-      [current_user.email, link_to('My info', edit_user_registration_path),
-       link_to('Sign out', destroy_user_session_path, method: :delete)]
+      [my_profile_link, sign_out_link]
     else
-      [link_to('Login', login_path), link_to('Sign Up', signup_path)]
+      [login_link, sign_up_link]
     end.join(' | ')
-  end
-
-  def my_profile
-    link_to(current_user.full_name, edit_user_registration_path)
-  end
-
-  def sign_out
-    link_to('Sign out', destroy_user_session_path, method: :delete)
   end
 
 end

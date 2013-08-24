@@ -6,6 +6,9 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  ## Relations
+  has_many :sites
+
   ## User information
   field :name, :type => String, :default => ""
 

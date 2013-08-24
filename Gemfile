@@ -40,7 +40,7 @@ gem 'simple_form', '~> 3.0.0.rc'
 gem 'haml-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
-gem 'twitter-bootstrap-rails', branch: 'bootstrap3', git: 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'twitter-bootstrap-rails', '~> 2.2.8'
 
 group :test do
   # database_cleaner is not required, but highly recommended
