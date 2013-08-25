@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_filter :set_categories, only: [:new, :edit, :update, :create]
 
   # GET /sites
   # GET /sites.json
@@ -14,7 +15,6 @@ class SitesController < ApplicationController
 
   # GET /sites/new
   def new
-    @sites_categories = SiteCategory.all
     @site = Site.new
   end
 
@@ -64,14 +64,17 @@ class SitesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_site
-      @sites_categories = SiteCategory.all
-      @site = Site.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def site_params
-      params.require(:site).permit(:name, :domain, :site_category_id, :color, :side, :position, :title_online, :title_offline, :collect_stats, :show_offline, :show_offline, :disabled)
-    end
+  def set_categories
+    @sites_categories = SiteCategory.all
+  end
+
+  def set_site
+    @site = Site.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def site_params
+    params.require(:site).permit(:name, :domain, :site_category_id, :color, :side, :position, :title_online, :title_offline, :collect_stats, :show_offline, :show_offline, :disabled)
+  end
 end

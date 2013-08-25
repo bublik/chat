@@ -21,7 +21,7 @@
   - @sites.each do |site|
     %tr
       %td= site.name
-      %td= site.domain
+      %td= link_to site.domain, "http://#{site.domain}", target: '_blank'
       %td= site.site_category_id
       %td= site.color
       %td= site.side

@@ -4,6 +4,10 @@ class Site
   include Mongoid::Document
   include Mongoid::Timestamps
 
+  ## Constants
+  SIDE = %w( bottom top right left)
+  POSITION = %w( right center left)
+
   ## Relations
   belongs_to :site_category, index: true
   belongs_to :user, index: true
@@ -11,6 +15,7 @@ class Site
   ## Fields
   field :name
   field :domain
+  #field :site_category_id
   field :color
   field :side
   field :position
@@ -24,8 +29,14 @@ class Site
   ## Validations
   validates_presence_of :name
   validates_presence_of :domain
+  #validates_presence_of :site_category_id
+
   validates :color, format: {with: /\A#\w+\Z/}
-  validates :position, inclusion: {in: %w( right center left)}
-  validates :side, inclusion: {in: %w( bottom top right left)}
+  validates :position, inclusion: {in: Site::POSITION}
+  validates :side, inclusion: {in: Site::SIDE}
+
+  after_initialize do |site|
+    site.color ||= '#003399'
+  end
 
 end

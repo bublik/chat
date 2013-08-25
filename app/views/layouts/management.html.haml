@@ -13,7 +13,7 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = stylesheet_link_tag "management", media: "all", "data-turbolinks-track" => true
   %body
-    = nav_bar brand: 'Management', brand_link: management_index_path, inverse: true, responsive: true do
+    = nav_bar fixed: :top, brand: 'Management', brand_link: management_index_path, inverse: true, responsive: true do
       = menu_group do
         -#= menu_item 'Home', root_path
         = menu_divider
