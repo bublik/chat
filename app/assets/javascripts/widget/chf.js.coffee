@@ -39,11 +39,9 @@ class ChatFrame
       div = event.target
       console.log 'Click on div', div
 
-      if jQuery(@widget_window_id).length() != 1
+      if jQuery(@widget_window_id)
         self.load_css()
-        self.show_widget()
-      else
-        self.toggle_widget()
+      self.show_widget()
 
   load_css: ->
     console.log 'load_css ->'
@@ -55,10 +53,10 @@ class ChatFrame
 
   toggle_widget: ->
     console.log 'toggle_widget ->'
-    jQuery(@widget_window_id).toggle()
-    jQuery(@button_id).toggle()
+    jQuery(@widget_window_id).show()
+    #jQuery(@button_id).toggle()
 
-  style_button: (element)->
+  style_button: (element) ->
     console.log('Styled button ->' + element.attr('id'))
     element.css('background-color', @site_config['color'])
     element.css('box-shadow', '0 3px 8px rgba(50, 50, 50, 0.17)')
@@ -73,20 +71,21 @@ class ChatFrame
     else
       element.css(@site_config['position'], 0)
 
-  show_widget: ->
+  bind_widget_events: ->
+    self = @
+    console.log 'bind events ->'
+    jQuery('.chf_ico_close').on 'click', (event) ->
+      self.close_widget()
+    jQuery('.chf_ico_popup').on 'click', (event) ->
+      self.popup_widget()
+    jQuery('.chf_ico_hide').on 'click', (event) ->
+      self.hide_widget()
+
+   show_widget: ->
     console.log 'show_widget ->'
     jQuery('body').append(_.template(window.ch_widget_tpl, { config: @site_config }))
     @position(jQuery(@widget_window_id))
     @bind_widget_events()
-
-  bind_widget_events: ->
-    console.log 'bind events ->'
-    jQuery('.chf_ico_close').on 'click', (event) ->
-      close_widget()
-    jQuery('.chf_ico_popup').on 'click', (event)->
-      @popup_widget()
-    jQuery('.chf_ico_hide').on 'click', (event)->
-      @hide_widget()
 
   popup_widget: ->
     #TODO add wull screen action for widget
