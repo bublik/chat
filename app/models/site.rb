@@ -24,6 +24,7 @@ class Site
   field :collect_stats, type: Boolean
   field :show_online, type: Boolean
   field :show_offline, type: Boolean
+  field :auto_open, type: Boolean
   field :disabled, type: Boolean
 
   ## Validations

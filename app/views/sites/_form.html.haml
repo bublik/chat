@@ -35,6 +35,10 @@
       = f.label :disabled, 'Отключить виджет', class: 'control-label red'
       .controls
         = f.check_box :disabled
+    .control-group
+      = f.label :auto_open, 'Автоматически открывать при загрузке', class: 'control-label red'
+      .controls
+        = f.check_box :auto_open
     - unless @site.new_record?
       .control-group
         = f.label :widget_code, 'Код виджета', class: 'control-label'
