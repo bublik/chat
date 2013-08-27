@@ -104,22 +104,20 @@ class window.ChatFrame
     mesage_content =  _.template(window.ch_message_tpl, { msg: msg })
     jQuery(' #shf_messages').append(mesage_content)
 
-
 cfrm = new window.ChatFrame(window._shcp)
 cfrm.load_site_config()
 
 
-#  jquery_load: ->
-#    el = document.createElement("script")
-#    el.type = "text/javascript"
-#    el.setAttribute("charset", "UTF-8");
-#    el.async = 'false'
-#    el.src = jQuery_load_path
-#    self = @
-#    el.onload = () ->
-#      self.load_site_config(self.site_config_url)
-#
-#    document.body.appendChild(el)
+
+
+
+
+
+
+
+
+
+
 
 #  create_widget: ->
 #    # added frame
