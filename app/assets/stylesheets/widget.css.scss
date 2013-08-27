@@ -299,7 +299,8 @@ $background-color: red;
   color: #363636;
   font-size: 12px;
   word-wrap: break-word;
-  line-height: 18px
+  line-height: 18px;
+  text-align: left;
 }
 
 .shf_bill {
@@ -1085,29 +1086,29 @@ textarea {
   max-width: 328px
 }
 
-.shf_btn .shf_btn_char {
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
-  font-family: Tahoma, Verdana;
-  height: 12px;
-  line-height: 12px
-}
-
-.shf_btn .shf_btn_char, .shf_btn .shf_btn_char_trans {
-  width: 36px;
-  cursor: pointer;
-  color: #fff;
-  font-size: 16px;
-  text-align: center
-}
-
-.shf_btn .shf_btn_char_trans {
-  height: 16px;
-  line-height: 16px
-}
+//.shf_btn .shf_btn_char {
+//  -webkit-transform: rotate(90deg);
+//  -moz-transform: rotate(90deg);
+//  -ms-transform: rotate(90deg);
+//  -o-transform: rotate(90deg);
+//  transform: rotate(90deg);
+//  font-family: Tahoma, Verdana;
+//  height: 12px;
+//  line-height: 12px
+//}
+//
+//.shf_btn .shf_btn_char, .shf_btn .shf_btn_char_trans {
+//  width: 36px;
+//  cursor: pointer;
+//  color: #fff;
+//  font-size: 16px;
+//  text-align: center
+//}
+//
+//.shf_btn .shf_btn_char_trans {
+//  height: 16px;
+//  line-height: 16px
+//}
 
 .shf_btn_top_left {
   top: 0;
