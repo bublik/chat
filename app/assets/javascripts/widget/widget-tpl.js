@@ -5,11 +5,11 @@ window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= b
     '<div class="shf shf_logo_cell">' +
     '<img rel="logo" class="shf shf_logo_btn" src="<%= btn.logo %>">' +
     '</div>' +
-    '</div><div class="shc shf_title_text" rel="title">' +'П о м ' +'о щ ь ' +'  о н ' +'л а й ' +'н </div>' +
+    '</div><div class="shc shf_title_text" rel="title">Online Help</div>' +
     '</div><div class="shc shf_block_counter" title="Посетителей на сайте">' +
     '<span rel="counter">0</span></div><div class="shc shf_pay_logo">' +
     '<div class="shf shf_pay_box"><div class="shc shf_visa_logo"></div>' +
-    '<div class="shf shf_pay_box_title">Доверенный предприниматель </div>' +
+    '<div class="shf shf_pay_box_title">Доверенный предприниматель</div>' +
     '<div class="shf shf_pay_box_description">В этом чате вы можете оплатить покупку картами VISA/MasterCard. </div>' +
     '<div class="shf shf_triangle"></div><div class="shc shf_triangle_white"></div></div></div></div>'
 
@@ -26,11 +26,8 @@ window.ch_message_tpl = '\
         <div class="shf_mess_time"><%= msg.time_at %></div>\
         <div class="shf_mess_nick shf_mess_nick_sel"><%= msg.full_name %></div>\
       </div>\
-      <div class="shf_mess_text" rel="text">\
-        <div id="shf_"><%= msg.content %></div>\
-      </div>\
-    </div>\
-    <div class="shf_clear"></div>\
+      <div class="shf_mess_text" rel="text"><div id="shf_"><%= msg.content %></div></div>\
+    </div><div class="shf_clear"></div>\
   </div>\
 </div>';
 
@@ -38,10 +35,9 @@ window.ch_message_tpl = '\
  :name, :domain, :color, :side, :position, :title_online,
  :title_offline, :show_offline, :show_offline, :auto_open, :disabled
  */
+// TODO replace to + line style spliter
 
-
-window.ch_widget_tpl = '\
-<div class="shf_chat" id="widg-<%= config.id %>" style="position: absolute; height: 395px; width: 450px;">\
+window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="position: absolute; height: 395px; width: 450px;">\
   <div class="shf_header" rel="header">\
       <div class="shf_top_buttons">\
         <div rel="close" class="chf_ico chf_ico_close" title="<%= config.close_dialog %>"></div>\

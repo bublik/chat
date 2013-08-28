@@ -7,12 +7,14 @@ class window.ChatFrame
     @widget_window_id = '#widg-' + @site_uid
     @assets_host = 'localhost:3000'
     @chat_config_host = 'localhost:3000'
+    @chat_channel = '/messages/' + @site_uid
     @site_config = {id: @site_uid}
     @sheme = 'http'
     @sheme = 'https' if (document.location.protocol is 'https:')
 
     @widget_css_url = @sheme + '://localhost:3000/assets/widget.css'
-    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0, 2).toLowerCase()
+    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
+        2).toLowerCase()
     @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
     console.log('Constructor Finis \<-')
 
@@ -83,6 +85,7 @@ class window.ChatFrame
       @bind_widget_events()
       @sign_to_chat()
 
+
     jQuery(@widget_window_id).fadeIn()
     @position(jQuery(@widget_window_id))
 
@@ -102,7 +105,7 @@ class window.ChatFrame
 
   subscribe_to_chat: ->
     console.log 'Subscribe to CHAT'
-    PrivatePub.subscribe @site_config.private_pub.channel, (data, channel) ->
+    PrivatePub.subscribe @chat_channel, (data, channel) ->
       console.log('Callback on subscribe')
       console.log data
       console.log channel
