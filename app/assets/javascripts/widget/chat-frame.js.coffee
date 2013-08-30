@@ -1,7 +1,6 @@
 class window.ChatFrame
   constructor: (@options) ->
-    console.log('Constructor Start ->')
-    console.log('widg opt:', @options)
+    console.log('Constructor Start with options ->', @options)
     @site_uid = @options['widget_id']
     @button_id = '#btn-' + @site_uid
     @widget_window_id = '#widg-' + @site_uid
@@ -23,11 +22,11 @@ class window.ChatFrame
     jQuery.getJSON @site_config_url, (data) ->
       _.extend(self.site_config, data)
       console.log 'Config LOADED!!! ->', self.site_config
+      self.load_css()
       self.init_button()
 
   init_button: ->
     console.log 'init button ->', @button_id
-
     if @site_config['disabled'] is '1'
       console.log 'widget DISABLED!'
       return
@@ -62,7 +61,7 @@ class window.ChatFrame
   bind_widget_events: ->
     self = @
     console.log 'bind events ->'
-    jQuery('.chf_ico_close').on 'click', (e) ->
+    jQuery('.chf_ico_close, .shf_button_gray_complete').on 'click', (e) ->
       self.close_widget()
     jQuery('.chf_ico_popup').on 'click', (e) ->
       self.popup_widget()
@@ -74,7 +73,6 @@ class window.ChatFrame
   show_widget: ->
     console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
-      @load_css()
       console.log 'Add widget to page'
       jQuery('body').append(_.template(window.ch_widget_tpl, { config: @site_config }))
       @bind_widget_events()

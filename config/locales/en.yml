@@ -20,4 +20,13 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  widget:
+    smile: 'Смайлик'
+    sound: 'Звук'
+    submit_btn: 'Отправить'
+    close: 'Завершить'
+    close_dialog: 'Завершить диалог'
+    popup: 'Открыть в новом окне'
+    hide: 'Свернуть'
+    send_file_title: 'Отправить файл'
+    placeholder: 'Введите текст сообщения...'
