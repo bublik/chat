@@ -4,7 +4,7 @@ json.extract! @site, :name, :domain, :color, :side, :position, :title_online, :t
 json.logo asset_url('assets/logo.jpeg')
 json.avatar_path asset_url('assets/avatar1.jpeg')
 
-# TODO extract to localzation file
+# TODO extract to localization file
 
 json.title online ? @site.title_online : @site.title_offline
 json.smile 'Смайлик'
@@ -16,5 +16,5 @@ json.popup 'Открыть в новом окне'
 json.hide 'Свернуть'
 json.send_file_title 'Отправить файл'
 json.placeholder 'Введите текст сообщения...'
-
-json.private_pub PrivatePub.subscription(:channel => "/chats/#{@session.id}")
+json.talk_uid @talk_uid
+json.private_pub PrivatePub.subscription(:channel => site_talks_path(@site))

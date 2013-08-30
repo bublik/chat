@@ -13,7 +13,9 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    session[:session_id] ||= form_authenticity_token
+    # TODO check this uid on new build talk
+    @talk_uid = SecureRandom.uuid
+    #cookies[:talk_uid] = @talk_uid
   end
 
   # GET /sites/new

@@ -3,7 +3,7 @@ test:
   secret_token: "secret"
 
 development:
-  server: "http://localhost:9292/faye"
+  server: "http://site2.com:9292/faye"
   secret_token: "1a2c3e5d69f6b21c2cc5dda812a69a2376a4ed242c4b044445db10fe18d01984"
   signature_expiration: 1800 # one 30 min
 
