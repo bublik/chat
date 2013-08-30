@@ -1,6 +1,8 @@
 Chat::Application.routes.draw do
 
-  resources :sites
+  resources :sites do
+    resources :talks
+  end
 
   resources :site_categories
 

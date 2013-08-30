@@ -356,7 +356,13 @@ $background-color: red;
 
 .shf_avatar {
   width: 36px;
-  height: 36px
+  height: 36px;
+  border:0;
+  -moz-border-radius:18px;
+  -webkit-border-radius:18px;
+  -opera-border-radius:18px;
+  -khtml-border-radius:18px;
+  border-radius:18px;
 }
 
 .shf_file a {

@@ -45,6 +45,10 @@ class User
   # field :authentication_token, :type => String
 
   def full_name
-    name.blank? ? email : name
+    name.blank? ? (email.blank? ? 'You' : email) : name
+  end
+
+  def avatar_path
+    '/assets/noname.jpeg'
   end
 end

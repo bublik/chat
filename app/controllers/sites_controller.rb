@@ -1,5 +1,6 @@
 class SitesController < ApplicationController
   before_action :set_site, only: [:show, :edit, :update, :destroy]
+  before_action :check_domain_origin, only: [:show]
   before_filter :set_categories, only: [:new, :edit, :update, :create]
   before_filter :grant_cross_domain
 
@@ -12,6 +13,9 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
+    # TODO check this uid on new build talk
+    @talk_uid = SecureRandom.uuid
+    #cookies[:talk_uid] = @talk_uid
   end
 
   # GET /sites/new
@@ -90,4 +94,13 @@ class SitesController < ApplicationController
     #response.headers["Access-Control-Request-Method"] = 'POST'
   end
 
+  # Этот метод будет проверять соответствие запроса конфига и request.referrer домена
+  # что бы не запрашивали конфиги и не досили с других доменов
+  def check_domain_origin
+    if !user_signed_in? && !@site.domain.eql?(URI(request.referrer).host)
+      logger.error "Domain Refferer: does't match with requested Site ID"
+      logger.error "DOMAIN: #{@site.domain} | IP: #{request.remote_ip} | REFERRER: #{request.referrer}"
+      return false
+    end
+  end
 end
