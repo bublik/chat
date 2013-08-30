@@ -16,5 +16,4 @@ json.popup 'Открыть в новом окне'
 json.hide 'Свернуть'
 json.send_file_title 'Отправить файл'
 json.placeholder 'Введите текст сообщения...'
-json.talk_uid @talk_uid
 json.private_pub PrivatePub.subscription(:channel => talk_push_path(@site.id, @talk_uid))

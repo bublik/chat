@@ -116,24 +116,22 @@ class window.ChatFrame
 
   send_message: ->
     text_field = jQuery('.shf_textarea_answer textarea')
-    content = text_field.val()
-    text_field.val('')
-    date = new Date
     console.log 'Send message =>'
-    data = {
-      message:
-        {
-          content: content,
-          time_at: date.toLocaleString().split(' ')[1],
-          locale: @lang
-        }
+    data = { message:
+              {
+                content: text_field.val(),
+                time_at: (new Date).toLocaleString().split(' ')[1],
+                locale: @lang
+              }
     }
 
     req = jQuery.ajax({ url: @listen_path(), async: false, type: "POST", data: data, contentType: "application/x-www-form-urlencoded", dataType: "json"})
     req.fail (jqxhr, textStatus, error) ->
-      console.log 'ERR json send', error
+      #console.log 'ERR json send', error, jqxhr, textStatus
+      alert(jqxhr.statusText)
     req.done (data) ->
       console.log 'DONE json send', data
+      text_field.val('')
 
 cfrm = new window.ChatFrame(window._shcp)
 cfrm.load_site_config()
