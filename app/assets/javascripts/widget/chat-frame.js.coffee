@@ -12,7 +12,8 @@ class window.ChatFrame
     @sheme = 'https' if (document.location.protocol is 'https:')
 
     @widget_css_url = @sheme + '://' + @assets_host + '/assets/widget.css'
-    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,2).toLowerCase()
+    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
+        2).toLowerCase()
     @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
     console.log('Constructor Finis \<-')
 
@@ -110,10 +111,8 @@ class window.ChatFrame
       console.log channel
       self.append_message(data.message)
 
-  listen_path: (format)->
-    if format
-      format = '.' + format
-    @sheme + '://' + @chat_config_host + @site_config.private_pub.channel + format
+  listen_path: ->
+    @sheme + '://' + @chat_config_host + @site_config.private_pub.channel + '.json'
 
   send_message: ->
     text_field = jQuery('.shf_textarea_answer textarea')
@@ -122,18 +121,15 @@ class window.ChatFrame
     date = new Date
     console.log 'Send message =>'
     data = {
-      talk:{
-        id: @site_config.talk_uid,
-        site_id: @site_uid,
-      },
-      message:{
-        content: content,
-        time_at: date.toLocaleString().split(' ')[1],
-        locale: @lang
+      message:
+        {
+          content: content,
+          time_at: date.toLocaleString().split(' ')[1],
+          locale: @lang
         }
     }
 
-    req = jQuery.ajax({ url: @listen_path('json'), async: false, type: "POST", data: data, contentType: "application/x-www-form-urlencoded", dataType: "json"})
+    req = jQuery.ajax({ url: @listen_path(), async: false, type: "POST", data: data, contentType: "application/x-www-form-urlencoded", dataType: "json"})
     req.fail (jqxhr, textStatus, error) ->
       console.log 'ERR json send', error
     req.done (data) ->

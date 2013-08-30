@@ -1,7 +1,7 @@
 class TalksController < ApplicationController
   before_action :set_talk, only: [:show, :edit, :update, :destroy]
   before_action :set_site
-  before_filter :grant_cross_domain, only: [:create]
+  before_filter :grant_cross_domain, only: [:push]
 
   # GET /talks
   # GET /talks.json
@@ -23,16 +23,48 @@ class TalksController < ApplicationController
   def edit
   end
 
-  # POST /talks
-  # POST /talks.json
-  def create
-    unless @talk = Talk.where(id: talk_params[:id]).first
+  ## POST /talks
+  ## POST /talks.json
+  #def create
+  #  unless @talk = Talk.where(id: talk_params[:id]).first
+  #    logger.debug('Talk not found and will be created new')
+  #    @talk = Talk.new(talk_params.merge(
+  #                         remote_ip: request.remote_ip,
+  #                         referer: request.referer,
+  #                         user_agent: request.user_agent
+  #                     ))
+  #  else
+  #    logger.debug('Talk found!')
+  #  end
+  #
+  #  @talk.valid?
+  #  logger.debug(@talk.errors.full_messages.inspect)
+  #  respond_to do |format|
+  #    if @talk.save
+  #      message = Message.new(message_params.merge(talk_id: @talk.id)) # heck assign id if change reference without embeded messages
+  #      @talk.messages << message
+  #      publish_message(site_talk_push_path(@site,@talk.id), message.to_publish)
+  #      logger.debug( message.to_publish)
+  #      format.html { redirect_to @talk, notice: 'Talk was successfully created.' }
+  #      format.json { render nothing: true,  status: :created } #render action: 'show', status: :created, location: @talk }
+  #      #format.json { render text: "cfrm.append_message({content: 'werwerwer'}",  status: :created } #render action: 'show', status: :created, location: @talk }
+  #    else
+  #      format.html { render action: 'new' }
+  #      format.json { render json: @talk.errors, status: :unprocessable_entity }
+  #    end
+  #  end
+  #end
+
+  def push
+    unless @talk = Talk.where(id: params[:talk_id]).first
       logger.debug('Talk not found and will be created new')
-      @talk = Talk.new(talk_params.merge(
+      @talk = Talk.new({
+                           id: params[:talk_id],
+                           site: @site,
                            remote_ip: request.remote_ip,
                            referer: request.referer,
                            user_agent: request.user_agent
-                       ))
+                       })
     else
       logger.debug('Talk found!')
     end
@@ -43,13 +75,9 @@ class TalksController < ApplicationController
       if @talk.save
         message = Message.new(message_params.merge(talk_id: @talk.id)) # heck assign id if change reference without embeded messages
         @talk.messages << message
-        publish_message(site_talks_path(@site), message.to_publish)
-        logger.debug( message.to_publish)
-        format.html { redirect_to @talk, notice: 'Talk was successfully created.' }
-        format.json { render nothing: true,  status: :created } #render action: 'show', status: :created, location: @talk }
-        #format.json { render text: "cfrm.append_message({content: 'werwerwer'}",  status: :created } #render action: 'show', status: :created, location: @talk }
+        publish_message(talk_push_path(@site.id, @talk.id), message.to_publish)
+        format.json { head :no_content }
       else
-        format.html { render action: 'new' }
         format.json { render json: @talk.errors, status: :unprocessable_entity }
       end
     end
@@ -90,7 +118,7 @@ class TalksController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_talk
-    @talk = Talk.find(params[:id])
+    @talk = Talk.find(params[:id] || params[:talk_id])
   end
 
   def set_site
