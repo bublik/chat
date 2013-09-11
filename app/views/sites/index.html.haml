@@ -4,6 +4,7 @@
   %tr
     %th Name
     %th Domain
+    %th Talks
     %th Site category
     %th Color
     %th Side
@@ -22,7 +23,8 @@
     %tr
       %td= site.name
       %td= link_to site.domain, "http://#{site.domain}", target: '_blank'
-      %td= site.site_category_id
+      %td= link_to 'Talks', site_talks_path(site.id), target: '_blank'
+      %td= site.site_category.name
       %td= site.color
       %td= site.side
       %td= site.position

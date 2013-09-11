@@ -10,4 +10,6 @@ json.popup t('widget.popup')
 json.hide t('widget.hide')
 json.send_file_title t('widget.send_file_title')
 json.placeholder t('widget.placeholder')
-json.private_pub PrivatePub.subscription(:channel => talk_push_path(@site.id, @talk_uid))
+json.to 'admin@helperchat.com'
+json.bosh_url "http://public.helperchat.com/http-bind"
+json.bosh_domain "public.helperchat.com"

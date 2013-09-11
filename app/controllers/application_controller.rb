@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery
   skip_before_action :verify_authenticity_token, if: :json_request?
-  before_filter :session_debug
+  #before_filter :session_debug
 
   layout :enable_layout
 

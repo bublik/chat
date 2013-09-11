@@ -1,10 +1,5 @@
 Chat::Application.routes.draw do
-
-  post '/push/(:site_id)/(:talk_id)', to: 'talks#push', as: :talk_push
-
-  resources :sites do
-    resources :talks
-  end
+  resources :sites
 
   resources :site_categories
 

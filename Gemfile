@@ -25,8 +25,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-gem 'mongoid', git: 'https://github.com/mongoid/mongoid.git'
-gem 'bson_ext'
+# Use mysql as the database for Active Record
+gem 'mysql2'
 
 gem 'devise'
 #gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
@@ -42,13 +42,8 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'mongoid-rspec'
 end
 
-# Messaging system
-gem 'private_pub'
-gem 'faye'
-gem 'thin'
 #gem 'coffee-rails-source-maps'
 
 # Use ActiveModel has_secure_password

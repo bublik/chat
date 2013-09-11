@@ -7,6 +7,7 @@ class window.ChatFrame
     @assets_host = 'site2.com:3000'
     @chat_config_host = 'site2.com:3000'
     @site_config = {id: @site_uid}
+    @user_uid = Math.floor(Math.random(1, 100) * 100)
     @sheme = 'http'
     @sheme = 'https' if (document.location.protocol is 'https:')
 
@@ -14,7 +15,8 @@ class window.ChatFrame
     @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
         2).toLowerCase()
     @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
-    console.log('Constructor Finis \<-')
+    console.log('Constructor Finish \<-')
+    @checkCookie()
 
   load_site_config: ->
     console.log 'load_site_config ->'
@@ -63,77 +65,140 @@ class window.ChatFrame
     console.log 'bind events ->'
     jQuery('.chf_ico_close, .shf_button_gray_complete').on 'click', (e) ->
       self.close_widget()
-    jQuery('.chf_ico_popup').on 'click', (e) ->
-      self.popup_widget()
+    #    jQuery('.chf_ico_popup').on 'click', (e) ->
+    #      self.popup_widget()
     jQuery('.chf_ico_hide').on 'click', (e) ->
       self.hide_widget()
+      self.set_presence('away')
     jQuery('.shf_enter_ico').on 'click', (e) ->
+      unless $.xmpp.connected
+        self.connect()
       self.send_message()
-
+    jQuery('.shf_textarea_answer textarea').on 'focus', (e) ->
+      #self.set_presence()
   show_widget: ->
     console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
       console.log 'Add widget to page'
       jQuery('body').append(_.template(window.ch_widget_tpl, { config: @site_config }))
       @bind_widget_events()
-      @sign_to_chat()
+      @connect()
 
     jQuery(@widget_window_id).fadeIn()
     @position(jQuery(@widget_window_id))
 
-  popup_widget: ->
-    #TODO add wull screen action for widget
-    alert('TODO popup')
   close_widget: ->
     jQuery(@widget_window_id).hide()
-    PrivatePub.unsubscribeAll()
+    $.xmpp.disconnect()
+
   hide_widget: ->
     jQuery(@widget_window_id).fadeOut() #hide()
 
-  sign_to_chat: ->
-    console.log 'sign_to_chat', @site_config.private_pub
-    PrivatePub.sign(@site_config.private_pub)
-    @subscribe_to_chat()
+  # type can be ['', 'dnd', 'away']
+  set_presence: (type = null) ->
+    $.xmpp.setPresence(type)
+  avatar: (user)->
+    @sheme + '://' + @site_config.bosh_domain + 'presence/jid/' + user + '/' + @site_config.bosh_domain + '/image/'
+  connect: ->
+    console.log "Connect:"
+    if $.xmpp.connected
+      ##@set_presence()
+      return true
+
+    self = @
+    $.xmpp.connect
+      url: @site_config.bosh_url
+      jid: 'Guest_' + @user_uid + '@' + @site_config.bosh_domain
+      password: ''
+#      wait: 10,
+#      inactivity: 20,
+      onConnect: ->
+        console.log "onConnect ->"
+      onIq: (iq) ->
+        console.log('onIq', iq)
+      onNotification: (notification) ->
+        console.log("onNotification ->", notification)
+      onPresence: (presence) ->
+        console.log('onPresence ->', presence)
+        console.log 'New presence: ', presence.from
+        console.log "SHOW", presence.show
+      onDisconnect: ->
+        console.log "Disconnected"
+
+      onMessage: (message) ->
+        console.log('onMessage', message)
+        jid = message.from.split("/")
+        if (err = message.data.find('error')).context != undefined
+          console.log 'ERROR', jid, err
+
+        msg = {
+          time_at: (new Date).toLocaleString().split(' ')[1],
+          full_name: jid[0],
+          content: message.body,
+          avatar_path: self.avatar(jid[0])}
+        console.log 'MSG', msg
+        self.append_message(msg)
+      onError: (error) ->
+        console.log error.error
+#        alert(self.getCookie('ch_csid'))
+#        if error.error.match(/Invalid credentials/) and self.getCookie('ch_csid') != ''
+#          console.log('MATCH RELOGIN')
+#          if $.xmpp.sid = self.getCookie('ch_csid')
+#            console.log "Delete OLD session for SID", $.xmpp.sid
+#            $.xmpp.disconnect()
+#            self.connect()
+#        self.setCookie('ch_csid', '')
 
   append_message: (data) ->
+    console.log('append_message <-')
     mesage_content = _.template(window.ch_message_tpl, { msg: data })
     jQuery('#shf_messages').append(mesage_content)
+    jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
 
-  subscribe_to_chat: ->
-    console.log 'Subscribe to CHAT'
-    self = @
-    PrivatePub.subscribe @site_config.private_pub.channel, (data, channel) ->
-      console.log('Callback on subscribe')
-      console.log data
-      console.log data.message
-      console.log channel
-      self.append_message(data.message)
-
-  listen_path: ->
-    @sheme + '://' + @chat_config_host + @site_config.private_pub.channel + '.json'
+  current_page: ->
+    if jQuery('#shf_messages div').length is 0
+      "UserAgent: " + window.navigator.userAgent + "\n" + "Page: " + document.location + "\n"
+    else
+      ''
 
   send_message: ->
-    text_field = jQuery('.shf_textarea_answer textarea')
+    @connect()
+    input = jQuery('.shf_textarea_answer textarea')
     console.log 'Send message =>'
-    data = { message:
-              {
-                content: text_field.val(),
-                time_at: (new Date).toLocaleString().split(' ')[1],
-                locale: @lang
-              }
-    }
+    chat_session = $('<thread/>').attr('thread', 'asdasd').html('asdasd')
+    $.xmpp.sendMessage({to: @site_config.to, body: @current_page() + input.val(), resource: 'support'}, chat_session)
 
-    req = jQuery.ajax({ url: @listen_path(), async: false, type: "POST", data: data, contentType: "application/x-www-form-urlencoded", dataType: "json"})
-    req.fail (jqxhr, textStatus, error) ->
-      #console.log 'ERR json send', error, jqxhr, textStatus
-      alert(jqxhr.statusText)
-    req.done (data) ->
-      console.log 'DONE json send', data
-      text_field.val('')
+    @append_message({
+      time_at: (new Date).toLocaleString().split(' ')[1],
+      full_name: 'Guest',
+      content: input.val(),
+      avatar_path: @avatar('guest') })
+    input.val ""
 
-cfrm = new window.ChatFrame(window._shcp)
-cfrm.load_site_config()
+  checkCookie: () ->
+    @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
 
+  setCookie: (c_name, value, exdays) ->
+    exdate = new Date()
+    exdate.setDate exdate.getDate() + exdays
+    c_value = escape(value) + ((if (not (exdays?)) then "" else "; expires=" + exdate.toUTCString()))
+    document.cookie = c_name + "=" + c_value
+
+  getCookie: (c_name) ->
+    c_value = document.cookie
+    c_start = c_value.indexOf(" " + c_name + "=")
+    c_start = c_value.indexOf(c_name + "=")  if c_start is -1
+    if c_start is -1
+      c_value = null
+    else
+      c_start = c_value.indexOf("=", c_start) + 1
+      c_end = c_value.indexOf(";", c_start)
+      c_end = c_value.length  if c_end is -1
+      c_value = unescape(c_value.substring(c_start, c_end))
+    c_value
+
+window.cfrm = new window.ChatFrame(window._shcp)
+window.cfrm.load_site_config()
 
 #  style_button: (_el) ->
 #    console.log('Styled button ->' + _el.attr('id'))

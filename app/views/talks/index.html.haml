@@ -1,5 +1,5 @@
 %h1 Listing talks
-
+%div= @talks.count
 %table
   %tr
     %th Site
@@ -8,14 +8,11 @@
     %th
     %th
 
+
   - @talks.each do |talk|
     %tr
       %td= talk.site_id
-      %td= talk.user_sid
-      %td= link_to 'Show', talk
-      %td= link_to 'Edit', edit_talk_path(talk)
-      %td= link_to 'Destroy', talk, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', site_talk_path(talk.site_id, talk)
+      %td= link_to 'Edit', edit_site_talk_path(talk.site_id, talk)
+      %td= link_to 'Destroy', site_talk_path(talk.site_id, talk), :method => :delete, :data => { :confirm => 'Are you sure?' }
 
-%br
-
-= link_to 'New Talk', new_talk_path
