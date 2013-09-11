@@ -4,8 +4,8 @@ class Site  < ActiveRecord::Base
   POSITION = %w( right center left)
 
   ## Relations
-  belongs_to :site_category, index: true
-  belongs_to :user, index: true
+  belongs_to :site_category
+  belongs_to :agent
 
   ## Validations
   validates_presence_of :name

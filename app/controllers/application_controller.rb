@@ -20,12 +20,12 @@ class ApplicationController < ActionController::Base
 
   private
   def enable_layout
-    user_signed_in? ? 'management' : 'portal'
+    agent_signed_in? ? 'management' : 'portal'
   end
 
   def after_sign_in_path_for(resource)
     logger.debug("RESOURCE #{resource.inspect}")
-    resource.kind_of?(User) ? management_index_path : root_path
+    resource.kind_of?(Agent) ? management_index_path : root_path
   end
 
   def after_sign_out_path_for(resource_or_scope)

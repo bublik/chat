@@ -1,4 +1,4 @@
-module UsersHelper
+module AgentsHelper
 
   def login_link
     link_to('Login', login_path)
@@ -9,11 +9,11 @@ module UsersHelper
   end
 
   def my_profile_link
-    link_to(current_user.full_name, edit_user_registration_path)
+    link_to(current_agent.full_name, edit_agent_registration_path)
   end
 
   def sign_out_link
-    link_to('Sign out', destroy_user_session_path, method: :delete)
+    link_to('Sign out', destroy_agent_session_path, method: :delete)
   end
 
 end

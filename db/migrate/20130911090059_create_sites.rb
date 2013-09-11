@@ -4,7 +4,7 @@ class CreateSites < ActiveRecord::Migration
       t.string :name, :null => false
       t.string :domain, :null => false
       t.references :site_category, index: true
-      t.references :user, index: true
+      t.references :agent, index: true
       t.string :color, :null => false
       t.string :side, :null => false
       t.string :position, :null => false

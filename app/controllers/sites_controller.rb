@@ -29,7 +29,7 @@ class SitesController < ApplicationController
   # POST /sites.json
   def create
     @site = Site.new(site_params)
-    @site.user = current_user
+    @site.agent = current_agent
 
     respond_to do |format|
       if @site.save
@@ -95,7 +95,7 @@ class SitesController < ApplicationController
   # Этот метод будет проверять соответствие запроса конфига и request.referrer домена
   # что бы не запрашивали конфиги и не досили с других доменов
   def check_domain_origin
-    if !user_signed_in? && !@site.domain.eql?(URI(request.referrer).host)
+    if !agent_signed_in? && !@site.domain.eql?(URI(request.referrer).host)
       logger.error "Domain Refferer: does't match with requested Site ID"
       logger.error "DOMAIN: #{@site.domain} | IP: #{request.remote_ip} | REFERRER: #{request.referrer}"
       return false

@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911090059) do
+ActiveRecord::Schema.define(version: 20130911161833) do
+
+  create_table "agents", force: true do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "authentication_token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name",                   default: ""
+  end
+
+  add_index "agents", ["email"], name: "index_agents_on_email", unique: true, using: :btree
+  add_index "agents", ["reset_password_token"], name: "index_agents_on_reset_password_token", unique: true, using: :btree
 
   create_table "caps_features", id: false, force: true do |t|
     t.string    "node",       limit: 250, null: false
@@ -192,7 +212,7 @@ ActiveRecord::Schema.define(version: 20130911090059) do
     t.string   "name",                             null: false
     t.string   "domain",                           null: false
     t.integer  "site_category_id"
-    t.integer  "user_id"
+    t.integer  "agent_id"
     t.string   "color",                            null: false
     t.string   "side",                             null: false
     t.string   "position",                         null: false
@@ -207,8 +227,8 @@ ActiveRecord::Schema.define(version: 20130911090059) do
     t.datetime "updated_at"
   end
 
+  add_index "sites", ["agent_id"], name: "index_sites_on_agent_id", using: :btree
   add_index "sites", ["site_category_id"], name: "index_sites_on_site_category_id", using: :btree
-  add_index "sites", ["user_id"], name: "index_sites_on_user_id", using: :btree
 
   create_table "spool", id: false, force: true do |t|
     t.string    "username",   limit: 250, null: false
@@ -237,28 +257,12 @@ ActiveRecord::Schema.define(version: 20130911090059) do
   add_index "sr_user", ["jid"], name: "i_sr_user_jid", using: :btree
 
   create_table "users", primary_key: "username", force: true do |t|
-    t.text      "password",                            null: false
-    t.timestamp "created_at",                          null: false
-    t.string    "email",                  default: "", null: false
-    t.string    "encrypted_password",     default: "", null: false
-    t.string    "reset_password_token"
-    t.datetime  "reset_password_sent_at"
-    t.datetime  "remember_created_at"
-    t.integer   "sign_in_count",          default: 0
-    t.datetime  "current_sign_in_at"
-    t.datetime  "last_sign_in_at"
-    t.string    "current_sign_in_ip"
-    t.string    "last_sign_in_ip"
-    t.string    "confirmation_token"
-    t.datetime  "confirmed_at"
-    t.datetime  "confirmation_sent_at"
-    t.string    "unconfirmed_email"
-    t.string    "authentication_token"
+    t.text      "password",   null: false
+    t.timestamp "created_at", null: false
+    t.integer   "agent_id",   null: false
   end
 
-  add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
-  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["agent_id"], name: "index_users_on_agent_id", using: :btree
 
   create_table "vcard", primary_key: "username", force: true do |t|
     t.text      "vcard",      limit: 16777215, null: false

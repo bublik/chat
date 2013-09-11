@@ -17,8 +17,9 @@
       = f.label :position, 'Позиционирование', class: 'string optional control-label'
       .controls
         = f.select :position, Site::POSITION
-    = f.input :title_online
-    = f.input :title_offline
+    -#
+    -#= f.input :title_online
+    -#= f.input :title_offline
     .control-group
       = f.label :collect_stats, 'Собирать статистику', class: 'control-label'
       .controls

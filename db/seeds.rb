@@ -5,23 +5,20 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-puts 'EMPTY THE MONGODB DATABASE'
-#Mongoid.master.collections.reject { |c| c.name =~ /^system/}.each(&:drop)
+
 puts 'SETTING UP DEFAULT USER LOGIN'
-User.find_or_create_by(name: 'ruslan') do |user|
-  user.email = 'ruslan@example.com'
+Agent.find_or_initialize_by(email: 'ruslan@helperchat.com') do |user|
   user.password = 'changeme'
   user.password_confirmation = 'changeme'
-end.save
+end.save!
 
-puts 'New user created: email / ruslan@example.com password / changeme'
+puts 'New user created: email / ruslan@helperchat.com password / changeme'
 
 puts 'SETTING UP DEFAULT ADMIN LOGIN'
-User.find_or_create_by(name: 'admin') do |user|
-  user.email = 'admin@example.com'
+Agent.find_or_initialize_by(email: 'admin@helperchat.com') do |user|
   user.password = 'changeme'
   user.password_confirmation = 'changeme'
-end.save
+end.save!
 
 puts 'New user created: email / admin@example.com password / changeme'
 

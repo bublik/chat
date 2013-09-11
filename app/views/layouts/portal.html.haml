@@ -19,7 +19,7 @@
         = menu_item 'About Us', about_path
         = menu_item 'Contact', contact_path
       = menu_group(pull: 'right') do
-        %p.navbar-text= raw user_header_auth_links
+        %p.navbar-text= raw agent_header_auth_links
     .container
       = bootstrap_flash
       = yield

@@ -124,6 +124,7 @@ GEM
     simple_form (3.0.0.rc)
       actionpack (>= 4.0.0.rc1, < 4.1)
       activemodel (>= 4.0.0.rc1, < 4.1)
+    spork (1.0.0rc3)
     sprockets (2.10.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -175,6 +176,7 @@ DEPENDENCIES
   sass-rails (~> 4.0.0)
   sdoc
   simple_form (~> 3.0.0.rc)
+  spork (~> 1.0rc)
   therubyracer
   turbolinks
   twitter-bootstrap-rails (~> 2.2.8)

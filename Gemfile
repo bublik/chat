@@ -42,6 +42,7 @@ group :test do
   gem 'database_cleaner'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'spork', '~> 1.0rc'
 end
 
 #gem 'coffee-rails-source-maps'
