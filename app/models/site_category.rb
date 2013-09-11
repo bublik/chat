@@ -1,7 +1,4 @@
 class SiteCategory
-  include Mongoid::Document
-  include Mongoid::Timestamps
-
   has_many :sites
 
   field :name

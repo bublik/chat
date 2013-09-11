@@ -1,9 +1,6 @@
 require 'uri'
 
 class Site
-  include Mongoid::Document
-  include Mongoid::Timestamps
-
   ## Constants
   SIDE = %w( bottom top right left)
   POSITION = %w( right center left)
