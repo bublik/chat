@@ -45,6 +45,12 @@ group :test do
   gem 'spork', '~> 1.0rc'
 end
 
+group :development do
+  # Use Capistrano for deployment
+  gem 'capistrano'
+  gem 'capistrano-ext'
+end
+
 #gem 'coffee-rails-source-maps'
 
 # Use ActiveModel has_secure_password
@@ -53,8 +59,6 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
