@@ -1,6 +1,4 @@
-require 'uri'
-
-class Site
+class Site  < ActiveRecord::Base
   ## Constants
   SIDE = %w( bottom top right left)
   POSITION = %w( right center left)
@@ -8,21 +6,6 @@ class Site
   ## Relations
   belongs_to :site_category, index: true
   belongs_to :user, index: true
-
-  ## Fields
-  field :name
-  field :domain
-  #field :site_category_id
-  field :color
-  field :side
-  field :position
-  field :title_online
-  field :title_offline
-  field :collect_stats, type: Boolean
-  field :show_online, type: Boolean
-  field :show_offline, type: Boolean
-  field :auto_open, type: Boolean
-  field :disabled, type: Boolean
 
   ## Validations
   validates_presence_of :name
