@@ -1,5 +1,5 @@
 require "bundler/capistrano"
-require "delayed/recipes"
+#require "delayed/recipes"
 require 'capistrano/ext/multistage'
 #require "bundler/capistrano"
 
@@ -27,7 +27,7 @@ after "deploy", "deploy:cleanup"#, "deploy:assets:clean", "deploy:assets:precomp
 
 after "deploy:stop",    "delayed_job:stop"
 after "deploy:start",   "delayed_job:start"
-after "deploy:restart", "delayed_job:restart"
+#after "deploy:restart", "delayed_job:restart"
 
 namespace :deploy do
   task :start do; end
