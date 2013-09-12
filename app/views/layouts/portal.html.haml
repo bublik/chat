@@ -11,29 +11,40 @@
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "portal", :media => "all", "data-turbolinks-track" => true
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
+    / Theme skin
+    = stylesheet_link_tag "portal/skins/default", :media => "all"
+
   %body
-    = nav_bar brand: 'Portal', inverse: true, responsive: true do
-      = menu_group do
-        = menu_item 'Home', root_path
-        = menu_divider
-        = menu_item 'About Us', about_path
-        = menu_item 'Contact', contact_path
-      = menu_group(pull: 'right') do
-        %p.navbar-text= raw agent_header_auth_links
-    .container
+    -#= nav_bar brand: 'Portal', inverse: true, responsive: true do
+    -#  = menu_group do
+    -#    = menu_item 'Home', root_path
+    -#    = menu_divider
+    -#    = menu_item 'About Us', about_path
+    -#    = menu_item 'Contact', contact_path
+    -#  = menu_group(pull: 'right') do
+    -#    %p.navbar-text= raw agent_header_auth_links
+    -#.container
+    -#  = bootstrap_flash
+    -#  = yield
+
+    #wrapper
+      / toggle top area
+      .hidden-top
+        .hidden-top-inner.container
+          .row
+            .span12
+              %ul
+                %li
+                  %strong We are available for any custom works this month
+                %li Main office: Ukraine Odessa
+                %li
+                  Call us
+                  %i.icon-phone
+                  (123) 456-7890 - (123) 555-7891
+      / end toggle top area
+      = render 'layouts/header'
       = bootstrap_flash
       = yield
+      = render 'layouts/footer'
+      / Placed at the end of the document so the pages load faster
       = javascript_include_tag "portal", "data-turbolinks-track" => true
-      %footer
-        %p &copy; Company 2013
--#.row
--#  .col-lg-9
--#
--#  .col-lg-3
--#    .well.sidebar-nav
--#      %h3 Sidebar
--#      %ul.nav.nav-list
--#        %li.nav-header Sidebar
--#        %li= link_to "Link 1", "/path1"
--#        %li= link_to "Link 2", "/path2"
--#        %li= link_to "Link 3", "/path3"

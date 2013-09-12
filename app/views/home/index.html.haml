@@ -1,6 +1,244 @@
-.jumbotron
-  %h1 Join Us
-  %p Increase your conversion.
-  %p It is free first month.
-  %p Not required payments, no fee, or hidden tax, all simple.
-  %p= link_to('Sign Up', signup_path, class: 'btn btn-success btn-lg')
+-#.jumbotron
+-#  %h1 Join Us
+-#  %p Increase your conversion.
+-#  %p It is free first month.
+-#  %p Not required payments, no fee, or hidden tax, all simple.
+-#  %p= link_to('Sign Up', signup_path, class: 'btn btn-success btn-lg')
+
+%section#featured
+  / start slider
+  / Slider
+  #nivo-slider
+    .nivo-slider
+      / Slide #1 image
+      %img{:alt => "", :src => "/assets/slides/nivo/bg-1.jpg", :title => "#caption-1"}/
+      / Slide #2 image
+      %img{:alt => "", :src => "/assets/slides/nivo/bg-2.jpg", :title => "#caption-2"}/
+      / Slide #3 image
+      %img{:alt => "", :src => "/assets/slides/nivo/bg-3.jpg", :title => "#caption-3"}/
+    .container
+      .row
+        .span12
+          / Slide #1 caption
+          #caption-1.nivo-caption
+            %div
+              %h2
+                Awesome
+                %strong features
+              %p
+                Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
+              %a.btn.btn-theme{:href => "#"} Read More
+          / Slide #2 caption
+          #caption-2.nivo-caption
+            %div
+              %h2
+                Fully
+                %strong responsive
+              %p
+                Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
+              %a.btn.btn-theme{:href => "#"} Read More
+          / Slide #3 caption
+          #caption-3.nivo-caption
+            %div
+              %h2
+                Very
+                %strong customizable
+              %p
+                Lorem ipsum dolor sit amet nsectetuer nec Vivamus. Curabitu laoreet amet eget. Viurab oremd ellentesque ameteget. Lorem ipsum dolor sit amet nsectetuer nec vivamus.
+              %a.btn.btn-theme{:href => "#"} Read More
+  / end slider
+%section.callaction
+  .container
+    .row
+      .span12
+        .big-cta
+          .cta-text
+            %h3
+              Use Helper Chat to
+              %span.highlight
+                %strong stay in contact
+              with your website's visitors.
+          .cta.floatright
+            %a.btn.btn-large.btn-theme.btn-rounded{:href => "#"} Request a quote
+%section#content
+  .container
+    .row
+      .span12
+        .row
+          .span3
+            .box.aligncenter
+              .aligncenter.icon
+                %i.icon-briefcase.icon-circled.icon-64.active
+              .text
+                %h6 Corporate business
+                %p
+                  Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                %a{:href => "#"} Learn more
+          .span3
+            .box.aligncenter
+              .aligncenter.icon
+                %i.icon-desktop.icon-circled.icon-64.active
+              .text
+                %h6 Responsive theme
+                %p
+                  Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                %a{:href => "#"} Learn more
+          .span3
+            .box.aligncenter
+              .aligncenter.icon
+                %i.icon-beaker.icon-circled.icon-64.active
+              .text
+                %h6 Coded carefully
+                %p
+                  Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                %a{:href => "#"} Learn more
+          .span3
+            .box.aligncenter
+              .aligncenter.icon
+                %i.icon-coffee.icon-circled.icon-64.active
+              .text
+                %h6 Sit and enjoy
+                %p
+                  Lorem ipsum dolor sit amet, has ei ipsum scaevola deseruisse am sea facilisis.
+                %a{:href => "#"} Learn more
+    / divider
+    .row
+      .span12
+        .solidline
+    / end divider
+    / Portfolio Projects
+    .row
+      .span12
+        %h4.heading
+          Some of recent
+          %strong works
+        .row
+          %section#projects
+            %ul#thumbs.portfolio
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.design{"data-id" => "id-0", "data-type" => "web"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-01-full.jpg", :title => "The City"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-01.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.design{"data-id" => "id-1", "data-type" => "icon"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-02-full.jpg", :title => "The Office"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-02.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.photography{"data-id" => "id-2", "data-type" => "illustrator"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-03-full.jpg", :title => "The Mountains"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-03.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.photography{"data-id" => "id-2", "data-type" => "illustrator"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-04-full.jpg", :title => "The Mountains"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-04.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.photography{"data-id" => "id-4", "data-type" => "web"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-05-full.jpg", :title => "The Sea"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-05.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.photography{"data-id" => "id-5", "data-type" => "icon"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-06-full.jpg", :title => "Clouds"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-06.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.photography{"data-id" => "id-2", "data-type" => "illustrator"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-07-full.jpg", :title => "The Mountains"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-07.jpg"}/
+              / End Item Project
+              / Item Project and Filter Name
+              %li.item-thumbs.span3.design{"data-id" => "id-0", "data-type" => "web"}
+                / Fancybox - Gallery Enabled - Title - Full Image
+                %a.hover-wrap.fancybox{"data-fancybox-group" => "gallery", :href => "/assets/works/full/image-08-full.jpg", :title => "The Dark"}
+                  %span.overlay-img
+                  %span.overlay-img-thumb.font-icon-plus
+                / Thumb Image and Description
+                %img{:alt => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus quis elementum odio. Curabitur pellentesque, dolor vel pharetra mollis.", :src => "/assets/works/thumbs/image-08.jpg"}/
+              / End Item Project
+    / End Portfolio Projects
+    / divider
+    .row
+      .span12
+        .solidline
+    / end divider
+    .row
+      .span12
+        %h4
+          Very satisfied
+          %strong clients
+        %ul#mycarousel.jcarousel-skin-tango.recent-jcarousel.clients
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client1.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client2.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client3.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client4.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client5.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client6.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client1.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client2.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client3.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client4.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client5.png"}/
+          %li
+            %a{:href => "#"}
+              %img.client-logo{:alt => "", :src => "/assets/dummies/clients/client6.png"}/
+%section#bottom
+  .container
+    .row
+      .span12
+        .aligncenter
+          #twitter-wrapper
+            #twitter

@@ -1,0 +1,79 @@
+%footer
+  .container
+    .row
+      .span3
+        .widget
+          %h5.widgetheading Browse pages
+          %ul.link-list
+            %li
+              = link_to('About our company', about_path)
+            %li
+              = link_to('Our services', price_path)
+            %li
+              = link_to('Get in touch with us', contact_path)
+            -#%li
+              %a{:href => "#"} Meet our team
+            -#%li
+              %a{:href => "#"} Explore our portfolio
+      .span3
+        .widget
+          %h5.widgetheading Important stuff
+          %ul.link-list
+            %li
+              = link_to('Press release', releases_path)
+            %li
+              = link_to('Terms and conditions', terms_path)
+            %li
+              = link_to('Privacy policy', privacy_path)
+            %li
+              = link_to('Career center', career_path)
+      .span3
+        .widget
+          %h5.widgetheading Flickr photostream
+          .flickr_badge
+            %script{:src => "http://www.flickr.com/badge_code_v2.gne?count=8&amp;display=random&amp;size=s&amp;layout=x&amp;source=user&amp;user=13793341@N03", :type => "text/javascript"}
+          .clear
+      .span3
+        .widget
+          %h5.widgetheading Get in touch with us
+          %address
+            %strong Lightcraft LLC
+            %br/
+            .icon-map-marker.icon-white
+            25 Mikhailovskaya St, Suite 624, 65092 Odessa, UA
+            %br/
+            .icon-map-marker.icon-white
+            Sunny Isles, FL 33160 #1241, 18555 Collins Avenue, US
+          %p
+            %i.icon-phone
+            (093) 50-70-663
+            %br/
+            %i.icon-envelope-alt
+            = mail_to('support@helperchat.com')
+  #sub-footer
+    .container
+      .row
+        .span6
+          .copyright
+            %p
+              %span &copy; Flattern 2013 All right reserved. Designed by
+              %a{:href => "http://iweb-studio.com", :target => "_blank"} iweb-studio
+        .span6
+          %ul.social-network
+            %li
+              %a{"data-placement" => "bottom", :href => "#", :title => "Facebook"}
+                %i.icon-facebook.icon-square
+            %li
+              %a{"data-placement" => "bottom", :href => "#", :title => "Twitter"}
+                %i.icon-twitter.icon-square
+            %li
+              %a{"data-placement" => "bottom", :href => "http://www.linkedin.com/company/lightcraft-llc", :title => "Linkedin"}
+                %i.icon-linkedin.icon-square
+            %li
+              %a{"data-placement" => "bottom", :href => "#", :title => "Pinterest"}
+                %i.icon-pinterest.icon-square
+            %li
+              %a{"data-placement" => "bottom", :href => "#", :title => "Google plus"}
+                %i.icon-google-plus.icon-square
+%a.scrollup{:href => "#"}
+  %i.icon-chevron-up.icon-square.icon-32.active

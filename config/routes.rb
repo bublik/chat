@@ -5,10 +5,14 @@ Chat::Application.routes.draw do
   get "management/index"
   get "management/report"
   get "home/index"
-  get "home/contact", as: :contact
-  get "home/help", as: :help
-  get "home/price", as: :price
-  get "home/about", as: :about
+  get '/contact', to: "home#contact", as: :contact
+  get '/help', to: "home#help", as: :help
+  get '/price', to: "home#price", as: :price
+  get '/about', to: "home#about", as: :about
+  get '/releases', to: "home#releases", as: :releases
+  get '/terms', to: "home#terms", as: :terms
+  get '/privacy', to: "home#privacy", as: :privacy
+  get '/career', to: "home#career", as: :career
 
   devise_for :agents, :controllers => {:sessions => 'devise/sessions', :registrations => 'devise/registrations'}
 

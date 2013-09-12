@@ -13,4 +13,17 @@ class HomeController < ApplicationController
 
   def about
   end
+
+  def releases
+  end
+
+  def terms
+  end
+
+  def privacy
+  end
+
+  def career
+  end
+
 end
