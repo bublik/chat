@@ -24,6 +24,7 @@ Chat::Application.configure do
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
+  config.assets.css_compressor = :yui
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -59,7 +60,7 @@ Chat::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.assets.precompile += %w( management.js portal.js widget.js management.css portal.css )
+  config.assets.precompile += %w( management.js portal.js widget.js management.css portal.css portal.css )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

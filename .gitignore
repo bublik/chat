@@ -8,7 +8,7 @@
 /.bundle
 .idea/*
 /spec/views/*
-/public/assets/
+/public/assets/*
 /public/site*
 
 # Ignore the default SQLite database.
