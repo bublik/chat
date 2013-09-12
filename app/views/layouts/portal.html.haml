@@ -12,7 +12,7 @@
     = stylesheet_link_tag "portal", :media => "all", "data-turbolinks-track" => true
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     / Theme skin
-    = stylesheet_link_tag "portal/skins/default", :media => "all"
+    = stylesheet_link_tag "skins/red", :media => "all"
 
   %body
     -#= nav_bar brand: 'Portal', inverse: true, responsive: true do
@@ -23,9 +23,6 @@
     -#    = menu_item 'Contact', contact_path
     -#  = menu_group(pull: 'right') do
     -#    %p.navbar-text= raw agent_header_auth_links
-    -#.container
-    -#  = bootstrap_flash
-    -#  = yield
 
     #wrapper
       / toggle top area
@@ -40,7 +37,7 @@
                 %li
                   Call us
                   %i.icon-phone
-                  (123) 456-7890 - (123) 555-7891
+                  (093) 5070 - 663
       / end toggle top area
       = render 'layouts/header'
       = bootstrap_flash
