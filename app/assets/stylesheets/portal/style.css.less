@@ -1,14 +1,3 @@
-/* ==== Google font ==== */
-@import url('http://fonts.googleapis.com/css?family=Noto+Serif:400,400italic,700|Open+Sans:300,400,600,700');
-
-/* === fontawesome === */
-@import url('font-awesome.css');
-/* === custom icon === */
-@import url('custom-fonts.css');
-/* ==== overwrite bootstrap standard ==== */
-@import url('overwrite.css');
-@import url('animate.css');
-
 /* Table of content */
 /*===================================
 1. General
@@ -375,8 +364,8 @@ ul.nav li.dropdown a {
 
 #featured .flexslider .slide-caption {
 	background:none; 
-	-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000); 
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000)";
+	filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4C000000,endColorstr=#4C000000)";
 	zoom: 1;
 }
 #featured .flexslider .slide-caption {
@@ -601,7 +590,7 @@ a.nivo-prevNav:before {
 	display:inline-block;
 	width:22px;
 	height:22px;
-	background: url('/assets/portal/nivo-bullets.png') no-repeat;
+	background: asset-url('portal/nivo-bullets.png') no-repeat;
 	text-indent:-9999px;
 	border:0;
 	margin: 0 2px;
@@ -1802,9 +1791,9 @@ ul.time-post li{
 ul.time-post li a img:hover{
 	opacity: 0.8; 
 	/* For IE 5-7 */
-	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+	filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 	/* For IE 8 8 */
-	-MS-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";	
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
 }
  	
 ul.time-post li.time{
@@ -2639,34 +2628,34 @@ article img.pull-right, article .align-right{
 }
 
 .bgr .bg.bg1 {
-	background: url(/assets/bodybg/bg1.png) repeat left top;
+	background: asset-url('bodybg/bg1.png') repeat left top;
 }	
 .bgr .bg.bg2 {
-	background: url(/assets/bodybg/bg2.png) repeat left top;
+	background: asset-url('bodybg/bg2.png') repeat left top;
 }	
 .bgr .bg.bg3 {
-	background: url(/assets/bodybg/bg3.jpg) repeat left top;
+	background: asset-url('bodybg/bg3.jpg') repeat left top;
 }	
 .bgr .bg.bg4 {
-	background: url(/assets/bodybg/bg4.png) repeat left top;
+	background: asset-url('bodybg/bg4.png') repeat left top;
 }	
 .bgr .bg.bg5 {
-	background: url(/assets/bodybg/bg5.png) repeat left top;
+	background: asset-url('bodybg/bg5.png') repeat left top;
 }	
 .bgr .bg.bg6 {
-	background: url(/assets/bodybg/bg6.png) repeat left top;
+	background: asset-url('bodybg/bg6.png') repeat left top;
 }	
 .bgr .bg.bg7 {
-	background: url(/assets/bodybg/bg7.png) repeat left top;
+	background: asset-url('bodybg/bg7.png') repeat left top;
 }	
 .bgr .bg.bg8 {
-	background: url(/assets/bodybg/bg8.jpg) repeat left top;
+	background: asset-url('bodybg/bg8.jpg') repeat left top;
 }	
 .bgr .bg.bg9 {
-	background: url(/assets/bodybg/bg9.png) repeat left top;
+	background: asset-url('bodybg/bg9.png') repeat left top;
 }	
 .bgr .bg.bg10 {
-	background: url(/assets/bodybg/bg10.png) repeat left top;
+	background: asset-url('bodybg/bg10.png') repeat left top;
 }	
 
 #accent_color{

@@ -4,11 +4,11 @@ Font-Face Icons
 
 @font-face {
 	font-family: 'Icons';
-	src:url('/assets/customicon/Icons.eot');
-	src:url('/assets/customicon/Icons.eot?#iefix') format('embedded-opentype'),
-		url('/assets/customicon/Icons.woff') format('woff'),
-		url('/assets/customicon/Icons.ttf') format('truetype'),
-		url('/assets/customicon/Icons.svg#Icons') format('svg');
+	src:image-url('customicon/Icons.eot');
+	src:image-url('customicon/Icons.eot?#iefix') format('embedded-opentype'),
+        image-url('customicon/Icons.woff') format('woff'),
+        image-url('customicon/Icons.ttf') format('truetype'),
+        image-url('customicon/Icons.svg#Icons') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }

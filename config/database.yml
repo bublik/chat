@@ -32,7 +32,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: helperchat_production
+  database: helperchat_development
   pool: 5
   username: root
   password:
