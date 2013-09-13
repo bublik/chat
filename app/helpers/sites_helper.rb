@@ -1,13 +1,13 @@
 module SitesHelper
 
   def widget_js
-    'localhost:3000/assets/chf.js'
+    "#{APP_CONFIG['HOST']}/assets/widget.js"
   end
 
   def widget_code(site = nil)
     return unless site
     javascript_tag do
-      "_shcp = {widget_id: \"#{site.id}}\";
+      "_shcp = {widget_id: \"#{site.uuid}\"};
 (function() { var chs = document.createElement(\"script\");
  chs.type = \"text/javascript\"; chs.async = true;
 chs.src = (\"https:\" == document.location.protocol ? \"https\" : \"http\")+\"://#{widget_js}\";

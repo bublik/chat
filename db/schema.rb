@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130911161833) do
+ActiveRecord::Schema.define(version: 20130913072554) do
 
   create_table "agents", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -209,22 +209,23 @@ ActiveRecord::Schema.define(version: 20130911161833) do
   end
 
   create_table "sites", force: true do |t|
-    t.string   "name",                             null: false
-    t.string   "domain",                           null: false
+    t.string   "name",                                        null: false
+    t.string   "domain",                                      null: false
     t.integer  "site_category_id"
     t.integer  "agent_id"
-    t.string   "color",                            null: false
-    t.string   "side",                             null: false
-    t.string   "position",                         null: false
+    t.string   "color",                                       null: false
+    t.string   "side",                                        null: false
+    t.string   "position",                                    null: false
     t.string   "title_online"
     t.string   "title_offline"
-    t.boolean  "collect_stats",    default: false
-    t.boolean  "show_online",      default: true
-    t.boolean  "show_offline",     default: false
-    t.boolean  "auto_open",        default: false
-    t.boolean  "disabled",         default: true
+    t.boolean  "collect_stats",               default: false
+    t.boolean  "show_online",                 default: true
+    t.boolean  "show_offline",                default: false
+    t.boolean  "auto_open",                   default: false
+    t.boolean  "disabled",                    default: true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.binary   "uuid",             limit: 32,                 null: false
   end
 
   add_index "sites", ["agent_id"], name: "index_sites_on_agent_id", using: :btree

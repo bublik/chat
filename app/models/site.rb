@@ -20,6 +20,14 @@ class Site  < ActiveRecord::Base
     site.color ||= '#003399'
   end
 
+  before_save do |site|
+    site.uuid = UUID.new.generate(:compact) if site.uuid.blank?
+  end
+
+  def to_param
+    uuid
+  end
+
   # TODO add user upload logo on interface
   def logo
     'assets/logo.jpeg'
