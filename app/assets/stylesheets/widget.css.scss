@@ -106,14 +106,6 @@ $background-color: red;
   background-color: rgba(255, 255, 255, .3)
 }
 
-.chf_ico_popup {
-  background: url('widget/sh_btn.png') no-repeat 50% 50%
-}
-
-.chf_ico_popup:hover {
-  background-color: rgba(255, 255, 255, .3)
-}
-
 .chf_ico_close {
   background: url('widget/sh_btn.png') no-repeat 112% 50%
 }
@@ -432,20 +424,6 @@ $background-color: red;
 
 .shf_embed .shf_top_buttons {
   width: 48px
-}
-
-.shf_popup {
-  position: relative;
-  border: 0;
-  width: 100%
-}
-
-.shf_popup .shf_title {
-  cursor: default
-}
-
-.shf_popup .chf_ico_hide, .shf_popup .chf_ico_popup, .shf_popup .shf_top_buttons, .shf_popup .shf_resize {
-  display: none
 }
 
 .shc ::-webkit-scrollbar {
@@ -1092,30 +1070,6 @@ textarea {
   float: left;
   max-width: 328px
 }
-
-//.shf_btn .shf_btn_char {
-//  -webkit-transform: rotate(90deg);
-//  -moz-transform: rotate(90deg);
-//  -ms-transform: rotate(90deg);
-//  -o-transform: rotate(90deg);
-//  transform: rotate(90deg);
-//  font-family: Tahoma, Verdana;
-//  height: 12px;
-//  line-height: 12px
-//}
-//
-//.shf_btn .shf_btn_char, .shf_btn .shf_btn_char_trans {
-//  width: 36px;
-//  cursor: pointer;
-//  color: #fff;
-//  font-size: 16px;
-//  text-align: center
-//}
-//
-//.shf_btn .shf_btn_char_trans {
-//  height: 16px;
-//  line-height: 16px
-//}
 
 .shf_btn_top_left {
   top: 0;

@@ -20,7 +20,7 @@ Agent.find_or_initialize_by(email: 'admin@helperchat.com') do |user|
   user.password_confirmation = 'changeme'
 end.save!
 
-puts 'New user created: email / admin@example.com password / changeme'
+puts 'New user created: email / admin@helperchat.com password / changeme'
 
 [
     'Интернет-магазин',
