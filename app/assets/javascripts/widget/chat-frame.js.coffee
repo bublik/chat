@@ -7,7 +7,7 @@ class window.ChatFrame
     @assets_host = 'site2.com:3000'
     @chat_config_host = 'site2.com:3000'
     @site_config = {id: @site_uid}
-    @user_uid = Math.floor(Math.random(1, 100) * 100)
+    @user_uid = Math.floor(Math.random(1, 100) * 1000)
     @sheme = 'http'
     @sheme = 'https' if (document.location.protocol is 'https:')
 
@@ -65,17 +65,23 @@ class window.ChatFrame
     console.log 'bind events ->'
     jQuery('.chf_ico_close, .shf_button_gray_complete').on 'click', (e) ->
       self.close_widget()
-    #    jQuery('.chf_ico_popup').on 'click', (e) ->
-    #      self.popup_widget()
     jQuery('.chf_ico_hide').on 'click', (e) ->
       self.hide_widget()
-      self.set_presence('away')
+      if jQuery.xmpp.connected
+        jQuery.xmpp.setPresence('away')
     jQuery('.shf_enter_ico').on 'click', (e) ->
-      unless $.xmpp.connected
+      unless jQuery.xmpp.connected
         self.connect()
       self.send_message()
     jQuery('.shf_textarea_answer textarea').on 'focus', (e) ->
-      #self.set_presence()
+      if jQuery.xmpp.connected
+        jQuery.xmpp.setPresence(null)
+      else
+        self.connect()
+    jQuery('.shf_textarea_answer textarea').on 'keyup', (e) ->
+      if event.keyCode is 13
+       jQuery('.shf_textarea_answer .shf_enter_ico').click()
+
   show_widget: ->
     console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
@@ -89,31 +95,24 @@ class window.ChatFrame
 
   close_widget: ->
     jQuery(@widget_window_id).hide()
-    $.xmpp.disconnect()
+    jQuery.xmpp.disconnect()
 
   hide_widget: ->
     jQuery(@widget_window_id).fadeOut() #hide()
 
-  # type can be ['', 'dnd', 'away']
-  set_presence: (type = null) ->
-    $.xmpp.setPresence(type)
   avatar: (user)->
     @sheme + '://' + @site_config.bosh_domain + 'presence/jid/' + user + '/' + @site_config.bosh_domain + '/image/'
+
   connect: ->
     console.log "Connect:"
-    if $.xmpp.connected
-      ##@set_presence()
-      return true
-
     self = @
-    $.xmpp.connect
+    jQuery.xmpp.connect
       url: @site_config.bosh_url
-      jid: 'Guest_' + @user_uid + '@' + @site_config.bosh_domain
+      jid: 'guest_' + @user_uid + '@' + @site_config.bosh_domain
       password: ''
-#      wait: 10,
-#      inactivity: 20,
       onConnect: ->
         console.log "onConnect ->"
+        jQuery.xmpp.setPresence(null)
       onIq: (iq) ->
         console.log('onIq', iq)
       onNotification: (notification) ->
@@ -122,8 +121,20 @@ class window.ChatFrame
         console.log('onPresence ->', presence)
         console.log 'New presence: ', presence.from
         console.log "SHOW", presence.show
+        curId = presence.from.split('@')[0]
+        status_icon = "available_icon"
+        switch presence.show
+          when "dnd"
+            status_icon = "busy_icon"
+          when "away"
+            status_icon = "away_icon"
+          else
+            status_icon = "available_icon"
+        console.log('onpresence', status_icon)
+
       onDisconnect: ->
         console.log "Disconnected"
+        jQuery.xmpp.connected = false
 
       onMessage: (message) ->
         console.log('onMessage', message)
@@ -140,17 +151,6 @@ class window.ChatFrame
         self.append_message(msg)
       onError: (error) ->
         console.log error.error
-        if error.error.match(/Invalid credentials/)
-          alert('Credential')
-          self.connect()
-#        alert(self.getCookie('ch_csid'))
-#        if error.error.match(/Invalid credentials/) and self.getCookie('ch_csid') != ''
-#          console.log('MATCH RELOGIN')
-#          if $.xmpp.sid = self.getCookie('ch_csid')
-#            console.log "Delete OLD session for SID", $.xmpp.sid
-#            $.xmpp.disconnect()
-#            self.connect()
-#        self.setCookie('ch_csid', '')
 
   append_message: (data) ->
     console.log('append_message <-')
@@ -165,11 +165,9 @@ class window.ChatFrame
       ''
 
   send_message: ->
-    @connect()
     input = jQuery('.shf_textarea_answer textarea')
     console.log 'Send message =>'
-    chat_session = $('<thread/>').attr('thread', 'asdasd').html('asdasd')
-    $.xmpp.sendMessage({to: @site_config.to, body: @current_page() + input.val(), resource: 'support'}, chat_session)
+    jQuery.xmpp.sendMessage({to: @site_config.to, body: @current_page() + input.val()})
 
     @append_message({
       time_at: (new Date).toLocaleString().split(' ')[1],
@@ -177,9 +175,12 @@ class window.ChatFrame
       content: input.val(),
       avatar_path: @avatar('guest') })
     input.val ""
+  get_Vcard: () ->
+    jQuery.xmpp.sendCommand("<iq from='" + jQuery.xmpp.jid + "' id='v3' to='" + @site_config.to + "' type='get'> <vCard xmlns='vcard-temp'/></iq>")
 
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
+    console.log "Set from Cookie -> @user_uid :", @user_uid
 
   setCookie: (c_name, value, exdays) ->
     exdate = new Date()

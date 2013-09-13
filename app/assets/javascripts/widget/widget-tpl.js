@@ -41,7 +41,6 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
   <div class="shf_header" rel="header">\
       <div class="shf_top_buttons">\
         <div rel="close" class="chf_ico chf_ico_close" title="<%= config.close_dialog %>"></div>\
-        <div rel="popup" class="chf_ico chf_ico_popup" title="<%= config.popup %>"></div>\
         <div rel="hide" class="chf_ico chf_ico_hide" title="<%= config.hide %>"></div>\
       </div>\
       <div class="shf_header_info">\
