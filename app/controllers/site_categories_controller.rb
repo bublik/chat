@@ -1,4 +1,5 @@
 class SiteCategoriesController < ApplicationController
+  include Auth
   before_action :set_site_category, only: [:show, :edit, :update, :destroy]
 
   # GET /site_categories
