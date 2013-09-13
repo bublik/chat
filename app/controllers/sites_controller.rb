@@ -16,7 +16,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    # TODO check this uid on new build talk
+    # TODO check this uid on new build
   end
 
   # GET /sites/new
@@ -76,7 +76,7 @@ class SitesController < ApplicationController
   end
 
   def set_site
-    @site = Site.find(params[:id])
+    @site = Site.find_by_uuid(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

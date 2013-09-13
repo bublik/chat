@@ -140,6 +140,9 @@ class window.ChatFrame
         self.append_message(msg)
       onError: (error) ->
         console.log error.error
+        if error.error.match(/Invalid credentials/)
+          alert('Credential')
+          self.connect()
 #        alert(self.getCookie('ch_csid'))
 #        if error.error.match(/Invalid credentials/) and self.getCookie('ch_csid') != ''
 #          console.log('MATCH RELOGIN')
