@@ -1,3 +1,17 @@
+/ toggle top area
+.hidden-top
+  .hidden-top-inner.container
+    .row
+      .span12
+        %ul
+          %li
+            %strong We are available for any custom works this month
+          %li Main office: Ukraine Odessa
+          %li
+            Call us
+            %i.icon-phone
+            (093) 5070 - 663
+
 / start header
 %header
   .container
@@ -25,7 +39,12 @@
               Create an
               %strong account
           .modal-body
-            %form.form-horizontal
+            = simple_form_for(Agent.new, :as => 'agent', :url => registration_path('agent')) do |f|
+              = f.input :email, input_html: { autofocus: true, class: 'form-control', placeholder: 'Enter email' }
+              = f.input :password, input_html: { class: 'form-control', placeholder: 'Password' }
+              = f.input :password_confirmation, input_html: { class: 'form-control', placeholder: 'Password confirmation' }
+              %div= f.submit 'Sign up', class: 'btn btn-primary'
+            -#%form.form-horizontal
               .control-group
                 %label.control-label{:for => "inputEmail"} Email
                 .controls
@@ -53,7 +72,12 @@
               Login to your
               %strong account
           .modal-body
-            %form.form-horizontal
+            = simple_form_for(Agent.new, :as => 'agent', :url => session_path('agent')) do |f|
+              = f.input :email, input_html: { autofocus: true, class: 'form-control'}
+              = f.input :password
+              = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
+              %div= f.submit 'Sign in', :class => 'btn btn-primary'
+            -#%form.form-horizontal
               .control-group
                 %label.control-label{:for => "inputText"} Username
                 .controls

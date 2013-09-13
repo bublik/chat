@@ -15,11 +15,8 @@
     #wrapper
       / end toggle top area
       = render 'layouts/header'
-      = render 'layouts/head_line'
-      %section#content
-        .container
-          = bootstrap_flash
-          = yield
+      = bootstrap_flash
+      = yield
       = render 'layouts/footer'
       / Placed at the end of the document so the pages load faster
       = javascript_include_tag "portal", "data-turbolinks-track" => true

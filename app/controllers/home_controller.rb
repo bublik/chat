@@ -1,6 +1,7 @@
 class HomeController < ApplicationController
 
   def index
+    render layout: 'home_index'
   end
 
   def contact

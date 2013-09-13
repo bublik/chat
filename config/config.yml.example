@@ -1,0 +1,10 @@
+commom: &common
+  HOST: 'localhost.dev'
+  SMTP_USER: 'smptpuser'
+  SMTP_PASSWORD: 'pass'
+
+test:
+  <<: *common
+
+development:
+  <<: *common

@@ -5,6 +5,7 @@ require 'rails/all'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
+APP_CONFIG = YAML.load_file(File.expand_path('../config.yml', __FILE__))[Rails.env]
 
 module Chat
   class Application < Rails::Application

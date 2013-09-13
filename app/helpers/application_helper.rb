@@ -8,4 +8,9 @@ module ApplicationHelper
     end.join(' | ')
   end
 
+  def icon(style = nil)
+    return unless style
+    content_tag(:i, '', class: style)
+  end
+
 end

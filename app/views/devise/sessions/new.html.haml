@@ -1,14 +1,18 @@
+- content_for :head_line_title do
+  Sign In
+- content_for :head_line_content do
+  %ul.breadcrumb
+    %li= link_to(icon('icon-home' ), root_path) + icon('icon-angle-right')
+    %li.active Sign In
+
 .row
-  .col-lg-6.col-offset-3
-    .panel.panel-primary
-      .panel-heading
-        %h2.panel-title Sign in
-      .panel-body
-        = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-          = f.input :email, input_html: { autofocus: true, class: 'form-control'}
-          = f.input :password
-          - if devise_mapping.rememberable?
-            = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
-          %div= f.submit 'Sign in', :class => 'btn btn-primary'
-      -#.panel-footer
-        = render 'devise/shared/links'
+  .span7.offset3
+    = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      = f.input :email, input_html: { autofocus: true, class: 'form-control'}
+      = f.input :password
+      - if devise_mapping.rememberable?
+        = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
+      .row
+        .span4.offset2= f.submit 'Sign in', :class => 'btn btn-primary'
+      .row
+        .span4= render 'devise/shared/links'

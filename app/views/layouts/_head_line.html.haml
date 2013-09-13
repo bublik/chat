@@ -1,0 +1,9 @@
+- if content_for?(:head_line_title)
+  %section#inner-headline
+    .container
+      .row
+        .span5
+          .inner-heading
+            %h2= yield :head_line_title
+        .span7
+          = yield :head_line_content

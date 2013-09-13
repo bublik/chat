@@ -54,7 +54,7 @@ Chat::Application.configure do
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
-  config.assets.cache_store = :memory_store, { size: 12.megabytes }
+  config.assets.cache_store = :memory_store, {size: 12.megabytes}
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = "http://assets.example.com"
 
@@ -78,4 +78,16 @@ Chat::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  config.action_mailer.default_url_options = {:host => APP_CONFIG['HOST']}
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      :enable_starttls_auto => true,
+      :address => "smtp.mandrillapp.com",
+      :port => 587,
+      :domain => "helperchat.com",
+      :authentication => :login,
+      :user_name => APP_CONFIG['SMTP_USER'],
+      :password => APP_CONFIG['SMTP_PASSWORD']
+  }
+
 end

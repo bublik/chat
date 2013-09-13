@@ -1,4 +1,6 @@
 class Site  < ActiveRecord::Base
+  before_filter :authenticate_agent!, :except => [:show]
+
   ## Constants
   SIDE = %w( bottom top right left)
   POSITION = %w( right center left)
