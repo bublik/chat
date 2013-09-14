@@ -179,7 +179,7 @@ class window.ChatFrame
       avatar_path: @avatar('guest') })
     input.val ""
   get_Vcard: () ->
-    jQuery.xmpp.sendCommand("<iq from='" + jQuery.xmpp.jid + "' id='v3' to='" + @site_config.to + "' type='get'> <vCard xmlns='vcard-temp'/></iq>")
+    jQuery.xmpp.sendCommand("<iq from='" + jQuery.xmpp.jid + "' id='v3' to='" + @site_config.to + "' type='get'><vCard xmlns='vcard-temp'/></iq>")
 
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
@@ -206,35 +206,3 @@ class window.ChatFrame
 
 window.cfrm = new window.ChatFrame(window._shcp)
 window.cfrm.load_site_config()
-
-#  style_button: (_el) ->
-#    console.log('Styled button ->' + _el.attr('id'))
-#    _el.css('background-color', @site_config['color'])
-#    _el.css('box-shadow', '0 3px 8px rgba(50, 50, 50, 0.17)')
-#    _el.css('border', '1px solid ' + @site_config['color'])
-#    #@position(_el)
-
-#  create_widget: ->
-#    # added frame
-#    #TODO add google analytix
-#    console.log 'Create chat frame'
-#    iframe = document.createElement('iframe')
-#    iframe.src = @chat_url
-#    iframe.name = 'eg_iframe'
-#    iframe.id = 'chf_iframe'
-#    iframe.scrolling = 'yes'
-#    iframe.frameborder = 'no'
-#    iframe.framespacing = 0
-#    iframe.border = 0
-#
-#    iframe.style.width = "100%"
-#    iframe.style.height = "100%"
-#    iframe.style.border = "0"
-#
-#    document.getElementById(@site_uid).appendChild(iframe)
-#
-#    iframeDocument = iframe.contentDocument or iframe.contentWindow.document
-#    iframeDocument.open()
-#    iframeDocument.write('<!doctype html><html><body><script src=' + @chat_url + ' ><\/script><\/body><\/html>')
-#    iframeDocument.close()
-#    iframe.src = @chat_url
