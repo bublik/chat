@@ -401,7 +401,7 @@ textarea {
 }
 
 .shf_logo {
-  width: 27px;
+  width: 30px;
   cursor: pointer;
   text-align: center;
   white-space: nowrap;
@@ -423,6 +423,7 @@ textarea {
 .shf_logo_btn {
   max-width: 27px;
   vertical-align: middle;
+  margin: 2px;
 }
 
 
@@ -460,12 +461,14 @@ textarea {
 
 .shf_btn_top_right {
   top: 0;
-  right: 50px
+  right: 50px;
+  left: auto;
 }
 
 .shf_btn_bottom_left {
   bottom: 0;
-  left: 50px
+  left: 50px;
+  right: auto;
 }
 
 .shf_btn_bottom_center {
@@ -520,6 +523,22 @@ textarea {
 .shf_btn_right_bottom {
   right: 0;
   bottom: 50px
+}
+.shf_btn_bottom {
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.shf_btn_top {
+  -webkit-border-bottom-right-radius: 5px;
+  -webkit-border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
 .shf_btn_right_center .shf_title_text {

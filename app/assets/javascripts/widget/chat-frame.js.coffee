@@ -170,7 +170,8 @@ class window.ChatFrame
     if input.val() == ''
       return
     console.log 'Send message =>'
-    jQuery.xmpp.sendMessage({to: @site_config.to, body: @current_page() + input.val()})
+    # type chat, private, groupchat and default  chat
+    jQuery.xmpp.sendMessage({ type: 'private', to: @site_config.to, body: @current_page() + input.val()})
 
     @append_message({
       time_at: (new Date).toLocaleString().split(' ')[1],
@@ -178,8 +179,8 @@ class window.ChatFrame
       content: input.val(),
       avatar_path: @avatar('guest') })
     input.val ""
-  get_Vcard: () ->
-    jQuery.xmpp.sendCommand("<iq from='" + jQuery.xmpp.jid + "' id='v3' to='" + @site_config.to + "' type='get'><vCard xmlns='vcard-temp'/></iq>")
+#  get_Vcard: () ->
+#    jQuery.xmpp.sendCommand("<iq from='" + jQuery.xmpp.jid + "' id='v4' to='" + @site_config.to + "' type='get'><vcard xmlns='urn:ietf:params:xml:ns:vcard-4.0'/></iq>")
 
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
