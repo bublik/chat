@@ -12,14 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//  require turbolinks
+//=  require turbolinks
 //= require twitter/bootstrap
 //= require bootstrap
 
 //= require ./portal/jquery.easing.1.3
 //= require ./portal/jquery.jcarousel
-//= require ./portal/jquery.fancybox.pack
-//= require ./portal/jquery.fancybox-media
+//   require ./portal/jquery.fancybox.pack
+//   require ./portal/jquery.fancybox-media
 //   require ./portal/prettify
 //= require ./portal/jquery.quicksand
 //= require ./portal/jquery.flexslider

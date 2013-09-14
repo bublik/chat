@@ -11,11 +11,11 @@
  *= require_self
  *= require ./portal/bootstrap
  *= require ./portal/bootstrap-responsive
- *= require ./portal/fancybox/jquery.fancybox
+ *  require ./portal/fancybox/jquery.fancybox
  *= require ./portal/jcarousel
  *= require ./portal/flexslider
  *= require ./portal/font-awesome
- *= require ./portal/custom-fonts
+ *  require ./portal/custom-fonts
  *= require ./portal/overwrite
  *= require ./portal/animate
  *= require ./portal/style

@@ -5,8 +5,6 @@ class ApplicationController < ActionController::Base
   skip_before_action :verify_authenticity_token, if: :json_request?
   #before_filter :session_debug
 
-  layout :enable_layout
-
   protected
 
  def session_debug
@@ -19,9 +17,6 @@ class ApplicationController < ActionController::Base
   end
 
   private
-  def enable_layout
-    agent_signed_in? ? 'management' : 'portal'
-  end
 
   def after_sign_in_path_for(resource)
     logger.debug("RESOURCE #{resource.inspect}")
