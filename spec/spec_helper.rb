@@ -1,3 +1,10 @@
+# This file is copied to spec/ when you run 'rails generate rspec:install'
+ENV["RAILS_ENV"] ||= 'test'
+require File.expand_path("../../config/environment", __FILE__)
+require 'rubygems'
+require 'spork'
+require 'rspec/rails'
+require 'rspec/autorun'
 
 Spork.prefork do
   # Loading more in this block will cause your tests to run faster. However,
@@ -10,16 +17,6 @@ Spork.each_run do
   # This code will be run each time you run your specs.
 
 end
-
-
-# This file is copied to spec/ when you run 'rails generate rspec:install'
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
-require 'rubygems'
-require 'spork'
-require 'rspec/rails'
-require 'rspec/autorun'
-
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods

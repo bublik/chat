@@ -155,6 +155,9 @@ class window.ChatFrame
 
   append_message: (data) ->
     console.log('append_message <-')
+    if _.isEmpty(data.msg)
+      console.log('enpty message, exit')
+      return
     mesage_content = _.template(window.ch_message_tpl, { msg: data })
     jQuery('#shf_messages').append(mesage_content)
     jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
@@ -170,6 +173,7 @@ class window.ChatFrame
     if input.val() == ''
       return
     console.log 'Send message =>'
+    # jQuery.xmpp.sendCommand("<presence from='"+ $.xmpp.jid+"' to='"+@site_config.to+"' type='subscribe'/>")
     # type chat, private, groupchat and default  chat
     jQuery.xmpp.sendMessage({ type: 'private', to: @site_config.to, body: @current_page() + input.val()})
 
