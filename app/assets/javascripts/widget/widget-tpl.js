@@ -28,7 +28,7 @@ window.ch_message_tpl = '\
  */
 // TODO replace to + line style spliter
 
-window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="position: absolute; height: 360px; width: 450px;">\
+window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="position: absolute; height: 360px; width: 450px; background-color: <%= config.color %>">\
   <div class="shf_header" rel="header">\
     <div class="shf_top_buttons">\
       <div rel="close" class="chf_ico chf_ico_close" title="<%= config.close_dialog %>"></div>\
@@ -43,22 +43,19 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
       <div class="shf_title" rel="title"><%= config.title %></div>\
     </div>\
   </div>\
-  <div id="shf_container_root" class="shw">\
-    <div id="shf_container" class="shw">\
-      <div class="shf_messages" rel="online">\
-        <div id="shf_messages" class="shf_messages shf_scrollbar" rel="scrollbar" style="height: 239px;">\
-        <!-- render messages -->\
-        </div>\
-        <div class="shf_footer" rel="footer">\
-          <div class="shf_textarea_answer"><textarea class="shw" placeholder="<%= config.placeholder %>" name="text"></textarea>\
-            <div class="shf_enter_ico" rel="enter" title="<%= config.submit_btn%>"></div>\
-          </div>\
+  <div id="shf_container" class="shw">\
+    <div class="shf_messages" rel="online">\
+      <div id="shf_messages" class="shf_messages shf_scrollbar" rel="scrollbar">\
+      <!-- render messages -->\
+      </div>\
+      <div class="shf_footer" rel="footer">\
+        <div class="shf_textarea_answer"><textarea class="shw" placeholder="<%= config.placeholder %>" name="text"></textarea>\
+          <div class="shf_enter_ico" rel="enter" title="<%= config.submit_btn%>"></div>\
         </div>\
       </div>\
     </div>\
-    <div class="shf_copyright" rel="copyright">\
-      <a href="http://heplerchat.com" target="_blank" title="HelperChat" class="shw">\
-      <spanclass="shf_copyright_text">Powered by </span><span class="shw">Helper</span>Chat</a>\
-    </div>\
+  </div>\
+  <div class="shf_copyright" rel="copyright">\
+    <a href="http://heplerchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a>\
   </div>\
 </div>';

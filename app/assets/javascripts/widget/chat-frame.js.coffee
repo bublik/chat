@@ -29,14 +29,15 @@ class window.ChatFrame
 
   init_button: ->
     console.log 'init button ->', @button_id
-    if @site_config['disabled'] is '1'
+    if @site_config['disabled']
       console.log 'widget DISABLED!'
       return
     jQuery('body').append(_.template(window.ch_button, { btn: @site_config }))
 
     #@style_button(jQuery(@button_id))
     self = @
-    if @site_config['auto_open'] is '1'
+    console.log(@site_config['auto_open'])
+    if @site_config['auto_open']
       console.log 'widget AUTOOPEN!'
       self.show_widget()
 
@@ -166,6 +167,8 @@ class window.ChatFrame
 
   send_message: ->
     input = jQuery('.shf_textarea_answer textarea')
+    if input.val() == ''
+      return
     console.log 'Send message =>'
     jQuery.xmpp.sendMessage({to: @site_config.to, body: @current_page() + input.val()})
 

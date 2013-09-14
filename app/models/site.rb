@@ -4,7 +4,7 @@ class Site  < ActiveRecord::Base
   POSITION = %w( right center left)
 
   # blue #666699 orange #cc6633 yellow #cc9933 салат #999933 черн #000
-  COLORS = %w(#666699 #cc6633 #cc9933 #999933 #000000)
+  COLORS = %w(#666699 #cc6633 #cc9933 #999933 #3b3b3b)
   ## Relations
   belongs_to :site_category
   belongs_to :agent
