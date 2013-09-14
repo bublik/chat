@@ -26,4 +26,5 @@
       = bootstrap_flash
       = yield
       = javascript_include_tag 'management', 'data-turbolinks-track' => true
-
+    = javascript_tag do
+      = yield :javascript

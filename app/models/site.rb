@@ -3,6 +3,8 @@ class Site  < ActiveRecord::Base
   SIDE = %w( bottom top right left)
   POSITION = %w( right center left)
 
+  # blue #666699 orange #cc6633 yellow #cc9933 салат #999933 черн #000
+  COLORS = %w(#666699 #cc6633 #cc9933 #999933 #3b3b3b)
   ## Relations
   belongs_to :site_category
   belongs_to :agent
@@ -17,7 +19,7 @@ class Site  < ActiveRecord::Base
   validates :side, inclusion: {in: Site::SIDE}
 
   after_initialize do |site|
-    site.color ||= '#003399'
+    site.color ||= COLORS.first
   end
 
   before_save do |site|

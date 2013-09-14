@@ -31,14 +31,27 @@ $background-color: red;
 .shf_chat {
   z-index: 999999;
   width: 300px;
-  border: 1px solid #d28887;
   height: 460px;
-  background: #f0f0ef;
-  position: fixed
+  position: fixed;
+  padding: 5px;
+  border-color: #000;
+  background-color: #3b3b3b;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(100,100,100,.6);
+  border-bottom-width: 0;
+  -webkit-border-radius: 10px 10px 0 0;
+  -moz-border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  -webkit-box-shadow: inset 1px 1px 1px rgba(255,255,255,.2);
+  -moz-box-shadow: inset 1px 1px 1px rgba(255,255,255,.2);
+  box-shadow: inset 1px 1px 1px rgba(255,255,255,.2);
 }
 
 .shf_chat_logo {
-  max-width: 27px
+  max-width: 27px;
 }
 
 .shf_container {
@@ -46,10 +59,17 @@ $background-color: red;
 }
 
 .shf_header {
-  background: $background-color;
+  //background: $background-color;
   min-width: 258px;
-  height: 45px;
-  color: #fff
+  padding: 3px;
+  height: 25px;
+  color: #fff;
+  -webkit-border-top-left-radius: 5px;
+  -webkit-border-top-right-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-topright: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .shf_header_info {
@@ -58,9 +78,9 @@ $background-color: red;
 
 .shf_header_logo {
   width: 45px;
-  line-height: 44px;
+  line-height: 34px;
   text-align: center;
-  height: 44px;
+  height: 34px;
   cursor: pointer;
   float: left;
   white-space: nowrap;
@@ -75,19 +95,16 @@ $background-color: red;
 
 .shf_title {
   line-height: 45px;
-  height: 45px;
+  height: 35px;
   overflow: hidden;
-  cursor: move;
   color: #fff;
   font-size: 16px
 }
 
 .shf_top_buttons {
-  border-left: 1px solid #c95a5a;
-  width: 65px;
+  width: 45px;
   float: right;
   height: 27px;
-  margin-top: 10px
 }
 
 .chf_ico {
@@ -122,7 +139,7 @@ $background-color: red;
 .shf_copyright {
   height: 22px;
   color: #646464;
-  background: #f0f0ef;
+  //background: #f0f0ef;
   line-height: 22px;
   font-size: 12px;
   text-align: center;
@@ -133,27 +150,12 @@ $background-color: red;
 }
 
 .shf_copyright a {
-  color: $background-color;
+  color: #cdcdcd;
   text-decoration: none
 }
-
 .shf_copyright a span {
-  color: #333
-}
-
-.shf_copyright a span.shf_copyright_text {
-  color: #646464;
-  font-weight: 400
-}
-
-.shf_resize {
-  float: right;
-  margin-top: 12px;
-  width: 9px;
-  height: 10px;
-  cursor: se-resize;
-  z-index: 999999;
-  background: url('widget/resize.png') no-repeat
+  color: #EB0010;
+  text-decoration: none
 }
 
 .shf_offline_done {
@@ -295,57 +297,6 @@ $background-color: red;
   text-align: left;
 }
 
-.shf_bill {
-  min-height: 90px;
-  background: #f0f0ef;
-  border: 1px solid #e6e6e5;
-  margin: 8px 8px 0;
-  padding-bottom: 20px
-}
-
-.shf_bill_content {
-  margin: 15px 10px 0;
-  overflow: hidden
-}
-
-.shf_bill_payment {
-  overflow: hidden;
-  margin-bottom: 15px
-}
-
-.shf_bill_amount {
-  float: left;
-  color: #333;
-  font-size: 16px;
-  font-weight: 700
-}
-
-.shf_bill_logo {
-  width: 65px;
-  height: 15px;
-  float: right;
-  margin-right: 1px;
-  background: url('widget/bill_visa.png') no-repeat
-}
-
-.shf_bill_description {
-  text-align: center;
-  color: #4c4c4c;
-  font-size: 13px;
-  line-height: 18px;
-  overflow: hidden
-}
-
-.shf_bill a {
-  text-decoration: none;
-  color: #fff
-}
-
-.shf_auth {
-  margin: 15px 10px 0;
-  overflow: hidden
-}
-
 .shf_avatar {
   width: 36px;
   height: 36px;
@@ -409,23 +360,6 @@ $background-color: red;
   padding: 10px
 }
 
-.shf_embed {
-  position: relative;
-  width: 100%
-}
-
-.shf_embed .shf_title {
-  cursor: default
-}
-
-.shf_embed .chf_ico_hide, .shf_embed .shf_resize {
-  display: none
-}
-
-.shf_embed .shf_top_buttons {
-  width: 48px
-}
-
 .shc ::-webkit-scrollbar {
   width: 6px
 }
@@ -436,132 +370,6 @@ $background-color: red;
 
 .shc ::-webkit-scrollbar-thumb {
   background-color: rgba(255, 0, 0, .5)
-}
-
-.shf_form {
-  min-height: 50px;
-  margin: 8px 8px 0;
-  padding: 18px
-}
-
-.shf_offline .shf_form {
-  margin: 0;
-  padding: 17px
-}
-
-.shf_messages .shf_form {
-  background: #f0f0ef;
-  border: 1px solid #e6e6e5
-}
-
-.shf_form_description {
-  color: #2E2121;
-  font-size: 12px;
-  line-height: 16px;
-  margin: 9px 0
-}
-
-.shf_form_title {
-  color: #333;
-  font-size: 16px;
-  margin-bottom: 5px;
-  font-weight: 700
-}
-
-.shf_form_step {
-  float: left;
-  font-size: 12px;
-  margin-right: 9px;
-  color: #6e6c6d;
-  line-height: 15px
-}
-
-.shf_form_step_act {
-  font-weight: 700;
-  font-size: 14px;
-  color: $background-color
-}
-
-.shf_form_result {
-  clear: both;
-  font-size: 12px;
-  padding: 10px;
-  display: none
-}
-
-.shf_form_result_success {
-  color: #129a48
-}
-
-.shf_form_result_error {
-  color: #fc3300
-}
-
-.shf_form_fields {
-  margin-top: 9px
-}
-
-.shf_form_field {
-  min-height: 38px;
-  margin: 0 9px 9px;
-  position: relative
-}
-
-.shf_form_field_checkbox, .shf_form_field_radio, .shf_form_field_select {
-  margin: 0
-}
-
-.shf_form_field_hidden {
-  display: none
-}
-
-.shf_form_field_textarea {
-  height: 80px;
-  margin: 0 9px 20px;
-  position: relative
-}
-
-.shf_form_select {
-  height: 36px;
-  border: 1px solid #dadad9;
-  background: #fff;
-  margin-bottom: 9px;
-  padding-left: 4px;
-  width: 100%
-}
-
-.shf_form_label {
-  font-weight: 700;
-  font-size: 13px;
-  margin-bottom: 9px
-}
-
-.shf_form_choise {
-  margin-bottom: 9px;
-  font-size: 13px;
-  color: #333
-}
-
-.shf_form_choise input {
-  margin: 0 6px 0 0
-}
-
-.shf_form_preloader {
-  display: none
-}
-
-.shf_button[disabled] .shf_form_preloader {
-  background: url('widget/loader1_16x16.gif') no-repeat;
-  width: 16px;
-  height: 16px;
-  margin-left: 6px;
-  top: 10px;
-  position: absolute;
-  display: inline-block
-}
-
-.shf_button[disabled] {
-  opacity: .7
 }
 
 input.shf_input {
@@ -594,85 +402,6 @@ textarea.shf_textarea {
   overflow: hidden
 }
 
-.shf_button_field {
-  overflow: hidden;
-  margin-top: 10px
-}
-
-.shf_bill_field [type=text] {
-  min-width: 203px;
-  height: 27px
-}
-
-.shf_button_history_number {
-  width: 23px;
-  height: 23px;
-  background-color: $background-color;
-  color: #fff;
-  border-radius: 100%;
-  float: right;
-  text-align: center;
-  line-height: 23px;
-  margin: 6px 9px 0 0
-}
-
-.shf_form_title_history {
-  text-align: center;
-  color: #333;
-  font-size: 22px;
-  margin-bottom: 20px
-}
-
-.shf_form_logo_history {
-  overflow: hidden;
-  text-align: center;
-  margin: 10px 0 20px
-}
-
-.shf_button {
-  min-width: 219px;
-  height: 35px;
-  line-height: 35px;
-  text-align: center;
-  margin: 10px 0 0;
-  cursor: pointer;
-  font-size: 14px;
-  color: #fff;
-  border: 1px solid #931010;
-  box-shadow: inset 0 0 1px rgba(255, 255, 255, .75);
-  background: $background-color
-}
-
-.shf_button:hover {
-  background: #aa1212
-}
-
-.shf_button_back {
-  min-width: 60px;
-  color: #646464;
-  float: left;
-  border: 1px solid #dadad9;
-  background: #F4F4F3
-}
-
-.shf_button_back:hover {
-  color: #333;
-  border: 1px solid #c4c4c3;
-  background: #fcfcfb
-}
-
-.shf_button_save {
-  min-width: 140px;
-  float: left;
-  margin-left: 9px;
-  padding: 0 9px
-}
-
-.shf_button_big_gray {
-  min-width: 219px;
-  float: none
-}
-
 .shf_button_gray_complete {
   min-width: 85px;
   height: 24px;
@@ -682,97 +411,7 @@ textarea.shf_textarea {
   margin-top: 6px
 }
 
-.shf_botton_bill {
-  min-width: 208px;
-  height: 27px;
-  line-height: 27px;
-  float: none
-}
-
-.shf_auth_button {
-  min-width: 219px;
-  height: 35px;
-  line-height: 35px;
-  margin: 10px 0 0;
-  cursor: pointer;
-  font-size: 13px;
-  color: #fff;
-  box-shadow: inset 0 0 1px rgba(255, 255, 255, .75)
-}
-
-.shf_auth_button_facebook {
-  border: 1px solid #4f6fb6;
-  background: #4A67AA
-}
-
-.shf_auth_button_facebook:hover {
-  background: #5577C4
-}
-
-.shf_auth_button_twitter {
-  border: 1px solid #2a95c7;
-  background: #2EA1D6
-}
-
-.shf_auth_button_twitter:hover {
-  background: #31AAE2
-}
-
-.shf_auth_button_google {
-  border: 1px solid #3a3a3a;
-  background: #3F3F3F
-}
-
-.shf_auth_button_google:hover {
-  background: #535353
-}
-
-.shf_auth_overall {
-  float: left;
-  cursor: pointer;
-  margin-right: 15px;
-  width: 35px;
-  height: 35px;
-  box-shadow: 1px 0 0 rgba(255, 255, 255, .3);
-  -webkit-box-shadow: 1px 0 0 rgba(255, 255, 255, .3);
-  -moz-box-shadow: 1px 0 0 rgba(255, 255, 255, .3)
-}
-
-.shf_auth_facebook {
-  border-right: 1px solid #4f6fb6
-}
-
-.shf_auth_twitter {
-  border-right: 1px solid #2a95c7
-}
-
-.shf_auth_google {
-  border-right: 1px solid #3a3a3a
-}
-
-.shf_auth_facebook_logo {
-  width: 13px;
-  height: 25px;
-  margin: 10px 0 0 15px;
-  background: url('widget/auth_logo.png') no-repeat 0 0
-}
-
-.shf_auth_twitter_logo {
-  width: 27px;
-  height: 23px;
-  margin: 7px 0 0 7px;
-  background: url('widget/auth_logo.png') no-repeat 44% 0
-}
-
-.shf_auth_google_logo {
-  width: 20px;
-  height: 23px;
-  margin: 9px 0 0 8px;
-  background: url('widget/auth_logo.png') no-repeat 100% 0
-}
-
 .shf_footer {
-  background: #f0f0ef;
   transition-property: height;
   transition-duration: .5s;
   transition-timing-function: ease;
@@ -781,61 +420,10 @@ textarea.shf_textarea {
   -webkit-transition-timing-function: ease
 }
 
-.shf_footer, .shf_footer_hide {
-  height: 84px
+.shf_footer {
+  height: 65px
 }
 
-.shf_footer_menu_list {
-  height: 36px;
-  border-top: 1px solid #d3d3d2;
-  padding: 0 8px
-}
-
-.shf_footer_menu {
-  float: left;
-  height: 30px;
-  text-align: center;
-  width: 28px;
-  line-height: 30px;
-  margin-top: 4px;
-  cursor: pointer
-}
-
-.shf_footer_menu:hover {
-  background-color: #333;
-  border-radius: 5px
-}
-
-.shf_ic {
-  width: 16px;
-  height: 16px;
-  margin: 7px auto 0;
-  cursor: pointer
-}
-
-.shf_ic_attach {
-  background: url('widget/menu_ic.png') 0 top no-repeat
-}
-
-.shf_ic_smiles {
-  background: url('widget/menu_ic.png') 47% top no-repeat
-}
-
-.shf_ic_sound {
-  background: url('widget/menu_ic.png') 100% top no-repeat;
-  width: 19px
-}
-
-.shf_footer_menu:hover .shf_ic_sound, .shf_footer_menu:hover .shf_ic_attach, .shf_footer_menu:hover .shf_ic_smiles {
-  background-position-y: bottom
-}
-
-.shf_ic_off .shf_ic_sound {
-  background: url('widget/sound_off.png') no-repeat;
-  width: 16px;
-  height: 13px;
-  margin: 9px 0 0 6px
-}
 
 .shf_textarea_answer {
   overflow: hidden;
@@ -870,76 +458,6 @@ textarea {
   overflow: auto
 }
 
-.shf_smiles {
-  height: 60px;
-  width: 136px;
-  background-color: #333;
-  position: absolute;
-  bottom: 35px;
-  left: -54px
-}
-
-.shf_smile_menu {
-  float: left;
-  height: 25px;
-  text-align: center;
-  width: 25px;
-  line-height: 25px;
-  margin: 2px 0 0 2px;
-  cursor: pointer
-}
-
-.shf_smile_menu:hover {
-  background-color: #555
-}
-
-.shf_smile_icon {
-  width: 16px;
-  height: 16px;
-  margin: 5px auto 0;
-  cursor: pointer
-}
-
-.shf_smile[data-name=smile] {
-  background: url('widget/smilies.png') 0 0 no-repeat
-}
-
-.shf_smile[data-name=upset] {
-  background: url('widget/smilies.png') 25% 0 no-repeat
-}
-
-.shf_smile[data-name=no_words] {
-  background: url('widget/smilies.png') 50% 0 no-repeat
-}
-
-.shf_smile[data-name=laughter] {
-  background: url('widget/smilies.png') 75% 0 no-repeat
-}
-
-.shf_smile[data-name=shock] {
-  background: url('widget/smilies.png') 100% 0 no-repeat
-}
-
-.shf_smile[data-name=wink] {
-  background: url('widget/smilies.png') 100% 100% no-repeat
-}
-
-.shf_smile[data-name=sleep] {
-  background: url('widget/smilies.png') 75% 100% no-repeat
-}
-
-.shf_smile[data-name=steep] {
-  background: url('widget/smilies.png') 50% 100% no-repeat
-}
-
-.shf_smile[data-name=anger] {
-  background: url('widget/smilies.png') 25% 100% no-repeat
-}
-
-.shf_smile[data-name=offense] {
-  background: url('widget/smilies.png') 0% 100% no-repeat
-}
-
 .shf_point {
   position: absolute;
   width: 0;
@@ -948,14 +466,6 @@ textarea {
   border-right: 8px solid transparent;
   border-left: 8px solid transparent;
   margin: 60px 0 0 60px
-}
-
-.shf_smile_img {
-  position: relative;
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  top: 3px
 }
 
 .shf_btn {
@@ -1131,163 +641,10 @@ textarea {
   bottom: 50px
 }
 
-.shf_pay_box {
-  display: none;
-  width: 296px;
-  height: 76px;
-  border: 1px solid #adadac;
-  position: absolute;
-  bottom: 54px;
-  right: -45px;
-  background: #fff
-}
-
-.shf_pay_logo:hover .shf_pay_box {
-  display: block
-}
-
-.shf_visa_logo {
-  width: 37px;
-  height: 39px;
-  cursor: pointer;
-  background: url('widget/visa_logo.png') no-repeat 30% 0;
-  float: left;
-  margin: 19px 15px 0
-}
-
-.shf_pay_box_title {
-  font-size: 13px;
-  font-weight: 700;
-  margin-top: 15px;
-  line-height: 16px
-}
-
-.shf_pay_box_description {
-  font-size: 12px;
-  line-height: 16px
-}
-
-.shf_triangle {
-  left: 210px;
-  top: 76px;
-  border-top: 17px solid #adadac
-}
-
-.shf_triangle, .shf_triangle_white {
-  position: absolute;
-  width: 0;
-  height: 0;
-  border-left: 32px solid transparent;
-  border-right: 0 solid transparent
-}
-
-.shf_triangle_white {
-  left: 209px;
-  top: 74px;
-  border-top: 17px solid #fff
-}
-
-.shf_btn_top .shf_pay_box {
-  top: 54px;
-  right: -41px
-}
-
-.shf_btn_top .shf_triangle {
-  left: 217px;
-  top: -52px;
-  border-bottom: 16px solid #adadac
-}
-
-.shf_btn_top .shf_triangle, .shf_btn_top .shf_triangle_white {
-  border-top: 35px solid transparent;
-  border-right: 0 solid transparent
-}
-
-.shf_btn_top .shf_triangle_white {
+.shf_btn_top {
   left: 216px;
   top: -50px;
   border-bottom: 16px solid #fff
-}
-
-.shf_btn_left .shf_pay_box {
-  bottom: -2px;
-  left: 57px
-}
-
-.shf_btn_left .shf_triangle {
-  left: -48px;
-  top: 42px;
-  border-right: 16px solid #adadac
-}
-
-.shf_btn_left .shf_triangle, .shf_btn_left .shf_triangle_white {
-  border-top: 24px solid transparent;
-  border-bottom: 0 solid transparent
-}
-
-.shf_btn_left .shf_triangle_white {
-  left: -46px;
-  top: 41px;
-  border-right: 16px solid #fff
-}
-
-.shf_btn_right .shf_pay_box {
-  bottom: -2px;
-  right: 57px
-}
-
-.shf_btn_right .shf_triangle {
-  left: 297px;
-  top: 41px;
-  border-left: 16px solid #adadac
-}
-
-.shf_btn_right .shf_triangle, .shf_btn_right .shf_triangle_white {
-  border-top: 24px solid transparent;
-  border-bottom: 0 solid transparent
-}
-
-.shf_btn_right .shf_triangle_white {
-  left: 295px;
-  top: 40px;
-  border-left: 16px solid #fff
-}
-
-.shf_block_counter {
-  float: right;
-  font-size: 11px;
-  color: #fff;
-  height: 27px;
-  padding: 0 10px;
-  line-height: 27px;
-  margin-top: 4px;
-  display: none
-}
-
-.shf_block_counter_logo {
-  background: url('widget/counter_logo.png') no-repeat;
-  width: 16px;
-  height: 16px;
-  margin: 4px 6px 0 0;
-  float: left
-}
-
-.shf_btn_left .shf_block_counter, .shf_btn_right .shf_block_counter {
-  border-top: 1px solid rgba(255, 255, 255, .3);
-  width: 25px;
-  padding: 0;
-  margin-right: 5px;
-  text-align: center
-}
-
-.shf_btn_top .shf_block_counter, .shf_btn_bottom .shf_block_counter {
-  border-left: 1px solid rgba(255, 255, 255, .3);
-  float: left;
-  overflow: hidden
-}
-
-.shf_btn_left .shf_block_counter_logo, .shf_btn_right .shf_block_counter_logo {
-  margin: 4px 0 0 5px
 }
 
 .shf_operator_help {
