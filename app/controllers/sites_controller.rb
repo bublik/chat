@@ -10,7 +10,9 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    #TODO open this list for user with admin rights
+    redirect_to root_path
+    #@sites = Site.all
   end
 
   # GET /sites/1
@@ -37,7 +39,7 @@ class SitesController < ApplicationController
 
     respond_to do |format|
       if @site.save
-        format.html { redirect_to @site, notice: 'Site was successfully created.' }
+        format.html { redirect_to site_path(@site), notice: 'Site was successfully created.' }
         format.json { render action: 'show', status: :created, location: @site }
       else
         format.html { render action: 'new' }
@@ -78,13 +80,15 @@ class SitesController < ApplicationController
 
   def set_site
     @site = Site.find_by_uuid(params[:id])
-    logger.debug __method__.to_s + @site.inspect
+    unless @site
+      render :nothing => true, :status => 404
+    end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def site_params
     params.require(:site).permit(:uuid, :name, :domain, :site_category_id, :color, :side, :position, :title_online,
-                                 :title_offline, :collect_stats, :show_offline, :show_offline, :auto_open, :disabled)
+                                 :title_offline, :collect_stats, :show_online, :show_offline, :auto_open, :disabled)
   end
 
   def grant_cross_domain

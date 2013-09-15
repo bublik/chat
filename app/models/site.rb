@@ -36,7 +36,7 @@ class Site  < ActiveRecord::Base
   ## Validations
   validates_presence_of :name
   validates_presence_of :domain
-  #validates_presence_of :site_category_id
+  validates_presence_of :uuid
 
   validates :color, format: {with: /\A#\w+\Z/}
   validates :position, inclusion: {in: Site::POSITION}
@@ -44,11 +44,11 @@ class Site  < ActiveRecord::Base
 
   after_initialize do |site|
     site.color ||= COLORS.first
+    site.position ||= 'right'
+    site.side ||= 'bottom'
+    site.uuid ||= UUID.new.generate(:compact)
   end
 
-  before_save do |site|
-    site.uuid = UUID.new.generate(:compact) if site.uuid.blank?
-  end
 
   def to_param
     uuid

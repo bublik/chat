@@ -1,5 +1,6 @@
 = simple_form_for(@site) do |f|
   = f.error_notification
+  = @site.errors.full_messages.inspect
   .control-group
     = f.input :name
     = f.input :domain
@@ -7,47 +8,47 @@
       = f.label :site_category_id, 'Категория', class: 'string optional control-label'
       .controls
         = f.collection_select :site_category_id, @sites_categories, :id, :name
-    .control-group
-      = f.label :color, 'Цвет', class: 'string optional control-label'
-      .controls
-        = f.select :color, Site::COLORS
-        %span.color
-    .control-group
-      = f.label :side, 'Положение', class: 'string optional control-label'
-      .controls
-        = f.select :side, Site::SIDE
-    .control-group
-      = f.label :position, 'Позиционирование', class: 'string optional control-label'
-      .controls
-        = f.select :position, Site::POSITION
-    -#
-    -#= f.input :title_online
-    -#= f.input :title_offline
-    .control-group
-      = f.label :collect_stats, 'Собирать статистику', class: 'control-label'
-      .controls
-        = f.check_box :collect_stats
-    .control-group
-      = f.label :show_online, 'Показывать виджет в онлайне', class: 'control-label'
-      .controls
-        = f.check_box :show_online
-    .control-group
-      = f.label :show_offline, 'Показывать виджет в офлайне', class: 'control-label'
-      .controls
-        = f.check_box :show_offline
-    .control-group
-      = f.label :disabled, 'Отключить виджет', class: 'control-label red'
-      .controls
-        = f.check_box :disabled
-    .control-group
-      = f.label :auto_open, 'Автоматически открывать при загрузке', class: 'control-label red'
-      .controls
-        = f.check_box :auto_open
     - unless @site.new_record?
       .control-group
-        = f.label :widget_code, 'Код виджета', class: 'control-label'
+        = f.label :color, 'Цвет', class: 'string optional control-label'
         .controls
-          = text_area_tag :widget_code, widget_code(@site), rows: 5
+          = f.select :color, Site::COLORS
+          %span.color
+      .control-group
+        = f.label :side, 'Положение', class: 'string optional control-label'
+        .controls
+          = f.select :side, Site::SIDE
+      .control-group
+        = f.label :position, 'Позиционирование', class: 'string optional control-label'
+        .controls
+          = f.select :position, Site::POSITION
+      = f.input :title_online
+      = f.input :title_offline
+      .control-group
+        = f.label :collect_stats, 'Собирать статистику', class: 'control-label'
+        .controls
+          = f.check_box :collect_stats
+      .control-group
+        = f.label :show_online, 'Показывать виджет в онлайне', class: 'control-label'
+        .controls
+          = f.check_box :show_online
+      .control-group
+        = f.label :show_offline, 'Показывать виджет в офлайне', class: 'control-label'
+        .controls
+          = f.check_box :show_offline
+      .control-group
+        = f.label :disabled, 'Отключить виджет', class: 'control-label red'
+        .controls
+          = f.check_box :disabled
+      .control-group
+        = f.label :auto_open, 'Автоматически открывать при загрузке', class: 'control-label red'
+        .controls
+          = f.check_box :auto_open
+      - unless @site.new_record?
+        .control-group
+          = f.label :widget_code, 'Код виджета', class: 'control-label'
+          .controls
+            = text_area_tag :widget_code, widget_code(@site), rows: 5
     = f.button :submit
 :css
   .color{ width: 25px; height: 25px; display: inline-block}
