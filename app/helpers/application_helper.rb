@@ -13,4 +13,7 @@ module ApplicationHelper
     content_tag(:i, '', class: style)
   end
 
+  def icon_boolean(flag = false)
+    flag ? icon('icon-ok') : icon('icon-remove')
+  end
 end

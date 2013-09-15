@@ -529,7 +529,7 @@
     sendMessage: function(options, data, callback){
       var toJid = options.to;
       var body = options.body;
-
+      var type = options.type || 'chat'
       if(options.resource != null)
 	toJid = toJid+"/"+options.resource;
       else if(this.resource != "")
@@ -545,7 +545,7 @@
       dataObj.append(data);
 
       //Add all parameters to the message
-      var messageObj = $("<obj><message type='chat' to='"+toJid+"' xmlns='jabber:client'>bodyCont</message></obj>");
+      var messageObj = $("<obj><message type='"+type+"' to='"+toJid+"' xmlns='jabber:client'>bodyCont</message></obj>");
       messageObj.find("message").attr(options);
 
       //Use raw text because jquery "destroy" the body tag

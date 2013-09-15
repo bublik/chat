@@ -1,45 +1,63 @@
-%p#notice= notice
+.tabbable.tabs-left
+  %ul.nav.nav-tabs
+    %li= link_to(icon('icon-home') + ' General', '#general', :class => 'active', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-picture') + ' Color and Position', '#color-position', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-th-list') + ' Title', '#titles', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-signal') + ' Statistic', '#stats', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-eye-open') + ' Display', '#display', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-file') + ' Integration Code', '#jscode', 'data-toggle' => 'tab')
 
-%p
-  %b Name:
-  = @site.name
-%p
-  %b Domain:
-  = @site.domain
-%p
-  %b Site category:
-  = @site.site_category_id
-%p
-  %b Color:
-  = @site.color
-%p
-  %b Side:
-  = @site.side
-%p
-  %b Position:
-  = @site.position
-%p
-  %b Title online:
-  = @site.title_online
-%p
-  %b Title offline:
-  = @site.title_offline
-%p
-  %b Collect stats:
-  = @site.collect_stats
-%p
-  %b Show offline:
-  = @site.show_offline
-%p
-  %b Show offline:
-  = @site.show_offline
-%p
-  %b Auto Open
-  = @site.auto_open
-%p
-  %b Disabled:
-  = @site.disabled
+  .tab-content
+    #general.tab-pane.active
+      .row
+        .span2 Name:
+        .span3= @site.name
+      .row
+        .span2 Domain:
+        .span3= link_to(@site.domain, "http://#{@site.domain}")
+      .row
+        .span2 Site category:
+        .span2= @site.site_category.name
+      .row
+        .span2 Enabled:
+        .span2= icon_boolean(!@site.disabled)
+    #color-position.tab-pane
+      .row
+        .span2 Color:
+        .span2= @site.color
+        .span1.color &nbsp;
+        = hidden_field_tag :site_color, @site.color
+      .row
+        .span2 Side:
+        .span2= @site.side
+      .row
+        .span2 Position:
+        .span2= @site.position
+    #titles.tab-pane
+      .row
+        .span2 Title online:
+        .span2= @site.title_online
+      .row
+        .span2 Title offline:
+        .span2= @site.title_offline
+    #stats.tab-pane
+      .row
+        .span2 Collect stats:
+        .span2= icon_boolean(@site.collect_stats)
+    #display.tab-pane
+      .row
+        .span2 Show offline:
+        .span2= icon_boolean(@site.show_offline)
+      .row
+        .span2 Show offline:
+        .span2= icon_boolean(@site.show_offline)
+      .row
+        .span2 Auto Open
+        .span2= icon_boolean(@site.auto_open)
+    #jscode.tab-pane
+      .row
+        .span4= text_area_tag :widget_code, widget_code(@site), rows: 6, cols: 30
 
-= link_to 'Edit', edit_site_path(@site)
-\|
-= link_to 'Back', sites_path
+= link_to('Edit', edit_site_path(@site), class: 'btn btn-warning')
+:css
+  textarea { width: 440px; height: 225px; }

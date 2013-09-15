@@ -51,6 +51,7 @@ jQuery(document).ready(function ($) {
 
       $(target).toggleClass('toggle-link-' + state);
       $(this).toggleClass(state);
+      return false;
     });
   });
 
@@ -102,18 +103,18 @@ jQuery(document).ready(function ($) {
   // tooltip
   $('.social-network li a, .options_box .color a').tooltip();
 
-  // fancybox
-  $(".fancybox").fancybox({
-    padding: 0,
-    autoResize: true,
-    beforeShow: function () {
-      this.title = $(this.element).attr('title');
-      this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '</p>';
-    },
-    helpers: {
-      title: { type: 'inside' },
-    }
-  });
+//  // fancybox
+//  $(".fancybox").fancybox({
+//    padding: 0,
+//    autoResize: true,
+//    beforeShow: function () {
+//      this.title = $(this.element).attr('title');
+//      this.title = '<h4>' + this.title + '</h4>' + '<p>' + $(this.element).parent().find('img').attr('alt') + '</p>';
+//    },
+//    helpers: {
+//      title: { type: 'inside' },
+//    }
+//  });
 
 
   //scroll to top
@@ -201,11 +202,5 @@ jQuery(document).ready(function ($) {
   })();
 
   Page.init();
-  /*
-   var $items  = $('<div class="sl-slide sl-slide-color-2" data-orientation="horizontal" data-slice1-rotation="-5" data-slice2-rotation="10" data-slice1-scale="2" data-slice2-scale="1"><div class="sl-slide-inner bg-1"><div class="sl-deco" data-icon="t"></div><h2>some text</h2><blockquote><p>bla bla</p><cite>Margi Clarke</cite></blockquote></div></div>');
-   // call the plugin's add method
-   ss.add($items);
-   */
-
 
 });
