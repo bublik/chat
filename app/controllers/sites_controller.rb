@@ -16,6 +16,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
+    logger.debug @site
     # TODO check this uid on new build
   end
 
@@ -77,11 +78,12 @@ class SitesController < ApplicationController
 
   def set_site
     @site = Site.find_by_uuid(params[:id])
+    logger.debug __method__.to_s + @site.inspect
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def site_params
-    params.require(:site).permit(:name, :domain, :site_category_id, :color, :side, :position, :title_online,
+    params.require(:site).permit(:uuid, :name, :domain, :site_category_id, :color, :side, :position, :title_online,
                                  :title_offline, :collect_stats, :show_offline, :show_offline, :auto_open, :disabled)
   end
 

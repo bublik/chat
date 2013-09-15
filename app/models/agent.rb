@@ -25,12 +25,12 @@ class Agent < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :token_authenticatable,# :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :sites
+  has_one :site
   # Jabber Authorization User
   has_one :user
 
   def full_name
-    name.blank? ? (email.blank? ? 'You' : email) : name
+    name.blank? ? email : name
   end
 
   def avatar_path

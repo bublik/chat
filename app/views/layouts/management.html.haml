@@ -13,16 +13,17 @@
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = stylesheet_link_tag "management", media: "all", "data-turbolinks-track" => true
   %body
-    = nav_bar fixed: :top, brand: 'Management', brand_link: management_index_path, inverse: true, responsive: true do
-      = menu_group do
-        -#= menu_item 'Home', root_path
-        = menu_divider
-        = menu_item 'Categories', site_categories_path
-        = menu_item 'Sites', sites_path
-        = menu_item 'Contact', contact_path
-      = menu_group(pull: 'right') do
-        %p.navbar-text= raw agent_header_auth_links
-    .container
+    %section.header
+      = nav_bar fixed: :top, brand: icon('icon-bar-chart') + 'Dashboard', brand_link: management_index_path, responsive: true do
+        = menu_group do
+          = menu_divider
+          = menu_item 'Agents', root_path
+          -#= menu_item 'Visitors', root_path
+          = menu_item 'Settings', current_agent.site ? site_path(current_agent.site) : new_site_path
+          = drop_down "Profile" do
+            = menu_item(current_agent.full_name, edit_agent_registration_path)
+            = menu_item('Sign out', destroy_agent_session_path, {method: :delete})
+    %section.container
       = bootstrap_flash
       = yield
       = javascript_include_tag 'management', 'data-turbolinks-track' => true

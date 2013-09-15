@@ -209,5 +209,5 @@ class window.ChatFrame
       c_value = unescape(c_value.substring(c_start, c_end))
     c_value
 
-window.cfrm = new window.ChatFrame(window._shcp)
+window.cfrm = new window.ChatFrame(window._chcfg)
 window.cfrm.load_site_config()
