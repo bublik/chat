@@ -29,6 +29,9 @@ class HomeController < ApplicationController
   def career
   end
 
+  def page404
+  end
+
   private
 
   def check_auth

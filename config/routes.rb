@@ -23,7 +23,9 @@ Chat::Application.routes.draw do
     get "/logout", :to => "devise/sessions#destroy", :as => :logout
   end
 
+  get '/404', to: 'home#page404'
   root 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
