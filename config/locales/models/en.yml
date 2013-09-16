@@ -6,7 +6,7 @@ en:
       site_category: 'Category'
     attributes:
       user:
-        name: 'Login'
+        username: 'Login'
         password: 'Password'
       agent:
         name: 'Login'

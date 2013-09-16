@@ -6,7 +6,7 @@ ru:
       site_category: 'Категория'
     attributes:
       user:
-        name: 'Логин'
+        username: 'Логин'
         password: 'Пароль'
       agent:
         name: 'Логин'
