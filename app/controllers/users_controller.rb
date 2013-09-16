@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def index
+    flash[:notice] = '404 Page not found!'
+    redirect_to root_path
+  end
+
   # GET /users/1
   # GET /users/1.json
   def show
