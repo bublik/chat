@@ -9,7 +9,6 @@
     / Le HTML5 shim, for IE6-8 support of HTML elements
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
-    = stylesheet_link_tag "management", media: "all", "data-turbolinks-track" => true
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
     = stylesheet_link_tag "management", media: "all", "data-turbolinks-track" => true
   %body
@@ -17,9 +16,8 @@
       = nav_bar fixed: :top, brand: icon('icon-bar-chart') + 'Dashboard', brand_link: management_index_path, responsive: true do
         = menu_group do
           = menu_divider
-          = menu_item 'Agents', root_path
-          -#= menu_item 'Visitors', root_path
           = menu_item 'Settings', current_agent.site ? site_path(current_agent.site) : new_site_path
+          = menu_item 'Client', current_agent.user ? user_path(current_agent.user) : new_user_path
           = drop_down "Profile" do
             = menu_item(current_agent.full_name, edit_agent_registration_path)
             = menu_item('Sign out', destroy_agent_session_path, {method: :delete})
@@ -28,4 +26,4 @@
       = yield
       = javascript_include_tag 'management', 'data-turbolinks-track' => true
     = javascript_tag do
-      = yield :javascript
+      $(document).ready( function() { #{yield :javascript} });

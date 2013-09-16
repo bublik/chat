@@ -22,7 +22,7 @@
 #  uuid             :binary(32)       not null
 #
 
-class Site  < ActiveRecord::Base
+class Site < ActiveRecord::Base
   ## Constants
   SIDE = %w( bottom top right left)
   POSITION = %w( right center left)
@@ -36,18 +36,17 @@ class Site  < ActiveRecord::Base
   ## Validations
   validates_presence_of :name
   validates_presence_of :domain
-  #validates_presence_of :site_category_id
+  validates_presence_of :uuid
 
   validates :color, format: {with: /\A#\w+\Z/}
   validates :position, inclusion: {in: Site::POSITION}
   validates :side, inclusion: {in: Site::SIDE}
 
-  after_initialize do |site|
-    site.color ||= COLORS.first
-  end
-
-  before_save do |site|
-    site.uuid = UUID.new.generate(:compact) if site.uuid.blank?
+  before_validation(on: :create) do
+    site.color ||= COLORS.last
+    site.position ||= 'right'
+    site.side ||= 'bottom'
+    site.uuid ||= UUID.new.generate(:compact)
   end
 
   def to_param

@@ -421,28 +421,12 @@ CREATE TABLE `sites` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `uuid` varbinary(32) NOT NULL,
+  `uuid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `index_sites_on_site_category_id` (`site_category_id`),
   KEY `index_sites_on_agent_id` (`agent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8 */ ;
-/*!50003 SET character_set_results = utf8 */ ;
-/*!50003 SET collation_connection  = utf8_general_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_ALL_TABLES' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER uuid_sites_insert BEFORE INSERT ON `sites`
-    FOR EACH ROW SET NEW.uuid = UUID( ) */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `spool`
@@ -595,7 +579,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-09-14 20:06:24
+-- Dump completed on 2013-09-15 22:14:50
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -607,3 +591,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130911122746');
 INSERT INTO schema_migrations (version) VALUES ('20130911161833');
 
 INSERT INTO schema_migrations (version) VALUES ('20130913072554');
+
+INSERT INTO schema_migrations (version) VALUES ('20130915185959');

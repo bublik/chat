@@ -1,6 +1,6 @@
 //<div id="btn-' + @site_uid + '" style="position: absolute; z-index: 10000">Online Help</div>
 
-window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= btn.side %> shf_btn_<%= btn.side %>_<%= btn.position %> shf_monitor" style="border: 1px solid #000; position: absolute; z-index: 10000; background-color: <%= btn.color %>">' +
+window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= btn.side %> shf_btn_<%= btn.side %>_<%= btn.position %> shf_monitor" style="text-shadow: 1px 1px 1px #202020; border: 1px solid #000; position: absolute; z-index: 10000; background-color: <%= btn.color %>">' +
     '<div class="shf shf_logo"><div class="shf shf_logo_cell"><img rel="logo" class="shf shf_logo_btn" src="<%= btn.logo %>"></div></div>' +
     '<div class="shc shf_title_text" rel="title">Online Help</div>'
 
