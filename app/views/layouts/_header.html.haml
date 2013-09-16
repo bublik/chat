@@ -44,25 +44,6 @@
               = f.input :password, input_html: { class: 'form-control', placeholder: 'Password' }
               = f.input :password_confirmation, input_html: { class: 'form-control', placeholder: 'Password confirmation' }
               %div= f.submit 'Sign up', class: 'btn btn-primary'
-            -#%form.form-horizontal
-              .control-group
-                %label.control-label{:for => "inputEmail"} Email
-                .controls
-                  %input#inputEmail{:placeholder => "Email", :type => "text"}/
-              .control-group
-                %label.control-label{:for => "inputSignupPassword"} Password
-                .controls
-                  %input#inputSignupPassword{:placeholder => "Password", :type => "password"}/
-              .control-group
-                %label.control-label{:for => "inputSignupPassword2"} Confirm Password
-                .controls
-                  %input#inputSignupPassword2{:placeholder => "Password", :type => "password"}/
-              .control-group
-                .controls
-                  %button.btn{:type => "submit"} Sign up
-                %p.aligncenter.margintop20
-                  Already have an account?
-                  %a{"aria-hidden" => "true", "data-dismiss" => "modal", "data-toggle" => "modal", :href => "#mySignin"} Sign in
         / end signup modal
         / Sign in Modal
         #mySignin.modal.styled.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "mySigninModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -77,21 +58,6 @@
               = f.input :password
               = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
               %div= f.submit 'Sign in', :class => 'btn btn-primary'
-            -#%form.form-horizontal
-              .control-group
-                %label.control-label{:for => "inputText"} Username
-                .controls
-                  %input#inputText{:placeholder => "Username", :type => "text"}/
-              .control-group
-                %label.control-label{:for => "inputSigninPassword"} Password
-                .controls
-                  %input#inputSigninPassword{:placeholder => "Password", :type => "password"}/
-              .control-group
-                .controls
-                  %button.btn{:type => "submit"} Sign in
-                %p.aligncenter.margintop20
-                  Forgot password?
-                  %a{"aria-hidden" => "true", "data-dismiss" => "modal", "data-toggle" => "modal", :href => "#myReset"} Reset
         / end signin modal
         / Reset Modal
         #myReset.modal.styled.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myResetModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -125,40 +91,9 @@
                 %li.dropdown.active
                   %a{:href => "/"}
                     Home
-                    %i.icon-angle-down
-                  %ul.dropdown-menu
-                    %li
-                      %a{:href => "index-alt2.html"} Homepage 2
-                    %li
-                      %a{:href => "index-alt3.html"} Homepage 3
                 %li.dropdown
                   %a{:href => "#"}
                     Features
-                    %i.icon-angle-down
-                  %ul.dropdown-menu
-                    %li
-                      %a{:href => "typography.html"} Typography
-                    %li
-                      %a{:href => "table.html"} Table
-                    %li
-                      %a{:href => "components.html"} Components
-                    %li
-                      %a{:href => "animations.html"} 56 Animations
-                    %li
-                      %a{:href => "icons.html"} Icons
-                    %li
-                      %a{:href => "icon-variations.html"} Icon variations
-                    %li.dropdown
-                      %a{:href => "#"}
-                        3 Sliders
-                        %i.icon-angle-right
-                      %ul.dropdown-menu.sub-menu-level1
-                        %li
-                          %a{:href => "index.html"} Nivo slider
-                        %li
-                          %a{:href => "index-alt2.html"} Slit slider
-                        %li
-                          %a{:href => "index-alt3.html"} Parallax slider
                 %li.dropdown
                   %a{:href => "#"}
                     Pages
@@ -172,32 +107,6 @@
                       %a{:href => "testimonials.html"} Testimonials
                     %li
                       %a{:href => "404.html"} 404
-                %li.dropdown
-                  %a{:href => "#"}
-                    Portfolio
-                    %i.icon-angle-down
-                  %ul.dropdown-menu
-                    %li
-                      %a{:href => "portfolio-2cols.html"} Portfolio 2 columns
-                    %li
-                      %a{:href => "portfolio-3cols.html"} Portfolio 3 columns
-                    %li
-                      %a{:href => "portfolio-4cols.html"} Portfolio 4 columns
-                    %li
-                      %a{:href => "portfolio-detail.html"} Portfolio detail
-                %li.dropdown
-                  %a{:href => "#"}
-                    Blog
-                    %i.icon-angle-down
-                  %ul.dropdown-menu
-                    %li
-                      %a{:href => "blog-left-sidebar.html"} Blog left sidebar
-                    %li
-                      %a{:href => "blog-right-sidebar.html"} Blog right sidebar
-                    %li
-                      %a{:href => "post-left-sidebar.html"} Post left sidebar
-                    %li
-                      %a{:href => "post-right-sidebar.html"} Post right sidebar
                 %li
                   %a{:href => "contact.html"} Contact
           / end navigation
