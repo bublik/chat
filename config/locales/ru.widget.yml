@@ -1,0 +1,9 @@
+ru:
+  widget:
+    smile: 'Смайлик'
+    sound: 'Звук'
+    submit_btn: 'Отправить'
+    close: 'Завершить'
+    close_dialog: 'Завершить диалог'
+    hide: 'Свернуть'
+    placeholder: 'Введите текст сообщения...'

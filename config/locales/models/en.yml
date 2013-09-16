@@ -1,0 +1,34 @@
+en:
+  activerecord:
+    models:
+      site: 'Site'
+      user: 'Jabber account'
+      site_category: 'Category'
+    attributes:
+      user:
+        name: 'Login'
+        password: 'Password'
+      agent:
+        name: 'Login'
+        email: 'Email'
+        password: 'Password'
+        password_confirmation: 'Password Confirmation'
+        current_password: 'Current Password'
+        remember_me: 'Remember Me'
+      site_category:
+        name: 'Title'
+      site:
+        name: 'Title'
+        domain: 'Domain'
+        site_category_id: 'Category'
+        agent_id: 'Agent'
+        color: 'Color'
+        side: 'Side'
+        position: 'Position'
+        title_online: 'Title online'
+        title_offline: 'Title offline'
+        collect_stats: 'Collect statistics'
+        show_online: 'Show online'
+        show_offline: 'Show offline'
+        auto_open: 'Auto Open'
+        disabled: 'Disabled'

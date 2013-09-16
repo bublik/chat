@@ -1,0 +1,34 @@
+ru:
+  activerecord:
+    models:
+      site: 'Сайт'
+      user: 'Jabber акаунт'
+      site_category: 'Категория'
+    attributes:
+      user:
+        name: 'Логин'
+        password: 'Пароль'
+      agent:
+        name: 'Логин'
+        email: 'Емейл'
+        password: 'Пароль'
+        password_confirmation: 'Подтвердите пароль'
+        current_password: 'Текущий пароль'
+        remember_me: 'Запомнить меня'
+      site_category:
+        name: 'Название'
+      site:
+        name: 'Название'
+        domain: 'Домен'
+        site_category_id: 'Категория'
+        agent_id: 'Агент'
+        color: 'Цвет'
+        side: 'Сторона'
+        position: 'Положение'
+        title_online: 'Сообщение онлайн'
+        title_offline: 'Сообщение офлайн'
+        collect_stats: 'Сбор статистики'
+        show_online: 'Показывать онлайн'
+        show_offline: 'Показывать офлайн'
+        auto_open: 'Автоматически открывать'
+        disabled: 'Отключено'

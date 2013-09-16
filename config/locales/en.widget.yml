@@ -1,0 +1,9 @@
+en:
+  widget:
+    smile: 'Smile'
+    sound: 'sound'
+    submit_btn: 'Send'
+    close: 'Close'
+    close_dialog: 'Close dialog'
+    hide: 'Hide'
+    placeholder: 'Enter message...'

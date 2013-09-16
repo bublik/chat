@@ -1,5 +1,6 @@
-%h1 Edit account
+%h1
+  = t('global.edit')
 
 = render 'form'
 
-= link_to 'Show', @user
+= link_to t('global.show'), @user

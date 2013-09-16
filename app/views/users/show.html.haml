@@ -11,7 +11,7 @@
       %i.btn.btn-mini.pass Show
       .hidden= @user.password
 
-  = link_to('Edit', edit_user_path(@user), class: 'btn btn-warning')
+  = link_to(t('global.edit'), edit_user_path(@user), class: 'btn btn-warning')
 
 %h4 How configure Desktop client
 %ul

@@ -1,9 +1,9 @@
 - content_for :head_line_title do
-  Edit #{resource_name.to_s.humanize}
+  #{t('global.edit')} #{resource_name.to_s.humanize}
 - content_for :head_line_content do
   %ul.breadcrumb
     %li= link_to(icon('icon-home' ), root_path) + icon('icon-angle-right')
-    %li.active Edit
+    %li.active= t('global.edit')
 
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
   = f.input :name
@@ -18,7 +18,7 @@
   %i (we need your current password to confirm your changes)
   %div= f.submit "Update", class: 'btn btn-warning'
 
-= link_to("Back", :back)
+= link_to(t('global.back'), :back)
 
 -#%h3 Cancel my account
 -#%p

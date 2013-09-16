@@ -10,7 +10,7 @@
           %li
             Call us
             %i.icon-phone
-            (093) 5070 - 663
+            +38 (093) 5070 - 663
 
 / start header
 %header
@@ -19,7 +19,7 @@
     #header-hidden-link
       %a.toggle-link{"data-target" => ".hidden-top", :href => "#", :title => "Click me you'll get a surprise"}
         %i
-        Open
+        = t('global.open')
     / end toggle link
     .row.nomargin
       .span12
@@ -28,44 +28,38 @@
             %li
               %a{"data-toggle" => "modal", :href => "#mySignup"}
                 %i.icon-user
-                Sign up
+                = t('devise.titles.sign_up')
             %li
-              %a{"data-toggle" => "modal", :href => "#mySignin"} Sign in
+              %a{"data-toggle" => "modal", :href => "#mySignin"}= t('devise.titles.sign_in')
         / Signup Modal
         #mySignup.modal.styled.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "mySignupModalLabel", :role => "dialog", :tabindex => "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-            %h4#mySignupModalLabel
-              Create an
-              %strong account
+            %h4#mySignupModalLabel= t('devise.titles.create_account')
           .modal-body
             = simple_form_for(Agent.new, :as => 'agent', :url => registration_path('agent')) do |f|
               = f.input :email, input_html: { autofocus: true, class: 'form-control', placeholder: 'Enter email' }
               = f.input :password, input_html: { class: 'form-control', placeholder: 'Password' }
               = f.input :password_confirmation, input_html: { class: 'form-control', placeholder: 'Password confirmation' }
-              %div= f.submit 'Sign up', class: 'btn btn-primary'
+              %div= f.submit t('devise.titles.sign_up'), class: 'btn btn-primary'
         / end signup modal
         / Sign in Modal
         #mySignin.modal.styled.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "mySigninModalLabel", :role => "dialog", :tabindex => "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-            %h4#mySigninModalLabel
-              Login to your
-              %strong account
+            %h4#mySigninModalLabel= t('devise.titles.login_to_account')
           .modal-body
             = simple_form_for(Agent.new, :as => 'agent', :url => session_path('agent')) do |f|
               = f.input :email, input_html: { autofocus: true, class: 'form-control'}
               = f.input :password
               = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
-              %div= f.submit 'Sign in', :class => 'btn btn-primary'
+              %div= f.submit t('devise.titles.sign_in'), :class => 'btn btn-primary'
         / end signin modal
         / Reset Modal
         #myReset.modal.styled.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myResetModalLabel", :role => "dialog", :tabindex => "-1"}
           .modal-header
             %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-            %h4#myResetModalLabel
-              Reset your
-              %strong password
+            %h4#myResetModalLabel= t('devise.titles.reset_password')
           .modal-body
             %form.form-horizontal
               .control-group
@@ -74,7 +68,7 @@
                   %input#inputResetEmail{:placeholder => "Email", :type => "text"}/
               .control-group
                 .controls
-                  %button.btn{:type => "submit"} Reset password
+                  %button.btn{:type => "submit"}= t('devise.titles.reset_password')
                 %p.aligncenter.margintop20
                   We will send instructions on how to reset your password to your inbox
         / end reset modal
@@ -82,32 +76,30 @@
       .span4
         .logo
           = link_to(image_tag('logo.png'), root_path, :title => 'Home')
-          %h1 If you want to go after big business, you also may want to consider integrating this platform at some point with other tech support solutions.
+          %h1= t('.slogan')
       .span8
         .navbar.navbar-static-top
           .navigation
             %nav
               %ul.nav.topnav
                 %li.dropdown.active
-                  %a{:href => "/"}
-                    Home
+                  %a{:href => "/"} Home
                 %li.dropdown
-                  %a{:href => "#"}
-                    Features
+                  %a{:href => "#"} Features
                 %li.dropdown
                   %a{:href => "#"}
                     Pages
                     %i.icon-angle-down
                   %ul.dropdown-menu
-                    %li
-                      %a{:href => "about.html"} About us
-                    %li
-                      %a{:href => "pricingbox.html"} Pricing boxes
-                    %li
-                      %a{:href => "testimonials.html"} Testimonials
-                    %li
-                      %a{:href => "404.html"} 404
-                %li
-                  %a{:href => "contact.html"} Contact
+                    %li= link_to('About us', about_path, title: 'About us')
+                    %li= link_to('Pricing', price_path, title: 'price')
+                %li.dropdown
+                  %a{:href => "#"}
+                    Language
+                    %i.icon-angle-down
+                  %ul.dropdown-menu
+                    %li= link_to('RU', "http://#{APP_CONFIG['HOST']}", title: 'Russian')
+                    %li= link_to('EN', "http://en.#{APP_CONFIG['HOST']}", title: 'English')
+                %li= link_to('Contacts', contact_path, title: 'Contact')
           / end navigation
 / end header
