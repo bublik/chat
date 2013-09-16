@@ -1,0 +1,8 @@
+= simple_form_for(@user) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :username, hint: 'example: alexey.orlov.earth', placeholder: current_agent.short_name
+    = f.input :password, as: :string, hint: 'enter password', input_html: {}
+
+  .row
+    .span4.offset1= f.button :submit, class: 'btn btn-primary'

@@ -1,0 +1,44 @@
+%h4.alert.alert-info
+  Your Jabber account:
+  %span.label.label-info= @user.jabber_account
+.well
+  .row
+    .span2 Username:
+    .span2= @user.username
+  .row
+    .span2 Password:
+    .span2
+      %i.btn.btn-mini.pass Show
+      .hidden= @user.password
+
+  = link_to('Edit', edit_user_path(@user), class: 'btn btn-warning')
+
+%h4 How configure Desktop client
+%ul
+  %li
+    %h5 Download and install any client you like.
+    %h4 Windows
+    %ul
+      %li Miranda #{link_to('http://www.miranda-im.org/', 'http://www.miranda-im.org/')}
+      %li Qip Infium #{link_to('http://qip.ru', 'http://qip.ru')}
+      %li Gajim #{link_to('http://gajim.org/', 'http://gajim.org/')}
+      %li Pidgin #{link_to('http://pidgin.im', 'http://pidgin.im')}
+      %li Jabbim #{link_to('http://www.jabbim.com/', 'http://www.jabbim.com/')}
+      %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
+    %h4 Mac OS X
+    %ul
+      %li Audium #{link_to('https://adium.im/', 'https://adium.im/')}
+      %li iChat #{link_to('http://www.apple.com/osx/apps/', 'http://www.apple.com/osx/apps/')}
+      %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
+    = link_to('Find more clients', 'https://www.google.com/search?q=jabber+client', class: 'btn')
+  %li
+    %h5 Configure client
+    %p Use login and password on the page head.
+    /TODO add video
+
+- content_for :javascript do
+  $('.btn.pass').click(function(e){
+  $(e.target).parent().find('.hidden').toggleClass('hidden');
+  $(e.target).remove();
+  })
+

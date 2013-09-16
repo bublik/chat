@@ -30,7 +30,11 @@ class Agent < ActiveRecord::Base
   has_one :user
 
   def full_name
-    name.blank? ? email : name
+    name.blank? ? short_name : name
+  end
+
+  def short_name
+    email.split('@').first
   end
 
   def avatar_path

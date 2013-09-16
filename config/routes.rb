@@ -1,5 +1,6 @@
 Chat::Application.routes.draw do
   resources :sites
+  resources :users
   resources :site_categories
 
   get "management/index"
