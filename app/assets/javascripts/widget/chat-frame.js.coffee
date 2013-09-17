@@ -101,9 +101,6 @@ class window.ChatFrame
   hide_widget: ->
     jQuery(@widget_window_id).fadeOut() #hide()
 
-  avatar: (user)->
-    @sheme + '://' + @site_config.bosh_domain + 'presence/jid/' + user + '/' + @site_config.bosh_domain + '/image/'
-
   connect: ->
     console.log "Connect:"
     self = @
@@ -139,24 +136,23 @@ class window.ChatFrame
 
       onMessage: (message) ->
         console.log('onMessage', message)
-        jid = message.from.split("/")
         if (err = message.data.find('error')).context != undefined
-          console.log 'ERROR', jid, err
-
+          console.log 'ERROR', message.from, err
         msg = {
           time_at: (new Date).toLocaleString().split(' ')[1],
-          full_name: jid[0],
-          content: message.body,
-          avatar_path: self.avatar(jid[0])}
+          full_name: self.site_config.operator.name,
+          content: message.body}
         console.log 'MSG', msg
         self.append_message(msg)
       onError: (error) ->
         console.log error.error
+        if error.error.match(/Invalid/)
+          jQuery.xmpp.disconnect()
 
   append_message: (data) ->
     console.log('append_message <-')
-    if _.isEmpty(data.msg)
-      console.log('enpty message, exit')
+    if _.isEmpty(data.content)
+      console.log('empty message, exit')
       return
     mesage_content = _.template(window.ch_message_tpl, { msg: data })
     jQuery('#shf_messages').append(mesage_content)
@@ -175,13 +171,12 @@ class window.ChatFrame
     console.log 'Send message =>'
     # jQuery.xmpp.sendCommand("<presence from='"+ $.xmpp.jid+"' to='"+@site_config.to+"' type='subscribe'/>")
     # type chat, private, groupchat and default  chat
-    jQuery.xmpp.sendMessage({ type: 'private', to: @site_config.to, body: @current_page() + input.val()})
+    jQuery.xmpp.sendMessage({ type: 'private', to: @site_config.operator.email, body: @current_page() + input.val()})
 
     @append_message({
       time_at: (new Date).toLocaleString().split(' ')[1],
-      full_name: 'Guest',
-      content: input.val(),
-      avatar_path: @avatar('guest') })
+      full_name: 'You',
+      content: input.val() })
     input.val ""
 #  get_Vcard: () ->
 #    jQuery.xmpp.sendCommand("<iq from='" + jQuery.xmpp.jid + "' id='v4' to='" + @site_config.to + "' type='get'><vcard xmlns='urn:ietf:params:xml:ns:vcard-4.0'/></iq>")

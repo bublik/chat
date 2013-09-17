@@ -22,7 +22,7 @@
 class Agent < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable, :token_authenticatable,# :confirmable,
+  devise :database_authenticatable, :registerable, :token_authenticatable, # :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :sites
@@ -35,6 +35,14 @@ class Agent < ActiveRecord::Base
 
   def short_name
     email.split('@').first
+  end
+
+  def widget_json
+    {
+        name: full_name,
+        email: (Rails.env.development? ? 'admin@helperchat.com' : email),
+        avatar_path: avatar_path
+    }
   end
 
   def avatar_path

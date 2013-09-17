@@ -47,8 +47,8 @@
 }
 
 .shf_header_logo {
-  width: 45px;
-  line-height: 34px;
+  //width: 45px;
+  //line-height: 34px;
   text-align: center;
   height: 34px;
   cursor: pointer;
@@ -64,8 +64,8 @@
 }
 
 .shf_title {
-  line-height: 45px;
-  height: 35px;
+  line-height: 25px;
+  //height: 35px;
   overflow: hidden;
   color: #fff;
   font-size: 16px
@@ -189,7 +189,7 @@
 }
 
 .shf_mess_content {
-  margin: 0 0 0 45px;
+  margin: 0;
   text-align: left;
 }
 

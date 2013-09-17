@@ -9,9 +9,10 @@ window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= b
  Variables: avatar_path, full_name, content, time_at
  */
 
+//'<div class="shf_photo"><img class="shf_avatar" src="<%= msg.avatar_path %>"></div>' +
+
 window.ch_message_tpl = 
 '<div class="shf_message">' +
-  '<div class="shf_photo"><img class="shf_avatar" src="<%= msg.avatar_path %>"></div>' +
     '<div class="shf_mess_content">' +
       '<div class="shf_mess_details">' +
         '<div class="shf_mess_time"><%= msg.time_at %></div>' +
