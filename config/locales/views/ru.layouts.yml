@@ -15,3 +15,11 @@ ru:
       download_and_install: Загрузите и установите клиент который вам нравится.
       configure_client: Настройка клиента
       use_credential: Ипользуйте Логин и Пароль который размещен в начале страницы
+  sites:
+    show:
+      general: ' Общие'
+      color_position: ' Цвет и положение'
+      title: ' Кодпись'
+      statistic: ' Статистика'
+      display: ' Отображение'
+      integration_code: ' Код для интеграции'

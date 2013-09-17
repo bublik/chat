@@ -1,5 +1,9 @@
 module SitesHelper
 
+  def site_humanize_column(column = '')
+    Site.human_attribute_name(column)
+  end
+
   def widget_js
     "#{APP_CONFIG['HOST']}/assets/widget.js"
   end

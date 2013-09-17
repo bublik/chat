@@ -15,3 +15,11 @@ en:
       download_and_install: Download and install any client you like.
       configure_client: Configure client
       use_credential: Use login and password on the page head.
+  sites:
+    show:
+      general: ' General'
+      color_position: ' Color and Position'
+      title: ' Title'
+      statistic: ' Statistic'
+      display: ' Display'
+      integration_code: ' Integration Code'

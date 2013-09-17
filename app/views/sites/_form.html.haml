@@ -4,51 +4,51 @@
     = f.input :name
     = f.input :domain
     .control-group
-      = f.label :site_category_id, 'Категория', class: 'string optional control-label'
+      = f.label :site_category_id, site_humanize_column('site_category_id'), class: 'string optional control-label'
       .controls
         = f.collection_select :site_category_id, @sites_categories, :id, :name
     - unless @site.new_record?
       .control-group
-        = f.label :color, 'Цвет', class: 'string optional control-label'
+        = f.label :color, site_humanize_column('color'), class: 'string optional control-label'
         .controls
           = f.select :color, Site::COLORS
           %span.color
       .control-group
-        = f.label :side, 'Положение', class: 'string optional control-label'
+        = f.label :side, site_humanize_column('side'), class: 'string optional control-label'
         .controls
           = f.select :side, Site::SIDE
       .control-group
-        = f.label :position, 'Позиционирование', class: 'string optional control-label'
+        = f.label :position, site_humanize_column('position'), class: 'string optional control-label'
         .controls
           = f.select :position, Site::POSITION
       = f.input :title_online
       = f.input :title_offline
       .control-group
-        = f.label :collect_stats, 'Собирать статистику', class: 'control-label'
+        = f.label :collect_stats, site_humanize_column('collect_stats'), class: 'control-label'
         .controls
           = f.check_box :collect_stats
       .control-group
-        = f.label :show_online, 'Показывать виджет в онлайне', class: 'control-label'
+        = f.label :show_online, site_humanize_column('show_online'), class: 'control-label'
         .controls
           = f.check_box :show_online
       .control-group
-        = f.label :show_offline, 'Показывать виджет в офлайне', class: 'control-label'
+        = f.label :show_offline, site_humanize_column('show_offline'), class: 'control-label'
         .controls
           = f.check_box :show_offline
       .control-group
-        = f.label :disabled, 'Отключить виджет', class: 'control-label red'
+        = f.label :disabled, site_humanize_column('disabled'), class: 'control-label red'
         .controls
           = f.check_box :disabled
       .control-group
-        = f.label :auto_open, 'Автоматически открывать при загрузке', class: 'control-label red'
+        = f.label :auto_open, site_humanize_column('auto_open'), class: 'control-label red'
         .controls
           = f.check_box :auto_open
       - unless @site.new_record?
         .control-group
-          = f.label :widget_code, 'Код виджета', class: 'control-label'
+          = f.label :widget_code, site_humanize_column('widget_code'), class: 'control-label'
           .controls
             = text_area_tag :widget_code, widget_code(@site), rows: 5
-    = f.button :submit
+    = f.submit t('global.send'), class: 'btn btn-primary'
 :css
   .color{ width: 25px; height: 25px; display: inline-block; vertical-align: bottom;}
 
