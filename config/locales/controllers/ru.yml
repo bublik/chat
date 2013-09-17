@@ -6,3 +6,6 @@ ru:
       add_jabber_account: Создайте джаббер аккаунт
     create:
       created_successful: Джаббер аккаунт создан
+    form:
+      cant_change: Вы не можете изменить логин
+      enter_password: введите пароль

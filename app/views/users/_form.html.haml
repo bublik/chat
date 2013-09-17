@@ -1,8 +1,11 @@
 = simple_form_for(@user) do |f|
   = f.error_notification
   .form-inputs
-    = f.input :username, hint: 'example: alexey.orlov.earth', placeholder: current_agent.short_name
-    = f.input :password, as: :string, hint: 'enter password', input_html: {}
+    - if @user.new_record?
+      = f.input :username, hint: 'example: alexey.orlov.earth', placeholder: current_agent.short_name
+    - else
+      = f.input :username, disabled: true, hint: t('.cant_change')
+    = f.input :password, as: :string, hint: t('.enter_password'), input_html: {}
 
   .row
     .span4.offset1= f.submit t('global.send'), class: 'btn btn-primary'

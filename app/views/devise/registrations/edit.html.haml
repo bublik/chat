@@ -16,9 +16,7 @@
   = f.input :password_confirmation, :input_html => { autocomplete: "off"}
   = f.input :current_password
   %i (we need your current password to confirm your changes)
-  %div= f.submit "Update", class: 'btn btn-warning'
-
-= link_to(t('global.back'), :back)
+  %div= f.submit t('global.update'), class: 'btn btn-warning'
 
 -#%h3 Cancel my account
 -#%p

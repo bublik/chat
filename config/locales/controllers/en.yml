@@ -6,3 +6,6 @@ en:
       add_jabber_account: Add Jabber account
     create:
       created_successful: Jabber account created
+    form:
+      cant_change: 'You cannot change your username.'
+      enter_password: 'enter password'
