@@ -16,3 +16,5 @@ en:
       flash_created: 'Site was successfully created.'
     update:
       flash_updated: 'Settings was successfully updated.'
+    show:
+      add: 'Добавить'

@@ -25,7 +25,7 @@ class Agent < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :token_authenticatable,# :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_one :site
+  has_many :sites
   # Jabber Authorization User
   has_one :user
 

@@ -11,8 +11,10 @@ ru:
       enter_password: введите пароль
   sites:
     new:
-      add_site: 'Добавьте сайт'
+      add_site: 'Добавить сайт'
     create:
       flash_created: 'Сайт успешно добавлен.'
     update:
       flash_updated: 'Настройки успешно обновлены.'
+    show:
+      add: 'Добавить'
