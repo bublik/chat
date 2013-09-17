@@ -2,6 +2,12 @@ en:
   layouts:
     header:
       slogan: If you want to go after big business, you also may want to consider integrating this platform at some point with other tech support solutions.
+      home: 'Home'
+      about_us: 'About us'
+      pricing: 'Prices'
+      contacts: 'Contacts'
+      language: 'Language'
+
     management:
       settings: 'Settings'
       client: 'Client'

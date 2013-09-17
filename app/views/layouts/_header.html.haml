@@ -63,43 +63,39 @@
           .modal-body
             %form.form-horizontal
               .control-group
-                %label.control-label{:for => "inputResetEmail"} Email
+                %label.control-label{:for => "inputResetEmail"}= t('activerecord.attributes.agent.email')
                 .controls
                   %input#inputResetEmail{:placeholder => "Email", :type => "text"}/
               .control-group
                 .controls
                   %button.btn{:type => "submit"}= t('devise.titles.reset_password')
-                %p.aligncenter.margintop20
-                  We will send instructions on how to reset your password to your inbox
+                %p.aligncenter.margintop20= t('devise.passwords.send_instructions')
         / end reset modal
     .row
       .span4
         .logo
-          = link_to(image_tag('logo.png'), root_path, :title => 'Home')
+          = link_to(image_tag('logo.png'), root_path, title: 'Home')
           %h1= t('.slogan')
       .span8
         .navbar.navbar-static-top
           .navigation
             %nav
               %ul.nav.topnav
-                %li.dropdown.active
-                  %a{:href => "/"} Home
-                %li.dropdown
-                  %a{:href => "#"} Features
+                %li.dropdown.active= link_to(t('.home'), root_path, title: 'home')
                 %li.dropdown
                   %a{:href => "#"}
-                    Pages
+                    = t('.pages')
                     %i.icon-angle-down
                   %ul.dropdown-menu
-                    %li= link_to('About us', about_path, title: 'About us')
-                    %li= link_to('Pricing', price_path, title: 'price')
+                    %li= link_to(t('.about_us'), about_path, title: 'About us')
+                    %li= link_to(t('.pricing'), price_path, title: 'price')
                 %li.dropdown
                   %a{:href => "#"}
-                    Language
+                    = t('.language')
                     %i.icon-angle-down
                   %ul.dropdown-menu
                     %li= link_to('RU', "http://#{APP_CONFIG['HOST']}", title: 'Russian')
                     %li= link_to('EN', "http://en.#{APP_CONFIG['HOST']}", title: 'English')
-                %li= link_to('Contacts', contact_path, title: 'Contact')
+                %li= link_to(t('.contacts'), contact_path, title: 'Contact')
           / end navigation
 / end header
