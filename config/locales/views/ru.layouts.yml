@@ -9,7 +9,7 @@ ru:
       dashboard: 'Управление'
   users:
     show:
-      your_j_acc: 'Ваш джабер аккаунт'
+      your_j_acc: 'Ваш джаббер аккаунт'
       how_configure: Как настроить клиента для получения сообщений
       find_more_clients: Найти другие клиенты
       download_and_install: Загрузите и установите клиент который вам нравится.

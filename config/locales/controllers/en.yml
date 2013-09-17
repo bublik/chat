@@ -1,4 +1,8 @@
 en:
   users:
     update:
-     updated_successful: Account was successfully updated.
+      updated_successful: Account was successfully updated
+    new:
+      add_jabber_account: Add Jabber account
+    create:
+      created_successful: Jabber account created

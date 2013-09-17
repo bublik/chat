@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'Jabber Client created.' }
+        format.html { redirect_to @user, notice: t('.created_successful') }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }

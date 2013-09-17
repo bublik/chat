@@ -1,4 +1,8 @@
 ru:
   users:
     update:
-     updated_successful: Аккаунт обновлен успешно
+      updated_successful: Аккаунт обновлен успешно
+    new:
+      add_jabber_account: Создайте джаббер аккаунт
+    create:
+      created_successful: Джаббер аккаунт создан
