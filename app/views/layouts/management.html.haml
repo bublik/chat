@@ -26,5 +26,6 @@
       = bootstrap_flash
       = yield
       = javascript_include_tag 'management'
-    = javascript_tag do
-      $(document).ready( function() { #{yield :javascript} });
+    - if content_for?(:javascript)
+      = javascript_tag do
+        $(document).ready( function() { #{yield :javascript} });

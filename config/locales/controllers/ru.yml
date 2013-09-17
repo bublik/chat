@@ -18,3 +18,7 @@ ru:
       flash_updated: 'Настройки успешно обновлены.'
     show:
       add: 'Добавить'
+  management:
+    index:
+      need_add_site: 'Добавьте <a href="%{page_link}" >новый сайт</a>'
+      need_add_jabber_acc: 'Создайте <a href="%{page_link}" >Jabber аккаунт</a>'
