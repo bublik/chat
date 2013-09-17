@@ -9,3 +9,10 @@ en:
     form:
       cant_change: 'You cannot change your username.'
       enter_password: 'enter password'
+  sites:
+    new:
+      add_site: 'Add new Site'
+    create:
+      flash_created: 'Site was successfully created.'
+    update:
+      flash_updated: 'Settings was successfully updated.'

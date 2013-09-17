@@ -43,10 +43,10 @@ class Site < ActiveRecord::Base
   validates :side, inclusion: {in: Site::SIDE}
 
   before_validation(on: :create) do
-    site.color ||= COLORS.last
-    site.position ||= 'right'
-    site.side ||= 'bottom'
-    site.uuid ||= UUID.new.generate(:compact)
+    self.color ||= COLORS.last
+    self.position ||= 'right'
+    self.side ||= 'bottom'
+    self.uuid ||= UUID.new.generate(:compact)
   end
 
   def to_param

@@ -19,7 +19,7 @@ ru:
     show:
       general: ' Общие'
       color_position: ' Цвет и положение'
-      title: ' Кодпись'
+      title: ' Подпись'
       statistic: ' Статистика'
       display: ' Отображение'
       integration_code: ' Код для интеграции'

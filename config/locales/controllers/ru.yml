@@ -9,3 +9,10 @@ ru:
     form:
       cant_change: Вы не можете изменить логин
       enter_password: введите пароль
+  sites:
+    new:
+      add_site: 'Добавьте сайт'
+    create:
+      flash_created: 'Сайт успешно добавлен.'
+    update:
+      flash_updated: 'Настройки успешно обновлены.'
