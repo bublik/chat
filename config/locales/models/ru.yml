@@ -15,7 +15,7 @@ ru:
         username: 'Логин'
         password: 'Пароль'
       agent:
-        name: 'Логин'
+        name: 'Имя'
         email: 'Емейл'
         password: 'Пароль'
         password_confirmation: 'Подтвердите пароль'
