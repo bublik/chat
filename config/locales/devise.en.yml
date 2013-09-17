@@ -7,6 +7,7 @@ en:
       create_account: Create an account
       sign_up: Sign up
       sign_in: Sign in
+      sign_out: Sign out
       reset_password: Reset your password
 
     confirmations:

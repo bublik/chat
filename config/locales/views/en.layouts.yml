@@ -2,3 +2,16 @@ en:
   layouts:
     header:
       slogan: If you want to go after big business, you also may want to consider integrating this platform at some point with other tech support solutions.
+    management:
+      settings: 'Settings'
+      client: 'Client'
+      profile: 'Profile'
+      dashboard: 'Dashboard'
+  users:
+    show:
+      your_j_acc: Your jabber account
+      how_configure: How configure Desktop client
+      find_more_clients: Find more clients
+      download_and_install: Download and install any client you like.
+      configure_client: Configure client
+      use_credential: Use login and password on the page head.

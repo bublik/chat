@@ -10,20 +10,20 @@
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = favicon_link_tag 'favicon.ico', :rel => 'shortcut icon'
-    = stylesheet_link_tag "management", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "management", media: "all"
   %body
     %section.header
-      = nav_bar fixed: :top, brand: icon('icon-bar-chart') + 'Dashboard', brand_link: management_index_path, responsive: true do
+      = nav_bar fixed: :top, brand: icon('icon-bar-chart') + t('.dashboard'), brand_link: management_index_path, responsive: true do
         = menu_group do
           = menu_divider
-          = menu_item 'Settings', current_agent.site ? site_path(current_agent.site) : new_site_path
-          = menu_item 'Client', current_agent.user ? user_path(current_agent.user) : new_user_path
-          = drop_down "Profile" do
-            = menu_item(current_agent.full_name, edit_agent_registration_path)
-            = menu_item('Sign out', destroy_agent_session_path, {method: :delete})
+          = menu_item t('.settings'), current_agent.site ? site_path(current_agent.site) : new_site_path
+          = menu_item t('.client'), current_agent.user ? user_path(current_agent.user) : new_user_path
+          = drop_down t('.profile') do
+            = menu_item(icon('icon-user') + ' ' + current_agent.full_name, edit_agent_registration_path)
+            = menu_item(icon('icon-off') + ' '+ t('devise.titles.sign_out'), destroy_agent_session_path, {method: :delete})
     %section.container
       = bootstrap_flash
       = yield
-      = javascript_include_tag 'management', 'data-turbolinks-track' => true
+      = javascript_include_tag 'management'
     = javascript_tag do
       $(document).ready( function() { #{yield :javascript} });

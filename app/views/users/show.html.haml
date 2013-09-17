@@ -1,22 +1,22 @@
 %h4.alert.alert-info
-  Your Jabber account:
+  = t('.your_j_acc')
   %span.label.label-info= @user.jabber_account
 .well
   .row
-    .span2 Username:
+    .span2= User.human_attribute_name('username')
     .span2= @user.username
   .row
-    .span2 Password:
+    .span2= User.human_attribute_name('password')
     .span2
       %i.btn.btn-mini.pass Show
       .hidden= @user.password
 
   = link_to(t('global.edit'), edit_user_path(@user), class: 'btn btn-warning')
 
-%h4 How configure Desktop client
+%h4= t('.how_configure')
 %ul
   %li
-    %h5 Download and install any client you like.
+    %h5= t('.download_and_install')
     %h4 Windows
     %ul
       %li Miranda #{link_to('http://www.miranda-im.org/', 'http://www.miranda-im.org/')}
@@ -30,10 +30,11 @@
       %li Audium #{link_to('https://adium.im/', 'https://adium.im/')}
       %li iChat #{link_to('http://www.apple.com/osx/apps/', 'http://www.apple.com/osx/apps/')}
       %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
-    = link_to('Find more clients', 'https://www.google.com/search?q=jabber+client', class: 'btn')
+    .m10
+      = link_to(t('.find_more_clients'), 'https://www.google.com/search?q=jabber+client', class: 'btn')
   %li
-    %h5 Configure client
-    %p Use login and password on the page head.
+    %h5= t('.configure_client')
+    %p= t('.use_credential')
     /TODO add video
 
 - content_for :javascript do

@@ -5,6 +5,7 @@ ru:
       create_account: Создать акаунт
       sign_up: Регистрация
       sign_in: Вход
+      sign_out: Выйти
       reset_password: Сбросить Мой пароль
 
     confirmations:
