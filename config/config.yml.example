@@ -2,6 +2,10 @@ commom: &common
   HOST: 'localhost.dev'
   SMTP_USER: 'smptpuser'
   SMTP_PASSWORD: 'pass'
+  JABBER_HOST: 'public.helperchat.com'
+  BOSH_URL: 'http://public.helperchat.com/http-bind'
+  BOSH_DOMAIN: 'public.helperchat.com'
+
 
 test:
   <<: *common
