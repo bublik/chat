@@ -37,3 +37,10 @@ ru:
       statistic: ' Статистика'
       display: ' Отображение'
       integration_code: ' Код для интеграции'
+  home:
+    contact:
+      flash_success: Ваше сообщение отправлено!
+      get_in_touch: Свяжитесь с нами, заполнив
+      contact_form_bellow: контактную форму ниже
+      send_msg: Отправить сообщение
+      required_all: Пожалуйста заполните обязательные поля, спасибо!

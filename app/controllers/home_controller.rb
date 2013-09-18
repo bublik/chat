@@ -6,6 +6,10 @@ class HomeController < ApplicationController
   end
 
   def contact
+    if request.post?
+      flash[:notice] = t('.flash_success')
+      # TODO Send contact information
+    end
   end
 
   def help

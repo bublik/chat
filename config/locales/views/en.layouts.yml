@@ -36,3 +36,10 @@ en:
       statistic: ' Statistic'
       display: ' Display'
       integration_code: ' Integration Code'
+  home:
+    contact:
+      flash_success: Your message has been sent. Thank you!
+      get_in_touch: Get in touch with us by filling
+      contact_form_bellow: contact form below
+      send_msg: Submit message
+      required_all: Please fill all required form field, thanks!
