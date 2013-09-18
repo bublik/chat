@@ -7,7 +7,14 @@ en:
       pricing: 'Prices'
       contacts: 'Contacts'
       language: 'Language'
-
+    footer:
+      about: 'About our company'
+      service: 'Our services'
+      contact: 'Get in touch with us'
+      releases: 'Press release'
+      terms: 'Terms and conditions'
+      privacy: 'Privacy policy'
+      career: 'Career center'
     management:
       settings: 'Settings'
       client: 'Client'

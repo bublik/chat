@@ -5,28 +5,17 @@
         .widget
           %h5.widgetheading Browse pages
           %ul.link-list
-            %li
-              = link_to('About our company', about_path)
-            %li
-              = link_to('Our services', price_path)
-            %li
-              = link_to('Get in touch with us', contact_path)
-            -#%li
-              %a{:href => "#"} Meet our team
-            -#%li
-              %a{:href => "#"} Explore our portfolio
+            %li= link_to(t('.about'), about_path)
+            %li= link_to(t('.service'), price_path)
+            %li= link_to(t('.contact'), contact_path)
       .span3
         .widget
           %h5.widgetheading Important stuff
           %ul.link-list
-            %li
-              = link_to('Press release', releases_path)
-            %li
-              = link_to('Terms and conditions', terms_path)
-            %li
-              = link_to('Privacy policy', privacy_path)
-            %li
-              = link_to('Career center', career_path)
+            %li= link_to(t('.releases'), releases_path)
+            %li= link_to(t('.terms'), terms_path)
+            %li= link_to(t('.privacy'), privacy_path)
+            %li= link_to(t('.career'), career_path)
       .span3
         .widget
           %h5.widgetheading New Subscription

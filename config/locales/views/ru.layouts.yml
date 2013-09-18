@@ -8,6 +8,14 @@ ru:
       contacts: 'Контакты'
       language: 'Язык'
       pages: 'Страницы'
+    footer:
+      about: 'О компании'
+      service: 'Услуги'
+      contact: 'Контактная информация'
+      releases: 'Новости'
+      terms: 'Условия использования'
+      privacy: 'Политика конфиденциальности'
+      career: 'Работа у нас'
     management:
       settings: 'Настройки'
       client: 'Клиент'
