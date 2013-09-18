@@ -2,42 +2,36 @@
   .container
     .row
       .span3
-        .widget
-          %h5.widgetheading Browse pages
-          %ul.link-list
-            %li= link_to(t('.about'), about_path)
-            %li= link_to(t('.service'), price_path)
-            %li= link_to(t('.contact'), contact_path)
-      .span3
-        .widget
+        -#.widget
           %h5.widgetheading Important stuff
-          %ul.link-list
-            %li= link_to(t('.releases'), releases_path)
-            %li= link_to(t('.terms'), terms_path)
-            %li= link_to(t('.privacy'), privacy_path)
-            %li= link_to(t('.career'), career_path)
+        %ul.link-list
+          %li= link_to(t('.releases'), releases_path)
+          %li= link_to(t('.terms'), terms_path)
+          %li= link_to(t('.privacy'), privacy_path)
+          %li= link_to(t('.career'), career_path)
       .span3
-        .widget
-          %h5.widgetheading New Subscription
-          / TODO
-          .clear
+        %ul.link-list
+          %li= link_to(t('.about'), about_path)
+          %li= link_to(t('.service'), price_path)
+          %li= link_to(t('.contact'), contact_path)
+
       .span3
-        .widget
-          %h5.widgetheading Get in touch with us
-          %address
-            %strong Lightcraft LLC
-            %br/
-            .icon-map-marker.icon-white
-            25 Mikhailovskaya St, Suite 624, 65092 Odessa, UA
-            %br/
-            .icon-map-marker.icon-white
-            Sunny Isles, FL 33160 #1241, 18555 Collins Avenue, US
-          %p
-            %i.icon-phone
-            +38 (093) 50-70-663
-            %br/
-            %i.icon-envelope-alt
-            = mail_to('support@helperchat.com')
+      .span3
+        %address
+          %strong= link_to('Lightcraft LLC', 'http://lightcraft.us/', title: 'Ruby on Rails development company')
+          %br/
+          .icon-map-marker.icon-white
+          25 Mikhailovskaya St, Suite 624, 65092 Odessa, UA
+          %br/
+          .icon-map-marker.icon-white
+          Sunny Isles, FL 33160 #1241, 18555 Collins Avenue, US
+        %p
+          %i.icon-phone
+          +38 (093) 50-70-663
+          %br/
+          %i.icon-envelope-alt
+          = mail_to('support@helperchat.com')
+
   #sub-footer
     .container
       .row
