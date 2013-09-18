@@ -93,6 +93,7 @@ class window.ChatFrame
 
     jQuery(@widget_window_id).fadeIn()
     @position(jQuery(@widget_window_id))
+    @scroll_messages() # show new messages when widget window minimized and Operator was sent messages
 
   close_widget: ->
     jQuery(@widget_window_id).hide()
@@ -111,6 +112,7 @@ class window.ChatFrame
       onConnect: ->
         console.log "onConnect ->"
         jQuery.xmpp.setPresence(null)
+        console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
       onIq: (iq) ->
         console.log('onIq', iq)
       onNotification: (notification) ->
@@ -131,8 +133,9 @@ class window.ChatFrame
         console.log('onpresence', status_icon)
 
       onDisconnect: ->
-        console.log "Disconnected"
         jQuery.xmpp.connected = false
+        console.log "Disconnected ans start Connect->"
+        self.connect()
 
       onMessage: (message) ->
         console.log('onMessage', message)
@@ -147,6 +150,8 @@ class window.ChatFrame
       onError: (error) ->
         console.log error.error
         if error.error.match(/Invalid/)
+          console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
+          console.log 'CALL DISCONNECT'
           jQuery.xmpp.disconnect()
 
   append_message: (data) ->
@@ -156,8 +161,10 @@ class window.ChatFrame
       return
     mesage_content = _.template(window.ch_message_tpl, { msg: data })
     jQuery('#shf_messages').append(mesage_content)
-    jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
+    @scroll_messages()
 
+  scroll_messages: ()->
+    jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
   current_page: ->
     if jQuery('#shf_messages div').length is 0
       "UserAgent: " + window.navigator.userAgent + "\n" + "Page: " + document.location + "\n"
@@ -178,9 +185,6 @@ class window.ChatFrame
       full_name: 'You',
       content: input.val() })
     input.val ""
-#  get_Vcard: () ->
-#    jQuery.xmpp.sendCommand("<iq from='" + jQuery.xmpp.jid + "' id='v4' to='" + @site_config.to + "' type='get'><vcard xmlns='urn:ietf:params:xml:ns:vcard-4.0'/></iq>")
-
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
     console.log "Set from Cookie -> @user_uid :", @user_uid
