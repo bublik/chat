@@ -485,6 +485,7 @@
 	      if(xmpp.onError != null){
 		xmpp.onError({error: errorThrown, data:textStatus});
 	      }
+          xmpp.listening = false;
 	    },
 	    dataType: 'text'
 	  });
@@ -498,6 +499,9 @@
      * @params callback function callback
      */
     sendCommand: function(rawCommand, callback){
+      if(rawCommand == ''){
+        return;
+      }
       var self = this;
 
       this.rid = this.rid + 1;
@@ -506,13 +510,17 @@
       var command = "<body rid='"+this.rid+"' xmlns='http://jabber.org/protocol/httpbind' sid='"+this.sid+"'>"+ rawCommand+"</body>";
 
       $.post(self.url,command,function(data){
-	self.connections = self.connections - 1;
-	self.messageHandler(data);
-	self.listening = false;
-	self.listen();
-	if(callback != null)
-	  callback(data);
-      }, 'text');
+        self.connections = self.connections - 1;
+        self.messageHandler(data);
+        self.listening = false;
+        self.listen();
+	   if(callback != null)
+	    callback(data);
+       }, 'text').fail(function(data) {
+        if(data.status == 404) {
+          self.connected = false
+        }
+       });
     },
 
     /**
