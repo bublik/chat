@@ -4,7 +4,7 @@
     .pricing-box-alt
       .pricing-heading
         %h3
-          Special
+          Simple
           %strong Choice
       .pricing-terms
         %h6 00.00 / Month
@@ -36,7 +36,7 @@
     .pricing-box-alt.special
       .pricing-heading
         %h3
-          Special
+          Good
           %strong Choice
       .pricing-terms
         %h6 15.00 / Month
@@ -44,7 +44,7 @@
         %ul
           %li
             %i.icon-ok
-            2 operator
+            2 operators
           %li
             %i.icon-ok
             20 online clients
@@ -57,6 +57,9 @@
           %li
             %i.icon-ok
             Operator avatars
+          %li
+            %i.icon-ok
+            Offline messages
           %li
             %i.icon-ok
             Stop anytime easily
@@ -76,10 +79,10 @@
         %ul
           %li
             %i.icon-ok
-            5 operator
+            5 operators
           %li
             %i.icon-ok
-            10 online clients
+            50 online clients
           %li
             %i.icon-ok
             24x7 support available
@@ -88,7 +91,16 @@
             No hidden fees
           %li
             %i.icon-ok
-            Free first year
+            Operator avatars
+          %li
+            %i.icon-ok
+            Offline messages
+          %li
+            %i.icon-ok
+            Pre chat forms
+          %li
+            %i.icon-ok
+            Analytics
           %li
             %i.icon-ok
             Stop anytime easily
@@ -96,3 +108,7 @@
         %a.btn.btn-medium.btn-theme{ :'data-toggle' => "modal",  :href => "#mySignup"}
           %i.icon-bolt
           Register now
+
+.row
+  .span4.offset4.aligncenter
+    =link_to('I need more', contact_path, :class => 'btn btn-large btn-theme btn-rounded')

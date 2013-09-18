@@ -1,2 +1,27 @@
-%h1 Home#contact
-%p Find me in app/views/home/contact.html.haml
+.map
+  <iframe frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps?t=m&amp;q=46.463283,30.711143&amp;dg=opt&amp;ie=UTF8&amp;z=14&amp;ll=46.462846,30.711168&amp;output=embed"></iframe>
+.container
+  .row
+    .span12
+      %h4
+        Get in touch with us by filling
+        %strong contact form below
+      %form#contactform.validateform{:action => "contact/contact.php", :method => "post", :name => "send-contact"}
+        #sendmessage
+          Your message has been sent. Thank you!
+        .row
+          .span4.field
+            %input{"data-msg" => "Please enter at least 4 chars", "data-rule" => "maxlen:4", :name => "name", :placeholder => "* Enter your full name", :type => "text"}/
+            .validation
+          .span4.field
+            %input{"data-msg" => "Please enter a valid email", "data-rule" => "email", :name => "email", :placeholder => "* Enter your email address", :type => "text"}/
+            .validation
+          .span4.field
+            %input{"data-msg" => "Please enter at least 4 chars", "data-rule" => "maxlen:4", :name => "subject", :placeholder => "Enter your subject", :type => "text"}/
+            .validation
+          .span12.margintop10.field
+            %textarea.input-block-level{"data-msg" => "Please write something", "data-rule" => "required", :name => "message", :placeholder => "* Your message here...", :rows => "12"}
+            .validation
+            %p
+              %button.btn.btn-theme.margintop10.pull-left{:type => "submit"} Submit message
+              %span.pull-right.margintop20 * Please fill all required form field, thanks!
