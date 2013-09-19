@@ -157,7 +157,7 @@
 
 .shf_messages {
   background: #fff;
-  height: 260px;
+  height: 190px;
   padding-bottom: 5px
 }
 
@@ -178,7 +178,8 @@
   min-height: 36px;
   padding: 9px 0;
   border-bottom: 1px solid #f2f2f2;
-  margin: 0 8px
+  margin: 0 8px;
+  text-align: left;
 }
 
 .shf_photo {
@@ -186,6 +187,7 @@
   height: 36px;
   float: left;
   overflow: hidden;
+  margin: 0 10px;
 }
 
 .shf_mess_content {
@@ -206,6 +208,63 @@
 
 .shf_mess_nick_sel {
   color: #627aad
+}
+.shf_agent {
+  height: 45px;
+  padding: 9px 0;
+  text-align: left;
+  color: #777777;
+  text-shadow: 0 1px 0 #ffffff;
+  border: 1px solid #d4d4d4;
+  background-color: #fafafa;
+  background-image: -moz-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#f2f2f2));
+  background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
+  background-image: linear-gradient(to bottom, #ffffff, #f2f2f2);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#fff2f2f2', GradientType=0);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+.shf_agent >div {
+  line-height: 20px;
+}
+.shf_agent_status {
+  font-style: italic;
+  font-size: 0.8em;
+}
+.shf_agent_status em{
+  margin-left: 5px;
+}
+.shf_agent_status span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 7px;
+}
+
+.shf_agent_status.away span {
+  background-color: yellow;
+  border: 1px solid darkorange;
+}
+
+.shf_agent_status.available span {
+  background-color: #479c18;
+  border: 1px solid darkgreen;
+}
+.shf_agent_status.unavailable span {
+  background-color: grey;
+  border: 1px solid darkgrey;
+}
+
+.available {
+  color: green;
+}
+
+.unavailable {
+  color: grey;
 }
 
 .shf_mess_text {
@@ -426,7 +485,6 @@ textarea {
   margin: 2px;
 }
 
-
 .shf_btn_left .shf_title_text, .shf_btn_right .shf_title_text {
   cursor: pointer;
   overflow: hidden;
@@ -524,6 +582,7 @@ textarea {
   right: 0;
   bottom: 50px
 }
+
 .shf_btn_bottom {
   -webkit-border-top-left-radius: 5px;
   -webkit-border-top-right-radius: 5px;
@@ -532,6 +591,7 @@ textarea {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
+
 .shf_btn_top {
   -webkit-border-bottom-right-radius: 5px;
   -webkit-border-bottom-left-radius: 5px;
@@ -555,5 +615,5 @@ textarea {
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
-  border-radius: 5px  0 0 5px;
+  border-radius: 5px 0 0 5px;
 }

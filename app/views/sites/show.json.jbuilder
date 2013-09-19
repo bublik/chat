@@ -1,5 +1,5 @@
 json.extract! @site, :name, :domain, :color, :side, :position, :collect_stats, :auto_open, :disabled
-json.operator @site.agent.widget_json
+json.agent @site.agent.widget_json
 json.logo asset_url('live_chat.png')
 json.title @site.online ? @site.title_online : @site.title_offline
 json.bosh_url APP_CONFIG['BOSH_URL']

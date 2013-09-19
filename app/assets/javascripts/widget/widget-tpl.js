@@ -4,14 +4,27 @@ window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= b
     '<div class="shf shf_logo"><div class="shf shf_logo_cell"><img rel="logo" class="shf shf_logo_btn" src="<%= btn.logo %>"></div></div>' +
     '<div class="shc shf_title_text" rel="title">Online Help</div>'
 
+
+
+//name: @site_config.agent.name,
+//    avatar: @site_config.agent.avatar_path,
+//    status_text: jabber_resources[0].image,
+//    status_image: jabber_resources[0].status
+
+window.ch_agent_tpl =
+'<div class="shf_agent">' +
+  '<div class="shf_photo"><img class="shf_avatar" src="<%= data.avatar_path %>" /></div>' +
+    '<div class="shf_mess_details"><%= data.name %>'+
+    '<div class="shf_agent_status <%= data.status_text %>"><span></span><em><%= data.status_text %></em></div>' +
+    '</div>' +
+'</div>'
+
 /*
  Message template
  Variables: avatar_path, full_name, content, time_at
  */
 
-//'<div class="shf_photo"><img class="shf_avatar" src="<%= msg.avatar_path %>"></div>' +
-
-window.ch_message_tpl = 
+window.ch_message_tpl =
 '<div class="shf_message">' +
     '<div class="shf_mess_content">' +
       '<div class="shf_mess_details">' +
@@ -46,6 +59,7 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
   '</div>' +
   '<div id="shf_container" class="shw">' +
     '<div class="shf_messages" rel="online">' +
+     '<div class="shf_agent"></div>' +
       '<div id="shf_messages" class="shf_messages shf_scrollbar" rel="scrollbar">' +
       '<!-- render messages -->' +
       '</div>' +

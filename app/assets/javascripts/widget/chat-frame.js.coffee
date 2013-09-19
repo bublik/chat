@@ -94,6 +94,7 @@ class window.ChatFrame
     jQuery(@widget_window_id).fadeIn()
     @position(jQuery(@widget_window_id))
     @scroll_messages() # show new messages when widget window minimized and Operator was sent messages
+    @agent_status()
 
   close_widget: ->
     jQuery(@widget_window_id).hide()
@@ -143,7 +144,7 @@ class window.ChatFrame
           console.log 'ERROR', message.from, err
         msg = {
           time_at: (new Date).toLocaleString().split(' ')[1],
-          full_name: self.site_config.operator.name,
+          full_name: self.site_config.agent.name,
           content: message.body}
         console.log 'MSG', msg
         self.append_message(msg)
@@ -170,7 +171,18 @@ class window.ChatFrame
       "UserAgent: " + window.navigator.userAgent + "\n" + "Page: " + document.location + "\n"
     else
       ''
-
+  agent_status: () ->
+    jQuery.getScript('http://helperchat.com/presence/jid/admin/helperchat.com/js?cb=window.cfrm.update_agent_status')
+  update_agent_status: ()->
+    data = {
+      name: @site_config.agent.name,
+      avatar_path: @site_config.agent.avatar_path,
+      status_text: jabber_resources[0].show,
+      status_image: jabber_resources[0].image
+    }
+    console.log('SET AGENT STATUS', data)
+    mesage_content = _.template(window.ch_agent_tpl, { data: data })
+    jQuery('.shf_agent').replaceWith(mesage_content)
   send_message: ->
     input = jQuery('.shf_textarea_answer textarea')
     if input.val() == ''
@@ -178,13 +190,14 @@ class window.ChatFrame
     console.log 'Send message =>'
     # jQuery.xmpp.sendCommand("<presence from='"+ $.xmpp.jid+"' to='"+@site_config.to+"' type='subscribe'/>")
     # type chat, private, groupchat and default  chat
-    jQuery.xmpp.sendMessage({ type: 'private', to: @site_config.operator.email, body: @current_page() + input.val()})
+    jQuery.xmpp.sendMessage({ type: 'private', to: @site_config.agent.email, body: @current_page() + input.val()})
 
     @append_message({
       time_at: (new Date).toLocaleString().split(' ')[1],
       full_name: 'You',
       content: input.val() })
     input.val ""
+    @agent_status() # update agent status on send message, to check if agent went to offline
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
     console.log "Set from Cookie -> @user_uid :", @user_uid
