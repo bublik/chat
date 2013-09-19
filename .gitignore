@@ -9,7 +9,7 @@
 .idea/*
 /spec/views/*
 /public/assets/*
-/public/uploads/*
+/public/uploads
 /public/site*
 /config/config.yml
 
