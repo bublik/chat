@@ -45,6 +45,7 @@ namespace :deploy do
   task :symlink_config, roles: :app do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/config.yml #{release_path}/config/config.yml"
+    run "rm -rf #{release_path}/public/assets"
     run "mkdir -p #{release_path}/public/assets"
     run "ln -s #{shared_path}/uploads #{release_path}/public"
     run "rm -rf #{shared_path}/tmp/*" # clean temporary google contact images
