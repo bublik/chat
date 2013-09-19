@@ -109,10 +109,10 @@
 .shf_copyright {
   height: 22px;
   color: #646464;
-  //background: #f0f0ef;
   line-height: 22px;
   font-size: 12px;
   text-align: center;
+  text-shadow: 0 1px 0 #000;
   position: absolute;
   left: 0;
   bottom: 0;
@@ -125,7 +125,7 @@
 }
 
 .shf_copyright a span {
-  color: #EB0010;
+  color: #fff;
   text-decoration: none
 }
 

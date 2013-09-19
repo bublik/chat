@@ -33,20 +33,14 @@ class window.ChatFrame
       console.log 'widget DISABLED!'
       return
     jQuery('body').append(_.template(window.ch_button, { btn: @site_config }))
-
-    #@style_button(jQuery(@button_id))
     self = @
-    console.log(@site_config['auto_open'])
     if @site_config['auto_open']
-      console.log 'widget AUTOOPEN!'
       self.show_widget()
 
     jQuery(@button_id).on 'click', (e) ->
-      console.log 'Click on BUTTON'
       self.show_widget()
 
   load_css: ->
-    console.log 'load_css ->'
     css = document.createElement("link")
     css.media = "all"
     css.rel = 'stylesheet'
@@ -71,8 +65,6 @@ class window.ChatFrame
       if jQuery.xmpp.connected
         jQuery.xmpp.setPresence('away')
     jQuery('.shf_enter_ico').on 'click', (e) ->
-      unless jQuery.xmpp.connected
-        self.connect()
       self.send_message()
     jQuery('.shf_textarea_answer textarea').on 'focus', (e) ->
       if jQuery.xmpp.connected
@@ -81,7 +73,7 @@ class window.ChatFrame
         self.connect()
     jQuery('.shf_textarea_answer textarea').on 'keyup', (e) ->
       if event.keyCode is 13
-       jQuery('.shf_textarea_answer .shf_enter_ico').click()
+        jQuery('.shf_textarea_answer .shf_enter_ico').click()
 
   show_widget: ->
     console.log 'show_widget ->', jQuery(@widget_window_id)
@@ -101,7 +93,7 @@ class window.ChatFrame
     jQuery.xmpp.disconnect()
 
   hide_widget: ->
-    jQuery(@widget_window_id).fadeOut() #hide()
+    jQuery(@widget_window_id).fadeOut()
 
   connect: ->
     console.log "Connect:"
@@ -167,10 +159,7 @@ class window.ChatFrame
   scroll_messages: ()->
     jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
   current_page: ->
-    if jQuery('#shf_messages div').length is 0
-      "UserAgent: " + window.navigator.userAgent + "\n" + "Page: " + document.location + "\n"
-    else
-      ''
+    if jQuery('#shf_messages div').length is 0 then ("UserAgent: " + window.navigator.userAgent + "\n" + "Page: " + document.location + "\n") else ''
   agent_status: () ->
     jQuery.getScript('http://helperchat.com/presence/jid/admin/helperchat.com/js?cb=window.cfrm.update_agent_status')
   update_agent_status: ()->
@@ -183,7 +172,14 @@ class window.ChatFrame
     console.log('SET AGENT STATUS', data)
     mesage_content = _.template(window.ch_agent_tpl, { data: data })
     jQuery('.shf_agent').replaceWith(mesage_content)
+    title = (if jabber_resources[0].show is "available" then @site_config.title_online else @site_config.title_offline)
+    console.log jabber_resources[0].show
+    console.log title
+    jQuery('.shf_title').text(title)
+
   send_message: ->
+    unless jQuery.xmpp.connected
+      @connect()
     input = jQuery('.shf_textarea_answer textarea')
     if input.val() == ''
       return
