@@ -9,9 +9,9 @@
 .tabbable.tabs-left
   %ul.nav.nav-tabs
     %li= link_to(icon('icon-home') + t('.general'), '#general', :class => 'active', 'data-toggle' => 'tab')
-    %li= link_to(icon('icon-picture') + t('.color_position'), '#color-position', 'data-toggle' => 'tab')
-    %li= link_to(icon('icon-th-list') + t('.title'), '#titles', 'data-toggle' => 'tab')
-    %li= link_to(icon('icon-signal') + t('.statistic'), '#stats', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-th-large') + t('.position'), '#color-position', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-volume-up') + t('.title'), '#titles', 'data-toggle' => 'tab')
+    -#%li= link_to(icon('icon-signal') + t('.statistic'), '#stats', 'data-toggle' => 'tab')
     %li= link_to(icon('icon-eye-open') + t('.display'), '#display', 'data-toggle' => 'tab')
     %li= link_to(icon('icon-file') + t('.integration_code'), '#jscode', 'data-toggle' => 'tab')
 
@@ -31,11 +31,6 @@
         .span2= icon_boolean(@site.enabled)
     #color-position.tab-pane
       .row
-        .span2= site_humanize_column('color')
-        .span2= @site.color
-        .span1.color &nbsp;
-        = hidden_field_tag :site_color, @site.color
-      .row
         .span2= site_humanize_column('side')
         .span2= @site.side
       .row
@@ -53,15 +48,21 @@
         .span2= site_humanize_column('collect_stats')
         .span2= icon_boolean(@site.collect_stats)
     #display.tab-pane
-      .row
-        .span2= site_humanize_column('show_online')
-        .span2= icon_boolean(@site.show_online)
-      .row
-        .span2= site_humanize_column('show_offline')
-        .span2= icon_boolean(@site.show_offline)
+      .hidden
+        .row
+          .span2= site_humanize_column('show_online')
+          .span2= icon_boolean(@site.show_online)
+        .row
+          .span2= site_humanize_column('show_offline')
+          .span2= icon_boolean(@site.show_offline)
       .row
         .span2= site_humanize_column('auto_open')
         .span2= icon_boolean(@site.auto_open)
+      .row
+        .span2= site_humanize_column('color')
+        .span2= @site.color
+        .span1.color &nbsp;
+        = hidden_field_tag :site_color, @site.color
     #jscode.tab-pane
       .row
         .span4= text_area_tag :widget_code, widget_code(@site), rows: 6, cols: 30
