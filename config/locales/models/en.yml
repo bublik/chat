@@ -31,7 +31,7 @@ en:
         show_online: 'Show online'
         show_offline: 'Show offline'
         auto_open: 'Auto Open'
-        disabled: 'Disabled'
+        enabled: 'Enabled'
 
   errors:
     messages:
