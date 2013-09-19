@@ -27,8 +27,8 @@
         .span2= site_humanize_column('site_category_id')
         .span2= @site.site_category.name
       .row
-        .span2= site_humanize_column('disabled')
-        .span2= icon_boolean(@site.disabled)
+        .span2= site_humanize_column('enabled')
+        .span2= icon_boolean(@site.enabled)
     #color-position.tab-pane
       .row
         .span2= site_humanize_column('color')

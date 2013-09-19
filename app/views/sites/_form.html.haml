@@ -36,9 +36,9 @@
         .controls
           = f.check_box :show_offline
       .control-group
-        = f.label :disabled, site_humanize_column('disabled'), class: 'control-label red'
+        = f.label :enabled, site_humanize_column('enabled'), class: 'control-label red'
         .controls
-          = f.check_box :disabled
+          = f.check_box :enabled
       .control-group
         = f.label :auto_open, site_humanize_column('auto_open'), class: 'control-label red'
         .controls

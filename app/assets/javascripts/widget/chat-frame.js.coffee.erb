@@ -29,7 +29,7 @@ class window.ChatFrame
 
   init_button: ->
     console.log 'init button ->', @button_id
-    if @site_config['disabled']
+    unless @site_config['enabled']
       console.log 'widget DISABLED!'
       return
     jQuery('body').append(_.template(window.ch_button, { btn: @site_config }))

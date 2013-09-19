@@ -88,7 +88,7 @@ class SitesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def site_params
     params.require(:site).permit(:uuid, :name, :domain, :site_category_id, :color, :side, :position, :title_online,
-                                 :title_offline, :collect_stats, :show_online, :show_offline, :auto_open, :disabled)
+                                 :title_offline, :collect_stats, :show_online, :show_offline, :auto_open, :enabled)
   end
 
   def grant_cross_domain
