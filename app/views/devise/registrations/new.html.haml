@@ -1,9 +1,9 @@
 - content_for :head_line_title do
-  Sign Up
+  = t('devise.titles.sign_up')
 - content_for :head_line_content do
   %ul.breadcrumb
     %li= link_to(icon('icon-home' ), root_path) + icon('icon-angle-right')
-    %li.active Sign Up
+    %li.active= t('devise.titles.sign_up')
 
 .row
   .span7.offset3
@@ -11,4 +11,4 @@
       = f.input :email, input_html: { autofocus: true, class: 'form-control', placeholder: 'Enter email' }
       = f.input :password, input_html: { class: 'form-control', placeholder: 'Password' }
       = f.input :password_confirmation, input_html: { class: 'form-control', placeholder: 'Password confirmation' }
-      %div= f.submit 'Sign up', class: 'btn btn-primary'
+      %div= f.submit t('global.send'), class: 'btn btn-primary'

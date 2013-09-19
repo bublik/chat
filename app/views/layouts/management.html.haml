@@ -19,7 +19,7 @@
           = menu_item t('.settings'), current_agent.sites.first ? site_path(current_agent.sites.first) : new_site_path
           = menu_item t('.client'), current_agent.user ? user_path(current_agent.user) : new_user_path
         = menu_group(pull: 'right') do
-          = drop_down icon('icon-user') do
+          = drop_down(current_agent.avatar? ? image_tag(current_agent.avatar.small.url) : icon('icon-user') ) do
             = menu_item(icon('icon-wrench') + ' ' + current_agent.full_name, edit_agent_registration_path)
             = menu_item(icon('icon-off') + ' ' + t('devise.titles.sign_out'), destroy_agent_session_path, {method: :delete})
     %section.container

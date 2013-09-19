@@ -31,6 +31,8 @@ gem 'uuid'
 
 gem 'devise'
 #gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
+gem 'mini_magick'
+gem 'carrierwave'
 
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'haml-rails'

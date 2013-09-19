@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  username   :string(250)      not null, primary key
+#  password   :text             not null
+#  created_at :timestamp        not null
+#  agent_id   :integer          not null
+#
+
 require 'spec_helper'
 
 describe User do
