@@ -4,8 +4,8 @@ class window.ChatFrame
     @site_uid = @options['widget_id']
     @button_id = '#btn-' + @site_uid
     @widget_window_id = '#widg-' + @site_uid
-    @assets_host = 'site2.com:3000'
-    @chat_config_host = 'site2.com:3000'
+    @assets_host = '<%= APP_CONFIG["HOST"] %>'
+    @chat_config_host = '<%= APP_CONFIG['HOST'] %>'
     @site_config = {id: @site_uid}
     @user_uid = Math.floor(Math.random(1, 100) * 1000)
     @sheme = 'http'
@@ -123,7 +123,7 @@ class window.ChatFrame
             status_icon = "away_icon"
           else
             status_icon = "available_icon"
-        console.log('onpresence', status_icon)
+        console.log('onpresence', curId, status_icon)
 
       onDisconnect: ->
         jQuery.xmpp.connected = false
