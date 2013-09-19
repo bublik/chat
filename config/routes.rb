@@ -16,7 +16,7 @@ Chat::Application.routes.draw do
   get '/career', to: "home#career", as: :career
   match '/contact', to: 'home#contact', via: [:get, :post]
 
-  devise_for :agents, :controllers => {:sessions => 'devise/sessions', :registrations => 'devise/registrations'}
+  devise_for :agents, :controllers => {:sessions => 'devise/sessions', :registrations => 'registrations'}
 
   devise_scope :agent do
     get "/login", :to => "devise/sessions#new", :as => :login

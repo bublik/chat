@@ -17,6 +17,7 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)      default("")
+#  avatar                 :string(255)
 #
 
 class Agent < ActiveRecord::Base
@@ -28,6 +29,11 @@ class Agent < ActiveRecord::Base
   has_many :sites
   # Jabber Authorization User
   has_one :user
+
+  mount_uploader :avatar, AvatarUploader #  thumb, tiny
+
+  validates_integrity_of :avatar
+  validates_processing_of :avatar
 
   def full_name
     name.blank? ? short_name : name
@@ -41,12 +47,8 @@ class Agent < ActiveRecord::Base
     {
         name: full_name,
         email: (Rails.env.development? ? 'admin@helperchat.com' : email),
-        avatar_path: avatar_path
+        avatar_path: avatar.tiny.url
     }
-  end
-
-  def avatar_path
-    '/assets/noname.jpeg'
   end
 
 end
