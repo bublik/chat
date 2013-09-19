@@ -13,7 +13,7 @@
     %th Collect stats
     %th Show offline
     %th Show offline
-    %th Disabled
+    %th Enabled
     %th
     %th
     %th
@@ -31,7 +31,7 @@
       %td= site.collect_stats
       %td= site.show_offline
       %td= site.show_offline
-      %td= site.disabled
+      %td= site.enabled
       %td= link_to 'Show', site
       %td= link_to 'Edit', edit_site_path(site)
       %td= link_to 'Destroy', site, :method => :delete, :data => { :confirm => 'Are you sure?' }

@@ -418,7 +418,7 @@ CREATE TABLE `sites` (
   `show_online` tinyint(1) DEFAULT '1',
   `show_offline` tinyint(1) DEFAULT '0',
   `auto_open` tinyint(1) DEFAULT '0',
-  `disabled` tinyint(1) DEFAULT '1',
+  `enabled` tinyint(1) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -580,7 +580,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-09-19 11:23:15
+-- Dump completed on 2013-09-19 15:07:09
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -596,3 +596,5 @@ INSERT INTO schema_migrations (version) VALUES ('20130913072554');
 INSERT INTO schema_migrations (version) VALUES ('20130915185959');
 
 INSERT INTO schema_migrations (version) VALUES ('20130919075429');
+
+INSERT INTO schema_migrations (version) VALUES ('20130919115406');

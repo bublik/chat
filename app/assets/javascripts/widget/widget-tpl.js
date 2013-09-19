@@ -35,7 +35,7 @@ window.ch_message_tpl =
 
 /*
  :name, :domain, :color, :side, :position, :title_online,
- :title_offline, :show_offline, :show_offline, :auto_open, :disabled
+ :title_offline, :show_offline, :show_offline, :auto_open
  */
 // TODO replace to + line style spliter
 

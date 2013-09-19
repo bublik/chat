@@ -15,7 +15,7 @@
 #  show_online      :boolean          default(TRUE)
 #  show_offline     :boolean          default(FALSE)
 #  auto_open        :boolean          default(FALSE)
-#  disabled         :boolean          default(TRUE)
+#  enabled          :boolean          default(TRUE)
 #  created_at       :datetime
 #  updated_at       :datetime
 #  id               :integer          not null, primary key
