@@ -19,7 +19,7 @@
 #  created_at       :datetime
 #  updated_at       :datetime
 #  id               :integer          not null, primary key
-#  uuid             :binary(32)       not null
+#  uuid             :string(255)      not null
 #
 
 require 'spec_helper'
