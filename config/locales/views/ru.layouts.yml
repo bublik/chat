@@ -32,7 +32,7 @@ ru:
   sites:
     show:
       general: ' Общие'
-      color_position: ' Цвет и положение'
+      position: ' Положение'
       title: ' Подпись'
       statistic: ' Статистика'
       display: ' Отображение'

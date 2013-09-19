@@ -23,18 +23,21 @@
           = f.select :position, Site::POSITION
       = f.input :title_online
       = f.input :title_offline
-      .control-group
-        = f.label :collect_stats, site_humanize_column('collect_stats'), class: 'control-label'
-        .controls
-          = f.check_box :collect_stats
-      .control-group
-        = f.label :show_online, site_humanize_column('show_online'), class: 'control-label'
-        .controls
-          = f.check_box :show_online
-      .control-group
-        = f.label :show_offline, site_humanize_column('show_offline'), class: 'control-label'
-        .controls
-          = f.check_box :show_offline
+
+      .hidden
+        .control-group
+          = f.label :collect_stats, site_humanize_column('collect_stats'), class: 'control-label'
+          .controls
+            = f.check_box :collect_stats
+        .control-group
+          = f.label :show_online, site_humanize_column('show_online'), class: 'control-label'
+          .controls
+            = f.check_box :show_online
+        .control-group
+          = f.label :show_offline, site_humanize_column('show_offline'), class: 'control-label'
+          .controls
+            = f.check_box :show_offline
+
       .control-group
         = f.label :enabled, site_humanize_column('enabled'), class: 'control-label red'
         .controls

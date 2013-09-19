@@ -31,7 +31,7 @@ en:
   sites:
     show:
       general: ' General'
-      color_position: ' Color and Position'
+      position: ' Position'
       title: ' Title'
       statistic: ' Statistic'
       display: ' Display'
