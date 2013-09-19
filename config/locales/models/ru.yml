@@ -46,7 +46,7 @@ ru:
         show_online: 'Показывать онлайн'
         show_offline: 'Показывать офлайн'
         auto_open: 'Автоматически открывать'
-        enabled: 'Включение виджета'
+        enabled: 'Включен'
         widget_code: 'Код виджета'
 
   errors:
