@@ -50,7 +50,7 @@ namespace :deploy do
     run "ln -s #{shared_path}/uploads #{release_path}/public"
     run "rm -rf #{shared_path}/tmp/*" # clean temporary google contact images
     run "ln -s #{shared_path}/tmp #{release_path}/public/tmp"
-    run "rake fix_assets"
+    run "bundle exec rake fix_assets"
   end
 
   after "deploy:finalize_update", "deploy:symlink_config"
