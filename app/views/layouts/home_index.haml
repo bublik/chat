@@ -20,3 +20,5 @@
       = render 'layouts/footer'
       / Placed at the end of the document so the pages load faster
       = javascript_include_tag "portal"
+    - if Rails.env.production?
+      = google_analytix

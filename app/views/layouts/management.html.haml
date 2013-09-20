@@ -29,3 +29,5 @@
     - if content_for?(:javascript)
       = javascript_tag do
         $(document).ready( function() { #{yield :javascript} });
+    - if Rails.env.production?
+      = google_analytix
