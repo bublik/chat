@@ -23,7 +23,8 @@ Chat::Application.configure do
   config.serve_static_assets = true
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = :uglify
+  config.assets.css_compressor = :sass
 
   # config.assets.css_compressor = :sass
 
@@ -34,7 +35,7 @@ Chat::Application.configure do
   config.assets.digest = false
 
   # Version of your assets, change this if you want to expire all your assets.
-  #config.assets.version = '1.1'
+  config.assets.version = '1.1'
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
@@ -60,7 +61,7 @@ Chat::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.assets.precompile += %w( management.js portal.js widget.js management.css portal.css )
+  config.assets.precompile += %w( management.js portal.js widget.js widget.css management.css portal.css )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
