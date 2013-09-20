@@ -57,5 +57,5 @@ namespace :deploy do
     run "cd #{release_path}; bundle exec rake fix_assets"
   end
 
-  after "deploy:precompile_assets", "deploy:fix_assets"
+  after "deploy:create_symlink", "deploy:fix_assets"
 end
