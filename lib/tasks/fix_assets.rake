@@ -11,10 +11,9 @@ task fix_assets: :environment do
     next unless file =~ regexp
 
     source = file.split('/')
-    puts 'FILE ' + file
     source1 = source.last.gsub(regexp, '.')
     non_digest = File.join(source[0...-1], source1)
-    puts 'non_digest' + non_digest
+    puts 'Added ' + non_digest
     File.delete(non_digest) if File.file?(non_digest)
     FileUtils.cp(file, non_digest)
   end
