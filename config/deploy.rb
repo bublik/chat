@@ -54,7 +54,7 @@ namespace :deploy do
   after "deploy:finalize_update", "deploy:symlink_config"
 
   task :fix_assets, roles: :app do
-    run "cd #{release_path}; bundle exec rake fix_assets"
+    run "cd #{release_path}; RAILS_ENV=production bundle exec rake fix_assets"
   end
 
   after "deploy:create_symlink", "deploy:fix_assets"
