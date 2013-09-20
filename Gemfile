@@ -28,6 +28,7 @@ end
 # Use mysql as the database for Active Record
 gem 'mysql2'
 gem 'uuid'
+gem 'dalli'
 
 gem 'devise'
 #gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'

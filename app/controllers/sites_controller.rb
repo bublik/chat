@@ -104,7 +104,8 @@ class SitesController < ApplicationController
   # Этот метод будет проверять соответствие запроса конфига и request.referrer домена
   # что бы не запрашивали конфиги и не досили с других доменов
   def check_domain_origin
-    unless request.referrer.match(/#{@site.domain}|#{APP_CONFIG['HOST']}/)
+    return unless request.referrer
+    unless request.referrer.to_s.match(/#{@site.domain}|#{APP_CONFIG['HOST']}/)
       logger.error "Domain Refferer: does't match with requested Site ID"
       logger.error "DOMAIN: #{@site.domain} | IP: #{request.remote_ip} | REFERRER: #{request.referrer}"
       render :nothing => true, :status => 404
