@@ -26,6 +26,6 @@ module ApplicationHelper
 
   ga('create', 'UA-44192749-1', 'helperchat.com');
   ga('send', 'pageview');
-</script>"
+</script>".html_safe
   end
 end
