@@ -46,7 +46,7 @@ class Agent < ActiveRecord::Base
   def widget_json
     {
         name: full_name,
-        email: (Rails.env.development? ? 'admin@helperchat.com' : email),
+        email: (Rails.env.development? ? 'admin@helperchat.com' : user.jabber_account),
         avatar_path: avatar.tiny.url
     }
   end
