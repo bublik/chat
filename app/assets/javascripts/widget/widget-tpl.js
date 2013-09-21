@@ -45,6 +45,11 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
       '<div rel="close" class="chf_ico chf_ico_close" title="<%= config.close_dialog %>"></div>' +
       '<div rel="hide" class="chf_ico chf_ico_hide" title="<%= config.hide %>"></div>' +
     '</div>' +
+    '<div id="facebookG">' +
+      '<div id="blockG_1" class="facebook_blockG"></div>' +
+      '<div id="blockG_2" class="facebook_blockG"></div>' +
+      '<div id="blockG_3" class="facebook_blockG"></div>' +
+    '</div>' +
     '<div class="shf_header_info">' +
       '<div class="shf_header_logo">' +
         '<div class="shf_header_logo_cell">' +
@@ -68,6 +73,6 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
     '</div>' +
   '</div>' +
   '<div class="shf_copyright" rel="copyright">' +
-    '<a href="http://heplerchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a>' +
+    '<a href="http://helperchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a>' +
   '</div>' +
 '</div>';

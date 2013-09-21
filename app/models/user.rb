@@ -18,6 +18,6 @@ class User < ActiveRecord::Base
   validates_associated :agent
 
   def jabber_account
-    "#{username}@#{APP_CONFIG['JABBER_HOST']}"
+    "#{username}@#{APP_CONFIG['HOST']}"
   end
 end
