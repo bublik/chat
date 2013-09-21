@@ -7,13 +7,13 @@ class window.ChatFrame
     @assets_host = '<%= APP_CONFIG["HOST"] %>'
     @chat_config_host = '<%= APP_CONFIG['HOST'] %>'
     @site_config = {id: @site_uid}
-    @user_uid = Math.floor(Math.random(1, 100) * 1000)
+    @user_uid = Math.floor(Math.random(1, 100) * 10000)
     @sheme = 'http'
     @sheme = 'https' if (document.location.protocol is 'https:')
-
+    @referrer = if _.isEmpty(document.referrer) then '-' else document.referrer
     @widget_css_url = @sheme + '://' + @assets_host + '/assets/widget.css'
     @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
-        2).toLowerCase()
+      2).toLowerCase()
     @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
     console.log('Constructor Finish \<-')
     @checkCookie()
@@ -97,6 +97,9 @@ class window.ChatFrame
 
   connect: ->
     console.log "Connect:"
+    if jQuery.xmpp.connected
+      console.log '... already connected!'
+      return
     self = @
     jQuery.xmpp.connect
       url: @site_config.bosh_url
@@ -114,6 +117,7 @@ class window.ChatFrame
         console.log('onPresence ->', presence)
         console.log 'New presence: ', presence.from
         console.log "SHOW", presence.show
+        jQuery('#facebookG').hide()
         curId = presence.from.split('@')[0]
         status_icon = "available_icon"
         switch presence.show
@@ -127,8 +131,11 @@ class window.ChatFrame
 
       onDisconnect: ->
         jQuery.xmpp.connected = false
-        console.log "Disconnected ans start Connect->"
-        self.connect()
+        jQuery('#facebookG').show()
+        console.log "Disconnected and start Connect->"
+        setTimeout (->
+         self.connect()
+        ), 3000
 
       onMessage: (message) ->
         console.log('onMessage', message)
@@ -159,7 +166,11 @@ class window.ChatFrame
   scroll_messages: ()->
     jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
   current_page: ->
-    if jQuery('#shf_messages div').length is 0 then ("UserAgent: " + window.navigator.userAgent + "\n" + "Page: " + document.location + "\n") else ''
+    # Send information when first message
+    if jQuery('#shf_messages div').length is 0
+    then (["UserAgent: " + window.navigator.userAgent, "Page: " + document.location,
+           "Referrer: " + @referrer].join("\n")) + "\n"
+    else ''
   agent_status: () ->
     jQuery.getScript('http://helperchat.com/presence/jid/admin/helperchat.com/js?cb=window.cfrm.update_agent_status')
   update_agent_status: ()->
@@ -196,6 +207,7 @@ class window.ChatFrame
     @agent_status() # update agent status on send message, to check if agent went to offline
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
+    @referrer = (@getCookie('ch_ref') or @setCookie('ch_ref', @referrer, 365))
     console.log "Set from Cookie -> @user_uid :", @user_uid
 
   setCookie: (c_name, value, exdays) ->
