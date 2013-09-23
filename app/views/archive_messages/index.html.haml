@@ -7,13 +7,13 @@
     .span2
       %span.badge= distance_of_time_in_words(@archive_messages.first.utc, @archive_messages.last.utc)
 - @archive_messages.each do |msg|
-  .row.hover
+  .row
     .span8
       - if msg.dir.eql?(1)
-        = icon('icon-arrow-right')
-        %small= msg.utc.to_formatted_s(:short)
-        = msg.body
+        %pre.text-info
+          = icon('icon-globe') + ' ' + msg.body
+          %small.pull-right= msg.utc.to_formatted_s(:short)
       - else
-        = icon('icon-user')
-        %small= msg.utc.to_formatted_s(:short)
-        %em= msg.body
+        %pre.text-success
+          = icon('icon-user') + ' ' + msg.body
+          %small.pull-right= msg.utc.to_formatted_s(:short)
