@@ -1,4 +1,4 @@
-window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= btn.side %> shf_btn_<%= btn.side %>_<%= btn.position %> shf_monitor" style="right:0; bottom:0; text-shadow: 1px 1px 1px #202020; border: 1px solid #000; position: absolute; z-index: 10000; background-color: <%= btn.color %>">' +
+window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= btn.side %> shf_btn_<%= btn.side %>_<%= btn.position %> shf_monitor" style="right:0; bottom:0; text-shadow: 1px 1px 1px #202020; border: 1px solid #000; position: fixed; z-index: 10000; background-color: <%= btn.color %>">' +
     '<div class="shf shf_logo"><div class="shf shf_logo_cell"><img rel="logo" class="shf shf_logo_btn" src="<%= btn.logo %>"></div></div>' +
     '<div class="shc shf_title_text" rel="title">Online Help</div>'
 
@@ -39,7 +39,7 @@ window.ch_message_tpl =
  */
 // TODO replace to + line style spliter
 
-window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="position: absolute; height: 360px; width: 450px; background-color: <%= config.color %>">' +
+window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="position: fixed; height: 360px; width: 450px; background-color: <%= config.color %>">' +
   '<div class="shf_header" rel="header">' +
     '<div class="shf_top_buttons">' +
       '<div rel="close" class="chf_ico chf_ico_close" title="<%= config.close_dialog %>"></div>' +
