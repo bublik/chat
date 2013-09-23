@@ -39,7 +39,7 @@ window.ch_message_tpl =
  */
 // TODO replace to + line style spliter
 
-window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="position: fixed; height: 360px; width: 450px; background-color: <%= config.color %>">' +
+window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="position: fixed; height: 390px; width: 450px; background-color: <%= config.color %>">' +
   '<div class="shf_header" rel="header">' +
     '<div class="shf_top_buttons">' +
       '<div rel="close" class="chf_ico chf_ico_close" title="<%= config.close_dialog %>"></div>' +
@@ -51,11 +51,11 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
       '<div id="blockG_3" class="facebook_blockG"></div>' +
     '</div>' +
     '<div class="shf_header_info">' +
-      '<div class="shf_header_logo">' +
-        '<div class="shf_header_logo_cell">' +
-          '<img rel="logo" class="shf_chat_logo" src="<%= config.logo %>">' +
-        '</div>' +
-      '</div>' +
+//      '<div class="shf_header_logo">' +
+//        '<div class="shf_header_logo_cell">' +
+//          '<img rel="logo" class="shf_chat_logo" src="<%= config.logo %>">' +
+//        '</div>' +
+//      '</div>' +
       '<div class="shf_title" rel="title"><%= config.title %></div>' +
     '</div>' +
   '</div>' +
@@ -73,6 +73,6 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
     '</div>' +
   '</div>' +
   '<div class="shf_copyright" rel="copyright">' +
-    '<!-- <a href="http://helperchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a> -->' +
+    '<a href="http://helperchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a>' +
   '</div>' +
 '</div>';

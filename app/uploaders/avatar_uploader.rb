@@ -36,11 +36,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process :resize_to_fill => [80, 80]
-  end
-
-  version :tiny do
-    process :resize_to_fill => [36, 36]
+    process :resize_to_fill => [77, 77]
   end
 
   version :small do

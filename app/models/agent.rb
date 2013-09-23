@@ -31,7 +31,7 @@ class Agent < ActiveRecord::Base
   has_one :user
   delegate :username, to: :user
 
-  mount_uploader :avatar, AvatarUploader #  thumb, tiny
+  mount_uploader :avatar, AvatarUploader #  thumb, small
 
   validates_integrity_of :avatar
   validates_processing_of :avatar
@@ -54,7 +54,7 @@ class Agent < ActiveRecord::Base
     {
         name: full_name,
         email: (Rails.env.development? ? 'admin@helperchat.com' : user.jabber_account),
-        avatar_path: avatar.tiny.url
+        avatar_path: avatar.thumb.url
     }
   end
 
