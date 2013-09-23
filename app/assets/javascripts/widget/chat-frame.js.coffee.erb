@@ -198,7 +198,7 @@ class window.ChatFrame
     console.log 'Send message =>'
     # jQuery.xmpp.sendCommand("<presence from='"+ $.xmpp.jid+"' to='"+@site_config.to+"' type='subscribe'/>")
     # type chat, private, groupchat and default  chat
-    jQuery.xmpp.sendMessage({ type: 'private', to: @site_config.agent.email, body: @current_page() + input.val()})
+    jQuery.xmpp.sendMessage({ type: 'chat', to: @site_config.agent.email, body: @current_page() + input.val()})
 
     @append_message({
       time_at: (new Date).toLocaleString().split(' ')[1],
