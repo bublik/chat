@@ -76,17 +76,16 @@ class window.ChatFrame
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
 
   show_widget: ->
+    @connect()
     console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
       console.log 'Add widget to page'
       jQuery('body').append(_.template(window.ch_widget_tpl, { config: @site_config }))
       @bind_widget_events()
-      @connect()
-
-    jQuery(@widget_window_id).fadeIn()
-    @position(jQuery(@widget_window_id))
-    @scroll_messages() # show new messages when widget window minimized and Operator was sent messages
     @agent_status()
+    @position(jQuery(@widget_window_id))
+    jQuery(@widget_window_id).fadeIn()
+    @scroll_messages() # show new messages when widget window minimized and Operator was sent messages
 
   close_widget: ->
     jQuery(@widget_window_id).hide()
@@ -105,6 +104,8 @@ class window.ChatFrame
       url: @site_config.bosh_url
       jid: 'guest_' + @user_uid + '@' + @site_config.bosh_domain
       password: ''
+      wait: 900, #15 min
+      inactivity: 905,
       onConnect: ->
         console.log "onConnect ->"
         jQuery.xmpp.setPresence(null)
