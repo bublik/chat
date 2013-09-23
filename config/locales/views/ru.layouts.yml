@@ -21,6 +21,7 @@ ru:
       client: 'Клиент'
       profile: 'Профайл'
       dashboard: 'Управление'
+      history: 'История'
   users:
     show:
       your_j_acc: 'Ваш джаббер аккаунт'

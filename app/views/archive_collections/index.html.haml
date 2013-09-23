@@ -1,0 +1,18 @@
+%table.table.table-striped.table-bordered
+  %tr
+    %th= t('.client')
+    %th= t('.start_at')
+    %th= t('.time')
+    %th
+
+  - @archive_collections.each do |archive_collection|
+    %tr
+      %td= us_to_human(archive_collection.us)
+      %td= archive_collection.utc.to_formatted_s(:short)
+      %td= distance_of_time_in_words(archive_collection.utc, archive_collection.change_utc)
+      %td
+        .btn-group
+          = link_to 'Show', archive_collection_archive_messages_path(archive_collection), class: 'btn btn-mini'
+          = link_to 'Destroy', archive_collection, class: 'btn btn-mini', :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+= paginate @archive_collections
