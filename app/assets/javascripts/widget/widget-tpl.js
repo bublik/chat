@@ -73,6 +73,6 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
     '</div>' +
   '</div>' +
   '<div class="shf_copyright" rel="copyright">' +
-    '<a href="http://helperchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a>' +
+    '<!-- <a href="http://helperchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a> -->' +
   '</div>' +
 '</div>';

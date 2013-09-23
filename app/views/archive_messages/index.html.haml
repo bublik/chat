@@ -1,0 +1,19 @@
+.well-small
+  .row
+    .span2
+      = @archive_messages.first.utc.to_formatted_s(:short)
+    .span2
+      %span.label.label-success= us_to_human(@collection.us)
+    .span2
+      %span.badge= distance_of_time_in_words(@archive_messages.first.utc, @archive_messages.last.utc)
+- @archive_messages.each do |msg|
+  .row.hover
+    .span8
+      - if msg.dir.eql?(1)
+        = icon('icon-arrow-right')
+        %small= msg.utc.to_formatted_s(:short)
+        = msg.body
+      - else
+        = icon('icon-user')
+        %small= msg.utc.to_formatted_s(:short)
+        %em= msg.body

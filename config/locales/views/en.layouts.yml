@@ -20,6 +20,7 @@ en:
       client: 'Client'
       profile: 'Profile'
       dashboard: 'Dashboard'
+      history: 'History'
   users:
     show:
       your_j_acc: Your jabber account
