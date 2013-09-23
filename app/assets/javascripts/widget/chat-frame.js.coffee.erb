@@ -6,12 +6,13 @@ class window.ChatFrame
     @widget_window_id = '#widg-' + @site_uid
     @assets_host = '<%= APP_CONFIG["HOST"] %>'
     @chat_config_host = '<%= APP_CONFIG['HOST'] %>'
-    @site_config = {id: @site_uid}
+
     @user_uid = Math.floor(Math.random(1, 100) * 10000)
     @sheme = 'http'
     @sheme = 'https' if (document.location.protocol is 'https:')
     @referrer = if _.isEmpty(document.referrer) then '-' else document.referrer
     @widget_css_url = @sheme + '://' + @assets_host + '/assets/widget.css'
+    @site_config = {id: @site_uid, asset_host: @sheme + '://' + @assets_host}
     @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
       2).toLowerCase()
     @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
@@ -39,7 +40,6 @@ class window.ChatFrame
 
     jQuery(@button_id).on 'click', (e) ->
       self.show_widget()
-
   load_css: ->
     css = document.createElement("link")
     css.media = "all"
@@ -157,6 +157,7 @@ class window.ChatFrame
 
   append_message: (data) ->
     console.log('append_message <-')
+    jQuery('#chat_new_message')[0].play()
     if _.isEmpty(data.content)
       console.log('empty message, exit')
       return
