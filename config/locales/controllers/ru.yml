@@ -22,3 +22,8 @@ ru:
     index:
       need_add_site: 'Добавьте <a href="%{page_link}" >новый сайт</a>'
       need_add_jabber_acc: 'Создайте <a href="%{page_link}" >Jabber аккаунт</a>'
+  archive_collections:
+    index:
+      client: 'Клиент'
+      start_at: 'Начало'
+      time: 'Длительность'

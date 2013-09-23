@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Utc:
+  = @archive_message.utc
+%p
+  %b Dir:
+  = @archive_message.dir
+%p
+  %b Body:
+  = @archive_message.body
+%p
+  %b Name:
+  = @archive_message.name
+
+= link_to 'Back', archive_messages_path

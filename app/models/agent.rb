@@ -29,11 +29,18 @@ class Agent < ActiveRecord::Base
   has_many :sites
   # Jabber Authorization User
   has_one :user
+  delegate :username, to: :user
 
   mount_uploader :avatar, AvatarUploader #  thumb, tiny
 
   validates_integrity_of :avatar
   validates_processing_of :avatar
+
+
+  # has_many
+  def archive_collections
+    ArchiveCollection.where(with_user: self.username)
+  end
 
   def full_name
     name.blank? ? short_name : name

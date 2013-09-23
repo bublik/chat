@@ -18,3 +18,8 @@ en:
       flash_updated: 'Settings was successfully updated.'
     show:
       add: 'Добавить'
+  archive_collections:
+    index:
+      client: 'Client'
+      start_at: 'Start at'
+      time: 'Duration'

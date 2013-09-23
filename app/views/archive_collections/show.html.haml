@@ -1,0 +1,19 @@
+%p#notice= notice
+
+%p
+  %b Us:
+  = @archive_collection.us
+%p
+  %b With user:
+  = @archive_collection.with_user
+%p
+  %b Utc:
+  = @archive_collection.utc
+%p
+  %b Change by:
+  = @archive_collection.change_by
+%p
+  %b Change utc:
+  = @archive_collection.change_utc
+
+= link_to 'Back', archive_collections_path

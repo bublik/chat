@@ -1,0 +1,27 @@
+%h1 Listing archive_jid_prefs
+
+%table
+  %tr
+    %th With user
+    %th With resource
+    %th Save
+    %th Expire
+    %th Otr
+    %th
+    %th
+    %th
+
+  - @archive_jid_prefs.each do |archive_jid_pref|
+    %tr
+      %td= archive_jid_pref.with_user
+      %td= archive_jid_pref.with_resource
+      %td= archive_jid_pref.save
+      %td= archive_jid_pref.expire
+      %td= archive_jid_pref.otr
+      %td= link_to 'Show', archive_jid_pref
+      %td= link_to 'Edit', edit_archive_jid_pref_path(archive_jid_pref)
+      %td= link_to 'Destroy', archive_jid_pref, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Archive jid pref', new_archive_jid_pref_path

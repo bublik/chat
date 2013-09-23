@@ -40,6 +40,7 @@ gem 'haml-rails'
 gem "therubyracer"
 gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
+gem 'kaminari' #pagination plugin
 
 group :test do
   # database_cleaner is not required, but highly recommended
