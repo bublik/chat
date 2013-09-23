@@ -72,6 +72,12 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
       '</div>' +
     '</div>' +
   '</div>' +
+  '<audio preload id="chat_new_message">'+
+    // AAC file (Chrome/Safari/IE9)
+      '<source src="<%= config.asset_host %>/sound/sound.m4a" type="audio/mpeg" />' +
+    // Ogg Vorbis (Firefox)
+      '<source src="<%= config.asset_host %>/sound/sound.ogg" type="audio/ogg" />'+
+  '</audio>' +
   '<div class="shf_copyright" rel="copyright">' +
     '<a href="http://helperchat.com" target="_blank" title="HelperChat" class="shw">Powered by <span class="shw">Helper</span>Chat</a>' +
   '</div>' +
