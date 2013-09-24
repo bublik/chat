@@ -92,7 +92,7 @@ class window.ChatFrame
 
   close_widget: ->
     jQuery(@widget_window_id).hide()
-    jQuery.xmpp.disconnect()
+    jQuery.xmpp.disconnectSync()
 
   hide_widget: ->
     jQuery(@widget_window_id).fadeOut()
@@ -102,61 +102,62 @@ class window.ChatFrame
     if jQuery.xmpp.connected
       console.log '... already connected!'
       return
-    self = @
-    jQuery.xmpp.connect
-      url: @site_config.bosh_url
-      jid: 'guest_' + @user_uid + '@' + @site_config.bosh_domain
-      password: ''
-      wait: 900, #15 min
-      inactivity: 905,
-      onConnect: ->
-        console.log "onConnect ->"
-        jQuery.xmpp.setPresence(null)
+    jQuery.xmpp.connect @_onConnect()
+
+  _onConnect: ->
+    url: @site_config.bosh_url
+    jid: 'guest_' + @user_uid + '@' + @site_config.bosh_domain
+    password: ''
+    wait: 300, #5 min
+    inactivity: 305,
+    onConnect: ->
+      console.log "onConnect ->"
+      jQuery.xmpp.setPresence(null)
+      console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
+    onIq: (iq) ->
+      console.log('onIq', iq)
+    onNotification: (notification) ->
+      console.log("onNotification ->", notification)
+    onPresence: (presence) ->
+      console.log('onPresence ->', presence)
+      console.log 'New presence: ', presence.from
+      console.log "SHOW", presence.show
+      jQuery('#facebookG').hide()
+      curId = presence.from.split('@')[0]
+      status_icon = "available_icon"
+      switch presence.show
+        when "dnd"
+          status_icon = "busy_icon"
+        when "away"
+          status_icon = "away_icon"
+        else
+          status_icon = "available_icon"
+      console.log('onpresence', curId, status_icon)
+
+    onDisconnect: ->
+      jQuery.xmpp.connected = false
+      jQuery('#facebookG').show()
+      console.log "Disconnected and start Connect->"
+      setTimeout (->
+        window.cfrm.connect()
+      ), 3000
+
+    onMessage: (message) ->
+      console.log('onMessage', message)
+      if (err = message.data.find('error')).context != undefined
+        console.log 'ERROR', message.from, err
+      msg = {
+        time_at: (new Date).toLocaleString().split(' ')[1],
+        full_name: self.site_config.agent.name,
+        content: message.body}
+      console.log 'MSG', msg
+      self.append_message(msg)
+    onError: (error) ->
+      console.log error.error
+      if error.error.match(/Invalid/)
         console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
-      onIq: (iq) ->
-        console.log('onIq', iq)
-      onNotification: (notification) ->
-        console.log("onNotification ->", notification)
-      onPresence: (presence) ->
-        console.log('onPresence ->', presence)
-        console.log 'New presence: ', presence.from
-        console.log "SHOW", presence.show
-        jQuery('#facebookG').hide()
-        curId = presence.from.split('@')[0]
-        status_icon = "available_icon"
-        switch presence.show
-          when "dnd"
-            status_icon = "busy_icon"
-          when "away"
-            status_icon = "away_icon"
-          else
-            status_icon = "available_icon"
-        console.log('onpresence', curId, status_icon)
-
-      onDisconnect: ->
-        jQuery.xmpp.connected = false
-        jQuery('#facebookG').show()
-        console.log "Disconnected and start Connect->"
-        setTimeout (->
-         self.connect()
-        ), 3000
-
-      onMessage: (message) ->
-        console.log('onMessage', message)
-        if (err = message.data.find('error')).context != undefined
-          console.log 'ERROR', message.from, err
-        msg = {
-          time_at: (new Date).toLocaleString().split(' ')[1],
-          full_name: self.site_config.agent.name,
-          content: message.body}
-        console.log 'MSG', msg
-        self.append_message(msg)
-      onError: (error) ->
-        console.log error.error
-        if error.error.match(/Invalid/)
-          console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
-          console.log 'CALL DISCONNECT'
-          jQuery.xmpp.disconnect()
+        console.log 'CALL DISCONNECT'
+        jQuery.xmpp.disconnect()
 
   append_message: (data) ->
     console.log('append_message <-')
@@ -197,7 +198,7 @@ class window.ChatFrame
     unless jQuery.xmpp.connected
       @connect()
     input = jQuery('.shf_textarea_answer textarea')
-    message = input.val().slice(0,-1)
+    message = input.val().slice(0, -1)
     if message == ''
       input.val ""
       return
@@ -236,5 +237,15 @@ class window.ChatFrame
       c_value = unescape(c_value.substring(c_start, c_end))
     c_value
 
+#  delCookie: (name) ->
+#    expire = new Date();
+#    expire.setDate(expire.getDate() - 365)
+#    document.cookie = name + "= ; expires=" + expire.toGMTString()
+
 window.cfrm = new window.ChatFrame(window._chcfg)
 window.cfrm.load_site_config()
+
+oldonunload = window.onunload
+window.onunload = ->
+  oldonunload() if oldonunload
+  jQuery.xmpp.disconnectSync()
