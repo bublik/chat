@@ -18,48 +18,56 @@
   .tab-content
     #general.tab-pane.active
       .row
-        .span2= site_humanize_column('name')
+        .span3= site_humanize_column('name')
         .span3= @site.name
       .row
-        .span2= site_humanize_column('domain')
+        .span3= site_humanize_column('domain')
         .span3= link_to(@site.domain, "http://#{@site.domain}")
       .row
-        .span2= site_humanize_column('site_category_id')
+        .span3= site_humanize_column('site_category_id')
         .span2= @site.site_category.name
       .row
-        .span2= site_humanize_column('enabled')
+        .span3= site_humanize_column('enabled')
         .span2= icon_boolean(@site.enabled)
     #color-position.tab-pane
       .row
-        .span2= site_humanize_column('side')
+        .span3= site_humanize_column('side')
         .span2= @site.side
       .row
-        .span2= site_humanize_column('position')
+        .span3= site_humanize_column('position')
         .span2= @site.position
     #titles.tab-pane
       .row
-        .span2= site_humanize_column('title_online')
+        .span3= site_humanize_column('title_online')
         .span2= @site.title_online
       .row
-        .span2= site_humanize_column('title_offline')
+        .span3= site_humanize_column('title_offline')
         .span2= @site.title_offline
+      .row
+        .span3= site_humanize_column('offline_welcome_message')
+        .span2= @site.offline_welcome_message
+
     #stats.tab-pane
       .row
-        .span2= site_humanize_column('collect_stats')
+        .span3= site_humanize_column('collect_stats')
         .span2= icon_boolean(@site.collect_stats)
     #display.tab-pane
       .hidden
         .row
-          .span2= site_humanize_column('show_online')
+          .span3= site_humanize_column('show_online')
           .span2= icon_boolean(@site.show_online)
         .row
-          .span2= site_humanize_column('show_offline')
+          .span3= site_humanize_column('show_offline')
           .span2= icon_boolean(@site.show_offline)
       .row
-        .span2= site_humanize_column('auto_open')
+        .span3= site_humanize_column('auto_open')
         .span2= icon_boolean(@site.auto_open)
       .row
-        .span2= site_humanize_column('color')
+        .span3= site_humanize_column('auto_open_timeout')
+        .span2= @site.auto_open_timeout
+
+      .row
+        .span3= site_humanize_column('color')
         .span2= @site.color
         .span1.color &nbsp;
         = hidden_field_tag :site_color, @site.color
@@ -71,3 +79,5 @@
     = link_to(t('global.edit'), edit_site_path(@site), class: 'btn btn-warning')
 :css
   textarea { width: 440px; height: 225px; }
+  .tab-pane .row { line-height: 40px; border-bottom: 1px dotted #ccc; }
+  #jscode .row {border: none}

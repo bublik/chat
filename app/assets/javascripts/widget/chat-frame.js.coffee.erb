@@ -36,7 +36,10 @@ class window.ChatFrame
     jQuery('body').append(_.template(window.ch_button, { btn: @site_config }))
     self = @
     if @site_config['auto_open']
-      self.show_widget()
+      setTimeout (->
+        self.connect()
+        self.show_widget()
+      ), @site_config['auto_open_timeout'] * 1000
 
     jQuery(@button_id).on 'click', (e) ->
       self.show_widget()

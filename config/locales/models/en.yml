@@ -27,10 +27,12 @@ en:
         position: 'Position'
         title_online: 'Title online'
         title_offline: 'Title offline'
+        offline_welcome_message: 'Welcome message when agent offline'
         collect_stats: 'Collect statistics'
         show_online: 'Show online'
         show_offline: 'Show offline'
         auto_open: 'Auto Open'
+        auto_open_timeout: 'Auto Open timeout (sec)'
         enabled: 'Enabled'
 
   errors:

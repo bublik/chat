@@ -2,24 +2,26 @@
 #
 # Table name: sites
 #
-#  name             :string(255)      not null
-#  domain           :string(255)      not null
-#  site_category_id :integer
-#  agent_id         :integer
-#  color            :string(255)      not null
-#  side             :string(255)      not null
-#  position         :string(255)      not null
-#  title_online     :string(255)
-#  title_offline    :string(255)
-#  collect_stats    :boolean          default(FALSE)
-#  show_online      :boolean          default(TRUE)
-#  show_offline     :boolean          default(FALSE)
-#  auto_open        :boolean          default(FALSE)
-#  enabled          :boolean          default(TRUE)
-#  created_at       :datetime
-#  updated_at       :datetime
-#  id               :integer          not null, primary key
-#  uuid             :string(255)      not null
+#  id                      :integer          not null, primary key
+#  name                    :string(255)      not null
+#  domain                  :string(255)      not null
+#  site_category_id        :integer
+#  agent_id                :integer
+#  color                   :string(255)      not null
+#  side                    :string(255)      not null
+#  position                :string(255)      not null
+#  title_online            :string(255)      default("")
+#  title_offline           :string(255)      default("")
+#  collect_stats           :boolean          default(FALSE)
+#  show_online             :boolean          default(TRUE)
+#  show_offline            :boolean          default(FALSE)
+#  auto_open               :boolean          default(FALSE)
+#  enabled                 :boolean          default(TRUE)
+#  created_at              :datetime
+#  updated_at              :datetime
+#  uuid                    :string(255)      not null
+#  offline_welcome_message :string(255)      default("")
+#  auto_open_timeout       :integer          default(3)
 #
 
 class Site < ActiveRecord::Base
@@ -41,6 +43,8 @@ class Site < ActiveRecord::Base
   validates :color, format: {with: /\A#\w+\Z/}
   validates :position, inclusion: {in: Site::POSITION}
   validates :side, inclusion: {in: Site::SIDE}
+  validates :auto_open_timeout, numericality: { :greater_than_or_equal_to => 0 }
+  validates :offline_welcome_message, length: 6..254
 
   before_validation(on: :create) do
     self.color ||= COLORS.last

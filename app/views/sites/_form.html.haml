@@ -23,6 +23,7 @@
           = f.select :position, Site::POSITION
       = f.input :title_online
       = f.input :title_offline
+      = f.input :offline_welcome_message, as: :text
 
       .hidden
         .control-group
@@ -46,12 +47,14 @@
         = f.label :auto_open, site_humanize_column('auto_open'), class: 'control-label red'
         .controls
           = f.check_box :auto_open
+      = f.input :auto_open_timeout
       - unless @site.new_record?
         .control-group
           = f.label :widget_code, site_humanize_column('widget_code'), class: 'control-label'
           .controls
             = text_area_tag :widget_code, widget_code(@site), rows: 5
-    = f.submit t('global.send'), class: 'btn btn-primary'
+    .row
+      .span3= f.submit t('global.send'), class: 'btn btn-primary pull-right'
 :css
   .color{ width: 25px; height: 25px; display: inline-block; vertical-align: bottom;}
 

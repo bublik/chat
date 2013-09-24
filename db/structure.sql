@@ -42,7 +42,137 @@ CREATE TABLE `agents` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_agents_on_email` (`email`),
   UNIQUE KEY `index_agents_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `archive_collections`
+--
+
+DROP TABLE IF EXISTS `archive_collections`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `archive_collections` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prev_id` int(11) DEFAULT NULL,
+  `next_id` int(11) DEFAULT NULL,
+  `us` varchar(2047) NOT NULL,
+  `with_user` varchar(1023) NOT NULL,
+  `with_server` varchar(1023) NOT NULL,
+  `with_resource` varchar(1023) NOT NULL,
+  `utc` datetime NOT NULL,
+  `change_by` varchar(3071) DEFAULT NULL,
+  `change_utc` datetime DEFAULT NULL,
+  `deleted` tinyint(4) DEFAULT NULL,
+  `subject` varchar(1023) DEFAULT NULL,
+  `thread` varchar(1023) DEFAULT NULL,
+  `crypt` tinyint(4) DEFAULT NULL,
+  `extra` mediumtext,
+  PRIMARY KEY (`id`),
+  KEY `IDX_archive_colls_with` (`us`(16),`with_user`(8),`with_server`(8),`utc`),
+  KEY `IDX_archive_colls_prev_id` (`prev_id`),
+  KEY `IDX_archive_colls_next_id` (`next_id`),
+  KEY `IDX_archive_colls_utc` (`us`(16),`utc`),
+  KEY `IDX_archive_colls_change` (`deleted`,`change_utc`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`deploy`@`localhost`*/ /*!50003 TRIGGER archive_collections_update BEFORE UPDATE ON archive_collections
+FOR EACH ROW
+BEGIN
+  IF NEW.deleted = 1 THEN
+    DELETE FROM archive_messages WHERE coll_id = NEW.id;
+  END IF;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8 */ ;
+/*!50003 SET character_set_results = utf8 */ ;
+/*!50003 SET collation_connection  = utf8_general_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = '' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`deploy`@`localhost`*/ /*!50003 TRIGGER archive_collections_delete BEFORE DELETE ON archive_collections
+FOR EACH ROW
+BEGIN
+  DELETE FROM archive_messages WHERE coll_id = OLD.id;
+END */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
+
+--
+-- Table structure for table `archive_global_prefs`
+--
+
+DROP TABLE IF EXISTS `archive_global_prefs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `archive_global_prefs` (
+  `us` varchar(2047) NOT NULL,
+  `save` tinyint(4) DEFAULT NULL,
+  `expire` int(11) DEFAULT NULL,
+  `otr` tinyint(4) DEFAULT NULL,
+  `method_auto` tinyint(4) DEFAULT NULL,
+  `method_local` tinyint(4) DEFAULT NULL,
+  `method_manual` tinyint(4) DEFAULT NULL,
+  `auto_save` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`us`(16))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `archive_jid_prefs`
+--
+
+DROP TABLE IF EXISTS `archive_jid_prefs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `archive_jid_prefs` (
+  `us` varchar(2047) NOT NULL,
+  `with_user` varchar(1023) NOT NULL,
+  `with_server` varchar(1023) NOT NULL,
+  `with_resource` varchar(1023) NOT NULL,
+  `save` tinyint(4) DEFAULT NULL,
+  `expire` int(11) DEFAULT NULL,
+  `otr` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`us`(16),`with_user`(8),`with_server`(8),`with_resource`(8))
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `archive_messages`
+--
+
+DROP TABLE IF EXISTS `archive_messages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `archive_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `coll_id` int(11) NOT NULL,
+  `utc` datetime NOT NULL,
+  `dir` tinyint(4) DEFAULT NULL,
+  `body` mediumtext,
+  `name` varchar(1023) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `IDX_archive_msgs_coll_id` (`coll_id`,`utc`)
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -405,6 +535,7 @@ DROP TABLE IF EXISTS `sites`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `domain` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `site_category_id` int(11) DEFAULT NULL,
@@ -412,8 +543,8 @@ CREATE TABLE `sites` (
   `color` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `side` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `position` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `title_online` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `title_offline` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `title_online` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
+  `title_offline` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `collect_stats` tinyint(1) DEFAULT '0',
   `show_online` tinyint(1) DEFAULT '1',
   `show_offline` tinyint(1) DEFAULT '0',
@@ -421,12 +552,14 @@ CREATE TABLE `sites` (
   `enabled` tinyint(1) DEFAULT '1',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
   `uuid` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `offline_welcome_message` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
+  `auto_open_timeout` int(11) DEFAULT '3',
   PRIMARY KEY (`id`),
   KEY `index_sites_on_site_category_id` (`site_category_id`),
-  KEY `index_sites_on_agent_id` (`agent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  KEY `index_sites_on_agent_id` (`agent_id`),
+  KEY `index_sites_on_uuid` (`uuid`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -443,7 +576,7 @@ CREATE TABLE `spool` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   UNIQUE KEY `seq` (`seq`),
   KEY `i_despool` (`username`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -580,7 +713,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-09-19 15:07:09
+-- Dump completed on 2013-09-24 11:06:54
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -598,3 +731,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130915185959');
 INSERT INTO schema_migrations (version) VALUES ('20130919075429');
 
 INSERT INTO schema_migrations (version) VALUES ('20130919115406');
+
+INSERT INTO schema_migrations (version) VALUES ('20130924074832');
+
+INSERT INTO schema_migrations (version) VALUES ('20130924080045');

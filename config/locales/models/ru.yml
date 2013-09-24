@@ -44,10 +44,12 @@ ru:
         position: 'Положение'
         title_online: 'Заголовок онлайн'
         title_offline: 'Заголовок офлайн'
+        offline_welcome_message: 'Оффлайн приветствие обратной связи'
         collect_stats: 'Сбор статистики'
         show_online: 'Показывать онлайн'
         show_offline: 'Показывать офлайн'
         auto_open: 'Автоматически открывать'
+        auto_open_timeout: 'Задержка перед автооткрытием (сек)'
         enabled: 'Включен'
         widget_code: 'Код виджета'
 
