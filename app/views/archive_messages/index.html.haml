@@ -6,14 +6,20 @@
       %span.label.label-success= us_to_human(@collection.us)
     .span2
       %span.badge= distance_of_time_in_words(@archive_messages.first.utc, @archive_messages.last.utc)
-- @archive_messages.each do |msg|
-  .row
-    .span8
-      - if msg.dir.eql?(1)
-        %pre.text-info
-          = icon('icon-globe') + ' ' + msg.body
-          %small.pull-right= msg.utc.to_formatted_s(:short)
-      - else
-        %pre.text-success
-          = icon('icon-user') + ' ' + msg.body
-          %small.pull-right= msg.utc.to_formatted_s(:short)
+
+%p{:style => 'margin-top: 30px'}
+  - @archive_messages.each do |msg|
+    .row
+      .span5.offset5.archive_row
+        - if msg.dir.eql?(1)
+          %span.tooltip{'data-toggle' => 'popover', 'data-title' => icon('icon-globe')  + ' ' + msg.utc.to_formatted_s(:short), 'data-content' => msg.body, 'data-html' => 'true', 'data-placement' => 'left'}
+        - else
+          %span.tooltip{'data-toggle' => 'popover', 'data-title' => icon('icon-user') + ' ' + msg.utc.to_formatted_s(:short), 'data-content' => msg.body, 'data-html' => 'true', 'data-placement' => 'right' }
+
+:css
+  .archive_row { height: 100px; border-left: 1px dotted #ccc}
+  .archive_row span { margin-top: 30px;}
+  .popover-title {padding: 0 8px; color: #757575}
+
+- content_for :javascript do
+  $('.tooltip').popover('show')

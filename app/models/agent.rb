@@ -39,7 +39,7 @@ class Agent < ActiveRecord::Base
 
   # has_many
   def archive_collections
-    ArchiveCollection.where(with_user: self.username)
+    ArchiveCollection.where(with_user: self.user ? self.username : nil)
   end
 
   def full_name
