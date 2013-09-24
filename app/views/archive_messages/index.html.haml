@@ -12,13 +12,18 @@
     .row
       .span5.offset5.archive_row
         - if msg.dir.eql?(1)
-          %span.tooltip{'data-toggle' => 'popover', 'data-title' => icon('icon-globe')  + ' ' + msg.utc.to_formatted_s(:short), 'data-content' => msg.body, 'data-html' => 'true', 'data-placement' => 'left'}
+          - icon_class = 'icon-globe'; position = 'left'
         - else
-          %span.tooltip{'data-toggle' => 'popover', 'data-title' => icon('icon-user') + ' ' + msg.utc.to_formatted_s(:short), 'data-content' => msg.body, 'data-html' => 'true', 'data-placement' => 'right' }
-
+          - icon_class = 'icon-user' ; position = 'right'
+        %span.tooltip{'data-toggle' => 'popover',
+          'data-html' => 'true',
+          'data-content' => msg.body,
+          'data-title' => icon(icon_class) + ' ' + msg.utc.to_formatted_s(:short),
+          'data-placement' => position }
 :css
   .archive_row { height: 100px; border-left: 1px dotted #ccc}
   .archive_row span { margin-top: 30px;}
+  .popover {max-width: 450px}
   .popover-title {padding: 0 8px; color: #757575}
 
 - content_for :javascript do
