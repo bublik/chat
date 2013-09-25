@@ -5,11 +5,5 @@ json.cache! [@site, I18n.locale], expires_in: 15.minutes do
   json.title @site.online ? @site.title_online : @site.title_offline
   json.bosh_url APP_CONFIG['BOSH_URL']
   json.bosh_domain APP_CONFIG['BOSH_DOMAIN']
-  json.smile t('widget.smile')
-  json.sound t('widget.sound')
-  json.submit_btn t('widget.submit_btn')
-  json.close t('widget.close')
-  json.close_dialog t('widget.close_dialog')
-  json.hide t('widget.hide')
-  json.placeholder t('widget.placeholder')
+  json.locale t('widget')
 end

@@ -1,9 +1,12 @@
 en:
   widget:
-    smile: 'Smile'
     sound: 'sound'
     submit_btn: 'Send'
     close: 'Close'
     close_dialog: 'Close dialog'
     hide: 'Hide'
     placeholder: 'Enter message...'
+    name_field: 'Name:'
+    email_field: 'Email:'
+    phone_field: 'Phone:'
+    message_field: 'Message'

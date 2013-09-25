@@ -158,6 +158,12 @@ class window.ChatFrame
         console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
         console.log 'CALL DISCONNECT'
         jQuery.xmpp.disconnect()
+  # show offline feedback form
+  offline_feedback: ()->
+    jQuery('.shf_agent, #shf_messages').remove()
+    jQuery('.shf_textarea_answer textarea').attr('disabled', 'disabled')
+    mesage_content = _.template(window.ch_fedback_form, { data: @site_config })
+    jQuery('.shf_messages').html(mesage_content)
 
   append_message: (data) ->
     console.log('append_message <-')
