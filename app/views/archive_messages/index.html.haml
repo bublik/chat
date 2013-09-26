@@ -24,7 +24,17 @@
   .archive_row { height: 100px; border-left: 1px dotted #ccc}
   .archive_row span { margin-top: 30px;}
   .popover {max-width: 450px}
+  .popover:hover { z-index: 1060; }
   .popover-title {padding: 0 8px; color: #757575}
+  .popover-content {
+    font-size: 12px;
+    padding: 5px 10px;
+    white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+    white-space: -pre-wrap; /* Opera 4 - 6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word; /* IE 5.5+ */
+  }
 
 - content_for :javascript do
   $('.tooltip').popover('show')
