@@ -17,7 +17,7 @@
           - icon_class = 'icon-user' ; position = 'right'
         %span.tooltip{'data-toggle' => 'popover',
           'data-html' => 'true',
-          'data-content' => msg.body,
+          'data-content' => auto_link_urls(msg.body),
           'data-title' => icon(icon_class) + ' ' + msg.utc.to_formatted_s(:short),
           'data-placement' => position }
 :css
