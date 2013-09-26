@@ -75,8 +75,7 @@ class window.ChatFrame
       else
         self.connect()
     jQuery('.shf_textarea_answer textarea').on 'keyup', (e) ->
-      e.preventDefault()
-      if e.keyCode is 13
+      if event.keyCode is 13
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
 
   show_widget: ->
