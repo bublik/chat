@@ -25,50 +25,51 @@
         .span3= link_to(@site.domain, "http://#{@site.domain}")
       .row
         .span3= site_humanize_column('site_category_id')
-        .span2= @site.site_category.name
+        .span3= @site.site_category.name
       .row
         .span3= site_humanize_column('enabled')
-        .span2= icon_boolean(@site.enabled)
+        .span3= icon_boolean(@site.enabled)
     #color-position.tab-pane
       .row
         .span3= site_humanize_column('side')
-        .span2= @site.side
+        .span3= @site.side
       .row
         .span3= site_humanize_column('position')
-        .span2= @site.position
+        .span3= @site.position
     #titles.tab-pane
       .row
         .span3= site_humanize_column('title_online')
-        .span2= @site.title_online
+        .span3= @site.title_online
       .row
         .span3= site_humanize_column('title_offline')
-        .span2= @site.title_offline
+        .span3= @site.title_offline
       .row
         .span3= site_humanize_column('offline_welcome_message')
-        .span2= @site.offline_welcome_message
+        .span4{:style => 'line-height: 16px;'}
+          %em= @site.offline_welcome_message
 
     #stats.tab-pane
       .row
         .span3= site_humanize_column('collect_stats')
-        .span2= icon_boolean(@site.collect_stats)
+        .span3= icon_boolean(@site.collect_stats)
     #display.tab-pane
       .hidden
         .row
           .span3= site_humanize_column('show_online')
-          .span2= icon_boolean(@site.show_online)
+          .span3= icon_boolean(@site.show_online)
         .row
           .span3= site_humanize_column('show_offline')
-          .span2= icon_boolean(@site.show_offline)
+          .span3= icon_boolean(@site.show_offline)
       .row
         .span3= site_humanize_column('auto_open')
-        .span2= icon_boolean(@site.auto_open)
+        .span3= icon_boolean(@site.auto_open)
       .row
         .span3= site_humanize_column('auto_open_timeout')
-        .span2= @site.auto_open_timeout
+        .span3= @site.auto_open_timeout
 
       .row
         .span3= site_humanize_column('color')
-        .span2= @site.color
+        .span1= @site.color
         .span1.color &nbsp;
         = hidden_field_tag :site_color, @site.color
     #jscode.tab-pane

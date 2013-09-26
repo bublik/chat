@@ -13,6 +13,13 @@ class ArchiveCollectionsController < ApplicationController
   def show
   end
 
+  def search
+    @archive_collections = current_agent.archive_collections.joins(:archive_messages).where('archive_messages.body LIKE ?', "%#{params[:q]}%").uniq.page(params[:page])
+    respond_to do |format|
+      format.html { render action: 'index' }
+    end
+  end
+
   ## GET /archive_collections/new
   #def new
   #  @archive_collection = ArchiveCollection.new
@@ -63,13 +70,13 @@ class ArchiveCollectionsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_archive_collection
-      @archive_collection = current_agent.archive_collections.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_archive_collection
+    @archive_collection = current_agent.archive_collections.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def archive_collection_params
-      params.require(:archive_collection).permit(:us, :with_user, :utc, :change_by, :change_utc)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def archive_collection_params
+    params.require(:archive_collection).permit(:us, :with_user, :utc, :change_by, :change_utc)
+  end
 end

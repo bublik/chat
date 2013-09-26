@@ -1,6 +1,9 @@
 Chat::Application.routes.draw do
   resources :archive_jid_prefs
   resources :archive_collections, only: [:index, :show, :destroy] do
+    collection do
+      get :search
+    end
     resources :archive_messages, only: [:index, :show, :destroy]
   end
 
