@@ -38,6 +38,7 @@ ru:
         name: 'Название'
         domain: 'Домен'
         site_category_id: 'Категория'
+        user_prefix: 'Префикс посетителя'
         agent_id: 'Агент'
         color: 'Цвет'
         side: 'Сторона'

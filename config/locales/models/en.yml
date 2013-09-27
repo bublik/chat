@@ -20,6 +20,7 @@ en:
       site:
         name: 'Title'
         domain: 'Domain'
+        user_prefix: 'User prefix'
         site_category_id: 'Category'
         agent_id: 'Agent'
         color: 'Color'
