@@ -6,8 +6,9 @@ class window.ChatFrame
     @widget_window_id = '#widg-' + @site_uid
     @assets_host = '<%= APP_CONFIG["HOST"] %>'
     @chat_config_host = '<%= APP_CONFIG['HOST'] %>'
-
-    @user_uid = Math.floor(Math.random(1, 100) * 10000)
+    @reconnect = true
+    @prefix = @options['user_prefix'] || document.domain.substr(0,9)
+    @user_uid = Math.floor(Math.random(1, 100) * 10000000)
     @sheme = 'http'
     @sheme = 'https' if (document.location.protocol is 'https:')
     @referrer = if _.isEmpty(document.referrer) then '-' else document.referrer
@@ -80,6 +81,7 @@ class window.ChatFrame
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
 
   show_widget: ->
+    @reconnect = true
     @connect()
     console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
@@ -92,6 +94,7 @@ class window.ChatFrame
     @scroll_messages() # show new messages when widget window minimized and Operator was sent messages
 
   close_widget: ->
+    @reconnect = false
     jQuery(@widget_window_id).hide()
     jQuery.xmpp.disconnectSync()
 
@@ -107,7 +110,7 @@ class window.ChatFrame
 
   _onConnect: ->
     url: @site_config.bosh_url
-    jid: 'guest_' + @user_uid + '@' + @site_config.bosh_domain
+    jid: @prefix + '_' + @user_uid + '@' + @site_config.bosh_domain
     password: ''
     wait: 300, #5 min
     inactivity: 305,

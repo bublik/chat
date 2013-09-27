@@ -22,6 +22,7 @@
 #  uuid                    :string(255)      not null
 #  offline_welcome_message :string(255)      default("")
 #  auto_open_timeout       :integer          default(3)
+#  user_prefix             :string(255)      default("guest")
 #
 
 class Site < ActiveRecord::Base

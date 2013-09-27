@@ -11,6 +11,7 @@
 /public/assets/*
 /public/uploads
 /public/site*
+/public/strophejs
 /config/config.yml
 
 # Ignore the default SQLite database.

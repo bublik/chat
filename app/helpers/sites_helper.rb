@@ -11,7 +11,7 @@ module SitesHelper
   def widget_code(site = nil)
     return unless site
     javascript_tag do
-      "_chcfg = {widget_id: \"#{site.uuid}\"};
+      "_chcfg = {widget_id: \"#{site.uuid}\", user_prefix: \"#{site.user_prefix}\"};
 (function() { var chs = document.createElement(\"script\");
 chs.type = \"text/javascript\"; chs.async = true;
 chs.src = (\"https:\" == document.location.protocol ? \"https\" : \"http\")+\"://#{widget_js}\";
