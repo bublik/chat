@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Username:
+  = @site_feedback.username
+%p
+  %b Email:
+  = @site_feedback.email
+%p
+  %b Phone:
+  = @site_feedback.phone
+%p
+  %b Message:
+  = @site_feedback.message
+%p
+  %b Remote ip:
+  = @site_feedback.remote_ip
+%p
+  %b User agent:
+  = @site_feedback.user_agent
+%p
+  %b Site:
+  = @site_feedback.site_id
+
+= link_to 'Edit', edit_site_feedback_path(@site_feedback)
+\|
+= link_to 'Back', site_feedbacks_path

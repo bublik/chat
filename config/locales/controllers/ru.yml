@@ -18,6 +18,9 @@ ru:
       flash_updated: 'Настройки успешно обновлены.'
     show:
       add: 'Добавить'
+  site_feedbacks:
+    create:
+      flash_created: 'Ваше сообщение отправлено!'
   management:
     index:
       need_add_site: 'Добавьте <a href="%{page_link}" >новый сайт</a>'

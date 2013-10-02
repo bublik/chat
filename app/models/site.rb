@@ -35,6 +35,7 @@ class Site < ActiveRecord::Base
   ## Relations
   belongs_to :site_category
   belongs_to :agent
+  has_many :site_feedbacks
 
   ## Validations
   validates_presence_of :name
@@ -44,8 +45,8 @@ class Site < ActiveRecord::Base
   validates :color, format: {with: /\A#\w+\Z/}
   validates :position, inclusion: {in: Site::POSITION}
   validates :side, inclusion: {in: Site::SIDE}
-  validates :auto_open_timeout, numericality: { :greater_than_or_equal_to => 0 }
-  validates :offline_welcome_message, length: 6..254
+  validates :auto_open_timeout, numericality: { greater_than_or_equal_to: 0 }
+  validates :offline_welcome_message, length: 6..254, on: :update
 
   before_validation(on: :create) do
     self.color ||= COLORS.last

@@ -17,7 +17,8 @@
         = menu_group do
           = menu_divider
           = menu_item t('.settings'), current_agent.sites.first ? site_path(current_agent.sites.first) : new_site_path
-          = menu_item t('.history'),  archive_collections_path
+          = menu_item t('.history'), archive_collections_path
+          = menu_item t('.feedback'), visitor_feedbacks_path
           = menu_item t('.client'), current_agent.user ? user_path(current_agent.user) : new_user_path
         = menu_group(pull: 'right') do
           = drop_down(current_agent.avatar? ? image_tag(current_agent.avatar.small.url) : icon('icon-user') ) do
