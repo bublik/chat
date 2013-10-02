@@ -7,7 +7,12 @@ Chat::Application.routes.draw do
     resources :archive_messages, only: [:index, :show, :destroy]
   end
 
-  resources :sites
+  resources :sites do
+    resources :site_feedbacks, only: [:index, :create, :destroy]
+  end
+
+  match '/visitor_feedbacks', to: 'site_feedbacks#list', via: [:get], as: :visitor_feedbacks
+
   resources :users
   resources :site_categories
 

@@ -5,10 +5,10 @@ window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= b
 
 window.ch_fedback_form = '<div id="ch_feedback_box"><form name="ch_offline_feedback">' +
     '<div><%= data.offline_welcome_message %></div>'+
-    '<div><label><%= data.locale.name_field %></label><input type="text" id="ch_name" /></div>' +
-    '<div><label><%= data.locale.email_field %></label><input type="text" id="ch_email" /></div>' +
-    '<div><label><%= data.locale.phone_field %></label><input type="text" id="ch_phone" /></div>' +
-    '<div><label><%= data.locale.message_field %><br/></label><textarea id="ch_message" /></div>' +
+    '<div><label><%= data.locale.name_field %></label><input type="text" name="site_feedback[username]" id="ch_name" /></div>' +
+    '<div><label><%= data.locale.email_field %></label><input type="text" name="site_feedback[email]" id="ch_email" /></div>' +
+    '<div><label><%= data.locale.phone_field %></label><input type="text" name="site_feedback[phone]" id="ch_phone" /></div>' +
+    '<div><label><%= data.locale.message_field %><br/></label><textarea name="site_feedback[message]" id="ch_message" /></div>' +
     '<input type="submit" value="<%= data.locale.submit_btn %>" id="btn_offline_feedback">' +
 '</form></div>'
 

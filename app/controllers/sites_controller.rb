@@ -4,8 +4,9 @@ class SitesController < ApplicationController
 
   before_action :set_site, only: [:show, :edit, :update, :destroy]
   before_filter :check_domain_origin, only: [:show]
+  before_filter :grant_cross_domain, only: [:show]
   before_filter :set_categories, only: [:new, :edit, :update, :create]
-  before_filter :grant_cross_domain
+
 
   # GET /sites
   # GET /sites.json
@@ -18,7 +19,7 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.json
   def show
-    logger.debug @site
+    # logger.debug @site
     # TODO check this uid on new build
   end
 
@@ -90,16 +91,6 @@ class SitesController < ApplicationController
     params.require(:site).permit(:uuid, :name, :domain, :user_prefix, :site_category_id, :color, :side, :position, :title_online,
                                  :title_offline, :collect_stats, :show_online, :show_offline, :auto_open,
                                  :auto_open_timeout, :offline_welcome_message, :enabled)
-  end
-
-  def grant_cross_domain
-    # http://www.w3.org/TR/cors/
-    response.headers["Access-Control-Allow-Origin"] = '*'
-    response.headers["Access-Control-Allow-Credentials"] = 'true'
-    response.headers["P3P"] = 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"'
-
-    # response.headers["Access-Control-Allow-Methods"] = 'GET, POST, XMODIFY'
-    #response.headers["Access-Control-Request-Method"] = 'POST'
   end
 
   # Этот метод будет проверять соответствие запроса конфига и request.referrer домена
