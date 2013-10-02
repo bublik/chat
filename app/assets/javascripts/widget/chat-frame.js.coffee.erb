@@ -107,14 +107,13 @@ class window.ChatFrame
       console.log '... already connected!'
       jQuery('#facebookG').hide()
       return
-    jQuery.xmpp.connect @_onConnect()
-
-  _onConnect: ->
-    url: @site_config.bosh_url
-    jid: @prefix + '_' + @user_uid + '@' + @site_config.bosh_domain
+    jQuery.xmpp.connect @_onConnect(@)
+  _onConnect: (context)->
+    url: context.site_config.bosh_url
+    jid: context.prefix + '_' + context.user_uid + '@' + context.site_config.bosh_domain
     password: ''
-    wait: 300, #5 min
-    inactivity: 305,
+    wait: 300  #5 min
+    inactivity: 305
     onConnect: ->
       console.log "onConnect ->"
       jQuery.xmpp.setPresence(null)
@@ -124,9 +123,7 @@ class window.ChatFrame
     onNotification: (notification) ->
       console.log("onNotification ->", notification)
     onPresence: (presence) ->
-      console.log('onPresence ->', presence)
-      console.log 'New presence: ', presence.from
-      console.log "SHOW", presence.show
+      console.log('onPresence ->', presence, presence.from)
       jQuery('#facebookG').hide()
       curId = presence.from.split('@')[0]
       status_icon = "available_icon"
@@ -151,12 +148,13 @@ class window.ChatFrame
       console.log('onMessage', message)
       if (err = message.data.find('error')).context != undefined
         console.log 'ERROR', message.from, err
+      console.log 'context.site_config.agent.name', context.site_config.agent.name
       msg = {
         time_at: (new Date).toLocaleString().split(' ')[1],
-        full_name: self.site_config.agent.name,
+        full_name: context.site_config.agent.name,
         content: message.body}
-      console.log 'MSG', msg
-      self.append_message(msg)
+      context.append_message(msg)
+
     onError: (error) ->
       console.log error.error
       if error.error.match(/Invalid/)
@@ -196,10 +194,10 @@ class window.ChatFrame
     jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
   current_page: ->
     # Send information when first message
-    if @is_no_send_messages
-    then (["UserAgent: " + window.navigator.userAgent, "Page: " + document.location,
-           "Referrer: " + @referrer].join("\n")) + "\n"
+    unless @is_no_send_messages
+     (["UserAgent: " + window.navigator.userAgent, "Page: " + document.location + "Referrer: " + @referrer].join("\n")) + "\n"
     else ''
+
   is_no_send_messages: ->
     jQuery('#shf_messages div').length is 0
   agent_status: () ->
