@@ -1,0 +1,42 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/chart\.scss}line{font-family:\000034}}
+.chart .group_by {
+  text-align: right;
+  line-height: 1.5em;
+  white-space: nowrap;
+  font-size: .875em;
+  padding-bottom: 1px;
+  margin: .2em 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/chart\.scss}line{font-family:\0000311}}
+.chart .group_by .label {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/chart\.scss}line{font-family:\0000313}}
+.chart .group_by label {
+  vertical-align: middle;
+  margin-right: .5em;
+  cursor: pointer;
+  overflow: hidden;
+  color: #5ca03b;
+  border-bottom: 1px dashed;
+  padding: 0 .1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/chart\.scss}line{font-family:\0000322}}
+.chart .group_by label input {
+  position: absolute;
+  top: -10000px;
+  left: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/chart\.scss}line{font-family:\0000324}}
+.chart .group_by label:hover {
+  border-bottom: 1px solid;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/chart\.scss}line{font-family:\0000325}}
+.chart .group_by label.checked {
+  border-bottom: 2px solid;
+}

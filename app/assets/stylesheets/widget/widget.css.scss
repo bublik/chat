@@ -157,14 +157,15 @@
 
 .shf_messages {
   background: #fff;
-  min-height: 210px;
+  height: 210px;
   text-align: left;
 }
 
 #ch_feedback_box {
-  height: 270px;
+  height: 245px;
   padding: 10px;
   color: #777;
+  font-size: 0.9em;
   label {
     width: 100px;
     display: inline-block;
@@ -176,7 +177,7 @@
   }
   textarea {
     width: 90%;
-    height: 100px;
+    height: 85px;
     border: 1px solid #bbb
   }
 }

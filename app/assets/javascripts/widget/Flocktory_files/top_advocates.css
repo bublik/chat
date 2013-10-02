@@ -1,0 +1,163 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\000034}}
+#content .top_advocates .xls {
+  float: left;
+  margin-top: -7.1em;
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000312}}
+#content .top_advocates .table .r:nth-child(2n) {
+  background: transparent;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000314}}
+#content .top_advocates .table .r .customer {
+  width: 25%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000317}}
+#content .top_advocates .table .r .customer .name {
+  font-size: 1.2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000320}}
+#content .top_advocates .table .r .landings_count, #content .top_advocates .table .r .referrals_count, #content .top_advocates .table .r .orders_sum, #content .top_advocates .table .r .rewards_sum, #content .top_advocates .table .r .price {
+  width: 14%;
+  text-align: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000326}}
+#content .top_advocates .table .content {
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000329}}
+#content .top_advocates .table .content .detailed {
+  display: none;
+  margin: 1em 3em 3em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000333}}
+#content .top_advocates .table .content .detailed h6 {
+  font-size: 1.125em;
+  margin: 1.5em 0 .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000335}}
+#content .top_advocates .table .content .detailed .networks {
+  overflow: hidden;
+  margin: 0 0 3em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000339}}
+#content .top_advocates .table .content .detailed .networks .networks_inner {
+  margin: -1px 0 0 -1px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000341}}
+#content .top_advocates .table .content .detailed .networks .network {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  width: 13%;
+  margin: 0 1% 0 0;
+  border-left: 1px solid #ddd;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000347}}
+#content .top_advocates .table .content .detailed .networks .network div {
+  border-top: 1px solid #ddd;
+  padding: .2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000352}}
+#content .top_advocates .table .content .detailed .networks .network .title {
+  font-weight: bold;
+  font-size: .857em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000361}}
+#content .top_advocates .table .content .detailed .table .th {
+  border-bottom-color: #aaa;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000363}}
+#content .top_advocates .table .content .detailed .table .campaign, #content .top_advocates .table .content .detailed .table .customer {
+  width: 200px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000364}}
+#content .top_advocates .table .content .detailed .table .order_id {
+  width: 100px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000365}}
+#content .top_advocates .table .content .detailed .table .price {
+  width: 100px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000369}}
+#content .top_advocates .table .content .referrals_count, #content .top_advocates .table .content .orders_sum, #content .top_advocates .table .content .rewards_sum, #content .top_advocates .table .content .price {
+  text-align: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000373}}
+#content .top_advocates .table .content .r {
+  margin: 1px;
+  padding-top: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000377}}
+#content .top_advocates .table .content .r .row {
+  cursor: pointer;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000381}}
+#content .top_advocates .table .content .r .row:hover .customer, #content .top_advocates .table .content .r .row.open .customer {
+  color: #5ca03b;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000382}}
+#content .top_advocates .table .content .r .row:hover .name, #content .top_advocates .table .content .r .row.open .name {
+  text-decoration: underline;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000386}}
+#content .top_advocates .table .content .r.open {
+  border: 1px solid #ccc;
+  margin: 0;
+  padding-top: 0;
+  margin-top: .5em;
+  background: #f0f0f0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000394}}
+#content .top_advocates .table .content .r.open .row {
+  border-bottom: 1px solid #ccc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\0000396}}
+#content .top_advocates .table .content .r.open .detailed {
+  display: block;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\00003101}}
+#content .top_advocates .table.not_detailed {
+  display: block;
+  color: #000;
+  border: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\00003107}}
+#content .top_advocates .table.not_detailed .r .row:hover .customer, #content .top_advocates .table.not_detailed .r .row.open .customer {
+  color: #000;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\00003108}}
+#content .top_advocates .table.not_detailed .r .row:hover .name, #content .top_advocates .table.not_detailed .r .row.open .name {
+  text-decoration: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\00003113}}
+#content .top_advocates .share {
+  overflow: hidden;
+  margin: 1em auto 0;
+  padding: 40px 0 20px 150px;
+  font-size: 1.125em;
+  width: 24em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\00003120}}
+#content .top_advocates .share img {
+  display: block;
+  float: left;
+  margin: -40px 0 0 -160px;
+  width: 150px;
+  height: 150px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/top_advocates\.scss}line{font-family:\00003128}}
+#content .top_advocates .share strong {
+  display: block;
+  line-height: 2em;
+  font-size: 1.33em;
+  color: #5ca03b;
+}

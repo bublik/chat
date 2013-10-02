@@ -1,0 +1,51 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/kpi\.scss}line{font-family:\000034}}
+#orders .kpi, #site .kpi, #metrics_dashboard .kpi {
+  margin: 0 0 1em 0;
+  display: block;
+  text-decoration: none;
+  border: 0;
+  color: #000;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/kpi\.scss}line{font-family:\0000311}}
+#orders .kpi dl, #site .kpi dl, #metrics_dashboard .kpi dl {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  vertical-align: top;
+  width: 20%;
+  margin: 0 2.5% 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/kpi\.scss}line{font-family:\0000317}}
+#orders .kpi dl dt, #site .kpi dl dt, #metrics_dashboard .kpi dl dt {
+  color: #888;
+  font-size: .8125em;
+  margin: 0 0 .5em;
+  line-height: 1.2em;
+  height: 3.6em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/kpi\.scss}line{font-family:\0000326}}
+#orders .kpi dl dd .count, #site .kpi dl dd .count, #metrics_dashboard .kpi dl dd .count {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  font-size: 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/kpi\.scss}line{font-family:\0000331}}
+#orders .kpi dl dd.comment, #site .kpi dl dd.comment, #metrics_dashboard .kpi dl dd.comment {
+  margin: .5em -30% 0 0;
+  line-height: 1.4em;
+  font-size: .8125em;
+  font-style: italic;
+  color: #777;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/kpi\.scss}line{font-family:\0000341}}
+#orders .kpi .empty, #site .kpi .empty, #metrics_dashboard .kpi .empty {
+  text-align: center;
+  color: #777;
+}

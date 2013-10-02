@@ -1,0 +1,251 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\000033}}
+form.simple_form {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\000036}}
+form.simple_form h1 {
+  margin: 0 0 16px;
+  font-size: 2em;
+  font-family: "PT Sans Narrow";
+  text-align: center;
+  padding: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\000038}}
+form.simple_form .input {
+  margin-bottom: 1.5em;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000312}}
+form.simple_form .input .label {
+  display: block;
+  line-height: 1.5em;
+  font-size: .8125em;
+  color: #444;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000319}}
+form.simple_form .input input.string, form.simple_form .input input.numeric, form.simple_form .input input.password, form.simple_form .input textarea {
+  width: 98%;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-color: #aaa #ccc #ccc #aaa;
+  -webkit-transition: background 0.1s linear;
+  -moz-transition: background 0.1s linear;
+  -o-transition: background 0.1s linear;
+  transition: background 0.1s linear;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000328}}
+html.ie form.simple_form .input input.string, html.ie form.simple_form .input input.numeric, html.ie form.simple_form .input input.password, html.ie form.simple_form .input textarea {
+  height: 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000330}}
+form.simple_form .input input.string:disabled, form.simple_form .input input.numeric:disabled, form.simple_form .input input.password:disabled, form.simple_form .input textarea:disabled {
+  color: #444;
+  border-color: #eee;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000336}}
+form.simple_form .input input.string:focus, form.simple_form .input input.numeric:focus, form.simple_form .input input.password:focus, form.simple_form .input textarea:focus {
+  background: #ffc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000339}}
+form.simple_form .input input.short {
+  width: 5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000340}}
+form.simple_form .input input.price {
+  text-align: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000342}}
+form.simple_form .input textarea, html.ie form.simple_form .input textarea {
+  height: 6em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000343}}
+form.simple_form .input input.string, form.simple_form .input input.numeric, form.simple_form .input input.password, form.simple_form .input textarea, form.simple_form .input select {
+  padding: .4em;
+  vertical-align: middle;
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000348}}
+form.simple_form .input .error {
+  color: #c00;
+  font-size: .8125em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000352}}
+form.simple_form .input .hint {
+  font-size: .8125em;
+  color: #777;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000357}}
+form.simple_form .tip_container {
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000360}}
+form.simple_form .tip_container .tip {
+  position: absolute;
+  left: 100%;
+  top: -.5em;
+  margin-left: 16px;
+  width: 136px;
+  font-size: .8125em;
+  background: #ffa;
+  padding: .5em;
+  -webkit-border-radius: 0.3em;
+  -moz-border-radius: 0.3em;
+  -ms-border-radius: 0.3em;
+  -o-border-radius: 0.3em;
+  border-radius: 0.3em;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  opacity: 0;
+  -webkit-transition: opacity 150ms linear;
+  -moz-transition: opacity 150ms linear;
+  -o-transition: opacity 150ms linear;
+  transition: opacity 150ms linear;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000372}}
+form.simple_form .tip_container .tip:after {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 22px;
+  background: url(/assets/tip_left.png);
+  position: absolute;
+  right: 100%;
+  top: 2.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000383}}
+form.simple_form .tip_container:hover, form.simple_form .tip_container.show_tip {
+  z-index: 10;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000386}}
+form.simple_form .tip_container:hover > .tip, form.simple_form .tip_container.show_tip > .tip {
+  z-index: 10;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000390}}
+form.simple_form .buttons {
+  margin: 0;
+  padding: .5em 0 0 0;
+  border: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000393}}
+form.simple_form .buttons input {
+  padding: .2em .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000395}}
+form.simple_form .buttons .right {
+  float: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000396}}
+form.simple_form .buttons .delete {
+  color: #c00;
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\0000399}}
+#content form.simple_form h4 {
+  margin: 1.5em 0 .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003101}}
+form.simple_form label.radio, form.simple_form label.checkbox {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-right: 1em;
+  padding-left: 1.2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003106}}
+form.simple_form label.radio input, form.simple_form label.checkbox input {
+  font-size: 1em;
+  margin-left: -1.2em;
+  margin-right: .4em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003110}}
+form.simple_form .radio_buttons label.radio {
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003115}}
+form.simple_form .bigradio label {
+  display: block;
+  padding: .5em .5em .5em 2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003119}}
+form.simple_form .bigradio label input {
+  margin: 0 0 0 -1.5em;
+  font-size: .8125em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003120}}
+form.simple_form .bigradio label .title {
+  margin-top: -1.71429em;
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003121}}
+form.simple_form .bigradio label .note {
+  font-size: .8125em;
+  color: #999;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003123}}
+form.simple_form .bigradio label.checked {
+  background: #eee;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003127}}
+form.simple_form p {
+  padding: 0 0 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003129}}
+form.simple_form .input.disabled {
+  color: #777;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003131}}
+form.simple_form .links {
+  margin: 1.5em 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003135}}
+form.simple_form .infield {
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003138}}
+form.simple_form .infield label.label {
+  color: #777;
+  text-transform: lowercase;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  font-size: 1em;
+  margin: 0;
+  padding: .4em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003149}}
+form.simple_form .double .input {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  vertical-align: top;
+  width: 48%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003154}}
+form.simple_form .double .input input.string, form.simple_form .double .input input.numeric, form.simple_form .double .input input.password, form.simple_form .double .input textarea {
+  width: 96%;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003157}}
+form.simple_form .double .right {
+  float: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/forms\.scss}line{font-family:\00003159}}
+form.simple_form .multi .input {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin-right: 20px;
+}

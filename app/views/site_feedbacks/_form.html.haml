@@ -1,0 +1,14 @@
+= simple_form_for(@site_feedback) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :username
+    = f.input :email
+    = f.input :phone
+    = f.input :message
+    = f.input :remote_ip
+    = f.input :user_agent
+    = f.input :site_id
+
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

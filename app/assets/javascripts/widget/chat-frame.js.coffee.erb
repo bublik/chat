@@ -13,6 +13,7 @@ class window.ChatFrame
     @sheme = 'https' if (document.location.protocol is 'https:')
     @referrer = if _.isEmpty(document.referrer) then '-' else document.referrer
     @widget_css_url = @sheme + '://' + @assets_host + '/assets/widget.css'
+    @feedback_path = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '/site_feedbacks.json'
     @site_config = {id: @site_uid, asset_host: @sheme + '://' + @assets_host}
     @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
       2).toLowerCase()
@@ -79,10 +80,9 @@ class window.ChatFrame
       e.stopPropagation()
       if e.keyCode is 13
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
-
   show_widget: ->
     @reconnect = true
-    @connect()
+    setTimeout(@connect(), 2000)
     console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
       console.log 'Add widget to page'
@@ -103,8 +103,9 @@ class window.ChatFrame
 
   connect: ->
     console.log "Connect:"
-    if jQuery.xmpp.connected
+    if jQuery.xmpp.connected || @reconnect is false
       console.log '... already connected!'
+      jQuery('#facebookG').hide()
       return
     jQuery.xmpp.connect @_onConnect()
 
@@ -164,10 +165,22 @@ class window.ChatFrame
         jQuery.xmpp.disconnect()
   # show offline feedback form
   offline_feedback: ()->
-    jQuery('.shf_agent, #shf_messages').remove()
-    jQuery('.shf_textarea_answer textarea').attr('disabled', 'disabled')
+    jQuery('.shf_textarea_answer, #shf_messages').fadeOut()
     mesage_content = _.template(window.ch_fedback_form, { data: @site_config })
     jQuery('.shf_messages').html(mesage_content)
+    jQuery('.shf_messages').css('height', 'auto')
+    self = @
+    jQuery('#btn_offline_feedback').on 'click', (e) ->
+      data = jQuery('form[name=ch_offline_feedback]').serialize()
+      jQuery.ajax self.feedback_path,
+        type: 'POST'
+        dataType: 'json'
+        data: data
+        error: (jqXHR, textStatus, errorThrown) ->
+          console.log "AJAX Error: #{textStatus}"
+        success: (data, textStatus, jqXHR) ->
+          jQuery('#ch_feedback_box').html(data.message)
+      return false
 
   append_message: (data) ->
     console.log('append_message <-')
@@ -183,12 +196,14 @@ class window.ChatFrame
     jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
   current_page: ->
     # Send information when first message
-    if jQuery('#shf_messages div').length is 0
+    if @is_no_send_messages
     then (["UserAgent: " + window.navigator.userAgent, "Page: " + document.location,
            "Referrer: " + @referrer].join("\n")) + "\n"
     else ''
+  is_no_send_messages: ->
+    jQuery('#shf_messages div').length is 0
   agent_status: () ->
-    jQuery.getScript('http://helperchat.com/presence/jid/admin/helperchat.com/js?cb=window.cfrm.update_agent_status')
+    jQuery.getScript('http://helperchat.com/presence/jid/' + @site_config.agent.email.split('@')[0] + '/helperchat.com/js?cb=window.cfrm.update_agent_status')
   update_agent_status: ()->
     data = {
       name: @site_config.agent.name,
@@ -199,10 +214,12 @@ class window.ChatFrame
     console.log('SET AGENT STATUS', data)
     mesage_content = _.template(window.ch_agent_tpl, { data: data })
     jQuery('.shf_agent').replaceWith(mesage_content)
-    title = (if jabber_resources[0].show is "available" then @site_config.title_online else @site_config.title_offline)
-    console.log jabber_resources[0].show
-    console.log title
+    title = (if jabber_resources[0].show is 'unavailable' then @site_config.title_offline else @site_config.title_online)
     jQuery('.shf_title').text(title)
+    console.log jabber_resources[0].show
+    if (jabber_resources[0].show is 'unavailable') and @is_no_send_messages()
+      @offline_feedback()
+      @reconnect = false
 
   send_message: ->
     unless jQuery.xmpp.connected

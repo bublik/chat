@@ -1,0 +1,59 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\000033}}
+#content .dashboard {
+  margin: 0 -16px 0;
+  padding: 0 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\000037}}
+#content .dashboard:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000313}}
+#content .dashboard .block {
+  float: left;
+  width: 440px;
+  margin: 0 0 3em 16px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000318}}
+#content .dashboard .block h4 {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: .3em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000322}}
+#content .dashboard .block h4 .buttons {
+  float: right;
+  margin-right: .2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000325}}
+#content .dashboard .block .minitabs {
+  margin-top: -.75em;
+  margin-bottom: .75em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000328}}
+#content .dashboard .wide {
+  width: 912px;
+  float: none;
+  clear: left;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000334}}
+#content .dashboard .top_advocates {
+  display: block;
+  border: 0;
+  margin-left: 0;
+  padding: 16px;
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000341}}
+#content .dashboard .top_advocates h4 {
+  color: #222;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000343}}
+#content .dashboard .top_advocates:hover {
+  background: #f0f0f0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/dashboard\.scss}line{font-family:\0000346}}
+#content .dashboard .top_advocates:hover h4 {
+  color: #5ca03b;
+  border-bottom: 1px solid;
+}

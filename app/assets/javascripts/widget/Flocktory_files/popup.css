@@ -1,0 +1,50 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/popup\.scss}line{font-family:\000033}}
+.popup_overlay {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 1000;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/popup\.scss}line{font-family:\0000311}}
+.popup_overlay .popup {
+  width: 300px;
+  background: #fff;
+  padding: 1.5em;
+  margin: 10% auto;
+  -webkit-box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.6);
+  box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.6);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/popup\.scss}line{font-family:\0000322}}
+.confirm_popup {
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/popup\.scss}line{font-family:\0000325}}
+.confirm_popup .buttons {
+  margin: 1em -1.5em -1.5em;
+  padding: 1em 1.5em;
+  text-align: center;
+  overflow: hidden;
+  background: #eee;
+  border-top: 1px solid #ddd;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/popup\.scss}line{font-family:\0000333}}
+.confirm_popup .buttons .yes {
+  float: left;
+  font-size: 1.1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/popup\.scss}line{font-family:\0000338}}
+.confirm_popup .buttons .no {
+  float: right;
+  margin-top: .08em;
+}

@@ -1,0 +1,333 @@
+@charset "UTF-8";
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\000035}}
+#help .column_tabs dl {
+  margin: 0 0 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\000039}}
+#help .column_tabs dt.header {
+  padding: .5em .5em 0;
+  font-weight: bold;
+  border-bottom: 1px solid #f0f0f0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000314}}
+#help .column_tabs dt.header a {
+  margin: 0 -.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000317}}
+#help .column_tabs dt, #help .column_tabs dd {
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000322}}
+#help .contacts {
+  margin: 3em 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000324}}
+#help .additional_info {
+  margin-top: -1.5em;
+  margin-left: 0.3em;
+  margin-bottom: 2em;
+  font-size: 0.875em;
+  color: #777;
+  font-style: italic;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000334}}
+#help .api_methods .block {
+  margin: 0 0 4.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000336}}
+#help .api_methods h4 {
+  margin-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000338}}
+#help .api_methods .params {
+  color: #777;
+  white-space: nowrap;
+  width: 100%;
+  margin: 0 0 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000344}}
+#help .api_methods .params .param {
+  width: 10em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000345}}
+#help .api_methods .params .type {
+  width: 13em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000347}}
+#help .api_methods .params td {
+  padding: .3em;
+  border: 1px solid #eee;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000352}}
+#help .api_methods .params thead {
+  background: #eee;
+  color: #000;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000358}}
+#help .api_methods .params tbody .param {
+  color: #000;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000360}}
+#help .api_methods .params tbody .type {
+  font-size: .875em;
+  font-style: italic;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000363}}
+#help .api_methods .params tbody .type.enum {
+  font-style: normal;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000366}}
+#help .api_methods .params tbody .desc {
+  white-space: normal;
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000371}}
+#help .api_methods .params tbody tr.required .param {
+  font-weight: bold;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000375}}
+#help .api_methods .description {
+  margin: .5em 0 1em;
+  font-style: italic;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000381}}
+#help .api_methods .example .code {
+  font-size: 12px;
+  padding: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000385}}
+#help .api_methods .example .code:before {
+  content: '';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000390}}
+#help .faq {
+  margin: -4.5em 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000393}}
+#help .faq dl.question {
+  margin: 3em 0 0;
+  padding: 1.5em 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\0000397}}
+#help .faq dl.question dt {
+  font-size: 1.2em;
+  margin: 0 -10px .7em;
+  border-bottom: 1px solid #bbb;
+  padding: 0 10px 5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003105}}
+#help .faq dl.question dd h6 {
+  font-size: 1.1em;
+  margin: 0 0 1em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003108}}
+#help .faq dl.question dd.terms ul {
+  margin-top: -.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003109}}
+#help .faq dl.question dd.terms .term {
+  font-weight: bold;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003115}}
+#help .faq_all {
+  margin-top: -4.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003118}}
+#help .faq_all .faq {
+  margin-top: 0;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003124}}
+#help .text p, .help_block .text p {
+  margin: 0 0 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003125}}
+#help .text strong, .help_block .text strong {
+  font-weight: bold;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003126}}
+#help .text em, .help_block .text em {
+  font-style: italic;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003128}}
+#help .text ol, #help .text ul, .help_block .text ol, .help_block .text ul {
+  list-style: decimal;
+  margin: 0 0 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003132}}
+#help .text ol li, #help .text ul li, .help_block .text ol li, .help_block .text ul li {
+  margin: .5em 0 0 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003134}}
+#help .text ol.plain, #help .text ul.plain, .help_block .text ol.plain, .help_block .text ul.plain {
+  list-style: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003137}}
+#help .text ul, .help_block .text ul {
+  list-style: disc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003139}}
+#help .text ul.empty, .help_block .text ul.empty {
+  list-style: none;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003141}}
+#help .text ul.empty li, .help_block .text ul.empty li {
+  margin-left: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003144}}
+#help .text ul ul, .help_block .text ul ul {
+  list-style: circle;
+  margin-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003146}}
+#help .text .compact, .help_block .text .compact {
+  margin: 0 0 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003149}}
+#help .text .compact p, .help_block .text .compact p {
+  margin-bottom: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003150}}
+#help .text .compact ul ol, .help_block .text .compact ul ol {
+  margin-bottom: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003150}}
+#help .text .compact ul ol li, .help_block .text .compact ul ol li {
+  margin-bottom: .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003154}}
+#help .code_block, .help_block .code_block {
+  margin: 0 0 1.5em;
+  border-top: 1px solid #d8d4bc;
+  border-bottom: 1px solid #d8d4bc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003159}}
+#help .code_block .code, .help_block .code_block .code {
+  margin: 0;
+  border-top: 0;
+  border-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003164}}
+#help pre.filename, .help_block pre.filename {
+  padding: .5em;
+  background: #d8d4bc;
+  border-bottom: 0;
+  font-weight: bold;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  opacity: 0.8;
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003173}}
+#help pre.code, .help_block pre.code {
+  overflow: auto;
+  overflow-y: hidden;
+  background: #fffbdd;
+  border: 1px solid #d8d4bc;
+  padding: 1.5em .5em;
+  font: 14px/1.5 "Consolas", "Times New Roman", serif;
+  margin: 0 0 1.5em;
+  padding-left: 2em;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003182}}
+#help pre.code strong, .help_block pre.code strong {
+  font-weight: bold;
+  background: #fff7b9;
+  padding: .2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003192}}
+#help pre.code.response:before, #help pre.code.request:before, .help_block pre.code.response:before, .help_block pre.code.request:before {
+  content: '←';
+  position: absolute;
+  top: .56em;
+  left: 0;
+  display: block;
+  width: 1em;
+  height: 1em;
+  line-height: 1em;
+  font-size: 2em;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30);
+  opacity: 0.3;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003205}}
+#help pre.code.request, .help_block pre.code.request {
+  background: #fff7b9;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003208}}
+#help pre.code.request:before, .help_block pre.code.request:before {
+  content: '→';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003211}}
+#help pre.code .tip, .help_block pre.code .tip {
+  background: #eee;
+  color: #333;
+  cursor: default;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003212}}
+#help pre.code .tip:before, .help_block pre.code .tip:before {
+  content: '(';
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003213}}
+#help pre.code .tip:after, .help_block pre.code .tip:after {
+  content: ')';
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003222}}
+.integration_state .integration_steps {
+  text-align: center;
+  margin: -1em 0 1.5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003226}}
+.integration_state .integration_steps .step {
+  background: #eee;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  padding: .5em 0;
+  width: 20em;
+  text-align: center;
+  cursor: default;
+  font-size: .9375em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003236}}
+.integration_state .integration_steps .current {
+  background: #ffc;
+  font-weight: bold;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003241}}
+.integration_state .integration_steps .ok {
+  background: #cfc;
+  font-weight: bold;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003247}}
+.integration_state h2 {
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003249}}
+.integration_state p.integrated {
+  text-align: center;
+  font-size: 1.2em;
+  margin: .5em 0 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003254}}
+.integration_state .verification_status {
+  padding: 1em .5em;
+  margin: -.5em -.5em 1em;
+  background: #ffc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003255}}
+.integration_state .verification_status p {
+  margin: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003262}}
+.integration_state .verification_status.ok {
+  background: #cfc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/help\.scss}line{font-family:\00003263}}
+.integration_state .verification_status.fail {
+  background: #fcc;
+}

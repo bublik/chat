@@ -1,0 +1,34 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\000033}}
+.columns {
+  margin-left: -16px;
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\000037}}
+.columns .column {
+  float: left;
+  margin-left: 16px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\0000312}}
+.columns .size2 {
+  width: 136px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\0000316}}
+.columns .size3 {
+  width: 212px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\0000320}}
+.columns .size6 {
+  width: 440px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\0000324}}
+.columns .size7 {
+  width: 516px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\0000328}}
+.columns .size9 {
+  width: 668px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/columns\.scss}line{font-family:\0000332}}
+.columns .size10 {
+  width: 744px;
+}

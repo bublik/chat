@@ -1,0 +1,164 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\000033}}
+.tabs {
+  margin: -0.5em -16px 2.5em;
+  text-align: center;
+  cursor: default;
+  white-space: nowrap;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\000039}}
+.tabs a, .tabs ins {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  line-height: 2.5em;
+  padding: 0 .8em;
+  font-size: .9375em;
+  border: 0;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000319}}
+.tabs a:hover strong, .tabs ins:hover strong {
+  border-bottom: 1px solid;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000322}}
+.tabs a.active, .tabs ins.active {
+  -webkit-border-radius: 1.3em;
+  -moz-border-radius: 1.3em;
+  -ms-border-radius: 1.3em;
+  -o-border-radius: 1.3em;
+  border-radius: 1.3em;
+  -webkit-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
+  background: #5ca03b;
+  color: #f9f9f9;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000328}}
+.tabs a.active strong, .tabs ins.active strong {
+  border-bottom: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000331}}
+.tabs a.disabled, .tabs a.disabled:hover, .tabs ins.disabled, .tabs ins.disabled:hover {
+  color: #777;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000333}}
+.tabs a.disabled strong, .tabs a.disabled:hover strong, .tabs ins.disabled strong, .tabs ins.disabled:hover strong {
+  border: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000336}}
+.tabs a.divider, .tabs ins.divider {
+  width: 1px;
+  padding: 0;
+  margin: 0 1em;
+  height: 2em;
+  background: #ccc;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000344}}
+.tabs a .count, .tabs ins .count {
+  font-size: .77em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000347}}
+.tabs .arrow {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  font-size: 1.5em;
+  color: #aaa;
+  margin: 0 .5em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000356}}
+.minitabs ins {
+  margin-right: .5em;
+  border-bottom: 1px dotted;
+  padding: .2em .5em;
+  cursor: pointer;
+  font-size: .875em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000363}}
+.minitabs ins.active {
+  background: #5ca03b;
+  color: #fff;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000367}}
+.column_tabs {
+  font-size: .8125em;
+  padding-right: 15px;
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000372}}
+.column_tabs a {
+  display: block;
+  text-decoration: none;
+  border: 0;
+  padding: .5em .5em;
+  line-height: 1.2em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000378}}
+.column_tabs a span {
+  border-bottom: 1px dotted;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000380}}
+.column_tabs a.active {
+  background: #5ca03b;
+  color: #fff;
+  position: relative;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000385}}
+.column_tabs a.active span {
+  border: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\0000387}}
+.column_tabs a.active:after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -1.05em;
+  width: 0;
+  height: 0;
+  border: 1.05em solid #fff;
+  border-left-color: #5ca03b;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\00003101}}
+.subtabs {
+  font-size: .875em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\00003105}}
+.new_tabs {
+  margin: 0 0 1.5em;
+  text-align: center;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\00003109}}
+.new_tabs a {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  font-size: 1.2em;
+  line-height: 2em;
+  padding: 0 1em;
+  border: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/tabs\.scss}line{font-family:\00003117}}
+.new_tabs a.active {
+  background: #5ca03b;
+  color: #fff;
+}

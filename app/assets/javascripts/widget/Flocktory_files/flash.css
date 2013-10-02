@@ -1,0 +1,25 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/flash\.scss}line{font-family:\000031}}
+.flash {
+  padding: .5em 1em;
+  margin: 1em -1em;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/flash\.scss}line{font-family:\000036}}
+.flash_error {
+  background: #f88;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/flash\.scss}line{font-family:\000039}}
+.flash_error a {
+  color: #222;
+  border-color: #222;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/flash\.scss}line{font-family:\0000313}}
+.flash_error a:hover {
+  border-color: #000;
+  color: #000;
+}
+
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/flash\.scss}line{font-family:\0000317}}
+.flash_notice {
+  background: #ffc;
+}

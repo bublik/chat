@@ -1,0 +1,60 @@
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\000035}}
+#billing_periods .table .dates {
+  width: 250px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\000036}}
+#billing_periods .table .price {
+  width: 110px;
+  text-align: right;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\000037}}
+#billing_periods .table .payday {
+  width: 130px;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000310}}
+#billing_periods .table .content .dates, #billing_periods .table .content .payday {
+  font-size: .9375em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000311}}
+#billing_periods .table .content .price {
+  font-size: 1.125em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000313}}
+#billing_periods .table .content .r {
+  padding: .5em 0;
+  border-top: 1px solid #ddd;
+  overflow: hidden;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000318}}
+#billing_periods .table .content .r.paid, #billing_periods .table .content .r.trial {
+  background: #dfd;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000319}}
+#billing_periods .table .content .r.unpaid, #billing_periods .table .content .r.payment_pending {
+  background: #ffd;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000320}}
+#billing_periods .table .content .r.expired {
+  background: #fdd;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000324}}
+#billing_periods .table .actions {
+  text-align: right;
+  width: 140px;
+  padding-top: 0;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000329}}
+#billing_periods .table .actions .green_button {
+  font-size: .875em;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0 0 .5em;
+}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/ruslanvoloshin\/work\/flocktory\/app\/assets\/stylesheets\/www\/billing_periods\.scss}line{font-family:\0000337}}
+#billing_periods .table .description {
+  font-size: .875em;
+  color: #777;
+  padding: .2em 12px 0;
+}
