@@ -22,4 +22,6 @@
 class ArchiveCollection < ActiveRecord::Base
   has_many :archive_messages, foreign_key: :coll_id, dependent: :delete_all
 
+  scope :newest, order(change_utc: :desc)
+
 end

@@ -14,7 +14,8 @@ class ArchiveCollectionsController < ApplicationController
   end
 
   def search
-    @archive_collections = current_agent.archive_collections.joins(:archive_messages).where('archive_messages.body LIKE ?', "%#{params[:q]}%").uniq.page(params[:page])
+    @archive_collections = current_agent.archive_collections.joins(:archive_messages)
+    .where('archive_messages.body LIKE ? OR archive_collections.us LIKE ? ', "%#{params[:q]}%", "%#{params[:q]}%").uniq.page(params[:page])
     respond_to do |format|
       format.html { render action: 'index' }
     end
