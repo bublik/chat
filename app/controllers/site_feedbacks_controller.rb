@@ -9,11 +9,11 @@ class SiteFeedbacksController < ApplicationController
   # GET /site_feedbacks
   # GET /site_feedbacks.json
   def index
-    @site_feedbacks = @site.site_feedbacks.page(params[:page])
+    @site_feedbacks = @site.site_feedbacks.newest.page(params[:page])
   end
 
   def list
-    @site_feedbacks = SiteFeedback.where(site_id: current_agent.site_ids).page(params[:page])
+    @site_feedbacks = SiteFeedback.newest.where(site_id: current_agent.site_ids).page(params[:page])
     respond_to do |format|
       format.html { render action: 'index'}
     end

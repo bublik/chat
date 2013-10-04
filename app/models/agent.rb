@@ -36,10 +36,9 @@ class Agent < ActiveRecord::Base
   validates_integrity_of :avatar
   validates_processing_of :avatar
 
-
   # has_many
   def archive_collections
-    ArchiveCollection.where(with_user: self.user ? self.username : nil)
+    ArchiveCollection.newest.where(with_user: self.user ? self.username : nil)
   end
 
   def full_name

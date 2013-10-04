@@ -22,4 +22,6 @@ class SiteFeedback < ActiveRecord::Base
   validates_presence_of :message
   validates_presence_of :username
 
+  scope :newest, order(created_at: :desc)
+
 end
