@@ -145,7 +145,7 @@ class window.ChatFrame
 
     onMessage: (message) ->
       #console.log('onMessage', message)
-      if (err = message.data.find('error')).context != undefined
+      -#if (err = message.data.find('error')).context != undefined
         #console.log 'ERROR', message.from, err
       #console.log 'context.site_config.agent.name', context.site_config.agent.name
       msg = {
