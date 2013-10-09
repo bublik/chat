@@ -15,8 +15,7 @@ class window.ChatFrame
     @widget_css_url = @sheme + '://' + @assets_host + '/assets/widget.css'
     @feedback_path = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '/site_feedbacks.json'
     @site_config = {id: @site_uid, asset_host: @sheme + '://' + @assets_host}
-    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
-      2).toLowerCase()
+    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0, 2).toLowerCase()
     @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
     #console.log('Constructor Finish \<-')
     @checkCookie()
