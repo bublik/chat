@@ -18,13 +18,9 @@
       .span3
       .span3
         %address
-          %strong= link_to('Lightcraft LLC', 'http://lightcraft.us/', title: 'Ruby on Rails development company')
           %br/
           .icon-map-marker.icon-white
-          25 Mikhailovskaya St, Suite 624, 65092 Odessa, UA
-          %br/
-          .icon-map-marker.icon-white
-          Sunny Isles, FL 33160 #1241, 18555 Collins Avenue, US
+          = t('.address')
         %p
           %i.icon-phone
           +38 (093) 50-70-663
@@ -38,8 +34,7 @@
         .span6
           .copyright
             %p
-              %span &copy; Lightcraft LLC 2013 All right reserved. Designed by
-              %a{:href => "http://iweb-studio.com", :target => "_blank"} iweb-studio
+              %span &copy; #{link_to('Lightcraft LLC', 'http://lightcraft.us/', title: 'Ruby on Rails development company')} 2013 All right reserved.
         .span6
           %ul.social-network
             %li
