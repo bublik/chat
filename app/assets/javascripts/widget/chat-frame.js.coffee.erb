@@ -1,6 +1,6 @@
 class window.ChatFrame
   constructor: (@options) ->
-    console.log('Constructor Start with options ->', @options)
+    #console.log('Constructor Start with options ->', @options)
     @site_uid = @options['widget_id']
     @button_id = '#btn-' + @site_uid
     @widget_window_id = '#widg-' + @site_uid
@@ -18,22 +18,22 @@ class window.ChatFrame
     @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,
       2).toLowerCase()
     @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
-    console.log('Constructor Finish \<-')
+    #console.log('Constructor Finish \<-')
     @checkCookie()
 
   load_site_config: ->
-    console.log 'load_site_config ->'
+    #console.log 'load_site_config ->'
     self = @
     jQuery.getJSON @site_config_url, (data) ->
       _.extend(self.site_config, data)
-      console.log 'Config LOADED!!! ->', self.site_config
+      #console.log 'Config LOADED!!! ->', self.site_config
       self.load_css()
       self.init_button()
 
   init_button: ->
-    console.log 'init button ->', @button_id
+    #console.log 'init button ->', @button_id
     unless @site_config['enabled']
-      console.log 'widget DISABLED!'
+      #console.log 'widget DISABLED!'
       return
     jQuery('body').append(_.template(window.ch_button, { btn: @site_config }))
     self = @
@@ -53,7 +53,7 @@ class window.ChatFrame
     document.body.appendChild(css)
 
   position: (_el) ->
-    console.log 'position ->', _el.attr('id')
+    #console.log 'position ->', _el.attr('id')
     _el.css(@site_config['side'], 0)
     if @site_config['position'] is 'center'
       _el.css('left', (jQuery(window).width() / 2) - (jQuery(_el).width() / 2))
@@ -62,7 +62,7 @@ class window.ChatFrame
 
   bind_widget_events: ->
     self = @
-    console.log 'bind events ->'
+    #console.log 'bind events ->'
     jQuery('.chf_ico_close, .shf_button_gray_complete').on 'click', (e) ->
       self.close_widget()
     jQuery('.chf_ico_hide').on 'click', (e) ->
@@ -83,9 +83,9 @@ class window.ChatFrame
   show_widget: ->
     @reconnect = true
     setTimeout(@connect(), 2000)
-    console.log 'show_widget ->', jQuery(@widget_window_id)
+    #console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
-      console.log 'Add widget to page'
+      #console.log 'Add widget to page'
       jQuery('body').append(_.template(window.ch_widget_tpl, { config: @site_config }))
       @bind_widget_events()
     @agent_status()
@@ -102,9 +102,9 @@ class window.ChatFrame
     jQuery(@widget_window_id).fadeOut()
 
   connect: ->
-    console.log "Connect:"
+    #console.log "Connect:"
     if jQuery.xmpp.connected || @reconnect is false
-      console.log '... already connected!'
+      #console.log '... already connected!'
       jQuery('#facebookG').hide()
       return
     jQuery.xmpp.connect @_onConnect(@)
@@ -115,15 +115,15 @@ class window.ChatFrame
     wait: 300  #5 min
     inactivity: 305
     onConnect: ->
-      console.log "onConnect ->"
+      #console.log "onConnect ->"
       jQuery.xmpp.setPresence(null)
-      console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
+      #console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
     onIq: (iq) ->
-      console.log('onIq', iq)
+      #console.log('onIq', iq)
     onNotification: (notification) ->
-      console.log("onNotification ->", notification)
+      #console.log("onNotification ->", notification)
     onPresence: (presence) ->
-      console.log('onPresence ->', presence, presence.from)
+      #console.log('onPresence ->', presence, presence.from)
       jQuery('#facebookG').hide()
       curId = presence.from.split('@')[0]
       status_icon = "available_icon"
@@ -134,21 +134,21 @@ class window.ChatFrame
           status_icon = "away_icon"
         else
           status_icon = "available_icon"
-      console.log('onpresence', curId, status_icon)
+      #console.log('onpresence', curId, status_icon)
 
     onDisconnect: ->
       jQuery.xmpp.connected = false
       jQuery('#facebookG').show()
-      console.log "Disconnected and start Connect->"
+      #console.log "Disconnected and start Connect->"
       setTimeout (->
         window.cfrm.connect()
       ), 3000
 
     onMessage: (message) ->
-      console.log('onMessage', message)
+      #console.log('onMessage', message)
       if (err = message.data.find('error')).context != undefined
-        console.log 'ERROR', message.from, err
-      console.log 'context.site_config.agent.name', context.site_config.agent.name
+        #console.log 'ERROR', message.from, err
+      #console.log 'context.site_config.agent.name', context.site_config.agent.name
       msg = {
         time_at: (new Date).toLocaleString().split(' ')[1],
         full_name: context.site_config.agent.name,
@@ -156,10 +156,10 @@ class window.ChatFrame
       context.append_message(msg)
 
     onError: (error) ->
-      console.log error.error
+      #console.log error.error
       if error.error.match(/Invalid/)
-        console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
-        console.log 'CALL DISCONNECT'
+        #console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
+        #console.log 'CALL DISCONNECT'
         jQuery.xmpp.disconnect()
   # show offline feedback form
   offline_feedback: ()->
@@ -175,17 +175,17 @@ class window.ChatFrame
         dataType: 'json'
         data: data
         error: (jqXHR, textStatus, errorThrown) ->
-          console.log "AJAX Error: #{textStatus}"
+          #console.log "AJAX Error: #{textStatus}"
         success: (data, textStatus, jqXHR) ->
           jQuery('#ch_feedback_box').html(data.message)
           jQuery.xmpp.sendMessage({ type: 'chat', to: self.site_config.agent.email, body: self.site_config.locale.new_feedback })
       return false
 
   append_message: (data) ->
-    console.log('append_message <-')
+    #console.log('append_message <-')
     jQuery('#chat_new_message')[0].play()
     if _.isEmpty(data.content)
-      console.log('empty message, exit')
+      #console.log('empty message, exit')
       return
     mesage_content = _.template(window.ch_message_tpl, { msg: data })
     jQuery('#shf_messages').append(mesage_content)
@@ -210,12 +210,12 @@ class window.ChatFrame
       status_text: jabber_resources[0].show,
       status_image: jabber_resources[0].image
     }
-    console.log('SET AGENT STATUS', data)
+    #console.log('SET AGENT STATUS', data)
     mesage_content = _.template(window.ch_agent_tpl, { data: data })
     jQuery('.shf_agent').replaceWith(mesage_content)
     title = (if jabber_resources[0].show is 'unavailable' then @site_config.title_offline else @site_config.title_online)
     jQuery('.shf_title').text(title)
-    console.log jabber_resources[0].show
+    #console.log jabber_resources[0].show
     if (jabber_resources[0].show is 'unavailable') and @is_no_send_messages()
       @offline_feedback()
       #@reconnect = false
@@ -228,7 +228,7 @@ class window.ChatFrame
     if message == ''
       input.val ""
       return
-    console.log 'Send message =>'
+    #console.log 'Send message =>'
     # jQuery.xmpp.sendCommand("<presence from='"+ $.xmpp.jid+"' to='"+@site_config.to+"' type='subscribe'/>")
     # type chat, private, groupchat and default  chat
     jQuery.xmpp.sendMessage({ type: 'chat', to: @site_config.agent.email, body: @current_page() + message })
@@ -242,7 +242,7 @@ class window.ChatFrame
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
     @referrer = (@getCookie('ch_ref') or @setCookie('ch_ref', @referrer, 365))
-    console.log "Set from Cookie -> @user_uid :", @user_uid
+    #console.log "Set from Cookie -> @user_uid :", @user_uid
 
   setCookie: (c_name, value, exdays) ->
     exdate = new Date()
