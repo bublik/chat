@@ -10,3 +10,4 @@ en:
     email_field: 'Email:'
     phone_field: 'Phone:'
     message_field: 'Message'
+    new_feedback: 'You have new feedback'

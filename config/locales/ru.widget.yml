@@ -10,3 +10,4 @@ ru:
     email_field: 'Емейл:'
     phone_field: 'Тел.:'
     message_field: 'Сообщение'
+    new_feedback: 'У вас новое сообщение в разделе обратной связи.'

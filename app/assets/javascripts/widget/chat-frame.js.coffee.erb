@@ -178,6 +178,7 @@ class window.ChatFrame
           console.log "AJAX Error: #{textStatus}"
         success: (data, textStatus, jqXHR) ->
           jQuery('#ch_feedback_box').html(data.message)
+          jQuery.xmpp.sendMessage({ type: 'chat', to: self.site_config.agent.email, body: self.site_config.locale.new_feedback })
       return false
 
   append_message: (data) ->
@@ -217,7 +218,7 @@ class window.ChatFrame
     console.log jabber_resources[0].show
     if (jabber_resources[0].show is 'unavailable') and @is_no_send_messages()
       @offline_feedback()
-      @reconnect = false
+      #@reconnect = false
 
   send_message: ->
     unless jQuery.xmpp.connected
