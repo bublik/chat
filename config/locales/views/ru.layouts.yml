@@ -1,16 +1,16 @@
 ru:
   layouts:
     header:
-      slogan: Эффективный способ для общения с клиентами и увеличения продаж!
+      slogan: эффективное общение с клиентами
       home: 'Главная'
-      about_us: 'О нас'
-      pricing: 'Цены'
+      about_us: 'HelperChat'
+      pricing: 'Тарифы'
       contacts: 'Контакты'
       language: 'Язык'
       pages: 'Страницы'
     footer:
       about: 'О продукте'
-      service: 'Услуги'
+      service: 'Тарифы'
       contact: 'Контактная информация'
       releases: 'Новости'
       terms: 'Условия использования'

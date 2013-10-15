@@ -16,7 +16,7 @@
 %header
   .container
     / hidden top area toggle link
-    #header-hidden-link
+    -#header-hidden-link
       %a.toggle-link{"data-target" => ".hidden-top", :href => "#", :title => "Click me you'll get a surprise"}
         %i
         = t('global.open')
@@ -41,7 +41,8 @@
               = f.input :email, input_html: { autofocus: true, class: 'form-control', placeholder: 'Enter email' }
               = f.input :password, input_html: { class: 'form-control', placeholder: 'Password' }
               = f.input :password_confirmation, input_html: { class: 'form-control', placeholder: 'Password confirmation' }
-              %div= f.submit t('devise.titles.sign_up'), class: 'btn btn-primary'
+              .row
+                .span2.offset2= f.submit t('devise.titles.sign_up'), class: 'btn btn-primary'
         / end signup modal
         / Sign in Modal
         #mySignin.modal.styled.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "mySigninModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -53,7 +54,8 @@
               = f.input :email, input_html: { autofocus: true, class: 'form-control'}
               = f.input :password
               = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
-              %div= f.submit t('devise.titles.sign_in'), :class => 'btn btn-primary'
+              .row
+                .span2.offset2= f.submit t('devise.titles.sign_in'), :class => 'btn btn-primary'
         / end signin modal
         / Reset Modal
         #myReset.modal.styled.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myResetModalLabel", :role => "dialog", :tabindex => "-1"}
@@ -82,14 +84,9 @@
             %nav
               %ul.nav.topnav
                 %li.dropdown.active= link_to(t('.home'), root_path, title: 'home')
-                %li.dropdown
-                  %a{:href => "#"}
-                    = t('.pages')
-                    %i.icon-angle-down
-                  %ul.dropdown-menu
-                    %li= link_to(t('.about_us'), about_path, title: 'About us')
-                    %li= link_to(t('.pricing'), price_path, title: 'price')
-                %li.dropdown
+                %li= link_to(t('.about_us'), about_path, title: 'About us')
+                %li= link_to(t('.pricing'), price_path, title: 'price')
+                -#%li.dropdown
                   %a{:href => "#"}
                     = t('.language')
                     %i.icon-angle-down
