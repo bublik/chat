@@ -2,39 +2,40 @@
   HelperChat - онлайн консультант для сайта.
 
 %section#featured
-  / start slider
-  / Slider
-  #nivo-slider
-    .nivo-slider
-      / Slide #1 image
-      = image_tag('slides/nivo/bg-1.jpg', title: "#caption-1")
-      / Slide #2 image
-      = image_tag('slides/nivo/bg-2.jpg', title: "#caption-2")
-      / Slide #3 image
-      = image_tag('slides/nivo/bg-3.jpg', title: "#caption-3")
-    .container
-      .row
-        .span12
-          / Slide #1 caption
-          #caption-1.nivo-caption
-            %div
-              %h2
-                %strong
-                  Высокая скорость работы
-              %p В режиме реального времени Вы получаете возможность доступа и работы с  HelperChat абсолютно с любого мобильного и портативного устройства.
-          / Slide #2 caption
-          #caption-2.nivo-caption
-            %div
-              %h2
-                %strong Лёгкость в управлении
-              %p Работа с сервисом HelperChat не требует специальных знаний языков программирования.
-          / Slide #3 caption
-          #caption-3.nivo-caption
-            %div
-              %h2
-                %strong Бесплатно
-              %p Установка и использование онлайн консультанта доступна всем желающим.
-  / end slider
+  .container
+    / start slider
+    / Slider
+    #nivo-slider
+      .nivo-slider
+        / Slide #1 image
+        = image_tag('slides/nivo/bg-1.jpg', title: "#caption-1")
+        / Slide #2 image
+        = image_tag('slides/nivo/bg-2.jpg', title: "#caption-2")
+        / Slide #3 image
+        = image_tag('slides/nivo/bg-3.jpg', title: "#caption-3")
+      .container
+        .row
+          .span12
+            / Slide #1 caption
+            #caption-1.nivo-caption
+              %div
+                %h2
+                  %strong
+                    Высокая скорость работы
+                %p В режиме реального времени Вы получаете возможность доступа и работы с  HelperChat абсолютно с любого мобильного и портативного устройства.
+            / Slide #2 caption
+            #caption-2.nivo-caption
+              %div
+                %h2
+                  %strong Лёгкость в управлении
+                %p Работа с сервисом HelperChat не требует специальных знаний языков программирования.
+            / Slide #3 caption
+            #caption-3.nivo-caption
+              %div
+                %h2
+                  %strong Бесплатно
+                %p Установка и использование онлайн консультанта доступна всем желающим.
+    / end slider
 %section.callaction
   .container
     .row
