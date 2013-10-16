@@ -194,12 +194,13 @@ class window.ChatFrame
     jQuery('#shf_messages').last().scrollTop(100000).fadeIn('slow')
   current_page: ->
     # Send information when first message
-    unless @is_no_send_messages
+    console.log @is_no_send_messages()
+    if @is_no_send_messages()
      (["UserAgent: " + window.navigator.userAgent, "Page: " + document.location + "Referrer: " + @referrer].join("\n")) + "\n"
     else ''
 
   is_no_send_messages: ->
-    jQuery('#shf_messages div').length is 0
+    return jQuery('#shf_messages div').length is 0
   agent_status: () ->
     jQuery.getScript('http://helperchat.com/presence/jid/' + @site_config.agent.email.split('@')[0] + '/helperchat.com/js?cb=window.cfrm.update_agent_status')
   update_agent_status: ()->
