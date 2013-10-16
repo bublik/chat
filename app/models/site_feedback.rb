@@ -24,4 +24,7 @@ class SiteFeedback < ActiveRecord::Base
 
   scope :newest, order(created_at: :desc)
 
+  scope :last_week, lambda { where("created_at >= :date", :date => 1.week.ago) }
+  scope :past_week, lambda { where("created_at >= :start_date AND created_at <= :end_date", {:start_date => 1.week.ago, :end_date => 1.day.ago }) }
+
 end

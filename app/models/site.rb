@@ -48,6 +48,9 @@ class Site < ActiveRecord::Base
   validates :auto_open_timeout, numericality: { greater_than_or_equal_to: 0 }
   validates :offline_welcome_message, length: 6..254, on: :update
 
+  scope :last_week, lambda { where("created_at >= :date", :date => 1.week.ago) }
+  scope :past_week, lambda { where("created_at >= :start_date AND created_at <= :end_date", {:start_date => 1.week.ago, :end_date => 1.day.ago }) }
+
   before_validation(on: :create) do
     self.color ||= COLORS.last
     self.position ||= 'right'

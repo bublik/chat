@@ -36,6 +36,18 @@ class HomeController < ApplicationController
   def page404
   end
 
+  def stats
+    @sites = Site.count
+    @sites_last_week = Site.last_week.count
+    @sites_past_week = Site.past_week.count
+    @messages_last_week = ArchiveMessage.last_week.count
+    @messages_past_week = ArchiveMessage.past_week.count
+    @conversations_last_week = ArchiveCollection.last_week.count
+    @conversations_past_week = ArchiveCollection.past_week.count
+    @feedbacks_last_week = SiteFeedback.last_week.count
+    @feedbacks_past_week = SiteFeedback.past_week.count
+  end
+
   private
 
   def check_auth

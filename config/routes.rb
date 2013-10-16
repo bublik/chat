@@ -27,6 +27,7 @@ Chat::Application.routes.draw do
   get '/terms', to: "home#terms", as: :terms
   get '/privacy', to: "home#privacy", as: :privacy
   get '/career', to: "home#career", as: :career
+  get '/stats', to: "home#stats", as: :stats
   match '/contact', to: 'home#contact', via: [:get, :post]
 
   devise_for :agents, :controllers => {:sessions => 'devise/sessions', :registrations => 'registrations'}
