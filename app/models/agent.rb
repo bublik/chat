@@ -35,6 +35,7 @@ class Agent < ActiveRecord::Base
 
   validates_integrity_of :avatar
   validates_processing_of :avatar
+  validates_inclusion_of :plan, in: %w(simple good better)
 
   # has_many
   def archive_collections

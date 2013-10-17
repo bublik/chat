@@ -4,7 +4,7 @@
     .pricing-box-alt
       .pricing-heading
         %h3
-          = t('.simple')
+          = t('prices.simple')
           %strong= t('.choise')
       .pricing-terms
         %h6 $00.00 / #{t('.month')}
@@ -41,14 +41,14 @@
             %i.icon-remove
             #{t('.offline_messages')}
       .pricing-action
-        %a.btn.btn-medium.btn-theme{ :'data-toggle' => "modal",  :href => "#mySignup"}
+        %a.btn.btn-medium.btn-theme{ :href => signup_path(plan: 'simple')}
           %i.icon-bolt
           = t('.register_now')
   .span4
     .pricing-box-alt.special
       .pricing-heading
         %h3
-          = t('.good')
+          = t('prices.good')
           %strong= t('.choise')
       .pricing-terms
         %h6 $15.00 / #{t('.month')}
@@ -85,14 +85,14 @@
             %i.icon-ok
             #{t('.offline_messages')}
       .pricing-action
-        %a.btn.btn-medium.btn-theme{ :'data-toggle' => "modal",  :href => "#mySignup"}
+        %a.btn.btn-medium.btn-theme{ :href => signup_path(plan: 'good') }
           %i.icon-bolt
           = t('.register_now')
   .span4
     .pricing-box-alt.best
       .pricing-heading
         %h3
-          = t('.best')
+          = t('prices.best')
           %strong= t('.choise')
       .pricing-terms
         %h6 $28.00 / #{t('.month')}
@@ -129,7 +129,7 @@
             %i.icon-ok
             #{t('.offline_messages')}
       .pricing-action
-        %a.btn.btn-medium.btn-theme{ :'data-toggle' => "modal",  :href => "#mySignup"}
+        %a.btn.btn-medium.btn-theme{ :href => signup_path(plan: 'better') }
           %i.icon-bolt
           = t('.register_now')
 

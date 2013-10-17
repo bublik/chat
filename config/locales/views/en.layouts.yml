@@ -45,3 +45,20 @@ en:
       contact_form_bellow: contact form below
       send_msg: Submit message
       required_all: Please fill all required form field, thanks!
+    price:
+      price: 'Цены'
+      choise: 'Выбор'
+      month: 'Месяц'
+      active_sales: 'активные продажи'
+      operator: 'операторов'
+      online_clients: 'онлайн клиентов'
+      offline_messages: 'офлайн сообщения'
+      support: 'тех поддержка'
+      avatars: 'аватар оператора'
+      chat_history: 'история сообщений'
+      sites_available: 'подключаемых сайтов'
+      color_custom: 'выбор цвета виджета'
+      position_custom: 'настройка позиционирования'
+      register_now: 'Начать'
+      need_more: 'Мне надо больше'
+

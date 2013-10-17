@@ -27,6 +27,7 @@ ru:
         name: 'Имя'
         email: 'Емейл'
         avatar: 'Фото'
+        plan: 'Билинг план'
         remove_avatar: 'Удалить фото'
         password: 'Пароль'
         password_confirmation: 'Подтвердите пароль'
@@ -63,3 +64,7 @@ ru:
       carrierwave_integrity_error: "не разрешенный тип файла"
       carrierwave_download_error: "невозможно загрузить изображение."
       extension_white_list_error: "не разрешенный тип файла"
+  prices:
+    simple: 'Начальный'
+    good: 'Хороший'
+    best: 'Лучший'
