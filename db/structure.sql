@@ -39,10 +39,11 @@ CREATE TABLE `agents` (
   `updated_at` datetime DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `plan` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'simple',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_agents_on_email` (`email`),
   UNIQUE KEY `index_agents_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -547,7 +548,7 @@ CREATE TABLE `site_feedbacks` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -583,7 +584,7 @@ CREATE TABLE `sites` (
   KEY `index_sites_on_site_category_id` (`site_category_id`),
   KEY `index_sites_on_agent_id` (`agent_id`),
   KEY `index_sites_on_uuid` (`uuid`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -600,7 +601,7 @@ CREATE TABLE `spool` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   UNIQUE KEY `seq` (`seq`),
   KEY `i_despool` (`username`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -737,7 +738,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-01 10:50:06
+-- Dump completed on 2013-10-17 14:52:52
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -763,3 +764,7 @@ INSERT INTO schema_migrations (version) VALUES ('20130924080045');
 INSERT INTO schema_migrations (version) VALUES ('20130927095323');
 
 INSERT INTO schema_migrations (version) VALUES ('20131001072712');
+
+INSERT INTO schema_migrations (version) VALUES ('20131017110410');
+
+INSERT INTO schema_migrations (version) VALUES ('20131017115135');
