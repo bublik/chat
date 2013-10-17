@@ -2,3 +2,22 @@
   .alert.alert-info= t('.need_add_site', page_link: new_site_path).html_safe
 - unless @user
   .alert.alert-info= t('.need_add_jabber_acc', page_link: new_user_path).html_safe
+
+-#
+  %h3= t('.service_subscription')
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+  <input type="hidden" name="cmd" value="_s-xclick">
+  <input type="hidden" name="hosted_button_id" value="N8WJUJ8EZA8A6">
+  <table>
+  <tr><td><input type="hidden" name="on0" value="Billing Plan"></td></tr><tr><td><select name="os0">
+  <option value="Good">Good : $15.00 USD - monthly</option>
+  <option value="Better">Better : $28.00 USD - monthly</option>
+  </select> </td></tr>
+  </table>
+  <input type="hidden" name="currency_code" value="USD">
+  <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_subscribeCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+  <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+  </form>
+
+  <hr/>
+  <A HREF="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=MGQQFCHRSSKHJ" class="btn">#{t('.unsubscribe')}</A>

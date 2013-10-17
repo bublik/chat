@@ -67,4 +67,4 @@ ru:
   prices:
     simple: 'Начальный'
     good: 'Хороший'
-    best: 'Лучший'
+    better: 'Лучший'
