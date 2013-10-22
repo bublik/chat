@@ -1,6 +1,6 @@
 /* === Typography === */
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Verdana', sans-serif;
   color: #353535;
   font-weight: 300;
   line-height: 1.5em;
@@ -107,7 +107,7 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Open Sans', Arial, sans-serif;
+  font-family: 'Verdana', Arial, sans-serif;
   font-size: 13px;
 }
 

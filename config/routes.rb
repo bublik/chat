@@ -1,4 +1,13 @@
 Chat::Application.routes.draw do
+  root 'home#index'
+
+  match '/site_config/(:id)', to: 'sites#show', via: [:get, :post]
+  match '/visitor_feedbacks', to: 'site_feedbacks#list', via: [:get], as: :visitor_feedbacks
+
+  resources :sites do
+    resources :site_feedbacks, only: [:index, :create, :destroy]
+  end
+
   resources :archive_jid_prefs
   resources :archive_collections, only: [:index, :show, :destroy] do
     collection do
@@ -7,15 +16,8 @@ Chat::Application.routes.draw do
     resources :archive_messages, only: [:index, :show, :destroy]
   end
 
-  resources :sites do
-    resources :site_feedbacks, only: [:index, :create, :destroy]
-  end
-
-  match '/visitor_feedbacks', to: 'site_feedbacks#list', via: [:get], as: :visitor_feedbacks
-
   resources :users
   resources :site_categories
-
   get "management/index"
   get "management/report"
   get "home/index"
@@ -38,8 +40,18 @@ Chat::Application.routes.draw do
     get "/logout", :to => "devise/sessions#destroy", :as => :logout
   end
 
+  resources :plans
+  resources :subscriptions do
+    member do
+      post :suspend
+      post :reactivate
+      post :cancel
+    end
+  end
+
+  get 'paypal/checkout', to: 'subscriptions#paypal_checkout'
+
   get '/404', to: 'home#page404'
-  root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

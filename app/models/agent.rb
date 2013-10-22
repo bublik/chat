@@ -18,6 +18,7 @@
 #  updated_at             :datetime
 #  name                   :string(255)      default("")
 #  avatar                 :string(255)
+#  plan_id                :integer          default(5)
 #
 
 class Agent < ActiveRecord::Base
@@ -27,6 +28,10 @@ class Agent < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :sites
+  has_many :subscriptions
+  has_one :subscription, -> { order('created_at') }, class_name: 'Subscription'
+
+  belongs_to :plan
   # Jabber Authorization User
   has_one :user
   delegate :username, to: :user
@@ -35,7 +40,7 @@ class Agent < ActiveRecord::Base
 
   validates_integrity_of :avatar
   validates_processing_of :avatar
-  validates_inclusion_of :plan, in: %w(simple good better)
+  validate :plan_exists
 
   # has_many
   def archive_collections
@@ -56,6 +61,11 @@ class Agent < ActiveRecord::Base
         email: (Rails.env.development? ? 'admin@helperchat.com' : user.jabber_account),
         avatar_path: avatar.thumb.url
     }
+  end
+
+  protected
+  def plan_exists
+    Plan.where('plans.id = ?', self.plan_id).exists?
   end
 
 end

@@ -33,3 +33,6 @@ ru:
       start_at: 'Начало'
       time: 'Длительность'
       not_found: 'Нет записей'
+  subscriptions:
+    new:
+      subscribe: 'Подписаться'

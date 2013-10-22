@@ -39,11 +39,11 @@ CREATE TABLE `agents` (
   `updated_at` datetime DEFAULT NULL,
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `plan` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'simple',
+  `plan_id` int(11) DEFAULT '5',
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_agents_on_email` (`email`),
   UNIQUE KEY `index_agents_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -269,6 +269,24 @@ CREATE TABLE `muc_room` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   UNIQUE KEY `i_muc_room_name_host` (`name`(75),`host`(75)) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `plans`
+--
+
+DROP TABLE IF EXISTS `plans`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `plans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `price` int(11) DEFAULT NULL,
+  `operators` int(11) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -636,6 +654,28 @@ CREATE TABLE `sr_user` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `subscriptions`
+--
+
+DROP TABLE IF EXISTS `subscriptions`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `subscriptions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `plan_id` int(11) DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `stripe_customer_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `paypal_customer_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `paypal_recurring_profile_token` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  `agent_id` int(11) NOT NULL,
+  `state` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'active',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `users`
 --
 
@@ -738,7 +778,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-17 14:52:52
+-- Dump completed on 2013-10-21 11:25:22
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -768,3 +808,13 @@ INSERT INTO schema_migrations (version) VALUES ('20131001072712');
 INSERT INTO schema_migrations (version) VALUES ('20131017110410');
 
 INSERT INTO schema_migrations (version) VALUES ('20131017115135');
+
+INSERT INTO schema_migrations (version) VALUES ('20131018085828');
+
+INSERT INTO schema_migrations (version) VALUES ('20131018090346');
+
+INSERT INTO schema_migrations (version) VALUES ('20131018092609');
+
+INSERT INTO schema_migrations (version) VALUES ('20131018114632');
+
+INSERT INTO schema_migrations (version) VALUES ('20131018124543');

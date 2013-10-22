@@ -18,6 +18,7 @@
 #  updated_at             :datetime
 #  name                   :string(255)      default("")
 #  avatar                 :string(255)
+#  plan_id                :integer          default(5)
 #
 
 require 'spec_helper'
