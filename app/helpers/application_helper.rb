@@ -17,6 +17,10 @@ module ApplicationHelper
     flag ? icon('icon-ok') : icon('icon-remove')
   end
 
+  def selected_plan
+    Plan.where('LOWER(plans.name) = ? ', params[:plan] || 'simple').first.id
+  end
+
   def google_analytix
     "<script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -28,4 +32,5 @@ module ApplicationHelper
   ga('send', 'pageview');
 </script>".html_safe
   end
+
 end

@@ -1,0 +1,24 @@
+#subscription {
+  width: 400px;
+}
+
+#stripe_error {
+  color: #D00;
+}
+
+#pay_with_paypal, #pay_with_card {
+  float: left;
+  margin-top: 10px;
+  margin-right: 5px;
+}
+
+#card_code {
+  width: 25px;
+}
+
+#card_number {
+  width: 130px
+}
+#card_month, #card_year {
+  width: 120px;
+}
