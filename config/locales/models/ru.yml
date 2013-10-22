@@ -19,6 +19,7 @@ ru:
       site: 'Сайт'
       user: 'Jabber акаунт'
       site_category: 'Категория'
+      plan: 'Биллинг план'
     attributes:
       user:
         username: 'Логин'
@@ -27,7 +28,7 @@ ru:
         name: 'Имя'
         email: 'Емейл'
         avatar: 'Фото'
-        plan: 'Билинг план'
+        plan_id: 'Билинг план'
         remove_avatar: 'Удалить фото'
         password: 'Пароль'
         password_confirmation: 'Подтвердите пароль'
@@ -54,6 +55,10 @@ ru:
         auto_open_timeout: 'Задержка перед автооткрытием (сек)'
         enabled: 'Включен'
         widget_code: 'Код виджета'
+      plan:
+       simple: 'Начальный'
+       good: 'Хороший'
+       better: 'Лучший'
 
   errors:
     messages:
@@ -67,4 +72,4 @@ ru:
   prices:
     simple: 'Начальный'
     good: 'Хороший'
-    best: 'Лучший'
+    better: 'Лучший'

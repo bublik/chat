@@ -1,0 +1,25 @@
+#subscription
+  .well
+    %h1 Your Subscription
+    %p
+      You have signed up for the <strong>#{subscription.plan.name}</strong> plan which includes
+      %div
+        %strong #{subscription.plan.operators} operators
+      %div
+        started at #{subscription.created_at}
+      for just
+      %strong #{number_to_currency(subscription.plan.price, unit: '$')} per month!
+      %div
+        Recurrent Status:
+        %strong #{subscription.state}
+  .btn-group
+    - if subscription.active?
+      = link_to(t('.suspend'), suspend_subscription_path(subscription), class: 'btn btn-warning', method: 'post')
+      = link_to(t('.cancel'), cancel_subscription_path(subscription), class: 'btn btn-danger', method: 'post')
+    - if subscription.suspended?
+      = link_to(t('.reactivate'), reactivate_subscription_path(subscription), class: 'btn btn-success', method: 'post')
+      = link_to(t('.cancel'), cancel_subscription_path(subscription), class: 'btn btn-danger', method: 'post')
+    - if subscription.canceled?
+      = link_to(t('.subscribe'), new_subscription_path, class: 'btn btn-success')
+
+

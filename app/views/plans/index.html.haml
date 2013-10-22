@@ -1,0 +1,17 @@
+%h1 Listing plans
+
+%table
+  %tr
+    %th Name
+    %th Price
+    %th Operators
+    %th
+
+  - @plans.each do |plan|
+    %tr
+      %td= plan.name
+      %td= plan.price
+      %td= plan.operators
+      %td= link_to 'Show', plan
+
+

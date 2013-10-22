@@ -1,4 +1,4 @@
-class window.ChatFrame
+class ChatFrame
   constructor: (@options) ->
     #console.log('Constructor Start with options ->', @options)
     @site_uid = @options['widget_id']
@@ -16,7 +16,7 @@ class window.ChatFrame
     @feedback_path = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '/site_feedbacks.json'
     @site_config = {id: @site_uid, asset_host: @sheme + '://' + @assets_host}
     @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0, 2).toLowerCase()
-    @site_config_url = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '.json?lang=' + @lang
+    @site_config_url = @sheme + '://' + @chat_config_host + '/site_config/' + @site_uid + '.json?lang=' + @lang
     #console.log('Constructor Finish \<-')
     @checkCookie()
 
@@ -81,7 +81,9 @@ class window.ChatFrame
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
   show_widget: ->
     @reconnect = true
-    setTimeout(@connect(), 2000)
+    setTimeout (->
+      window.ChatFrame.connect()
+    ), 3000
     #console.log 'show_widget ->', jQuery(@widget_window_id)
     unless jQuery(@widget_window_id)[0]
       #console.log 'Add widget to page'
@@ -140,7 +142,7 @@ class window.ChatFrame
       jQuery('#facebookG').show()
       #console.log "Disconnected and start Connect->"
       setTimeout (->
-        window.cfrm.connect()
+        window.ChatFrame.connect()
       ), 3000
 
     onMessage: (message) ->
@@ -201,7 +203,7 @@ class window.ChatFrame
   is_no_send_messages: ->
     return jQuery('#shf_messages div').length is 0
   agent_status: () ->
-    jQuery.getScript('http://helperchat.com/presence/jid/' + @site_config.agent.email.split('@')[0] + '/helperchat.com/js?cb=window.cfrm.update_agent_status')
+    jQuery.getScript('http://helperchat.com/presence/jid/' + @site_config.agent.email.split('@')[0] + '/helperchat.com/js?cb=window.ChatFrame.update_agent_status')
   update_agent_status: ()->
     data = {
       name: @site_config.agent.name,
@@ -267,8 +269,8 @@ class window.ChatFrame
 #    expire.setDate(expire.getDate() - 365)
 #    document.cookie = name + "= ; expires=" + expire.toGMTString()
 
-window.cfrm = new window.ChatFrame(window._chcfg)
-window.cfrm.load_site_config()
+window.ChatFrame = new ChatFrame(window._chcfg)
+window.ChatFrame.load_site_config()
 
 oldonunload = window.onunload
 window.onunload = ->
