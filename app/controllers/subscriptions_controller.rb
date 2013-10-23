@@ -9,6 +9,7 @@ class SubscriptionsController < ApplicationController
 
   def new
     plan = Plan.find_by_id(params[:plan_id] || current_agent.plan_id)
+    plan ||=  Plan.first
     @subscription = plan.subscriptions.build
     if params[:PayerID]
       @subscription.paypal_customer_token = params[:PayerID]
