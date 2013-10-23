@@ -19,6 +19,7 @@ class ChatFrame
     @site_config_url = @sheme + '://' + @chat_config_host + '/site_config/' + @site_uid + '.json?lang=' + @lang
     #console.log('Constructor Finish \<-')
     @checkCookie()
+    @addUnLoadEvent(jQuery.xmpp.disconnectSync)
 
   load_site_config: ->
     #console.log 'load_site_config ->'
@@ -269,10 +270,14 @@ class ChatFrame
 #    expire.setDate(expire.getDate() - 365)
 #    document.cookie = name + "= ; expires=" + expire.toGMTString()
 
+  addUnLoadEvent: (_func) ->
+    oldonbeforeunload = window.onbeforeunload
+    unless typeof window.onbeforeunload is "function"
+      window.onbeforeunload = _func
+    else
+      window.onbeforeunload = ->
+        oldonbeforeunload() if oldonbeforeunload
+        _func() if jQuery.xmpp.connected
+
 window.ChatFrame = new ChatFrame(window._chcfg)
 window.ChatFrame.load_site_config()
-
-oldonunload = window.onunload
-window.onunload = ->
-  oldonunload() if oldonunload
-  jQuery.xmpp.disconnectSync()
