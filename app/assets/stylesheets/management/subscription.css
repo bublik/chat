@@ -19,6 +19,19 @@
 #card_number {
   width: 130px
 }
+
 #card_month, #card_year {
   width: 120px;
+}
+
+.active {
+  color: green;
+}
+
+.canceled {
+  color: red;
+}
+
+.suspended {
+  color: blue;
 }
