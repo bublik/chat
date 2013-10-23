@@ -60,11 +60,45 @@ class Subscription < ActiveRecord::Base
   end
 
   def cancel
-    if paypal? ? paypal.cancel : raise('Not Implemented')
+    if paypal? ? paypal.cancel : stripe_customer.cancel_subscription({:at_period_end => 'true'})
       update_attribute(:state, 'canceled')
     end
   end
 
+  def stripe_customer
+    Stripe::Customer.retrieve(self.stripe_customer_token)
+  end
+
+  def save_with_stripe_payment
+    customer = Stripe::Customer.create(description: email, plan: plan.name.downcase, card: stripe_card_token)
+    self.stripe_customer_token = customer.id
+    save!
+  rescue Stripe::CardError => e
+    logger.error "Stripe Card Error: #{e.message}"
+    errors.add :base, e.message
+    false
+  rescue Stripe::InvalidRequestError => e
+    logger.error "Stripe Invalid Request: #{e.message}"
+    errors.add :base, e.message
+    false
+  end
+
+  def payment_provided?
+    stripe_card_token.present? || paypal_payment_token.present?
+  end
+
+  def available_methods
+    if paypal?
+      ['suspend', 'cancel'] if active?
+      ['reactivate', 'cancel'] if suspended?
+      ['subscribe'] if canceled?
+    else
+      ['cancel'] if active?
+      ['subscribe'] if canceled?
+    end
+  end
+
+  #Check state methods
   def active?
     self.state.eql?('active')
   end
@@ -77,17 +111,4 @@ class Subscription < ActiveRecord::Base
     self.state.eql?('canceled')
   end
 
-  def save_with_stripe_payment
-    customer = Stripe::Customer.create(description: email, plan: plan_id, card: stripe_card_token)
-    self.stripe_customer_token = customer.id
-    save!
-  rescue Stripe::InvalidRequestError => e
-    logger.error "Stripe error while creating customer: #{e.message}"
-    errors.add :base, "There was a problem with your credit card."
-    false
-  end
-
-  def payment_provided?
-    stripe_card_token.present? || paypal_payment_token.present?
-  end
 end

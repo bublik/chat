@@ -36,3 +36,21 @@ ru:
   subscriptions:
     new:
       subscribe: 'Подписаться'
+    create:
+      thank_for_subscribing: 'Спасибо за вашу подписку!'
+    subscription:
+      your_subscription: 'Ваша подписка'
+      your_plan: 'План:'
+      agents: '%{operators} гентов'
+      started_at: 'начиная с  %{time}'
+      for_just: 'всего за'
+      per_month: 'в месяц!'
+      recurrent_status: 'Ежемесячная подписка:'
+      suspend: Приостановить
+      cancel: Закончить
+      reactivate: Возобновить
+      subscribe: Подписаться
+      state_active: 'Активирована'
+      state_suspended: 'Приостановлена'
+      state_canceled: 'Закончена'
+

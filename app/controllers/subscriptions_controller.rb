@@ -21,7 +21,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(permit_params)
     @subscription.agent = current_agent
     if @subscription.save_with_payment
-      redirect_to @subscription, :notice => "Thank you for subscribing!"
+      redirect_to @subscription, :notice => t('.thank_for_subscribing')
     else
       flash[:error] = @subscription.errors.full_messages.join('<br/>')
       render :new
@@ -62,6 +62,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def find_subscription
-    @subscription = current_aget.subscriptions.find(params[:id])
+    @subscription = current_agent.subscriptions.find(params[:id])
   end
 end
