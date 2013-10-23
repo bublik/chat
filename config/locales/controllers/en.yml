@@ -27,3 +27,24 @@ en:
       start_at: 'Start at'
       time: 'Duration'
       not_found: 'No records found'
+  subscriptions:
+    new:
+      subscribe: 'Subscribe'
+    create:
+      thank_for_subscribing: 'Thank you for subscribing!'
+    subscription:
+      your_subscription: Your subscription
+      you_signed: 'You have signed up for the <strong>%{plan}</strong> plan which includes'
+      agents: '%{operators} operators'
+      started_at: 'started at %{time}'
+      for_just: 'for just'
+      recurrent_status: 'Recurrent Status:'
+      suspend: Suspend
+      cancel: Cancel
+      reactivate: Reactivate
+      subscribe: Subscribe
+      state_active: 'Active'
+      state_suspended: 'Suspended'
+      state_canceled: 'Canceled'
+
+

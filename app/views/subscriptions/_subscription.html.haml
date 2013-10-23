@@ -1,25 +1,25 @@
 #subscription
   .well
-    %h1 Your Subscription
+    %h1= t('.your_subscription')
     %p
-      You have signed up for the <strong>#{subscription.plan.name}</strong> plan which includes
+      = t('.your_plan')
+      %strong= t("activerecord.attributes.plan.#{subscription.plan.name.downcase}")
       %div
-        %strong #{subscription.plan.operators} operators
+        %strong= t('.agents', operators: subscription.plan.operators)
+      %div= t('.started_at', time: subscription.created_at)
+      #{t('.for_just')}
+      %strong #{number_to_currency(subscription.plan.price, unit: '$')} #{t('.per_month')}!
       %div
-        started at #{subscription.created_at}
-      for just
-      %strong #{number_to_currency(subscription.plan.price, unit: '$')} per month!
-      %div
-        Recurrent Status:
-        %strong #{subscription.state}
-  .btn-group
-    - if subscription.active?
-      = link_to(t('.suspend'), suspend_subscription_path(subscription), class: 'btn btn-warning', method: 'post')
-      = link_to(t('.cancel'), cancel_subscription_path(subscription), class: 'btn btn-danger', method: 'post')
-    - if subscription.suspended?
-      = link_to(t('.reactivate'), reactivate_subscription_path(subscription), class: 'btn btn-success', method: 'post')
-      = link_to(t('.cancel'), cancel_subscription_path(subscription), class: 'btn btn-danger', method: 'post')
-    - if subscription.canceled?
-      = link_to(t('.subscribe'), new_subscription_path, class: 'btn btn-success')
+        #{t('.recurrent_status')}
+        %strong{class: subscription.state} #{t('.state_'+subscription.state)}
+    .btn-group
+      - if subscription.active?
+        = link_to(t('.suspend'), suspend_subscription_path(subscription), class: 'btn btn-warning', method: 'post') if subscription.paypal?
+        = link_to(t('.cancel'), cancel_subscription_path(subscription), class: 'btn btn-danger', method: 'post')
+      - if subscription.suspended?
+        = link_to(t('.reactivate'), reactivate_subscription_path(subscription), class: 'btn btn-success', method: 'post')
+        = link_to(t('.cancel'), cancel_subscription_path(subscription), class: 'btn btn-danger', method: 'post')
+      - if subscription.canceled?
+        = link_to(t('.subscribe'), new_subscription_path, class: 'btn btn-success')
 
 

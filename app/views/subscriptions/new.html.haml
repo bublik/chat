@@ -5,7 +5,7 @@
   Включает
   %strong #{ @subscription.plan.operators } агентов
   только за
-  %strong #{ number_to_currency @subscription.plan.price }
+  %strong #{ number_to_currency(@subscription.plan.price, unit: '$') }
   в месяц!
 = form_for @subscription do |f|
   = f.hidden_field :plan_id
