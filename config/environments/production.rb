@@ -61,7 +61,7 @@ Chat::Application.configure do
 
   # Precompile additional assets.
   # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-  config.assets.precompile += %w( management.js portal.js widget.js widget.css management.css portal.css )
+  config.assets.precompile += %w( management.js portal.js widget.js subscriptions.js widget.css management.css portal.css )
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.

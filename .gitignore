@@ -13,8 +13,6 @@
 /public/site*
 /public/strophejs
 /config/config.yml
-config/initializers/paypal.rb
-config/initializers/stripe.rb
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

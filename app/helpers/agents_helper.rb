@@ -18,7 +18,7 @@ module AgentsHelper
 
   def subscribe_link(resource)
     path = resource.subscription ? resource.subscription : new_subscription_path
-    link_to(icon('icon-credit-card') + resource.plan.name_for_selector, path, class: 'btn btn-primary')
+    link_to(icon('icon-credit-card') + (resource.plan ? resource.plan.name_for_selector : ''), path, class: 'btn btn-primary')
   end
 
   AUTO_LINK_RE = %r{(?: ([0-9A-Za-z+.:-]+:)// | www\. ) [^\s<]+}x
