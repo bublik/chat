@@ -60,11 +60,6 @@ window.ch_widget_tpl = '<div class="shf_chat" id="widg-<%= config.id %>" style="
       '<div id="blockG_3" class="facebook_blockG"></div>' +
     '</div>' +
     '<div class="shf_header_info">' +
-//      '<div class="shf_header_logo">' +
-//        '<div class="shf_header_logo_cell">' +
-//          '<img class="shf_chat_logo" src="<%= config.logo %>">' +
-//        '</div>' +
-//      '</div>' +
       '<div class="shf_title"><%= config.title %></div>' +
     '</div>' +
   '</div>' +

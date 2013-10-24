@@ -43,7 +43,7 @@ CREATE TABLE `agents` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_agents_on_email` (`email`),
   UNIQUE KEY `index_agents_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -69,6 +69,7 @@ CREATE TABLE `archive_collections` (
   `thread` varchar(1023) DEFAULT NULL,
   `crypt` tinyint(4) DEFAULT NULL,
   `extra` mediumtext,
+  `remote_ip` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `IDX_archive_colls_with` (`us`(16),`with_user`(8),`with_server`(8),`utc`),
   KEY `IDX_archive_colls_prev_id` (`prev_id`),
@@ -672,7 +673,7 @@ CREATE TABLE `subscriptions` (
   `agent_id` int(11) NOT NULL,
   `state` varchar(255) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'active',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -778,7 +779,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-21 11:25:22
+-- Dump completed on 2013-10-24 11:12:28
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -818,3 +819,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131018092609');
 INSERT INTO schema_migrations (version) VALUES ('20131018114632');
 
 INSERT INTO schema_migrations (version) VALUES ('20131018124543');
+
+INSERT INTO schema_migrations (version) VALUES ('20131024081026');
