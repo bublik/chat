@@ -20,7 +20,6 @@ class SitesController < ApplicationController
   # GET /sites/1.json
   def show
     # logger.debug @site
-    # TODO check this uid on new build
   end
 
   # GET /sites/new
@@ -80,7 +79,7 @@ class SitesController < ApplicationController
   end
 
   def set_site
-    @site = Site.find_by_uuid(params[:id])
+    @site = Site.where(uuid: params[:id]).includes({agent: :user}).first
     unless @site
       render :nothing => true, :status => 404
     end

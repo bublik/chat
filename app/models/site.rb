@@ -62,13 +62,4 @@ class Site < ActiveRecord::Base
     uuid
   end
 
-  # TODO add user upload logo on interface
-  def logo
-    'assets/logo.jpeg'
-  end
-
-  # TODO add check if one Manager in online for this site
-  def online
-    true
-  end
 end
