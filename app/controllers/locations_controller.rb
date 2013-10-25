@@ -3,7 +3,13 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    Location.find_or_create_by(remote_ip: request.remote_ip, user_usid: params[:user_usid])
+    user_usid
+    location = Location.find_or_create_by(user_usid: params[:user_usid])
+    user_agent = UserAgent.parse(request.user_agent)
+    location.update_attributes(remote_ip: request.remote_ip,
+                               platform: user_agent.platform,
+                               version: user_agent.version,
+                               browser: user_agent.browser)
     send_data(Base64.decode64("R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="), :type => "image/gif", :disposition => "inline")
   end
 

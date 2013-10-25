@@ -1,14 +1,19 @@
 .row
-  .span2
+  .span3
+    %div
+      = l(@archive_messages.first.utc, format: :short)
     %div
       = us_to_human(@collection.us)
-      \/
-      = @archive_messages.first.utc.to_formatted_s(:short)
+      &nbsp;
+      - if @location
+        %span{class: @location.platform}= @location.platform
+        %span{class: @location.browser}= @location.browser
+        = @location.version
     %div
       Чат
       = distance_of_time_in_words(@archive_messages.first.utc, @archive_messages.last.utc)
 
-  .span5.offset2= show_map(@collection.get_location)
+  .span5.offset1= show_map(@location)
 
 %div
   - @archive_messages.each do |msg|
@@ -21,7 +26,7 @@
         %span.tooltip{'data-toggle' => 'popover',
           'data-html' => 'true',
           'data-content' => auto_link_urls(msg.body),
-          'data-title' => icon(icon_class) + ' ' + msg.utc.to_formatted_s(:short),
+          'data-title' => icon(icon_class) + ' ' + l(msg.utc, format: :short),
           'data-placement' => position }
 
 - content_for :javascript do

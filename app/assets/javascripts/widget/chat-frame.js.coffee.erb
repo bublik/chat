@@ -197,9 +197,9 @@ class ChatFrame
   current_page: ->
     # Send information when first message
     if @is_no_send_messages()
-      (["UserAgent: " + window.navigator.userAgent,
-        "Page: " + document.location,
-        "Referrer: " + @referrer].join("\n")) + "\n"
+      prefix = ["Page: " + document.location]
+      prefix.push("Referrer: " + @referrer) unless @referrer is '-'
+      prefix.join("\n") + "\n"
     else ''
 
   is_no_send_messages: ->

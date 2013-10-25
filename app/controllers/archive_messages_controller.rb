@@ -6,6 +6,7 @@ class ArchiveMessagesController < ApplicationController
   # GET /archive_messages.json
   def index
     @collection = current_agent.archive_collections.where('archive_collections.id' => params[:archive_collection_id]).first
+    @location = @collection.get_location
     @archive_messages = @collection.archive_messages.all
   end
 
