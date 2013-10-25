@@ -2,59 +2,27 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .js.coffee assets and views
-gem 'coffee-rails', '~> 4.0.0'
-# See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-#gem 'turbolinks'
-
-gem 'geocoder'
+gem 'devise'
 
 # payments
 gem 'stripe'
 gem 'paypal-recurring'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.2'
-
-group :doc do
-  # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
-end
-
 # Use mysql as the database for Active Record
 gem 'mysql2'
 gem 'uuid'
 gem 'dalli'
+gem 'geocoder'
 
-gem 'devise'
-#gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
+
 gem 'mini_magick'
 gem 'carrierwave'
-
 gem 'simple_form', '~> 3.0.0.rc'
 gem 'haml-rails'
-gem "therubyracer"
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'jbuilder', '~> 1.2'
 gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'kaminari' #pagination plugin
-
-group :test do
-  # database_cleaner is not required, but highly recommended
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'rspec-rails'
-  gem 'spork', '~> 1.0rc'
-end
+gem 'jquery-rails'
 
 group :development do
   # Use Capistrano for deployment
@@ -62,14 +30,28 @@ group :development do
   gem 'capistrano-ext'
 end
 
-#gem 'coffee-rails-source-maps'
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'fakeweb', :require => false
+  gem 'webmock'
+  gem 'vcr'
+  gem 'simplecov-rcov'
+  gem 'database_cleaner'
+  gem 'spork', '~> 1.0rc'
+end
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# Gems used only for assets and not required
+# in production environments by default.
+group :assets do
+  gem 'sass-rails', '~> 4.0.0'
+  gem 'coffee-rails', '~> 4.0.0'
+  gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+  gem 'uglifier', '>= 1.3.0'
+end
 
-# Use unicorn as the app server
-# gem 'unicorn'
 
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+group :doc do
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
+end
