@@ -15,45 +15,6 @@ class ArchiveMessagesController < ApplicationController
   def show
   end
 
-  ## GET /archive_messages/new
-  #def new
-  #  @archive_message = ArchiveMessage.new
-  #end
-
-  ## GET /archive_messages/1/edit
-  #def edit
-  #end
-  #
-  ## POST /archive_messages
-  ## POST /archive_messages.json
-  #def create
-  #  @archive_message = ArchiveMessage.new(archive_message_params)
-  #
-  #  respond_to do |format|
-  #    if @archive_message.save
-  #      format.html { redirect_to @archive_message, notice: 'Archive message was successfully created.' }
-  #      format.json { render action: 'show', status: :created, location: @archive_message }
-  #    else
-  #      format.html { render action: 'new' }
-  #      format.json { render json: @archive_message.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
-  #
-  ## PATCH/PUT /archive_messages/1
-  ## PATCH/PUT /archive_messages/1.json
-  #def update
-  #  respond_to do |format|
-  #    if @archive_message.update(archive_message_params)
-  #      format.html { redirect_to @archive_message, notice: 'Archive message was successfully updated.' }
-  #      format.json { head :no_content }
-  #    else
-  #      format.html { render action: 'edit' }
-  #      format.json { render json: @archive_message.errors, status: :unprocessable_entity }
-  #    end
-  #  end
-  #end
-
   # DELETE /archive_messages/1
   # DELETE /archive_messages/1.json
   def destroy

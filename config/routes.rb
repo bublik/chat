@@ -9,7 +9,6 @@ Chat::Application.routes.draw do
     resources :site_feedbacks, only: [:index, :create, :destroy]
   end
 
-  resources :archive_jid_prefs
   resources :archive_collections, only: [:index, :show, :destroy] do
     collection do
       get :search
