@@ -31,6 +31,7 @@ gem 'dalli'
 
 gem 'devise'
 gem 'geocoder'
+gem 'useragent'
 
 #gem 'omniauth-openid', :git => 'git://github.com/intridea/omniauth-openid.git'
 gem 'mini_magick'
