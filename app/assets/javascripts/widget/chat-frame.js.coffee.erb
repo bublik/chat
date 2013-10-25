@@ -7,16 +7,16 @@ class ChatFrame
     @assets_host = '<%= APP_CONFIG["HOST"] %>'
     @chat_config_host = '<%= APP_CONFIG['HOST'] %>'
     @reconnect = true
-    @prefix = @options['user_prefix'] || document.domain.substr(0,9)
-    @user_uid = Math.floor(Math.random(1, 100) * 10000000)
+    @prefix = @options['user_prefix'] || document.domain.substr(0, 9)
+    @user_uid = Math.floor(Math.random(1, 100) * 5000000000)
     @sheme = 'http'
     @sheme = 'https' if (document.location.protocol is 'https:')
     @referrer = if _.isEmpty(document.referrer) then '-' else document.referrer
     @widget_css_url = @sheme + '://' + @assets_host + '/assets/widget.css'
     @feedback_path = @sheme + '://' + @chat_config_host + '/sites/' + @site_uid + '/site_feedbacks.json'
-    @site_config = {id: @site_uid, asset_host: @sheme + '://' + @assets_host}
-    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0, 2).toLowerCase()
-    @site_config_url = @sheme + '://' + @chat_config_host + '/site_config/' + @site_uid + '.json?lang=' + @lang
+    @site_config = {id: @site_uid, app_host: @sheme + '://' + @chat_config_host, asset_host: @sheme + '://' + @assets_host}
+    @lang = (navigator.language || navigator.userLanguage || navigator.systemLanguage || "en").substr(0,2).toLowerCase()
+    @site_config_url = @sheme + '://' + @chat_config_host + '/site_config/' + @lang + '/' + @site_uid + '.json'
     #console.log('Constructor Finish \<-')
     @checkCookie()
 
@@ -118,7 +118,7 @@ class ChatFrame
     onConnect: ->
       #console.log "onConnect ->"
       jQuery.xmpp.setPresence(null)
-      #console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
+    #console.log 'jQuery.xmpp.sid', jQuery.xmpp.sid
     onIq: (iq) ->
       #console.log('onIq', iq)
     onNotification: (notification) ->
@@ -135,7 +135,7 @@ class ChatFrame
           status_icon = "away_icon"
         else
           status_icon = "available_icon"
-      #console.log('onpresence', curId, status_icon)
+    #console.log('onpresence', curId, status_icon)
 
     onDisconnect: ->
       jQuery.xmpp.connected = false
@@ -148,7 +148,7 @@ class ChatFrame
     onMessage: (message) ->
       #console.log('onMessage', message)
       -#if (err = message.data.find('error')).context != undefined
-        #console.log 'ERROR', message.from, err
+      #console.log 'ERROR', message.from, err
       #console.log 'context.site_config.agent.name', context.site_config.agent.name
       msg = {
         time_at: (new Date).toLocaleString().split(' ')[1],
@@ -177,9 +177,9 @@ class ChatFrame
         data: data
         error: (jqXHR, textStatus, errorThrown) ->
           #console.log "AJAX Error: #{textStatus}"
-        success: (data, textStatus, jqXHR) ->
-          jQuery('#ch_feedback_box').html(data.message)
-          jQuery.xmpp.sendMessage({ type: 'chat', to: self.site_config.agent.email, body: self.site_config.locale.new_feedback })
+          success: (data, textStatus, jqXHR) ->
+            jQuery('#ch_feedback_box').html(data.message)
+            jQuery.xmpp.sendMessage({ type: 'chat', to: self.site_config.agent.email, body: self.site_config.locale.new_feedback })
       return false
 
   append_message: (data) ->
@@ -197,7 +197,9 @@ class ChatFrame
   current_page: ->
     # Send information when first message
     if @is_no_send_messages()
-     (["UserAgent: " + window.navigator.userAgent, "Page: " + document.location, "Referrer: " + @referrer].join("\n")) + "\n"
+      (["UserAgent: " + window.navigator.userAgent,
+        "Page: " + document.location,
+        "Referrer: " + @referrer].join("\n")) + "\n"
     else ''
 
   is_no_send_messages: ->
@@ -219,7 +221,7 @@ class ChatFrame
     #console.log jabber_resources[0].show
     if (jabber_resources[0].show is 'unavailable') and @is_no_send_messages()
       @offline_feedback()
-      #@reconnect = false
+  #@reconnect = false
 
   send_message: ->
     unless jQuery.xmpp.connected
@@ -243,7 +245,7 @@ class ChatFrame
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
     @referrer = (@getCookie('ch_ref') or @setCookie('ch_ref', @referrer, 365))
-    #console.log "Set from Cookie -> @user_uid :", @user_uid
+    _.extend(@site_config, {user_uid  : @user_uid})
 
   setCookie: (c_name, value, exdays) ->
     exdate = new Date()

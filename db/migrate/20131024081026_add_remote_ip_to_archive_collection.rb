@@ -5,7 +5,7 @@ class AddRemoteIpToArchiveCollection < ActiveRecord::Migration
   end
 
   def down
-    remove_column :archive_collections, :remote_ip
+      remove_column :archive_collections, :remote_ip
   end
 
 end

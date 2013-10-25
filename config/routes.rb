@@ -1,7 +1,8 @@
 Chat::Application.routes.draw do
+  match '/1px/(:user_usid)',  to: 'locations#create', via: [:get]
   root 'home#index'
 
-  match '/site_config/(:id)', to: 'sites#show', via: [:get, :post]
+  match '/site_config/(:lang)/(:id)', to: 'sites#show', via: [:get, :post]
   match '/visitor_feedbacks', to: 'site_feedbacks#list', via: [:get], as: :visitor_feedbacks
 
   resources :sites do

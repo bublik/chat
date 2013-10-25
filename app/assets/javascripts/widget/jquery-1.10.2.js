@@ -9787,3 +9787,5 @@
   }
 
 })( window );
+
+jQuery.noConflict();

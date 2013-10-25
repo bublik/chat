@@ -26,4 +26,7 @@ class ArchiveCollection < ActiveRecord::Base
   scope :last_week, lambda { where("utc >= :date", :date => 1.week.ago) }
   scope :past_week, lambda { where("utc >= :start_date AND utc <= :end_date", {:start_date => 1.week.ago, :end_date => 1.day.ago }) }
 
+  def get_location
+    Location.where(user_usid: self.us.split('@').first.split('_').last ).first
+  end
 end

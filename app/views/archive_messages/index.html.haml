@@ -1,13 +1,16 @@
-.well-small
-  .row
-    .span2
+.row
+  .span2
+    %div
+      = us_to_human(@collection.us)
+      \/
       = @archive_messages.first.utc.to_formatted_s(:short)
-    .span2
-      %span.label.label-success= us_to_human(@collection.us)
-    .span2
-      %span.badge= distance_of_time_in_words(@archive_messages.first.utc, @archive_messages.last.utc)
+    %div
+      Чат
+      = distance_of_time_in_words(@archive_messages.first.utc, @archive_messages.last.utc)
 
-%p{:style => 'margin-top: 30px'}
+  .span5.offset2= show_map(@collection.get_location)
+
+%div
   - @archive_messages.each do |msg|
     .row
       .span5.offset5.archive_row

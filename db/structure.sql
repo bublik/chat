@@ -69,7 +69,6 @@ CREATE TABLE `archive_collections` (
   `thread` varchar(1023) DEFAULT NULL,
   `crypt` tinyint(4) DEFAULT NULL,
   `extra` mediumtext,
-  `remote_ip` varchar(255) DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `IDX_archive_colls_with` (`us`(16),`with_user`(8),`with_server`(8),`utc`),
   KEY `IDX_archive_colls_prev_id` (`prev_id`),
@@ -222,6 +221,26 @@ CREATE TABLE `last` (
   `state` text NOT NULL,
   PRIMARY KEY (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `locations`
+--
+
+DROP TABLE IF EXISTS `locations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `locations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_usid` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `remote_ip` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `latitude` float DEFAULT NULL,
+  `longitude` float DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -779,7 +798,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-24 11:12:28
+-- Dump completed on 2013-10-25 10:08:35
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -821,3 +840,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131018114632');
 INSERT INTO schema_migrations (version) VALUES ('20131018124543');
 
 INSERT INTO schema_migrations (version) VALUES ('20131024081026');
+
+INSERT INTO schema_migrations (version) VALUES ('20131025041940');
