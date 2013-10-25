@@ -8,7 +8,6 @@
       - if @location
         %span{class: @location.platform}= @location.platform
         %span{class: @location.browser}= @location.browser
-        = @location.version
     %div
       Чат
       = distance_of_time_in_words(@archive_messages.first.utc, @archive_messages.last.utc)
