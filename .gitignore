@@ -13,6 +13,7 @@
 /public/site*
 /public/strophejs
 /config/config.yml
+/coverage
 
 # Ignore the default SQLite database.
 /db/*.sqlite3

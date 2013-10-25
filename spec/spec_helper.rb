@@ -1,9 +1,31 @@
+require "rails/application"
+unless ENV['DRB']
+  require 'simplecov'
+  require 'simplecov-rcov'
+
+  class SimpleCov::Formatter::MergedFormatter
+    def format(result)
+      SimpleCov::Formatter::HTMLFormatter.new.format(result)
+      SimpleCov::Formatter::RcovFormatter.new.format(result)
+    end
+  end
+
+  SimpleCov.formatter = SimpleCov::Formatter::MergedFormatter
+  SimpleCov.start do
+    add_filter "/spec/"
+    add_filter "/test/"
+    add_filter "/config/"
+  end
+end
+
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rubygems'
 require 'spork'
 require 'rspec/rails'
+require 'factory_girl'
+require 'webmock/rspec'
 require 'rspec/autorun'
 
 Spork.prefork do
@@ -15,7 +37,6 @@ end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
-
 end
 
 RSpec.configure do |config|
