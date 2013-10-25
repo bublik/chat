@@ -44,6 +44,7 @@ end
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
+  gem 'therubyracer'
   gem 'sass-rails', '~> 4.0.0'
   gem 'coffee-rails', '~> 4.0.0'
   gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
