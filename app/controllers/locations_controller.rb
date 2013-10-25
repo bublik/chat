@@ -7,7 +7,6 @@ class LocationsController < ApplicationController
     user_agent = UserAgent.parse(request.user_agent)
     location.update_attributes(remote_ip: request.remote_ip,
                                platform: user_agent.platform,
-                               version: user_agent.version,
                                browser: user_agent.browser)
     send_data(Base64.decode64("R0lGODlhAQABAPAAAAAAAAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="), :type => "image/gif", :disposition => "inline")
   end
