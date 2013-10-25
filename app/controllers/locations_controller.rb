@@ -3,7 +3,6 @@ class LocationsController < ApplicationController
   # POST /locations
   # POST /locations.json
   def create
-    user_usid
     location = Location.find_or_create_by(user_usid: params[:user_usid])
     user_agent = UserAgent.parse(request.user_agent)
     location.update_attributes(remote_ip: request.remote_ip,
