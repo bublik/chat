@@ -13,7 +13,7 @@
 #  platform   :string(255)      default("")
 #  version    :string(255)      default("")
 #  browser    :string(255)      default("")
-#
+#  request_domain :string(255)      default("")
 
 class Location < ActiveRecord::Base
   geocoded_by :remote_ip
