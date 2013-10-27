@@ -1,7 +1,19 @@
+.blue {
+  color: #0099d3;
+}
 .red {
-  color: red;
+  color: #f12e29;
 }
 
+.green {
+  color: #3eb05b;
+}
+.orange {
+  color: #f7990d;
+}
+.purple {
+  color: #864fde;
+}
 .m10 {
   margin: 10px
 }
@@ -21,4 +33,22 @@
 
 .h250 {
   min-height: 250px;
+}
+
+.archive_user_box {
+  padding: 3px 3px 3px 5px;
+  text-align: left;
+  background-color: #ffffff;
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0,0,0,0.2);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  white-space: normal;
 }

@@ -2,7 +2,7 @@
   .navbar-inner
     %ul.nav
       - current_agent.sites.each do |site|
-        %li{class: "#{'active' if request.path.eql?(site_path(site))}"}= link_to(site.domain, site_path(site), title: site.name)
+        %li{class: "#{'active' if request.path.eql?(site_path(site))}"}= link_to((site.domain + icon_boolean(site.enabled)).html_safe, site_path(site), title: site.name)
     %ul.nav.pull-right
       %li.pull-right= link_to(icon('icon-plus') + ' ' + t('.add'), new_site_path)
 

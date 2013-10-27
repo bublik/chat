@@ -241,6 +241,7 @@ CREATE TABLE `locations` (
   `updated_at` datetime DEFAULT NULL,
   `platform` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `browser` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
+  `request_domain` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   PRIMARY KEY (`id`),
   KEY `index_locations_on_user_usid` (`user_usid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -801,7 +802,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-25 19:15:19
+-- Dump completed on 2013-10-27 11:25:33
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -851,3 +852,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131025105906');
 INSERT INTO schema_migrations (version) VALUES ('20131025111438');
 
 INSERT INTO schema_migrations (version) VALUES ('20131025161430');
+
+INSERT INTO schema_migrations (version) VALUES ('20131027091327');

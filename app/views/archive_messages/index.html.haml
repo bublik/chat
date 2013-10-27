@@ -1,9 +1,9 @@
 .row
-  .span3
+  .span3.archive_user_box
+    = icon('icon-time')
+    %small= l(@archive_messages.first.utc, format: :short)
     %div
-      = l(@archive_messages.first.utc, format: :short)
-    %div
-      = us_to_human(@collection.us)
+      %strong= us_to_human(@collection.us)
       &nbsp;
       - if @location
         %span{class: @location.platform}= @location.platform

@@ -63,6 +63,20 @@ class Agent < ActiveRecord::Base
     }
   end
 
+  # Statictics
+  def total_collections
+    self.user ? archive_collections.count : 0
+  end
+
+  def total_messages
+    ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user = ?', self.username || '').count
+  end
+
+  # total chatting time in seconds
+  def total_chating_time
+    self.user ? archive_collections.select("sum(TIME_TO_SEC(TIMEDIFF(change_utc, utc))) as utc").first['utc'] : 0
+  end
+
   protected
   def plan_exists
     Plan.where('plans.id = ?', self.plan_id).exists?
