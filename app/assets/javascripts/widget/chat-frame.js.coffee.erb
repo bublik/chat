@@ -68,13 +68,14 @@ class ChatFrame
       self.hide_widget()
       if jQuery.xmpp.connected
         jQuery.xmpp.setPresence('away')
-    jQuery('.shf_enter_ico').on 'click', (e) ->
-      self.send_message()
     jQuery('.shf_textarea_answer textarea').on 'focus', (e) ->
       if jQuery.xmpp.connected
         jQuery.xmpp.setPresence(null)
       else
         self.connect()
+    jQuery('.shf_enter_ico').on 'click', (e) ->
+      return false unless jQuery.xmpp.connected # we should not send message while client is not connected
+      self.send_message()
     jQuery('.shf_textarea_answer textarea').on 'keyup', (e) ->
       e.stopPropagation()
       if e.keyCode is 13
