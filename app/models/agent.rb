@@ -69,7 +69,7 @@ class Agent < ActiveRecord::Base
   end
 
   def total_messages
-    ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user = ?', self.username || '').count
+    ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user = ?', (self.user && self.username) || '').count
   end
 
   # total chatting time in seconds
