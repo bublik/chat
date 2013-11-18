@@ -1,9 +1,15 @@
 Chat::Application.routes.draw do
-  match '/1px/(:user_usid)', to: 'locations#create', via: [:get]
-  root 'home#index'
 
+  match '/1px/(:user_usid)', to: 'locations#create', via: [:get]
   match '/site_config/(:lang)/(:id)', to: 'sites#show', via: [:get, :post]
   match '/visitor_feedbacks', to: 'site_feedbacks#list', via: [:get], as: :visitor_feedbacks
+
+  root 'home#index'
+
+  resource :token_authentication, only: [:create, :destroy]
+  namespace :api do
+    resource :messages, only: [:create]
+  end
 
   resources :sites do
     resources :site_feedbacks, only: [:index, :create, :destroy]

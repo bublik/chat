@@ -15,6 +15,7 @@ gem 'jquery-rails'
 # payments
 gem 'stripe'
 gem 'paypal-recurring'
+gem 'rest-client'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
@@ -46,13 +47,15 @@ gem 'kaminari' #pagination plugin
 
 group :test do
   gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '4.1.0', :require => false
   gem 'fakeweb', :require => false
   gem 'webmock'
   gem 'vcr'
   gem 'simplecov-rcov'
   gem 'database_cleaner'
   gem 'spork', '~> 1.0rc'
+  gem 'faker', '1.0.1'
+  gem 'shoulda-matchers'
 end
 
 group :development do

@@ -68,6 +68,44 @@
     .accordion-heading
       = link_to('Добавить сайт', new_site_path, class: 'accordion-toggle')
 
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#token_api"}
+        API токен
+
+    #token_api.accordion-body.collapse
+      .accordion-inner
+        .row
+          .span2= current_agent.authentication_token
+        = link_to "Generate Token", token_authentication_path, :method => :post, :confirm => "Are you sure?"
+        = link_to "Delete Token", token_authentication_path, :method => :delete, :confirm => "Are you sure?"
+        - if current_agent.authentication_token
+          %p
+            Вы можете использовать для авторизации <strong>token</strong>
+            = link_to "http://#{APP_CONFIG['HOST']}#{root_path(:auth_token => current_agent.authentication_token)}", root_path(:auth_token => current_agent.authentication_token)
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#token_inuse"}
+        Интеграция с вашим приложением через API.
+
+    #token_inuse.accordion-body.collapse
+      .accordion-inner
+        %div Вы можете отсылать на свой джабер клиент различиные системные сообщения используя наше API.
+        %div Для этого надо отпдавить JSON запрос методом POST с следующими параметрами.
+        %p
+          %code
+            METHOD: POST
+          %code
+            FORMAT: JSON
+          %code
+            URL: http://#{APP_CONFIG['HOST']}/api/messages
+        %pre.prettyprint.linenums
+          = h("{message: {body: 'MESSAGE'}, auth_token: token, format: :json}")
+        .alert Не используйте TOKEN в открытом виде на стороне JS. Токен предназначен только для использования на стороне сервера.
+        %p
+          Вы можете воспользоваться библиотекой <strong>curl</strong>
+          %code
+            curl -X POST http://#{APP_CONFIG['HOST']}/api/messages -d '{"message": {"body": "MESSAGE"}, "auth_token": "#{current_agent.authentication_token}", "format": "json"}'
 
 - content_for :javascript do
   $('.btn.pass').click(function(e){

@@ -32,7 +32,7 @@ module Chat
       g.template_engine :haml
       g.stylesheets false
       g.test_framework :rspec, views: false, fixture: true
-      g.fixture_replacement :factory_girl
+      g.fixture_replacement :factory_girl, :dir => 'spec/factories'
     end
 
   end
