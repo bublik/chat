@@ -74,7 +74,7 @@ class Agent < ActiveRecord::Base
 
   # total chatting time in seconds
   def total_chating_time
-    self.user ? archive_collections.select("sum(TIME_TO_SEC(TIMEDIFF(change_utc, utc))) as utc").first['utc'] : 0
+    self.user ? archive_collections.select("sum(TIME_TO_SEC(TIMEDIFF(change_utc, utc))) as utc").first['utc'].to_i : 0
   end
 
   protected

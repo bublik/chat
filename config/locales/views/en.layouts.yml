@@ -24,12 +24,11 @@ en:
       history: 'History'
   users:
     show:
-      your_j_acc: Your jabber account
-      how_configure: How configure Desktop client
+      your_j_acc: Your jabber ID
+      install_jabber: How install Desktop client
       find_more_clients: Find more clients
       download_and_install: Download and install any client you like.
       configure_client: Configure client
-      use_credential: Use login and password on the page head.
   sites:
     show:
       general: ' General'
