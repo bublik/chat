@@ -103,9 +103,11 @@
           = h("{message: {body: 'MESSAGE'}, auth_token: token, format: :json}")
         .alert Не используйте TOKEN в открытом виде на стороне JS. Токен предназначен только для использования на стороне сервера.
         %p
-          Вы можете воспользоваться библиотекой <strong>curl</strong>
-          %code
-            curl -X POST http://#{APP_CONFIG['HOST']}/api/messages -d '{"message": {"body": "MESSAGE"}, "auth_token": "#{current_agent.authentication_token}", "format": "json"}'
+          Вы можете воспользоваться библиотекой <strong>curl</strong>, что бы проверить работу просто скопируйте строку в командную строку и выполните.
+          %pre
+            curl -v -H 'Accept: application/json'
+            \-H 'Content-type: application/json' -X POST http://#{APP_CONFIG['HOST']}/api/messages
+            \-d '{"message": {"body": "MESSAGE"}, "auth_token": "#{current_agent.authentication_token}", "format": "json"}'
 
 - content_for :javascript do
   $('.btn.pass').click(function(e){
