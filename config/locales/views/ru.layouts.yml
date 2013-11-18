@@ -18,19 +18,19 @@ ru:
       career: 'Работа у нас'
       address: Михайловская 25 оф. 624, Одесса, Украина, 65092
     management:
-      settings: 'Настройки'
+      settings: 'Сайты'
       client: 'Клиент'
       profile: 'Профайл'
       dashboard: 'Управление'
-      history: 'История'
+      history: 'Онайн сообщения'
+      feedback: 'Офлайн сообщения'
   users:
     show:
-      your_j_acc: 'Ваш джаббер аккаунт'
-      how_configure: Как настроить клиента для получения сообщений
+      your_j_acc: 'Ваш Jabber ID'
+      install_jabber: Установка клиента
       find_more_clients: Найти другие клиенты
       download_and_install: Загрузите и установите клиент который вам нравится.
       configure_client: Настройка клиента
-      use_credential: Иcпользуйте Логин и Пароль который размещен в начале страницы
   sites:
     show:
       general: ' Общие'

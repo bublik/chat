@@ -11,9 +11,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    #TODO open this list for user with admin rights
-    redirect_to root_path
-    #@sites = Site.all
+    redirect_to(current_agent.sites.first.present? ? current_agent.sites.first : new_site_path)
   end
 
   # GET /sites/1

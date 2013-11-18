@@ -1,17 +1,20 @@
-- @site_feedbacks.each do |feedback|
-  -#%div= feedback.site.domain
-  .alert.alert-info
-    .row.text-info
-      .span2= icon('icon-user') + feedback.username
-      .span2= icon('icon-envelope') + feedback.email
-      .span2= icon('icon-phone') + feedback.phone
-      .span2= icon('icon-time') + distance_of_time_in_words(feedback.created_at, Time.now)
+- if @site_feedbacks.blank?
+  %h3.text-info= t('.not_found')
+- else
+  - @site_feedbacks.each do |feedback|
+    -#%div= feedback.site.domain
+    .alert.alert-info
+      .row.text-info
+        .span2= icon('icon-user') + feedback.username
+        .span2= icon('icon-envelope') + feedback.email
+        .span2= icon('icon-phone') + feedback.phone
+        .span2= icon('icon-time') + distance_of_time_in_words(feedback.created_at, Time.now)
 
-      -#%div= feedback.user_agent
-      -#.span2
-        %div= link_to 'Show', site_site_feedback_path(feedback.site_id, feedback)
-        %div= link_to 'Destroy', site_site_feedback_path(feedback.site_id, feedback), :method => :delete, :data => { :confirm => 'Are you sure?' }
-    .text-wrap= feedback.message
+        -#%div= feedback.user_agent
+        -#.span2
+          %div= link_to 'Show', site_site_feedback_path(feedback.site_id, feedback)
+          %div= link_to 'Destroy', site_site_feedback_path(feedback.site_id, feedback), :method => :delete, :data => { :confirm => 'Are you sure?' }
+      .text-wrap= feedback.message
 
 - content_for :javascript do
   $('.tooltip').popover('show')

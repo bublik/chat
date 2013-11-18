@@ -1,11 +1,11 @@
-.row
-  .span4.offset3
-    = form_tag search_archive_collections_path, method: :get, class: 'form-inline form-search' do
-      = text_field_tag :q, params[:q], :placeholder => 'Enter search text'
-      - if params[:q]
-        = link_to('reset', archive_collections_path, class: 'btn')
-
 - unless @archive_collections.blank?
+  .row
+    .span4.offset3
+      = form_tag search_archive_collections_path, method: :get, class: 'form-inline form-search' do
+        = text_field_tag :q, params[:q], :placeholder => 'Enter search text'
+        - if params[:q]
+          = link_to('reset', archive_collections_path, class: 'btn')
+
   %table.table.table-striped.table-bordered
     %tr.text-info
       %th= t('.client')

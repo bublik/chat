@@ -14,7 +14,8 @@
   = f.input :name
   = f.input :email, :input_html => {:autofocus => true, :placeholder => 'Email'}
   = f.input :avatar, :as => :file
-  = f.input :remove_avatar, :as => :boolean
+  - if resource.avatar.present?
+    = f.input :remove_avatar, :as => :boolean
   = f.input :avatar_cache, :as => :hidden
   = f.input :current_password
   %blockquote= t('.wait_confirm')

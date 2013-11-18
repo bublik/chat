@@ -1,45 +1,77 @@
-%h4.alert.alert-info
-  = t('.your_j_acc')
-  %span.label.label-info= @user.jabber_account
-.well
+#manual_enter
+.alert.alert-info
+  .row
+    .span2= t('.your_j_acc')
+    .span2
+      %span.label.label-info= @user.jabber_account
   .row
     .span2= User.human_attribute_name('username')
     .span2= @user.username
   .row
     .span2= User.human_attribute_name('password')
-    .span2
+    .span2.password
+      %span *******
+      %span.hidden= @user.password
+    .span2.btn-group
       %i.btn.btn-mini.pass Show
-      .hidden= @user.password
+      = link_to(t('global.edit'), edit_user_path(@user), class: 'btn btn-mini')
 
-  = link_to(t('global.edit'), edit_user_path(@user), class: 'btn btn-warning')
+#manual.accordion
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#jabber_instalation"}
+        = t('.install_jabber')
 
-%h4= t('.how_configure')
-%ul
-  %li
-    %h5= t('.download_and_install')
-    %h4 Windows
-    %ul
-      %li Miranda #{link_to('http://www.miranda-im.org/', 'http://www.miranda-im.org/')}
-      %li Qip Infium #{link_to('http://qip.ru', 'http://qip.ru')}
-      %li Gajim #{link_to('http://gajim.org/', 'http://gajim.org/')}
-      %li Pidgin #{link_to('http://pidgin.im', 'http://pidgin.im')}
-      %li Jabbim #{link_to('http://www.jabbim.com/', 'http://www.jabbim.com/')}
-      %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
-    %h4 Mac OS X
-    %ul
-      %li Audium #{link_to('https://adium.im/', 'https://adium.im/')}
-      %li iChat #{link_to('http://www.apple.com/osx/apps/', 'http://www.apple.com/osx/apps/')}
-      %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
-    .m10
-      = link_to(t('.find_more_clients'), 'https://www.google.com/search?q=jabber+client', class: 'btn')
-  %li
-    %h5= t('.configure_client')
-    %p= t('.use_credential')
-    /TODO add video
+    #jabber_instalation.accordion-body.collapse
+      .accordion-inner
+        %ul
+          %li
+            %h5= t('.download_and_install')
+            %h4 Windows
+            %ul
+              %li Miranda #{link_to('http://www.miranda-im.org/', 'http://www.miranda-im.org/')}
+              %li Qip Infium #{link_to('http://qip.ru', 'http://qip.ru')}
+              %li Gajim #{link_to('http://gajim.org/', 'http://gajim.org/')}
+              %li Pidgin #{link_to('http://pidgin.im', 'http://pidgin.im')}
+              %li Jabbim #{link_to('http://www.jabbim.com/', 'http://www.jabbim.com/')}
+              %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
+            %h4 Mac OS X
+            %ul
+              %li Audium #{link_to('https://adium.im/', 'https://adium.im/')}
+              %li iChat #{link_to('http://www.apple.com/osx/apps/', 'http://www.apple.com/osx/apps/')}
+              %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
+            .m10
+              = link_to(t('.find_more_clients'), 'https://www.google.com/search?q=jabber+client', class: 'btn')
+
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#jabber_configuration"}
+        = t('.configure_client')
+
+    #jabber_configuration.accordion-body.collapse
+      .accordion-inner
+        %p= t('.use_credential')
+        %h4 В качестве примера настройки Jabber акаунта используется Adium Mac OS клиент.
+        %p
+          %strong Добавьте новый аккаунт в настройках своего клиента.
+          %div= image_tag('jabber_manual/new_account.png', title: 'How create new account', class: 'img-polaroid')
+        %hr
+        %p
+          %strong Введите <span class='label label-info'>#{@user.jabber_account}</span> в поле "Jabber ID" и #{link_to('пароль', '#manual_enter')} который ввели при создании аккаунта.
+          %div= image_tag('jabber_manual/enter_credentials.png', title: 'Add own credentials', class: 'img-polaroid')
+        %hr
+        %p
+          %strong Проверьте настройки соединения.
+          %div= image_tag('jabber_manual/connection_settings.png', title: 'Configure jabber connection', class: 'img-polaroid')
+
+  .accordion-group
+    .accordion-heading
+      = link_to('Добавить сайт', new_site_path, class: 'accordion-toggle')
+
 
 - content_for :javascript do
   $('.btn.pass').click(function(e){
-  $(e.target).parent().find('.hidden').toggleClass('hidden');
-  $(e.target).remove();
+  $('.password > span').toggleClass('hidden');
+  //$(e.target).remove();
   })
 

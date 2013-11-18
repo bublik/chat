@@ -3,10 +3,11 @@
 - unless @user
   .alert.alert-info= t('.need_add_jabber_acc', page_link: new_user_path).html_safe
 
-.row.well
-  .span2.red
-    #{current_agent.total_collections} чатов
-  .span2.orange
-    #{distance_of_time_in_words(Time.at(0), Time.at(current_agent.total_chating_time))} супорта
-  .span2.blue
-    #{current_agent.total_messages} сообщений
+- if @site && @user
+  .row.well
+    .span2.red
+      #{current_agent.total_collections} чатов
+    .span2.orange
+      #{distance_of_time_in_words(Time.at(0), Time.at(current_agent.total_chating_time))} супорта
+    .span2.blue
+      #{current_agent.total_messages} сообщений
