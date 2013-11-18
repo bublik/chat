@@ -18,11 +18,12 @@ ru:
       career: 'Работа у нас'
       address: Михайловская 25 оф. 624, Одесса, Украина, 65092
     management:
-      settings: 'Настройки'
+      settings: 'Сайты'
       client: 'Клиент'
       profile: 'Профайл'
       dashboard: 'Управление'
-      history: 'История'
+      history: 'Онайн сообщения'
+      feedback: 'Офлайн сообщения'
   users:
     show:
       your_j_acc: 'Ваш Jabber ID'
