@@ -77,7 +77,10 @@
         = hidden_field_tag :site_color, @site.color
     #jscode.tab-pane
       .row
-        .span4= text_area_tag :widget_code, widget_code(@site), rows: 6, cols: 30
+        .span4
+          Скопируйте код и вставьте перед тегом
+          %pre.prettyprint.linenums= h('</body></html>')
+          = text_area_tag :widget_code, widget_code(@site), rows: 6, cols: 30
 .row
   .span2.offset2
     = link_to(t('global.edit'), edit_site_path(@site), class: 'btn btn-warning')
