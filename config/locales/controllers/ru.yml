@@ -21,6 +21,8 @@ ru:
   site_feedbacks:
     create:
       flash_created: 'Ваше сообщение отправлено!'
+    index:
+      not_found: 'Нет записей'
   management:
     index:
       need_add_site: 'Добавьте <a href="%{page_link}" >новый сайт</a>'

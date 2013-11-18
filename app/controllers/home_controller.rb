@@ -52,7 +52,7 @@ class HomeController < ApplicationController
 
   def check_auth
     if agent_signed_in?
-      redirect_to(management_index_path)
+      redirect_to(sites_path)
       false
     end
   end
