@@ -1,6 +1,7 @@
 class SitesController < ApplicationController
   include Auth
   skip_before_filter :authenticate_agent!, :only => [:show]
+  skip_before_filter :signup_master, :only => [:show]
 
   before_action :set_site, only: [:show, :edit, :update, :destroy]
   before_filter :check_domain_origin, only: [:show]
