@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe TokenAuthenticationsController do
-  let(:agent) { FactoryGirl.create(:agent) }
+  let(:agent) { FactoryGirl.create(:agent_with_user) }
 
   before do
     sign_in agent

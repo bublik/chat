@@ -14,3 +14,5 @@
       = f.input :password_confirmation, input_html: { class: 'form-control', placeholder: 'Password confirmation' }
       .row
         .span2.offset2= f.submit t('global.send'), class: 'btn btn-primary'
+
+= render 'devise/shared/links'
