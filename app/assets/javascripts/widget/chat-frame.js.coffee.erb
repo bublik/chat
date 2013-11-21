@@ -177,10 +177,9 @@ class ChatFrame
         dataType: 'json'
         data: data
         error: (jqXHR, textStatus, errorThrown) ->
-          #console.log "AJAX Error: #{textStatus}"
-          success: (data, textStatus, jqXHR) ->
-            jQuery('#ch_feedback_box').html(data.message)
-            jQuery.xmpp.sendMessage({ type: 'chat', to: self.site_config.agent.email, body: self.site_config.locale.new_feedback })
+        success: (data, textStatus, jqXHR) ->
+          jQuery('#ch_feedback_box').html(data.message)
+          jQuery.xmpp.sendMessage({ type: 'chat', to: self.site_config.agent.email, body: self.site_config.locale.new_feedback })
       return false
 
   append_message: (data) ->
