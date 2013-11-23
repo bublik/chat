@@ -16,7 +16,7 @@ class SiteFeedbacksController < ApplicationController
   def list
     @site_feedbacks = SiteFeedback.newest.where(site_id: current_agent.site_ids).page(params[:page])
     respond_to do |format|
-      format.html { render action: 'index'}
+      format.html { render action: 'index' }
     end
   end
 
@@ -53,6 +53,7 @@ class SiteFeedbacksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to site_feedbacks_url }
       format.json { head :no_content }
+      format.js { render text: "$('##{dom_id(@site_feedback)}').fadeOut();" }
     end
   end
 
