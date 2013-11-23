@@ -41,6 +41,9 @@
         .span3= @site.position
     #titles.tab-pane
       .row
+        .span3= site_humanize_column('btn_title')
+        .span3= @site.btn_title
+      .row
         .span3= site_humanize_column('title_online')
         .span3= @site.title_online
       .row
