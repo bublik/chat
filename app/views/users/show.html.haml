@@ -4,6 +4,8 @@
     .span2= t('.your_j_acc')
     .span2
       %span.label.label-info= @user.jabber_account
+    .span1
+      %span.badge{class: @user.online? ? 'badge-success' : 'badge-important'}= @user.get_state
   .row
     .span2= User.human_attribute_name('username')
     .span2= @user.username

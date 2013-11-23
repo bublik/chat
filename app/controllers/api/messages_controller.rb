@@ -1,6 +1,7 @@
 class Api::MessagesController < ApplicationController
   include Auth
   skip_before_filter :signup_master
+  skip_before_filter :verify_authenticity_token
 
   respond_to :xml, :json
 

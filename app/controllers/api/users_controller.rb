@@ -1,29 +1,31 @@
 class Api::UsersController < ApplicationController
-  before_filter :authenticate
+  skip_before_filter :verify_authenticity_token
+  before_filter :authenticate, only: [:online, :offline]
+  before_filter :set_username
 
   def online
-    logger.info('ONLINE')
-    logger.info(params)
-    User.mark_online(params[:username])
+    User.mark_online(set_username)
     render nothing: true
   end
 
   def offline
-    logger.info('OFFLINE')
-    logger.info(params)
-    User.mark_offline(params[:username])
+    User.mark_offline(set_username)
     render nothing: true
   end
 
   def state
-    render text: User.get_state(params[:username])
+    render text: User.get_state(set_username)
   end
 
   protected
 
+  def set_username
+    params.permit(:user)[:user]
+  end
+
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-      username == APP_CONFIG['api']['base_user'] && password == APP_CONFIG['api']['base_password']
+      (username == APP_CONFIG['api']['base_user'] && password == APP_CONFIG['api']['base_password'])
     end
   end
 end

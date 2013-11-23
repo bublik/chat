@@ -12,7 +12,7 @@ Chat::Application.routes.draw do
       collection do
         post :online
         post :offline
-        get 'state/:username', to: 'users#state'
+        get 'state/:user', to: 'users#state'
       end
     end
   end
