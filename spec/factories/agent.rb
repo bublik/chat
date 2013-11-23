@@ -6,5 +6,6 @@ FactoryGirl.define do
     password "123456abc!ABC"
     password_confirmation "123456abc!ABC"
     sign_in_count 1
+
   end
 end

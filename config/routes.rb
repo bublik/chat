@@ -5,10 +5,16 @@ Chat::Application.routes.draw do
   match '/visitor_feedbacks', to: 'site_feedbacks#list', via: [:get], as: :visitor_feedbacks
 
   root 'home#index'
-
-  resource :token_authentication, only: [:create, :destroy]
   namespace :api do
     resource :messages, only: [:create]
+
+    resource :users, only: [] do
+      collection do
+        post :online
+        post :offline
+        get 'state/:username', to: 'users#state'
+      end
+    end
   end
 
   resources :sites do
@@ -21,9 +27,9 @@ Chat::Application.routes.draw do
     end
     resources :archive_messages, only: [:index, :show, :destroy]
   end
-
-  resources :users
   resources :site_categories
+  resources :users
+
   get "management/index"
   get "management/report"
   get "home/index"
@@ -39,7 +45,7 @@ Chat::Application.routes.draw do
   match '/contact', to: 'home#contact', via: [:get, :post]
 
   devise_for :agents, :controllers => {:sessions => 'devise/sessions', :registrations => 'registrations'}
-
+  resource :token_authentication, only: [:create, :destroy]
   devise_scope :agent do
     get "/login", :to => "devise/sessions#new", :as => :login
     get "/signup", :to => "devise/registrations#new", :as => :signup
