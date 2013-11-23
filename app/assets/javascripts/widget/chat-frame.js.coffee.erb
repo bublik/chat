@@ -25,6 +25,8 @@ class ChatFrame
     self = @
     jQuery.getJSON @site_config_url, (data) ->
       _.extend(self.site_config, data)
+      self.site_config.btn_title  = self.site_config.btn_title.replace(/(\S+)/g, '<span>$1</span>')
+
       #console.log 'Config LOADED!!! ->', self.site_config
       self.load_css()
       self.init_button()

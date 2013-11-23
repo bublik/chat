@@ -489,12 +489,13 @@ textarea {
   height: 30px;
   line-height: 30px;
   max-width: 465px;
-  width: 150px;
+  width: auto;
 }
 
 .shf_btn_left, .shf_btn_right {
   width: 36px;
-  min-height: 97px
+  min-height: 97px;
+  max-height: 135px;
 }
 
 .shf_btn_top {
@@ -644,20 +645,17 @@ textarea {
   border-bottom-left-radius: 5px;
 }
 
-.shf_btn_right_center .shf_title_text {
-  width: 50px;
-  margin-left: -5px;
+.shf_btn_right_center .shf_title_text, .shf_btn_left_center .shf_title_text{
+  width: 145px;
+  height: 20px;
+  margin-left: -55px;
+  text-align: left;
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 .shf_btn_left_center .shf_title_text {
-  width: 50px;
-  margin-left: -10px;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
   border-radius: 5px 0 0 5px;
 }
 

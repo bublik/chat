@@ -5,4 +5,5 @@ json.cache! [@site, I18n.locale], expires_in: 15.minutes do
   json.bosh_url APP_CONFIG['BOSH_URL']
   json.bosh_domain APP_CONFIG['BOSH_DOMAIN']
   json.locale t('widget')
+  json.btn_title 'Привет 14 симв'
 end
