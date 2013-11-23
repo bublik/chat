@@ -1,0 +1,7 @@
+= t('.new_feedback')
+
+- [:username, :email, :phone, :message, :remote_ip, :user_agent,:referer].each do |column|
+  #{ SiteFeedback.human_attribute_name(column)} #{@feedback.read_attribute(column)}
+
+
+= t('notification.thanx_for_using')

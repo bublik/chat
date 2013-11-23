@@ -63,3 +63,7 @@ ru:
       register_now: 'Начать'
       need_more: 'Мне надо больше'
 
+  notification:
+    thanx_for_using: 'Спасибо за использование нашего сервиса!'
+    feedback:
+      new_feedback: 'Новое сообщение в разделе Обратной связи.'
