@@ -19,6 +19,7 @@ ru:
       site: 'Сайт'
       user: 'Jabber акаунт'
       site_category: 'Категория'
+      site_feedback: 'Обратная связь'
       plan: 'Биллинг план'
     attributes:
       user:
@@ -56,9 +57,16 @@ ru:
         enabled: 'Включен'
         widget_code: 'Код виджета'
       plan:
-       simple: 'Начальный'
-       good: 'Хороший'
-       better: 'Лучший'
+        simple: 'Начальный'
+        good: 'Хороший'
+        better: 'Лучший'
+      site_feedback:
+        username: 'Пользователь'
+        email: 'Емейл'
+        phone: 'Телефон'
+        message: 'Сообщение'
+        remote_ip: 'IP адрес'
+        user_agent: 'Браузер'
 
   errors:
     messages:
