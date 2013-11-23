@@ -46,26 +46,9 @@
   overflow: hidden
 }
 
-//.shf_header_logo {
-//  //width: 45px;
-//  //line-height: 34px;
-//  text-align: center;
-//  height: 34px;
-//  cursor: pointer;
-//  float: left;
-//  white-space: nowrap;
-//  display: inline-table
-//}
-//
-//.shf_header_logo_cell {
-//  vertical-align: middle;
-//  text-align: center;
-//  display: table-cell
-//}
-
 .shf_title {
   line-height: 25px;
-  //height: 35px;
+  height: 22px;
   overflow: hidden;
   color: #fff;
   font-size: 16px
@@ -659,3 +642,11 @@ textarea {
   border-radius: 5px 0 0 5px;
 }
 
+#btn_offline_feedback {
+  color: #808080;
+  background: #FFF;
+  padding: 0 5px;
+  height: 25px;
+  margin-top: 0;
+  border: 1px solid #808080;
+}

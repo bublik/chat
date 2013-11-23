@@ -5,6 +5,10 @@
     = f.input :domain
     = f.input :user_prefix
     .control-group
+      = f.label :enabled, site_humanize_column('enabled'), class: 'control-label red'
+      .controls
+        = f.check_box :enabled
+    .control-group
       = f.label :site_category_id, site_humanize_column('site_category_id'), class: 'string optional control-label'
       .controls
         = f.collection_select :site_category_id, @sites_categories, :id, :name
@@ -22,9 +26,10 @@
         = f.label :position, site_humanize_column('position'), class: 'string optional control-label'
         .controls
           = f.select :position, Site::POSITION
+      = f.input :btn_title, hint: t('.btn_title_hint')
       = f.input :title_online
       = f.input :title_offline
-      = f.input :offline_welcome_message, as: :text
+      = f.input :offline_welcome_message, as: :text, hint: t('.offline_welcome_message_hint')
 
       .hidden
         .control-group
@@ -41,19 +46,17 @@
             = f.check_box :show_offline
 
       .control-group
-        = f.label :enabled, site_humanize_column('enabled'), class: 'control-label red'
-        .controls
-          = f.check_box :enabled
-      .control-group
         = f.label :auto_open, site_humanize_column('auto_open'), class: 'control-label red'
         .controls
           = f.check_box :auto_open
-      = f.input :auto_open_timeout
+      = f.input :auto_open_timeout, hint: t('.auto_open_timeout_hint')
+
       - unless @site.new_record?
         .control-group
           = f.label :widget_code, site_humanize_column('widget_code'), class: 'control-label'
           .controls
             = text_area_tag :widget_code, widget_code(@site), rows: 5
+            .help-block= t('.widget_code_hint')
     .row
       .span3= f.submit t('global.send'), class: 'btn btn-primary pull-right'
 :css

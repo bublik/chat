@@ -39,6 +39,11 @@ ru:
       statistic: ' Статистика'
       display: ' Отображение'
       integration_code: ' Код для интеграции'
+    form:
+      auto_open_timeout_hint: 'Окно агента откроется после нахождения N секунд на сайте (раз в сутки)'
+      widget_code_hint: 'Код добавляйте перед закрывающим тегом </body>'
+      btn_title_hint: 'Максимум 15 символов'
+      offline_welcome_message_hint: 'Этот текст будет над формой обратной связи, когда оператор не доступен.'
   home:
     contact:
       flash_success: Ваше сообщение отправлено!
