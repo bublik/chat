@@ -46,16 +46,16 @@ gem 'twitter-bootstrap-rails', '~> 2.2.8'
 gem 'kaminari' #pagination plugin
 
 group :test do
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'factory_girl_rails', '4.1.0', :require => false
   gem 'fakeweb', :require => false
   gem 'webmock'
-  gem 'vcr'
   gem 'simplecov-rcov'
-  gem 'database_cleaner'
   gem 'spork', '~> 1.0rc'
   gem 'faker', '1.0.1'
   gem 'shoulda-matchers'
+  gem 'cucumber-rails', :require => false
 end
 
 group :development do

@@ -77,8 +77,8 @@
       .accordion-inner
         .row
           .span2= current_agent.authentication_token
-        = link_to "Generate Token", token_authentication_path, :method => :post, :confirm => "Are you sure?"
-        = link_to "Delete Token", token_authentication_path, :method => :delete, :confirm => "Are you sure?"
+        = link_to "Generate Token", token_authentication_path, :method => :post, data: { confirm: 'Are you sure?' }
+        = link_to "Delete Token", token_authentication_path, :method => :delete, data: { confirm: 'Are you sure?' }
         - if current_agent.authentication_token
           %p
             Вы можете использовать для авторизации <strong>token</strong>
@@ -103,9 +103,10 @@
           = h("{message: {body: 'MESSAGE'}, auth_token: token, format: :json}")
         .alert Не используйте TOKEN в открытом виде на стороне JS. Токен предназначен только для использования на стороне сервера.
         %p
-          Вы можете воспользоваться библиотекой <strong>curl</strong>
-          %code
-            curl -X POST http://#{APP_CONFIG['HOST']}/api/messages -d '{"message": {"body": "MESSAGE"}, "auth_token": "#{current_agent.authentication_token}", "format": "json"}'
+          Вы можете воспользоваться библиотекой <strong>curl</strong>, что бы проверить работу просто скопируйте строку в командную строку и выполните.
+          %pre
+            curl -v -H 'Accept: application/json'
+            \-H 'Content-type: application/json' -X POST http://#{APP_CONFIG['HOST']}/api/messages -d '{"message": {"body": "MESSAGE"}, "auth_token": "#{current_agent.authentication_token}", "format": "json"}'
 
 - content_for :javascript do
   $('.btn.pass').click(function(e){

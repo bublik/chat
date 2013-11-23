@@ -1,6 +1,7 @@
 class SiteFeedbacksController < ApplicationController
   include Auth
   skip_before_filter :authenticate_agent!, :only => [:create]
+  skip_before_filter :signup_master, :only => [:create]
 
   before_action :set_site_feedback, only: [:show, :edit, :update, :destroy]
   before_filter :set_site, only: [:index, :create]

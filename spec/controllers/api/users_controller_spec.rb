@@ -1,17 +1,19 @@
 require 'spec_helper'
 
 describe Api::UsersController do
+  let(:agent) { FactoryGirl.create(:agent) }
+  let(:user) { FactoryGirl.create(:user, :online, agent: agent) }
 
   describe "GET 'online'" do
     it "returns http success" do
-      get 'online'
+      post 'online'
       response.should be_success
     end
   end
 
   describe "GET 'offline'" do
     it "returns http success" do
-      get 'offline'
+      post 'offline'
       response.should be_success
     end
   end
