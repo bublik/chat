@@ -19,14 +19,17 @@ ru:
       address: Михайловская 25 оф. 624, Одесса, Украина, 65092
     management:
       settings: 'Сайты'
-      client: 'Клиент'
+      client: 'Список Операторов'
       profile: 'Профайл'
       dashboard: 'Управление'
       history: 'Онайн сообщения'
       feedback: 'Офлайн сообщения'
   users:
-    show:
+    index:
+      new_jid: 'Добавить нового оператора'
+    user:
       your_j_acc: 'Ваш Jabber ID'
+    show:
       install_jabber: Установка клиента
       find_more_clients: Найти другие клиенты
       download_and_install: Загрузите и установите клиент который вам нравится.

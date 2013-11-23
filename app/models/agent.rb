@@ -33,7 +33,7 @@ class Agent < ActiveRecord::Base
 
   belongs_to :plan
   # Jabber Authorization User
-  has_one :user
+  has_many :users
   delegate :username, to: :user
 
   mount_uploader :avatar, AvatarUploader #  thumb, small
@@ -44,7 +44,7 @@ class Agent < ActiveRecord::Base
 
   # has_many
   def archive_collections
-    ArchiveCollection.newest.where(with_user: self.user ? self.username : nil)
+    ArchiveCollection.newest.where(with_user: jabber_names)
   end
 
   def full_name
@@ -55,26 +55,35 @@ class Agent < ActiveRecord::Base
     email.split('@').first
   end
 
+  def selected_user
+    # TODO select first by priority oline/offline user
+     users.first
+  end
+
+  def jabber_names
+    self.users.pluck(:username)
+  end
+
   def widget_json
     {
         name: full_name,
-        email: (Rails.env.development? ? 'admin@helperchat.com' : user.jabber_account),
+        email: (Rails.env.development? ? 'admin@helperchat.com' : selected_user.jabber_account),
         avatar_path: avatar.thumb.url
     }
   end
 
   # Statictics
   def total_collections
-    self.user ? archive_collections.count : 0
+    archive_collections.count
   end
 
   def total_messages
-    ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user = ?', (self.user && self.username) || '').count
+    ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user IN (?)', jabber_names).count
   end
 
   # total chatting time in seconds
   def total_chating_time
-    self.user ? archive_collections.select("sum(TIME_TO_SEC(TIMEDIFF(change_utc, utc))) as utc").first['utc'].to_i : 0
+    archive_collections.select("sum(TIME_TO_SEC(TIMEDIFF(change_utc, utc))) as utc").first['utc'].to_i
   end
 
   protected

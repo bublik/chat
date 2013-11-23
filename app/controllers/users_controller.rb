@@ -3,8 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    flash[:notice] = '404 Page not found!'
-    redirect_to root_path
+    @users = current_agent.users
   end
 
   # GET /users/1
@@ -29,7 +28,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: t('.created_successful') }
+        format.html { redirect_to users_path, notice: t('.created_successful') }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -43,7 +42,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: t('.updated_successful')}
+        format.html { redirect_to users_pathusers_path, notice: t('.updated_successful') }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -51,6 +50,7 @@ class UsersController < ApplicationController
       end
     end
   end
+
   #
   ## DELETE /users/1
   ## DELETE /users/1.json
@@ -63,13 +63,13 @@ class UsersController < ApplicationController
   #end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = current_agent.user
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_user
+    @user = current_agent.users.where('users.username = ?', params[:id]).first
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def user_params
-      params.require(:user).permit(:username, :password)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
 end

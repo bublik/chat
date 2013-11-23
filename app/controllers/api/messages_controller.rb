@@ -7,7 +7,7 @@ class Api::MessagesController < ApplicationController
 
   # {message: {to: '', body: ''}}
   def create
-    client = JabberRest.new(message_params.merge(to: current_agent.user.jabber_account))
+    client = JabberRest.new(message_params.merge(to: current_agent.selected_user.jabber_account))
     client.send!
 
     respond_to do |format|

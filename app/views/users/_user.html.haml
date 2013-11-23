@@ -1,0 +1,18 @@
+.alert.alert-info
+  .row
+    .span2= t('.your_j_acc')
+    .span2
+      %span.label.label-info= user.jabber_account
+    .span1
+      %span.badge{class: user.online? ? 'badge-success' : 'badge-important'}= user.get_state
+  .row
+    .span2= User.human_attribute_name('username')
+    .span2= user.username
+  .row
+    .span2= User.human_attribute_name('password')
+    .span2.password
+      %span *******
+      %span.hidden= user.password
+    .span2.btn-group
+      %i.btn.btn-mini.pass Show
+      = link_to(t('global.edit'), edit_user_path(user), class: 'btn btn-mini')
