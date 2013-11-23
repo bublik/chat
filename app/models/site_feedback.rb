@@ -17,7 +17,6 @@
 class SiteFeedback < ActiveRecord::Base
   belongs_to :site
 
-  validates_presence_of :referer
   validates_presence_of :remote_ip
   validates_presence_of :message
   validates_presence_of :username

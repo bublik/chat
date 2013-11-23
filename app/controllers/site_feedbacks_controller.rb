@@ -36,6 +36,7 @@ class SiteFeedbacksController < ApplicationController
 
     respond_to do |format|
       if @site_feedback.save
+        Notification.feedback(@site_feedback).deliver
         format.html { redirect_to @site_feedback, notice: t('.flash_created') }
         format.json { render text: {message: t('.flash_created')}.to_json, status: :created }
       else
@@ -58,7 +59,7 @@ class SiteFeedbacksController < ApplicationController
   private
   def set_site
     @site = Site.find_by_uuid(params[:site_id])
-    logger.debug @site
+    #logger.debug @site
     unless @site
       render :nothing => true, :status => 404
     end
