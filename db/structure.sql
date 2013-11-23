@@ -622,6 +622,7 @@ CREATE TABLE `sites` (
   `offline_welcome_message` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `auto_open_timeout` int(11) DEFAULT '3',
   `user_prefix` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'guest',
+  `btn_title` varchar(255) COLLATE utf8_unicode_ci DEFAULT 'Online Help',
   PRIMARY KEY (`id`),
   KEY `index_sites_on_site_category_id` (`site_category_id`),
   KEY `index_sites_on_agent_id` (`agent_id`),
@@ -803,7 +804,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-11-23  8:57:23
+-- Dump completed on 2013-11-23 16:00:37
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -857,3 +858,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131025161430');
 INSERT INTO schema_migrations (version) VALUES ('20131027091327');
 
 INSERT INTO schema_migrations (version) VALUES ('20131123065532');
+
+INSERT INTO schema_migrations (version) VALUES ('20131123135652');
