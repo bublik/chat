@@ -56,8 +56,7 @@ class Agent < ActiveRecord::Base
   end
 
   def selected_user
-    # TODO select first by priority oline/offline user
-     users.first
+    User.for_site(self.id)
   end
 
   def jabber_names
@@ -68,7 +67,8 @@ class Agent < ActiveRecord::Base
     {
         name: full_name,
         email: (Rails.env.development? ? 'admin@helperchat.com' : selected_user.jabber_account),
-        avatar_path: avatar.thumb.url
+        avatar_path: avatar.thumb.url,
+        status: selected_user.get_state
     }
   end
 

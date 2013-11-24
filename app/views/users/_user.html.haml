@@ -1,5 +1,5 @@
-.alert.alert-info
-  .row
+= div_for user, class: 'alert alert-info' do
+  .row.handle{'title' => 'Drag for ordering', 'data-toggle' => 'tooltip'}
     .span2= t('.your_j_acc')
     .span2
       %span.label.label-info= user.jabber_account
@@ -16,3 +16,6 @@
     .span2.btn-group
       %i.btn.btn-mini.pass Show
       = link_to(t('global.edit'), edit_user_path(user), class: 'btn btn-mini')
+
+- content_for :javascript do
+  $('.handle').tooltip()

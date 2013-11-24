@@ -1,11 +1,27 @@
 class User < ActiveRecord::Base
   belongs_to :agent
 
-  validates_format_of :username, with: /\A([a-z0-9\-_\+]+)\z/i, on: :create
+  validates_format_of :username, with: /\A([a-z0-9\-\+]+)\z/i, on: :create
   validates_uniqueness_of :username
   validates_presence_of :username
   validates_presence_of :password
   validates_associated :agent
+
+  scope :priority, lambda { order('users.state DESC , users.position ASC') }
+
+  # this method will return USERNAME for next operator or nil
+  def self.for_site(agent_id)
+    self.joins('LEFT OUTER JOIN archive_collections ON users.username = archive_collections.with_user')
+    .where('users.agent_id = ?', agent_id).group(:username)
+    .order('state DESC, archive_collections.change_utc ASC, position ASC').first
+#    self.connection.execute("
+#SELECT users.username  FROM users
+#LEFT OUTER JOIN archive_collections
+#ON users.username = archive_collections.with_user
+#WHERE users.agent_id = #{agent_id}
+#GROUP BY users.username
+#ORDER BY state DESC, archive_collections.change_utc ASC, position ASC limit 1").first
+  end
 
   def online?
     state

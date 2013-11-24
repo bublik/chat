@@ -28,7 +28,11 @@ Chat::Application.routes.draw do
     resources :archive_messages, only: [:index, :show, :destroy]
   end
   resources :site_categories
-  resources :users
+  resources :users do
+    collection do
+      post :sort
+    end
+  end
 
   get "management/index"
   get "management/report"

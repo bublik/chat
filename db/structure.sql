@@ -74,7 +74,8 @@ CREATE TABLE `archive_collections` (
   KEY `IDX_archive_colls_prev_id` (`prev_id`),
   KEY `IDX_archive_colls_next_id` (`next_id`),
   KEY `IDX_archive_colls_utc` (`us`(16),`utc`),
-  KEY `IDX_archive_colls_change` (`deleted`,`change_utc`)
+  KEY `IDX_archive_colls_change` (`deleted`,`change_utc`),
+  KEY `index_archive_collections_on_with_user` (`with_user`(255))
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
@@ -590,7 +591,7 @@ CREATE TABLE `site_feedbacks` (
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -713,6 +714,7 @@ CREATE TABLE `users` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `agent_id` int(11) NOT NULL,
   `state` tinyint(1) DEFAULT '0',
+  `position` int(11) DEFAULT NULL,
   PRIMARY KEY (`username`),
   KEY `index_users_on_agent_id` (`agent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -804,7 +806,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-11-23 16:00:37
+-- Dump completed on 2013-11-24 16:12:12
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -860,3 +862,7 @@ INSERT INTO schema_migrations (version) VALUES ('20131027091327');
 INSERT INTO schema_migrations (version) VALUES ('20131123065532');
 
 INSERT INTO schema_migrations (version) VALUES ('20131123135652');
+
+INSERT INTO schema_migrations (version) VALUES ('20131123191819');
+
+INSERT INTO schema_migrations (version) VALUES ('20131124140620');

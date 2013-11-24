@@ -1,5 +1,8 @@
 #manual_enter
-= render @users
+.muted= t('.drag_for_priority')
+#users{'data-update-url' => sort_users_path}
+  = render @users
+
 .row
   .span2= link_to(t('.new_jid'), new_user_path, class: 'btn btn-mini btn-success')
 %hr

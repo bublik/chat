@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = current_agent.users
+    @users = current_agent.users.order('users.position ASC')
   end
 
   # GET /users/1
@@ -35,6 +35,13 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def sort
+    params[:user].each_with_index do |id, index|
+      current_agent.users.where(username: id).update_all({position: index+1})
+    end
+    render nothing: true
   end
 
   # PATCH/PUT /users/1
