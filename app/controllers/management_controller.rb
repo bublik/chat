@@ -3,7 +3,7 @@ class ManagementController < ApplicationController
 
   def index
     @site = current_agent.sites.first
-    @user = current_agent.user
+    @user_present = current_agent.users.present?
   end
 
   def report

@@ -1,0 +1,106 @@
+#manual_enter
+.muted= t('.drag_for_priority')
+#users{'data-update-url' => sort_users_path}
+  = render @users
+
+.row
+  .span2= link_to(t('.new_jid'), new_user_path, class: 'btn btn-mini btn-success')
+%hr
+#manual.accordion
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#jabber_instalation"}
+        = t('.install_jabber')
+
+    #jabber_instalation.accordion-body.collapse
+      .accordion-inner
+        %ul
+          %li
+            %h5= t('.download_and_install')
+            %h4 Windows
+            %ul
+              %li Miranda #{link_to('http://www.miranda-im.org/', 'http://www.miranda-im.org/')}
+              %li Qip Infium #{link_to('http://qip.ru', 'http://qip.ru')}
+              %li Gajim #{link_to('http://gajim.org/', 'http://gajim.org/')}
+              %li Pidgin #{link_to('http://pidgin.im', 'http://pidgin.im')}
+              %li Jabbim #{link_to('http://www.jabbim.com/', 'http://www.jabbim.com/')}
+              %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
+            %h4 Mac OS X
+            %ul
+              %li Audium #{link_to('https://adium.im/', 'https://adium.im/')}
+              %li iChat #{link_to('http://www.apple.com/osx/apps/', 'http://www.apple.com/osx/apps/')}
+              %li Psi #{link_to('http://psi-im.org/', 'http://psi-im.org/')}
+            .m10
+              = link_to(t('.find_more_clients'), 'https://www.google.com/search?q=jabber+client', class: 'btn')
+
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#jabber_configuration"}
+        = t('.configure_client')
+
+    #jabber_configuration.accordion-body.collapse
+      .accordion-inner
+        %p= t('.use_credential')
+        %h4 В качестве примера настройки Jabber акаунта используется Adium Mac OS клиент.
+        %p
+          %strong Добавьте новый аккаунт в настройках своего клиента.
+          %div= image_tag('jabber_manual/new_account.png', title: 'How create new account', class: 'img-polaroid')
+        %hr
+        %p
+          %strong Введите <span class='label label-info'>#{@users.first.jabber_account}</span> в поле "Jabber ID" и #{link_to('пароль', '#manual_enter')} который ввели при создании аккаунта.
+          %div= image_tag('jabber_manual/enter_credentials.png', title: 'Add own credentials', class: 'img-polaroid')
+        %hr
+        %p
+          %strong Проверьте настройки соединения.
+          %div= image_tag('jabber_manual/connection_settings.png', title: 'Configure jabber connection', class: 'img-polaroid')
+
+  .accordion-group
+    .accordion-heading
+      = link_to('Добавить сайт', new_site_path, class: 'accordion-toggle')
+
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#token_api"}
+        API токен
+
+    #token_api.accordion-body.collapse
+      .accordion-inner
+        .row
+          .span2= current_agent.authentication_token
+        = link_to "Generate Token", token_authentication_path, :method => :post, data: { confirm: 'Are you sure?' }
+        = link_to "Delete Token", token_authentication_path, :method => :delete, data: { confirm: 'Are you sure?' }
+        - if current_agent.authentication_token
+          %p
+            Вы можете использовать для авторизации <strong>token</strong>
+            = link_to "http://#{APP_CONFIG['HOST']}#{root_path(:auth_token => current_agent.authentication_token)}", root_path(:auth_token => current_agent.authentication_token)
+  .accordion-group
+    .accordion-heading
+      %a.accordion-toggle{'data-toggle' => 'collapse', 'data-parent' => '#manual', 'href' => "#token_inuse"}
+        Интеграция с вашим приложением через API.
+
+    #token_inuse.accordion-body.collapse
+      .accordion-inner
+        %div Вы можете отсылать на свой джабер клиент различиные системные сообщения используя наше API.
+        %div Для этого надо отпдавить JSON запрос методом POST с следующими параметрами.
+        %p
+          %code
+            METHOD: POST
+          %code
+            FORMAT: JSON
+          %code
+            URL: http://#{APP_CONFIG['HOST']}/api/messages
+        %pre.prettyprint.linenums
+          = h("{message: {body: 'MESSAGE'}, auth_token: token, format: :json}")
+        .alert Не используйте TOKEN в открытом виде на стороне JS. Токен предназначен только для использования на стороне сервера.
+        %p
+          Вы можете воспользоваться библиотекой <strong>curl</strong>, что бы проверить работу просто скопируйте строку в командную строку и выполните.
+          %pre
+            curl -v -H 'Accept: application/json'
+            \-H 'Content-type: application/json' -X POST http://#{APP_CONFIG['HOST']}/api/messages -d '{"message": {"body": "MESSAGE"}, "auth_token": "#{current_agent.authentication_token}", "format": "json"}'
+
+- content_for :javascript do
+  $('.btn.pass').click(function(e){
+  $('.password > span').toggleClass('hidden');
+  //$(e.target).remove();
+  })
+

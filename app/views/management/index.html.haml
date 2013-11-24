@@ -1,9 +1,9 @@
 - unless @site
   .alert.alert-info= t('.need_add_site', page_link: new_site_path).html_safe
-- unless @user
+- unless @user_present
   .alert.alert-info= t('.need_add_jabber_acc', page_link: new_user_path).html_safe
 
-- if @site && @user
+- if @site
   .row.well
     .span2.red
       #{current_agent.total_collections} чатов

@@ -19,7 +19,7 @@ module Auth
 
   def signup_master
     # redirect user to create jabber agent after registration.
-    if !current_agent.user && !controller_name.eql?('users')
+    if current_agent.users.blank? && !controller_name.eql?('users')
       redirect_to new_user_path
       return false
     end

@@ -58,6 +58,7 @@ class ChatFrame
     _el.css(@site_config['side'], 0)
     if @site_config['position'] is 'center'
       _el.css('left', (jQuery(window).width() / 2) - (jQuery(_el).width() / 2))
+      _el.css('top', (jQuery(window).height() / 2) - (jQuery(_el).height() / 2))
     else
       _el.css(@site_config['position'], 0)
 

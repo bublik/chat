@@ -12,8 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+
+// This part used only ofr ordering Jabber users for agent
+//= require jquery.ui.core
+//= require jquery.ui.widget
+//= require jquery.ui.mouse
+//= require jquery.ui.position
+//= require jquery.ui.sortable
+
+
 // require turbolinks
 //= require twitter/bootstrap
 //= require bootstrap
 //= require ./management/sites
+//= require ./management/users
 
