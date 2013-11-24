@@ -25,7 +25,7 @@ class ChatFrame
     self = @
     jQuery.getJSON @site_config_url, (data) ->
       _.extend(self.site_config, data)
-      self.site_config.btn_title  = self.site_config.btn_title.replace(/(\S+)/g, '<span>$1</span>')
+      self.site_config.btn_title = self.site_config.btn_title.replace(/(\S+)/g, '<span>$1</span>')
 
       #console.log 'Config LOADED!!! ->', self.site_config
       self.load_css()
@@ -37,12 +37,21 @@ class ChatFrame
       #console.log 'widget DISABLED!'
       return
     jQuery('body').append(_.template(window.ch_button, { btn: @site_config }))
+    @check_autoopen()
+
+  check_autoopen: ->
+    return false unless @site_config['auto_open']
+
+    time_left = ((new Date).getTime() - @first_visit_at)
+    time_wait = (@site_config['auto_open_timeout'] * 1000) - time_left
     self = @
-    if @site_config['auto_open']
+    if @already_chated != 'true' #  если он не чатился сегодня
+      time_wait = 1 if time_wait < 0 # если время чата прошло тогда ставим секундную задержку на показ
       setTimeout (->
         self.connect()
         self.show_widget()
-      ), @site_config['auto_open_timeout'] * 1000
+        self.auto_open_message()
+      ), time_wait
 
     jQuery(@button_id).on 'click', (e) ->
       self.show_widget()
@@ -85,6 +94,8 @@ class ChatFrame
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
   show_widget: ->
     @reconnect = true
+    @setCookie('already_chated', true, 1)
+    @already_chated = 'true'
     setTimeout (->
       window.ChatFrame.connect()
     ), 3000
@@ -105,12 +116,17 @@ class ChatFrame
 
   hide_widget: ->
     jQuery(@widget_window_id).fadeOut()
-
+  _conecting: ->
+    jQuery('#facebookG').show()
+    @replay_field().attr('disabled','disabled')
+  _connected: ->
+    jQuery('#facebookG').hide()
+    @replay_field().removeAttr('disabled')
   connect: ->
     #console.log "Connect:"
     if jQuery.xmpp.connected || @reconnect is false
       #console.log '... already connected!'
-      jQuery('#facebookG').hide()
+      @_connected()
       return
     jQuery.xmpp.connect @_onConnect(@)
   _onConnect: (context)->
@@ -129,7 +145,7 @@ class ChatFrame
       #console.log("onNotification ->", notification)
     onPresence: (presence) ->
       #console.log('onPresence ->', presence, presence.from)
-      jQuery('#facebookG').hide()
+      context._connected()
       curId = presence.from.split('@')[0]
       status_icon = "available_icon"
       switch presence.show
@@ -143,10 +159,10 @@ class ChatFrame
 
     onDisconnect: ->
       jQuery.xmpp.connected = false
-      jQuery('#facebookG').show()
+      context._conecting()
       #console.log "Disconnected and start Connect->"
       setTimeout (->
-        window.ChatFrame.connect()
+        window.ChatFrame.connect() unless jQuery.xmpp.connected
       ), 3000
 
     onMessage: (message) ->
@@ -174,19 +190,23 @@ class ChatFrame
     jQuery('.shf_messages').css('height', 'auto')
     self = @
     jQuery('#btn_offline_feedback').on 'click', (e) ->
+      return false if jQuery('#ch_message').val() == ''
+      jQuery(e.target).attr('disabled', 'disabled')#prevent double send
       data = jQuery('form[name=ch_offline_feedback]').serialize()
       jQuery.ajax self.feedback_path,
         type: 'POST'
         dataType: 'json'
         data: data
-        error: (jqXHR, textStatus, errorThrown) ->
         success: (data, textStatus, jqXHR) ->
           jQuery('#ch_feedback_box').html(data.message)
           jQuery.xmpp.sendMessage({ type: 'chat', to: self.site_config.agent.email, body: self.site_config.locale.new_feedback })
       return false
 
+
+  auto_open_message: ->
+    @append_message({time_at: (new Date).toLocaleString().split(' ')[1], full_name: @site_config.agent.name, content: @site_config.sales_welcome_message })
   append_message: (data) ->
-    #console.log('append_message <-')
+    #console.log('append_message <-', data)
     jQuery('#chat_new_message')[0].play()
     if _.isEmpty(data.content)
       #console.log('empty message, exit')
@@ -225,12 +245,13 @@ class ChatFrame
     if (jabber_resources[0].show is 'unavailable') and @is_no_send_messages()
       @offline_feedback()
   #@reconnect = false
-
+  replay_field: ->
+    jQuery('.shf_textarea_answer textarea')
   send_message: ->
     unless jQuery.xmpp.connected
       @connect()
-    input = jQuery('.shf_textarea_answer textarea')
-    message = input.val().slice(0, -1)
+
+    message = @replay_field().val().slice(0, -1)
     if message == ''
       input.val ""
       return
@@ -242,13 +263,18 @@ class ChatFrame
     @append_message({
       time_at: (new Date).toLocaleString().split(' ')[1],
       full_name: 'You',
-      content: input.val() })
-    input.val ""
+      content: @replay_field().val() })
+    @replay_field().val ""
     @agent_status() # update agent status on send message, to check if agent went to offline
+
   checkCookie: () ->
     @user_uid = (@getCookie('ch_usid') or @setCookie('ch_usid', @user_uid, 365))
     @referrer = (@getCookie('ch_ref') or @setCookie('ch_ref', @referrer, 365))
-    _.extend(@site_config, {user_uid  : @user_uid})
+    @pages_show = @setCookie('pages_show', parseInt(@getCookie('pages_show') || 0) + 1, 365)
+    @already_chated = @getCookie('already_chated')
+    # time in miliseconds when user visited site today
+    @first_visit_at = parseInt(@getCookie('visit_at') or @setCookie('visit_at', (new Date).getTime(), 1))
+    _.extend(@site_config, {user_uid: @user_uid})
 
   setCookie: (c_name, value, exdays) ->
     exdate = new Date()
