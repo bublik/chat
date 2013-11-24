@@ -6,9 +6,9 @@ Feature: Api Users controller
 
     Given I have correct HTTP BASE authorization settings
     Given I have jabber user
-    When I send post request to "online" action with "user_name" param
-    Then I should have state as "online" for user "user_name"
+    When I send post request to "online" action with "username" param
+    Then I should have state as "online" for user "username"
 
     Given I have correct HTTP BASE authorization settings
-    When I send post request to "offline" action with "user_name" param
-    Then I should have state as "offline" for user "user_name"
+    When I send post request to "offline" action with "username" param
+    Then I should have state as "offline" for user "username"

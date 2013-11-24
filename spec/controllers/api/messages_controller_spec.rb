@@ -12,7 +12,7 @@ describe Api::MessagesController do
     before do
       stub_request(:post, "http://public.helperchat.com:5285/rest/").
           with(:body => "<message to='#{agent.selected_user.jabber_account}' from='noreply@system/rest'><body>MESSAGE</body></message>",
-               :headers => {'Accept' => '*/*; q=0.5, application/xml', 'Accept-Encoding' => 'gzip, deflate', 'Content-Length' => '95', 'User-Agent' => 'Ruby'}).
+               :headers => {'Accept' => '*/*; q=0.5, application/xml', 'Accept-Encoding' => 'gzip, deflate', 'Content-Length' => '94', 'User-Agent' => 'Ruby'}).
           to_return(:status => 200, :body => "", :headers => {})
     end
 
