@@ -49,6 +49,7 @@
         = f.label :auto_open, site_humanize_column('auto_open'), class: 'control-label red'
         .controls
           = f.check_box :auto_open
+      = f.input :sales_welcome_message, as: :text, hint: t('.sales_welcome_message_hint')
       = f.input :auto_open_timeout, hint: t('.auto_open_timeout_hint')
 
       - unless @site.new_record?

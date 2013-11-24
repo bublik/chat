@@ -10,8 +10,9 @@
   %ul.nav.nav-tabs
     %li= link_to(icon('icon-home') + t('.general'), '#general', :class => 'active', 'data-toggle' => 'tab')
     %li= link_to(icon('icon-th-large') + t('.position'), '#color-position', 'data-toggle' => 'tab')
-    %li= link_to(icon('icon-volume-up') + t('.title'), '#titles', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-pencil') + t('.title'), '#titles', 'data-toggle' => 'tab')
     -#%li= link_to(icon('icon-signal') + t('.statistic'), '#stats', 'data-toggle' => 'tab')
+    %li= link_to(icon('icon-shopping-cart') + t('.sales'), '#sales', 'data-toggle' => 'tab')
     %li= link_to(icon('icon-eye-open') + t('.display'), '#display', 'data-toggle' => 'tab')
     %li= link_to(icon('icon-file') + t('.integration_code'), '#jscode', 'data-toggle' => 'tab')
 
@@ -24,14 +25,15 @@
         .span3= site_humanize_column('domain')
         .span3= link_to(@site.domain, "http://#{@site.domain}")
       .row
+        .span3= site_humanize_column('enabled')
+        .span3= icon_boolean(@site.enabled)
+      .row
         .span3= site_humanize_column('site_category_id')
         .span3= @site.site_category.name
       .row
         .span3= site_humanize_column('user_prefix')
         .span3= @site.user_prefix
-      .row
-        .span3= site_humanize_column('enabled')
-        .span3= icon_boolean(@site.enabled)
+
     #color-position.tab-pane
       .row
         .span3= site_humanize_column('side')
@@ -66,18 +68,23 @@
         .row
           .span3= site_humanize_column('show_offline')
           .span3= icon_boolean(@site.show_offline)
-      .row
-        .span3= site_humanize_column('auto_open')
-        .span3= icon_boolean(@site.auto_open)
-      .row
-        .span3= site_humanize_column('auto_open_timeout')
-        .span3= @site.auto_open_timeout
 
       .row
         .span3= site_humanize_column('color')
         .span1= @site.color
         .span1.color &nbsp;
         = hidden_field_tag :site_color, @site.color
+    #sales.tab-pane
+      .row
+        .span3= site_humanize_column('auto_open')
+        .span3= icon_boolean(@site.auto_open)
+      .row
+        .span3= site_humanize_column('auto_open_timeout')
+        .span3= @site.auto_open_timeout
+      .row
+        .span3= site_humanize_column('sales_welcome_message')
+        .span4{:style => 'line-height: 16px;'}
+          %em= @site.sales_welcome_message
     #jscode.tab-pane
       .row
         .span4
