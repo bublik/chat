@@ -54,6 +54,7 @@ ru:
         show_offline: 'Показывать офлайн'
         auto_open: 'Активные продажи'
         auto_open_timeout: 'Задержка перед автооткрытием (сек)'
+        sales_welcome_message: 'Сообщение при автоматическом приетствии.'
         enabled: 'Включен'
         widget_code: 'Код виджета'
         btn_title: 'Текст на кнопке'
