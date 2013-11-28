@@ -91,9 +91,9 @@ form#contactform1 .validation {
 	background:#cb1103;
 }
 
-ul.clients li:hover {
-	border:4px solid #cb1103;
-}
+/*ul.clients li:hover {*/
+	/*border:4px solid #cb1103;*/
+/*}*/
 
 /* buttons */
 .btn-dark:hover,.btn-dark:focus,.btn-dark:active  {

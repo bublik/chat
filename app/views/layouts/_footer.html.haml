@@ -9,9 +9,7 @@
             = link_to(t('.about'), about_path)
             \|
             = link_to(t('.service'), price_path)
-          %li= link_to(t('.terms'), terms_path)
-          %li= link_to(t('.privacy'), privacy_path)
-
+          %li= link_to(t('.terms'), privacy_path)
           %li= link_to(t('.contact'), contact_path)
 
       .span3
@@ -40,7 +38,7 @@
             %p
               %span &copy; #{link_to('Lightcraft LLC', 'http://lightcraft.us/', title: 'Ruby on Rails development company')} 2013 All right reserved.
         .span6
-          %ul.social-network
+          -#%ul.social-network
             %li
               %a{"data-placement" => "bottom", :href => "#", :title => "Facebook"}
                 %i.icon-facebook.icon-square
