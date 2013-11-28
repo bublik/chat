@@ -39,9 +39,9 @@
           .modal-body
             = simple_form_for(Agent.new, :as => 'agent', :url => registration_path('agent')) do |f|
               = f.input :plan_id,  collection: Plan.all, label_method: :name_for_selector, include_blank: false, selected: selected_plan
-              = f.input :email, input_html: { autofocus: true, class: 'form-control', placeholder: 'Enter email' }
-              = f.input :password, input_html: { class: 'form-control', placeholder: 'Password' }
-              = f.input :password_confirmation, input_html: { class: 'form-control', placeholder: 'Password confirmation' }
+              = f.input :email, input_html: { autofocus: true, class: 'form-control'}
+              = f.input :password, input_html: { class: 'form-control' }
+              = f.input :password_confirmation, input_html: { class: 'form-control'}
               .row
                 .span2.offset2= f.submit t('devise.titles.sign_up'), class: 'btn btn-primary'
         / end signup modal
@@ -54,7 +54,7 @@
             = simple_form_for(Agent.new, :as => 'agent', :url => session_path('agent')) do |f|
               = f.input :email, input_html: { autofocus: true, class: 'form-control'}
               = f.input :password
-              = f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
+              -#= f.input :remember_me, as: :radio_buttons, input_html: { value: '1', inline_label: 'Yes, remember me'}
               .row
                 .span2.offset2= f.submit t('devise.titles.sign_in'), :class => 'btn btn-primary'
         / end signin modal

@@ -32,7 +32,7 @@ ru:
         plan_id: 'Билинг план'
         remove_avatar: 'Удалить фото'
         password: 'Пароль'
-        password_confirmation: 'Подтвердите пароль'
+        password_confirmation: 'Повтор пароля'
         current_password: 'Текущий пароль'
         remember_me: 'Запомнить меня'
       site_category:
