@@ -40,11 +40,14 @@ class ChatFrame
     @check_autoopen()
 
   check_autoopen: ->
+    self = @
+    jQuery(@button_id).on 'click', (e) ->
+      self.show_widget()
     return false unless @site_config['auto_open']
 
     time_left = ((new Date).getTime() - @first_visit_at)
     time_wait = (@site_config['auto_open_timeout'] * 1000) - time_left
-    self = @
+
     if @already_chated != 'true' #  если он не чатился сегодня
       time_wait = 1 if time_wait < 0 # если время чата прошло тогда ставим секундную задержку на показ
       setTimeout (->
@@ -53,8 +56,6 @@ class ChatFrame
         self.auto_open_message()
       ), time_wait
 
-    jQuery(@button_id).on 'click', (e) ->
-      self.show_widget()
   load_css: ->
     css = document.createElement("link")
     css.media = "all"
