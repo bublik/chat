@@ -22,12 +22,14 @@ module ApplicationHelper
   end
 
   def helperchat_widget
-    '_chcfg = {widget_id: "0a549da0187a01315d22040106cf7601", user_prefix: "helper"};
+    '<script type="text/javascript">
+    _chcfg = {widget_id: "0a549da0187a01315d22040106cf7601", user_prefix: "helper"};
     (function() { var chs = document.createElement("script");
     chs.type = "text/javascript"; chs.async = true;
-    chs.src = ("https:" == document.location.protocol ? "https" : "http")+"://#{'+APP_CONFIG['HOST']+'}/assets/widget.js";
+    chs.src = ("https:" == document.location.protocol ? "https" : "http")+"://'+APP_CONFIG['HOST']+'/assets/widget.js";
     var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(chs, s.nextSibling); })();'.html_safe
+    s.parentNode.insertBefore(chs, s.nextSibling); })();
+</script>'.html_safe
   end
 
   def google_analytix
