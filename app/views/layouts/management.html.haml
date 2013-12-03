@@ -35,4 +35,6 @@
       = javascript_tag do
         $(document).ready( function() { #{yield :javascript} });
     - if Rails.env.production?
+      = helperchat_widget
       = google_analytix
+      = yandex_metrix
