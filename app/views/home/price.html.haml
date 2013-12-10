@@ -1,13 +1,19 @@
+- content_for :title do
+  Бесплатный онлайн консультант для сайта Helperchat
+
+- content_for :description do
+  Хотите увилечить продажи, конверсию и качество сервиса на вашем сайте, установите бесплатный онлайн  консультант для сайта от Helperchat.
+
 %h2= t('.price')
 .row
   .span4
     .pricing-box-alt
       .pricing-heading
-        %h3
+        .h3
           = t('prices.simple')
           %strong= t('.choise')
       .pricing-terms
-        %h6 0.00 / #{t('.month')}
+        .h6 0.00 / #{t('.month')}
       .pricing-content
         %ul
           %li
@@ -47,11 +53,11 @@
   .span4
     .pricing-box-alt.special
       .pricing-heading
-        %h3
+        .h3
           = t('prices.good')
           %strong= t('.choise')
       .pricing-terms
-        %h6 $15.00 / #{t('.month')}
+        .h6 $15.00 / #{t('.month')}
       .pricing-content
         %ul
           %li
@@ -91,11 +97,11 @@
   .span4
     .pricing-box-alt.best
       .pricing-heading
-        %h3
+        .h3
           = t('prices.better')
           %strong= t('.choise')
       .pricing-terms
-        %h6 $28.00 / #{t('.month')}
+        .h6 $28.00 / #{t('.month')}
       .pricing-content
         %ul
           %li

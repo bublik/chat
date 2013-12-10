@@ -6,6 +6,16 @@ class ApplicationController < ActionController::Base
   before_filter :configure_permitted_parameters, if: :devise_controller?
   skip_before_action :verify_authenticity_token, if: :json_request?
   layout :authorized_layout
+  rescue_from ActionController::RoutingError, :with => :render_not_found
+
+
+  def routing_error
+    raise ActionController::RoutingError.new(params[:path])
+  end
+
+  def render_not_found
+    render :file => 'home/page404'
+  end
 
   protected
 

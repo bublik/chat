@@ -69,6 +69,8 @@ Chat::Application.routes.draw do
 
   get '/404', to: 'home#page404'
 
+  match "*path", :to => "application#routing_error", via: [:get]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
