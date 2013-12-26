@@ -45,7 +45,7 @@ class ChatFrame
   check_autoopen: ->
     return false unless @site_config['auto_open']
 
-    time_left = ((new Date).getTime() - @first_visit_at)
+    time_left = ((new Date).getTime() - @first_visit_at) || 0
     time_wait = (@site_config['auto_open_timeout'] * 1000) - time_left
     self = @
     if @already_chated != 'true' #  если он не чатился сегодня
