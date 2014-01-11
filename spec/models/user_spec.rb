@@ -65,4 +65,29 @@ describe User do
       end
     end
   end
+
+  describe '#build_new' do
+    let(:user){User.build_user('agent.email@domain.com')}
+
+    it 'should return new valid User Object' do
+      user.should be_valid
+    end
+
+    it 'should have enabled username' do
+      user.username.should_not be_blank
+    end
+
+    it 'should have enabled password' do
+      user.password.should_not be_blank
+    end
+  end
+
+  describe '#email_notification' do
+    it 'should send email on create new record' do
+      Notification.should_receive(:jabber_user_created)
+      user = FactoryGirl.build(:user, agent: agent)
+      user.save
+    end
+  end
+
 end

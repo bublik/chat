@@ -41,4 +41,12 @@ describe Agent do
       agent.save.should be_true
     end
   end
+
+  describe 'jabber user' do
+    it 'should have created user when new agent has created' do
+      agent = FactoryGirl.build(:agent)
+      agent.save
+      agent.users.count.should eq(1)
+    end
+  end
 end

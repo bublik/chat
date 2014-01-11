@@ -9,6 +9,15 @@ class User < ActiveRecord::Base
 
   scope :priority, lambda { order('users.state DESC , users.position ASC') }
 
+  after_create do |user|
+    Notification.jabber_user_created(agent, user)
+  end
+
+  def self.build_user(email = '')
+    username = email.split('@').first.gsub('.','-') + Time.now.strftime("%H%M%S")
+    User.new(username: username, password: SecureRandom.base64.slice(0..7))
+  end
+
   # this method will return USERNAME for next operator or nil
   def self.for_site(agent_id)
     self.joins('LEFT OUTER JOIN archive_collections ON users.username = archive_collections.with_user')

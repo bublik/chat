@@ -42,6 +42,10 @@ class Agent < ActiveRecord::Base
   validates_processing_of :avatar
   validate :plan_exists
 
+  before_create do |agent|
+    agent.users << User.build_user(agent.email)
+  end
+
   # has_many
   def archive_collections
     ArchiveCollection.newest.where(with_user: jabber_names)

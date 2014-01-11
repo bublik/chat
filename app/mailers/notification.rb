@@ -12,4 +12,9 @@ class Notification < ActionMailer::Base
 
     mail to: site.agent.email, subject: "Site Feedback #{site.domain}"
   end
+
+  def jabber_user_created(agent, user)
+    @user = user
+    mail to: agent.email, subject: "Jabber User was created #{@user.username}"
+  end
 end
