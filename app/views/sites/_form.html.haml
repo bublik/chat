@@ -26,8 +26,11 @@
         = f.label :position, site_humanize_column('position'), class: 'string optional control-label'
         .controls
           = f.select :position, Site::POSITION
-      = f.input :btn_title, hint: t('.btn_title_hint')
+      %h5.label.label-success Online
+      = f.input :btn_title_online, hint: t('.btn_title_hint')
       = f.input :title_online
+      %h5.label.label-important Offline
+      = f.input :btn_title_offline, hint: t('.btn_title_hint')
       = f.input :title_offline
       = f.input :offline_welcome_message, as: :text, hint: t('.offline_welcome_message_hint')
 

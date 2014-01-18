@@ -25,7 +25,7 @@ class ChatFrame
     self = @
     jQuery.getJSON @site_config_url, (data) ->
       _.extend(self.site_config, data)
-      self.site_config.btn_title = self.site_config.btn_title.replace(/(\S+)/g, '<span>$1</span>')
+      self.site_config.btn_title = self.site_config['btn_title_' + self.site_config.agent.status].replace(/(\S+)/g, '<span>$1</span>')
 
       #console.log 'Config LOADED!!! ->', self.site_config
       self.load_css()
@@ -124,6 +124,7 @@ class ChatFrame
     jQuery('#facebookG').hide()
     @replay_field().removeAttr('disabled')
   connect: ->
+    return if @site_config.agent.status is 'offline'
     #console.log "Connect:"
     if jQuery.xmpp.connected || @reconnect is false
       #console.log '... already connected!'
