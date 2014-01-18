@@ -472,14 +472,14 @@ textarea {
 .shf_btn_top, .shf_btn_bottom {
   height: 30px;
   line-height: 30px;
-  max-width: 465px;
+  max-width: 185px;
   width: auto;
 }
 
 .shf_btn_left, .shf_btn_right {
   width: 36px;
-  min-height: 97px;
-  max-height: 135px;
+  min-height: 100px;
+  max-height: 155px;
 }
 
 .shf_btn_top {
@@ -630,13 +630,10 @@ textarea {
 }
 
 .shf_btn_right_center .shf_title_text, .shf_btn_left_center .shf_title_text{
-  width: 145px;
-  height: 20px;
-  margin-left: -55px;
-  text-align: left;
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
-  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  height: 135px;
+  width: 155px;
 }
 
 .shf_btn_left_center .shf_title_text {

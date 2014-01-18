@@ -1,5 +1,5 @@
 window.ch_button = '<div id="btn-<%= btn.id %>" class="shf shf_btn shf_btn_<%= btn.side %> shf_btn_<%= btn.side %>_<%= btn.position %> shf_monitor" style="right:0; bottom:0; text-shadow: 1px 1px 1px #202020; border: 1px solid #000; position: fixed; z-index: 10000; background-color: <%= btn.color %>">' +
-    '<div class="shf shf_logo"><div class="shf shf_logo_cell"><img class="shf shf_logo_btn" src="<%= btn.logo %>"></div></div>' +
+//      '<div class="shf shf_logo"><div class="shf shf_logo_cell"><img class="shf shf_logo_btn" src="<%= btn.logo %>"></div></div>' +
     '<div class="shc shf_title_text"><%= btn.btn_title %></div>' +
     '<img src="<%= btn.app_host %>/1px/<%= btn.user_uid %>" >';
 
