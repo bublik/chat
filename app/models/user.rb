@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :agent
+  belongs_to :agent, touch: true
 
   validates_format_of :username, with: /\A([a-z0-9\-\+]+)\z/i, on: :create
   validates_uniqueness_of :username
@@ -45,11 +45,11 @@ class User < ActiveRecord::Base
   end
 
   def self.mark_online(username = '')
-    where(username: username).update_all(state: true)
+    User.find(username).update_attributes(state: true)
   end
 
   def self.mark_offline(username = '')
-    where(username: username).update_all(state: false)
+    User.find(username).update_attributes(state: false)
   end
 
   def self.get_state(username = '')
