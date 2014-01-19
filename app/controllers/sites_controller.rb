@@ -78,7 +78,7 @@ class SitesController < ApplicationController
   end
 
   def set_site
-    @site = Site.where(uuid: params[:id]).includes(:agent).first
+    @site = Site.where(uuid: params[:id]).joins(:agent).first
     unless @site
       render :nothing => true, :status => 404
     end
