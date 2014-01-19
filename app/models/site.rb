@@ -30,8 +30,6 @@ class Site < ActiveRecord::Base
   SIDE = %w( bottom top right left)
   POSITION = %w( right center left)
 
-  # blue #666699 orange #cc6633 yellow #cc9933 салат #999933 черн #000
-  COLORS = %w(#666699 #cc6633 #cc9933 #999933 #3b3b3b)
   ## Relations
   belongs_to :site_category
   belongs_to :agent
@@ -48,7 +46,7 @@ class Site < ActiveRecord::Base
   validates :auto_open_timeout, numericality: {greater_than_or_equal_to: 0}
   validates :offline_welcome_message, length: 6..254, on: :update
   validates :sales_welcome_message, length: 6..254, if: :auto_open
-  validates :btn_title_oline, length: 6..20, on: :update
+  validates :btn_title_online, length: 6..20, on: :update
   validates :btn_title_offline, length: 6..20, on: :update
   validates :title_online, length: 0..50
   validates :title_offline, length: 0..50
@@ -57,7 +55,7 @@ class Site < ActiveRecord::Base
   scope :past_week, lambda { where("created_at >= :start_date AND created_at <= :end_date", {:start_date => 1.week.ago, :end_date => 1.day.ago}) }
 
   before_validation(on: :create) do
-    self.color ||= COLORS.last
+    self.color ||= '#3b3b3b'
     self.position ||= 'right'
     self.side ||= 'bottom'
     self.uuid ||= UUID.new.generate(:compact)

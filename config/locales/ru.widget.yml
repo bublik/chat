@@ -11,3 +11,5 @@ ru:
     phone_field: 'Тел.:'
     message_field: 'Сообщение'
     new_feedback: 'У вас новое сообщение в разделе обратной связи.'
+    available: 'Свободен'
+    unavailable: 'Недоступен'

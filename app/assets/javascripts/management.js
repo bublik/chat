@@ -25,5 +25,5 @@
 //= require twitter/bootstrap
 //= require bootstrap
 //= require ./management/sites
-//= require ./management/users
+//= require_directory ./management
 

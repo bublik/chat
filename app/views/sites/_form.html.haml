@@ -16,7 +16,7 @@
       .control-group
         = f.label :color, site_humanize_column('color'), class: 'string optional control-label'
         .controls
-          = f.select :color, Site::COLORS
+          = f.input_field :color
           %span.color
       .control-group
         = f.label :side, site_humanize_column('side'), class: 'string optional control-label'
@@ -68,4 +68,6 @@
 
 - content_for :javascript do
   $('.color').css('background', $('#site_color').val());
-  $('#site_color').on('change', function(e){ $('.color').css('background', $(this).val()); });
+  $('#site_color').colorpicker().on('changeColor', function(ev){
+  $('.color').css('background', ev.color.toHex());
+  });
