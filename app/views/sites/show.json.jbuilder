@@ -1,4 +1,4 @@
-json.cache! [@site, I18n.locale], expires_in: 15.minutes do
+json.cache! [@site, I18n.locale], expires_in: 1.minutes do
   json.extract! @site, :btn_title_online, :btn_title_offline, :name, :domain, :color, :side, :position, :collect_stats, :title_online, :title_offline, :auto_open, :auto_open_timeout, :sales_welcome_message, :offline_welcome_message, :enabled
   json.agent @site.agent.widget_json
   json.logo asset_url('live_chat.png')
