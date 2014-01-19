@@ -25,6 +25,7 @@ ru:
       user:
         username: 'Логин'
         password: 'Пароль'
+        operator_name: 'Оператор'
       agent:
         name: 'Имя'
         email: 'Емейл'

@@ -6,6 +6,9 @@
     .span1
       %span.badge{class: user.online? ? 'badge-success' : 'badge-important'}= user.get_state
   .row
+    .span2= User.human_attribute_name('operator_name')
+    .span2= user.operator_name
+  .row
     .span2= User.human_attribute_name('username')
     .span2= user.username
   .row

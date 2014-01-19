@@ -68,11 +68,12 @@ class Agent < ActiveRecord::Base
   end
 
   def widget_json
+    operator = selected_user
     {
-        name: full_name,
-        email: (Rails.env.development? ? 'admin@helperchat.com' : selected_user.jabber_account),
+        name: operator.operator_name || operator.username,
+        email: (Rails.env.development? ? 'admin@helperchat.com' : operator.jabber_account),
         avatar_path: avatar.thumb.url,
-        status: selected_user.get_state
+        status: operator.get_state
     }
   end
 

@@ -22,7 +22,7 @@ window.ch_agent_tpl =
 '<div class="shf_agent">' +
   '<div class="shf_photo"><img class="shf_avatar" src="<%= data.avatar_path %>" /></div>' +
     '<div class="shf_mess_details"><%= data.name %>'+
-    '<div class="shf_agent_status <%= data.status_text %>"><span></span><em><%= data.status_text %></em></div>' +
+    '<div class="shf_agent_status <%= data.status_class %>"><span></span><em><%= data.status_text %></em></div>' +
     '</div>' +
 '</div>';
 

@@ -717,6 +717,7 @@ CREATE TABLE `users` (
   `agent_id` int(11) NOT NULL,
   `state` tinyint(1) DEFAULT '0',
   `position` int(11) DEFAULT NULL,
+  `operator_name` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`username`),
   KEY `index_users_on_agent_id` (`agent_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -808,7 +809,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-01-18 20:48:50
+-- Dump completed on 2014-01-19 11:41:42
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -872,3 +873,5 @@ INSERT INTO schema_migrations (version) VALUES ('20131124140620');
 INSERT INTO schema_migrations (version) VALUES ('20131124151327');
 
 INSERT INTO schema_migrations (version) VALUES ('20140118184506');
+
+INSERT INTO schema_migrations (version) VALUES ('20140119094012');

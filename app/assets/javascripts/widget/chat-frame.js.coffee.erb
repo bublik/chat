@@ -124,7 +124,7 @@ class ChatFrame
     jQuery('#facebookG').hide()
     @replay_field().removeAttr('disabled')
   connect: ->
-    return if @site_config.agent.status is 'offline'
+    #return if @site_config.agent.status is 'offline'
     #console.log "Connect:"
     if jQuery.xmpp.connected || @reconnect is false
       #console.log '... already connected!'
@@ -236,6 +236,7 @@ class ChatFrame
       name: @site_config.agent.name,
       avatar_path: @sheme + '://' + @assets_host + @site_config.agent.avatar_path,
       status_text: @site_config.locale[jabber_resources[0].show],
+      status_class: jabber_resources[0].show,
       status_image: jabber_resources[0].image
     }
     #console.log('SET AGENT STATUS', data)

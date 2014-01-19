@@ -7,8 +7,9 @@ ru:
     create:
       created_successful: Джаббер аккаунт создан
     form:
-      cant_change: Вы не можете изменить логин
+      cant_change: вы не можете изменить логин
       enter_password: введите пароль
+      operator_widget_title: имя оператора на виджете
   sites:
     new:
       add_site: 'Добавить сайт'

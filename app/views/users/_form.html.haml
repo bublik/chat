@@ -5,6 +5,7 @@
       = f.input :username, hint: 'example: alexey_orlov_earth', placeholder: current_agent.short_name
     - else
       = f.input :username, disabled: true, hint: t('.cant_change')
+    = f.input :operator_name, hint: t('.operator_widget_title')
     = f.input :password, as: :string, hint: t('.enter_password'), input_html: {}
 
   .row
