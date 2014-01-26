@@ -19,6 +19,7 @@ class ChatFrame
     @site_config_url = @sheme + '://' + @chat_config_host + '/site_config/' + @lang + '/' + @site_uid + '.json'
     #console.log('Constructor Finish \<-')
     @checkCookie()
+    @chat_started = false
 
   load_site_config: ->
     #console.log 'load_site_config ->'
@@ -53,7 +54,7 @@ class ChatFrame
       setTimeout (->
         self.connect()
         self.show_widget()
-        self.auto_open_message()
+        self.auto_open_message() unless self.chat_started
       ), time_wait
 
   load_css: ->
@@ -208,6 +209,7 @@ class ChatFrame
   auto_open_message: ->
     @append_message({time_at: (new Date).toLocaleString().split(' ')[1], full_name: @site_config.agent.name, content: @site_config.sales_welcome_message })
   append_message: (data) ->
+    @chat_started = true
     #console.log('append_message <-', data)
     jQuery('#chat_new_message')[0].play()
     if _.isEmpty(data.content)
