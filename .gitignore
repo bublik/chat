@@ -10,7 +10,7 @@
 /spec/views/*
 /public/assets/*
 /public/uploads
-/public/site*
+/public/site*.html
 /public/strophejs
 /config/config.yml
 /coverage
