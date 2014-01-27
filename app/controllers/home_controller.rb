@@ -36,6 +36,11 @@ class HomeController < ApplicationController
   def page404
   end
 
+  def sitemap
+
+    render file: "#{Rails.root}/public/sitemap.xml", layout: false
+  end
+
   def stats
     @sites = Site.count
     @sites_last_week = Site.last_week.count

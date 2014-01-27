@@ -47,6 +47,7 @@ Chat::Application.routes.draw do
   get '/career', to: "home#career", as: :career
   get '/stats', to: "home#stats", as: :stats
   match '/contact', to: 'home#contact', via: [:get, :post]
+  match '/sitemap', to: 'home#sitemap', via: [:get]
 
   devise_for :agents, :controllers => {:sessions => 'devise/sessions', :registrations => 'registrations'}
   resource :token_authentication, only: [:create, :destroy]
