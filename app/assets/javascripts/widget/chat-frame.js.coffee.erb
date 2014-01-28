@@ -187,6 +187,7 @@ class ChatFrame
         jQuery.xmpp.disconnect()
   # show offline feedback form
   offline_feedback: ()->
+    jQuery('.shf_agent').hide()
     jQuery('.shf_textarea_answer, #shf_messages').fadeOut()
     mesage_content = _.template(window.ch_fedback_form, { data: @site_config })
     jQuery('.shf_messages').html(mesage_content)
@@ -267,7 +268,7 @@ class ChatFrame
 
     @append_message({
       time_at: (new Date).toLocaleString().split(' ')[1],
-      full_name: 'You',
+      full_name: @site_config.locale.you,
       content: @replay_field().val() })
     @replay_field().val ""
     @agent_status() # update agent status on send message, to check if agent went to offline

@@ -145,13 +145,17 @@
 }
 
 #ch_feedback_box {
-  height: 245px;
+  height: 320px;
   padding: 10px;
   color: #777;
-  font-size: 0.9em;
+  font-size: 14px;
+  .ch_wellcome {
+    margin-bottom: 10px;
+  }
   label {
     width: 100px;
     display: inline-block;
+    vertical-align: top;
   }
   div {margin-top: 2px;}
   input, textarea {
@@ -162,24 +166,25 @@
     padding: 0;
   }
   input[type=text] {
-    width: 60%;
+    width: 260px;
     line-height: 20px;
     border: 1px solid #bbb;
     height: 22px;
   }
   input[type=submit] {
-    padding: 0;
-    height: 18px;
+    margin-left: 102px;
+    padding: 2px 4px;
+    height: 22px;
     align-items: flex-start;
     text-align: center;
-    cursor: default;
     color: buttontext;
-    border: 2px outset buttonface;
+    border: 1px solid #ccc;
   }
   textarea {
-    width: 90%;
-    height: 85px;
+    width: 260px;
+    height: 160px;
     border: 1px solid #bbb;
+    scroll: auto;
   }
 }
 
