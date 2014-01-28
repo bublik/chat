@@ -10,6 +10,9 @@ ru:
       cant_change: вы не можете изменить логин
       enter_password: введите пароль
       operator_widget_title: имя оператора на виджете
+    user:
+      state_false: Временно отключить
+      state_true: Обслуживать посетителей
   sites:
     new:
       add_site: 'Добавить сайт'

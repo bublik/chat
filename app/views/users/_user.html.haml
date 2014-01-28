@@ -1,4 +1,4 @@
-= div_for user, class: 'alert alert-info' do
+= div_for user, class: "alert #{user.enabled ? 'alert-info' : 'alert-error'}" do
   .row.handle{'title' => 'Drag for ordering', 'data-toggle' => 'tooltip'}
     .span2= t('.your_j_acc')
     .span2
@@ -8,6 +8,8 @@
   .row
     .span2= User.human_attribute_name('operator_name')
     .span2= user.operator_name
+    .span4
+      = link_to(t(".state_#{!user.enabled}"), user_path(user, user: {enabled: !user.enabled }), class: "btn btn-mini #{user.enabled ? 'btn-danger' : 'btn-success' }", method: :put)
   .row
     .span2= User.human_attribute_name('username')
     .span2= user.username
@@ -22,3 +24,6 @@
 
 - content_for :javascript do
   $('.handle').tooltip()
+
+:css
+  .row { line-height: 25px; }

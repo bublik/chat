@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
   # this method will return USERNAME for next operator or nil
   def self.for_site(agent_id)
     self.joins('LEFT OUTER JOIN archive_collections ON users.username = archive_collections.with_user')
-    .where('users.agent_id = ?', agent_id).group(:username)
+    .where('users.enabled = ? AND users.agent_id = ?', true, agent_id).group(:username)
     .order('state DESC, archive_collections.change_utc ASC, position ASC').first
 #    self.connection.execute("
 #SELECT users.username  FROM users
