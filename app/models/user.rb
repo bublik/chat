@@ -22,7 +22,8 @@ class User < ActiveRecord::Base
   def self.for_site(agent_id)
     self.joins('LEFT OUTER JOIN archive_collections ON users.username = archive_collections.with_user')
     .where('users.enabled = ? AND users.agent_id = ?', true, agent_id).group(:username)
-    .order('state DESC, archive_collections.change_utc ASC, position ASC').first
+    .order('state DESC, archive_collections.change_utc DESC, position ASC').first
+
 #    self.connection.execute("
 #SELECT users.username  FROM users
 #LEFT OUTER JOIN archive_collections
