@@ -81,6 +81,14 @@ class Agent < ActiveRecord::Base
   def total_collections
     archive_collections.count
   end
+  # count per day collections for last m months
+  def last_months_collections(m)
+    # fill empty dates with zeros
+    zeros = {}
+    (Date.today - m.month..Date.today).to_a.map { |date| zeros[date] = 0 }
+    data = archive_collections.last_months(m).per_day.count
+    zeros.merge(data).to_a
+  end
 
   def total_messages
     ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user IN (?)', jabber_names).count
