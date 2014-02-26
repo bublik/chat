@@ -90,6 +90,23 @@ class Agent < ActiveRecord::Base
     zeros.merge(data).to_a
   end
 
+
+  def users_last_months_collections(m)
+    if users.empty?
+      return last_months_collections(m)
+    end
+    data = (Date.today - m.month..Date.today).to_a.insert(0, 'Date').map{|i| [i]}
+    users.each do |user|
+      data[0] << user.username
+      user_data = user.last_months_collections(m)
+      # data << user_data
+      (1...data.length).each do |i|
+        data[i] << user_data[i-1][1]
+      end
+    end
+    data
+  end
+
   def total_messages
     ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user IN (?)', jabber_names).count
   end
