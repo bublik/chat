@@ -8,4 +8,8 @@ class ManagementController < ApplicationController
 
   def report
   end
+
+  def domain_stats
+    @agents = Agent.all
+  end
 end

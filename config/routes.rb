@@ -36,6 +36,7 @@ Chat::Application.routes.draw do
 
   get "management/index"
   get "management/report"
+  get 'management/domain_stats', to: 'management#domain_stats', as: :domain_stats
   get "home/index"
   get '/contact', to: "home#contact", as: :contact
   get '/help', to: "home#help", as: :help
