@@ -8,12 +8,13 @@ drawChart = ->
   
   # Set chart options
   options_agent =
-    title: "Chats per Day (for Agent)"
+    title: "Чатов в день (всего)"
     width: '100%'
     height: 500
     hAxis:
       textStyle:
         fontSize: 10
+    colors: ['#428bca','#5cb85c','#5bc0de','#f0ad4e','#d9534f'] #bootsrap colors
 
   
   # Instantiate and draw our chart, passing in some options.
@@ -29,12 +30,13 @@ drawChart = ->
   
   # Set chart options
   options_users =
-    title: "Chats per Day (for Users)"
+    title: "Чатов в день (операторы)"
     width: '100%'
     height: 500
     hAxis:
       textStyle:
         fontSize: 10
+    colors: ['#428bca','#5cb85c','#5bc0de','#f0ad4e','#d9534f'] #bootsrap colors
 
   
   # Instantiate and draw our chart, passing in some options.
