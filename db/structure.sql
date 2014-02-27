@@ -40,6 +40,7 @@ CREATE TABLE `agents` (
   `name` varchar(255) COLLATE utf8_unicode_ci DEFAULT '',
   `avatar` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `plan_id` int(11) DEFAULT '1',
+  `role` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_agents_on_email` (`email`),
   UNIQUE KEY `index_agents_on_reset_password_token` (`reset_password_token`)
@@ -810,7 +811,7 @@ CREATE TABLE `vcard_xupdate` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2014-02-24 14:21:16
+-- Dump completed on 2014-02-27 12:45:19
 INSERT INTO schema_migrations (version) VALUES ('20130911071435');
 
 INSERT INTO schema_migrations (version) VALUES ('20130911085505');
@@ -878,3 +879,5 @@ INSERT INTO schema_migrations (version) VALUES ('20140118184506');
 INSERT INTO schema_migrations (version) VALUES ('20140119094012');
 
 INSERT INTO schema_migrations (version) VALUES ('20140128205605');
+
+INSERT INTO schema_migrations (version) VALUES ('20140227104437');
