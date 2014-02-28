@@ -1,4 +1,4 @@
-commom: &common
+common: &common
   HOST: 'localhost.dev'
   SMTP_USER: 'smptpuser'
   SMTP_PASSWORD: 'pass'

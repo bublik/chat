@@ -25,6 +25,8 @@ class ArchiveCollection < ActiveRecord::Base
   scope :newest, -> { order(change_utc: :desc) }
   scope :last_week, -> { where("utc >= :date", :date => 1.week.ago) }
   scope :past_week, -> { where("utc >= :start_date AND utc <= :end_date", {:start_date => 1.week.ago, :end_date => 1.day.ago}) }
+  scope :last_months, ->(m) { where("utc >= :date", :date => m.month.ago) }
+  scope :per_day, -> { order(:utc).group("DATE(utc)") }
 
   after_destroy do
     Location.delete_all(user_usid: get_client_sid)

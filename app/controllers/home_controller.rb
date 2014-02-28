@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_filter :check_auth
+  before_filter :check_auth, except: :stats
 
   def index
     render layout: 'home_index'

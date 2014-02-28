@@ -1,0 +1,19 @@
+%table.table
+  %tr
+    %th Агент
+    %th Домен
+    %th Состояние
+  - @agents.each do |agent|
+    %tr
+      %td{rowspan: agent.sites.count+1} #{agent.email}
+      - if agent.sites.empty?
+        %td
+        %td
+      - else
+        - agent.sites.each do |site|  
+          %tr
+            %td= link_to(site.domain, 'http://'+site.domain)
+            %td
+              - if site.enabled?
+                %i.icon-ok.text-success
+= paginate @agents

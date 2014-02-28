@@ -65,4 +65,16 @@ class User < ActiveRecord::Base
     where(username: username).first.get_state rescue 'unknown_user'
   end
 
+  def archive_collections
+    ArchiveCollection.newest.where(with_user: username)
+  end
+
+  def last_months_collections(m)
+    # fill empty dates with zeros
+    zeros = {}
+    (Date.today - m.month..Date.today).to_a.map { |date| zeros[date] = 0 }
+    data = archive_collections.last_months(m).per_day.count
+    zeros.merge(data).to_a
+  end
+
 end

@@ -11,3 +11,14 @@
       #{distance_of_time_in_words(Time.at(0), Time.at(current_agent.total_chating_time))} супорта
     .span2.blue
       #{current_agent.total_messages} сообщений
+  .row
+    .span12#graph-agent
+      %script{src: "https://www.google.com/jsapi", type: "text/javascript"}
+      = javascript_tag do
+        window.graph_data_agent = #{raw current_agent.last_months_collections(6).to_json};    
+    .span12#graph-users
+      = javascript_tag do
+        window.graph_data_users = #{raw current_agent.users_last_months_collections(6).to_json};
+
+
+

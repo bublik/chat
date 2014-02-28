@@ -42,6 +42,8 @@ class Agent < ActiveRecord::Base
   validates_processing_of :avatar
   validate :plan_exists
 
+  paginates_per 10
+
   before_create do |agent|
     agent.users << User.build_user(agent.email)
   end
@@ -81,6 +83,31 @@ class Agent < ActiveRecord::Base
   def total_collections
     archive_collections.count
   end
+  # count per day collections for last m months
+  def last_months_collections(m)
+    # fill empty dates with zeros
+    zeros = {}
+    (Date.today - m.month..Date.today).to_a.map { |date| zeros[date] = 0 }
+    data = archive_collections.last_months(m).per_day.count
+    zeros.merge(data).to_a
+  end
+
+
+  def users_last_months_collections(m)
+    if users.empty?
+      return last_months_collections(m)
+    end
+    data = (Date.today - m.month..Date.today).to_a.insert(0, 'Date').map{|i| [i]}
+    users.each do |user|
+      data[0] << user.username
+      user_data = user.last_months_collections(m)
+      # data << user_data
+      (1...data.length).each do |i|
+        data[i] << user_data[i-1][1]
+      end
+    end
+    data
+  end
 
   def total_messages
     ArchiveMessage.joins(:archive_collection).where('archive_collections.with_user IN (?)', jabber_names).count
@@ -91,9 +118,14 @@ class Agent < ActiveRecord::Base
     archive_collections.select("sum(TIME_TO_SEC(TIMEDIFF(change_utc, utc))) as utc").first['utc'].to_i
   end
 
+  def admin?
+    role.eql?('admin')
+  end
+
   protected
   def plan_exists
     Plan.where('plans.id = ?', self.plan_id).exists?
   end
+
 
 end
