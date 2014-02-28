@@ -12,7 +12,8 @@
       - else
         - agent.sites.each do |site|  
           %tr
-            %td= site.domain
+            %td= link_to(site.domain, 'http://'+site.domain)
             %td
               - if site.enabled?
                 %i.icon-ok.text-success
+= paginate @agents

@@ -21,7 +21,8 @@
           = menu_item t('.history'), archive_collections_path
           = menu_item t('.feedback'), visitor_feedbacks_path
           = menu_item t('.client'), current_agent.users.present? ? users_path : new_user_path
-          = menu_item t('.domain_stats'), domain_stats_path
+          - if current_agent.admin?
+            = menu_item t('.domain_stats'), domain_stats_path
         = menu_group(pull: 'right') do
           = drop_down(current_agent.avatar? ? image_tag(current_agent.avatar.small.url) : icon('icon-user') ) do
             = menu_item(icon('icon-wrench') + ' ' + current_agent.full_name, edit_agent_registration_path)

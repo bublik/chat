@@ -42,6 +42,8 @@ class Agent < ActiveRecord::Base
   validates_processing_of :avatar
   validate :plan_exists
 
+  paginates_per 10
+
   before_create do |agent|
     agent.users << User.build_user(agent.email)
   end
@@ -116,9 +118,14 @@ class Agent < ActiveRecord::Base
     archive_collections.select("sum(TIME_TO_SEC(TIMEDIFF(change_utc, utc))) as utc").first['utc'].to_i
   end
 
+  def admin?
+    role.eql?('admin')
+  end
+
   protected
   def plan_exists
     Plan.where('plans.id = ?', self.plan_id).exists?
   end
+
 
 end
