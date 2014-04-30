@@ -62,7 +62,7 @@ class Agent < ActiveRecord::Base
   end
 
   def selected_user
-    User.for_site(self.id)
+    User.for_site(self.id) || users.first # когда нет активных пользователей возвращаем просто первого из отключенных, что бы работала обратная связь
   end
 
   def jabber_names
