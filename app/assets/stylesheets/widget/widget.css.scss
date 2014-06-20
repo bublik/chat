@@ -51,7 +51,7 @@
   height: 22px;
   overflow: hidden;
   color: #fff;
-  font-size: 16px
+  font-size: 16px !important;
 }
 
 .shf_top_buttons {
@@ -93,7 +93,7 @@
   height: 22px;
   color: #646464;
   line-height: 22px;
-  font-size: 12px;
+  font-size: 12px !important;
   text-align: center;
   text-shadow: 0 1px 0 #000;
   position: absolute;
@@ -124,15 +124,15 @@
 }
 
 .shf_successfully {
-  font-size: 26px;
+  font-size: 26px !important;
   color: #333;
   margin: 20px 0 0;
   text-align: center;
-  font-weight: 700
+  font-weight: 700;
 }
 
 .shf_message_sent {
-  font-size: 12px;
+  font-size: 12px !important;
   color: #333;
   margin: 0 0 30px;
   text-align: center
@@ -148,7 +148,7 @@
   height: 320px;
   padding: 10px;
   color: #777;
-  font-size: 14px;
+  font-size: 14px !important;
   .ch_wellcome {
     margin-bottom: 10px;
   }
@@ -164,6 +164,7 @@
     text-transform: none;
     text-indent: 0px;
     padding: 0;
+    margin: 0;
   }
   input[type=text] {
     width: 260px;
@@ -181,10 +182,10 @@
     border: 1px solid #ccc;
   }
   textarea {
-    width: 260px;
-    height: 160px;
+    width: 260px !important;
+    height: 160px !important;
     border: 1px solid #bbb;
-    scroll: auto;
+    scroll: auto !important;
   }
 }
 
@@ -223,17 +224,17 @@
 .shf_mess_details {
   margin-top: 5px;
   height: 20px;
-  line-height: 20px
+  line-height: 20px;
 }
 
 .shf_mess_time {
   float: right;
   color: #909090;
-  font-size: 10px
+  font-size: 10px !important;
 }
 
 .shf_mess_nick_sel {
-  color: #627aad
+  color: #627aad;
 }
 
 .shf_agent {
@@ -262,7 +263,7 @@
 
 .shf_agent_status {
   font-style: italic;
-  font-size: 0.8em;
+  font-size: 0.8em !important;
 }
 
 .shf_agent_status em {
@@ -301,7 +302,7 @@
 
 .shf_mess_text {
   color: #363636;
-  font-size: 12px;
+  font-size: 12px !important;
   word-wrap: break-word;
   line-height: 18px;
   text-align: left;
@@ -369,17 +370,18 @@ input.shf_input {
 input.shf_input, textarea.shf_textarea {
   background: #fff;
   border: 1px solid #dadad9;
-  font-size: 13px;
-  width: 100%;
+  font-size: 13px !important;
+  width: 100% !important;
   position: absolute;
   left: -9px;
-  top: 0
+  top: 0;
+  padding: 0 !important;
 }
 
 textarea.shf_textarea {
-  height: 75px;
+  height: 75px !important;
   padding: 8px 7px 1px;
-  margin: 0
+  margin: 0 !important;
 }
 
 .shf_chat_vote {
@@ -396,7 +398,7 @@ textarea.shf_textarea {
   height: 24px;
   line-height: 24px;
   float: right;
-  font-size: 12px;
+  font-size: 12px !important;
   margin-top: 6px
 }
 
@@ -427,7 +429,7 @@ textarea.shf_textarea {
   display: block;
   line-height: 16px;
   background: #fff;
-  font-size: 13px;
+  font-size: 13px !important;
   text-transform: none;
 }
 
@@ -461,7 +463,7 @@ textarea {
 
 .shf_btn {
   z-index: 999999;
-  font-size: 14px;
+  font-size: 14px !important;
   font-family: Arial;
   color: #fff;
   position: fixed;
@@ -533,7 +535,7 @@ textarea {
   cursor: pointer;
   border-left: 1px solid rgba(255, 255, 255, .3);
   padding: 0 8px;
-  font-size: 16px;
+  font-size: 16px !important;
   color: #fff;
   float: left;
   max-width: 328px
