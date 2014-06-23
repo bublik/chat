@@ -523,7 +523,6 @@ textarea {
 .shf_btn_left .shf_title_text, .shf_btn_right .shf_title_text {
   cursor: pointer;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, .3);
 }
 
 .shf_btn_top .shf_title_text, .shf_btn_bottom .shf_title_text {
@@ -533,7 +532,6 @@ textarea {
   margin-top: 4px;
   white-space: nowrap;
   cursor: pointer;
-  border-left: 1px solid rgba(255, 255, 255, .3);
   padding: 0 8px;
   font-size: 16px !important;
   color: #fff;

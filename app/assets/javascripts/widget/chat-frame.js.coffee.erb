@@ -45,6 +45,7 @@ class ChatFrame
 
   check_autoopen: ->
     return false unless @site_config['auto_open']
+    return false if @site_config['agent']['status'] is 'offline'
 
     time_left = ((new Date).getTime() - @first_visit_at) || 0
     time_wait = (@site_config['auto_open_timeout'] * 1000) - time_left
@@ -52,9 +53,7 @@ class ChatFrame
     if @already_chated != 'true' #  если он не чатился сегодня
       time_wait = 1 if time_wait < 0 # если время чата прошло тогда ставим секундную задержку на показ
       setTimeout (->
-        self.connect()
-        self.show_widget()
-        self.auto_open_message() unless self.chat_started
+        self.auto_open()
       ), time_wait
 
   load_css: ->
@@ -207,8 +206,11 @@ class ChatFrame
       return false
 
 
-  auto_open_message: ->
-    @append_message({time_at: (new Date).toLocaleString().split(' ')[1], full_name: @site_config.agent.name, content: @site_config.sales_welcome_message })
+  auto_open: ->
+    @connect()
+    @show_widget()
+    unless @chat_started
+      @append_message({time_at: (new Date).toLocaleString().split(' ')[1], full_name: @site_config.agent.name, content: @site_config.sales_welcome_message })
   append_message: (data) ->
     @chat_started = true
     #console.log('append_message <-', data)
