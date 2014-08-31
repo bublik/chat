@@ -88,7 +88,7 @@ class SitesController < ApplicationController
   def site_params
     params.require(:site).permit(:uuid, :name, :domain, :user_prefix, :site_category_id, :color, :side, :position, :title_online,
                                  :title_offline, :collect_stats, :show_online, :show_offline, :auto_open, :btn_title_online, :btn_title_offline,
-                                 :auto_open_timeout, :sales_welcome_message, :offline_welcome_message, :enabled)
+                                 :auto_open_timeout, :sales_interval_day, :sales_welcome_message, :offline_welcome_message, :enabled)
   end
 
   # Этот метод будет проверять соответствие запроса конфига и request.referrer домена

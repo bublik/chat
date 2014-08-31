@@ -87,6 +87,9 @@
         .span3= site_humanize_column('auto_open')
         .span3= icon_boolean(@site.auto_open)
       .row
+        .span3= site_humanize_column('sales_interval_day')
+        .span3= @site.sales_interval_day
+      .row
         .span3= site_humanize_column('auto_open_timeout')
         .span3= @site.auto_open_timeout
       .row

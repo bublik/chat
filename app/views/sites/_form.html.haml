@@ -2,12 +2,13 @@
   = f.error_notification
   .control-group
     = f.input :name
-    = f.input :domain
-    = f.input :user_prefix
+    = f.input :domain, hint: 'example: google.com'
     .control-group
       = f.label :enabled, site_humanize_column('enabled'), class: 'control-label red'
       .controls
         = f.check_box :enabled
+    %hr
+    = f.input :user_prefix, hint: 'можете добавить часть домена если у вас несколько сайтов, для идентификации сообщений в списке чатов'
     .control-group
       = f.label :site_category_id, site_humanize_column('site_category_id'), class: 'string optional control-label'
       .controls
@@ -26,6 +27,7 @@
         = f.label :position, site_humanize_column('position'), class: 'string optional control-label'
         .controls
           = f.select :position, Site::POSITION
+      %hr
       %h5.label.label-success Online
       = f.input :btn_title_online, hint: t('.btn_title_hint')
       = f.input :title_online
@@ -33,7 +35,6 @@
       = f.input :btn_title_offline, hint: t('.btn_title_hint')
       = f.input :title_offline
       = f.input :offline_welcome_message, as: :text, hint: t('.offline_welcome_message_hint')
-
       .hidden
         .control-group
           = f.label :collect_stats, site_humanize_column('collect_stats'), class: 'control-label'
@@ -47,15 +48,17 @@
           = f.label :show_offline, site_humanize_column('show_offline'), class: 'control-label'
           .controls
             = f.check_box :show_offline
-
+      %hr
       .control-group
         = f.label :auto_open, site_humanize_column('auto_open'), class: 'control-label red'
         .controls
           = f.check_box :auto_open
       = f.input :sales_welcome_message, as: :text, hint: t('.sales_welcome_message_hint')
+      = f.input :sales_interval_day, hint: t('.sales_interval_day_hint')
       = f.input :auto_open_timeout, hint: t('.auto_open_timeout_hint')
 
       - unless @site.new_record?
+        %hr
         .control-group
           = f.label :widget_code, site_humanize_column('widget_code'), class: 'control-label'
           .controls

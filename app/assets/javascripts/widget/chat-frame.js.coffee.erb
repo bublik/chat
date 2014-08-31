@@ -47,10 +47,15 @@ class ChatFrame
     return false unless @site_config['auto_open']
     return false if @site_config['agent']['status'] is 'offline'
 
+    next_date = new Date()
+    next_date.setDate((new Date(parseInt(@getCookie('last_chat')))).getDate() + @site_config['sales_interval_day'])
+    get_time_next_chat = next_date.getTime()
+    time_now = (new Date).getTime()
+
     time_left = ((new Date).getTime() - @first_visit_at) || 0
     time_wait = (@site_config['auto_open_timeout'] * 1000) - time_left
     self = @
-    if @already_chated != 'true' #  если он не чатился сегодня
+    if (get_time_next_chat < time_now) && @already_chated != 'true' #  если он не чатился сегодня
       time_wait = 1 if time_wait < 0 # если время чата прошло тогда ставим секундную задержку на показ
       setTimeout (->
         self.auto_open()
@@ -95,7 +100,8 @@ class ChatFrame
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
   show_widget: ->
     @reconnect = true
-    @setCookie('already_chated', true, 1)
+    @setCookie('already_chated', true, 1) # 1 day live
+    @setCookie('last_chat', (new Date).getTime(), 365) #1 year live
     @already_chated = 'true'
     setTimeout (->
       window.ChatFrame.connect()
@@ -281,7 +287,7 @@ class ChatFrame
     @pages_show = @setCookie('pages_show', parseInt(@getCookie('pages_show') || 0) + 1, 365)
     @already_chated = @getCookie('already_chated')
     # time in miliseconds when user visited site today
-    @first_visit_at = parseInt(@getCookie('visit_at') or @setCookie('visit_at', (new Date).getTime(), 1))
+    @first_visit_at = parseInt(@getCookie('visit_at') or @setCookie('visit_at', (new Date).getTime(), 365))
     _.extend(@site_config, {user_uid: @user_uid})
 
   setCookie: (c_name, value, exdays) ->

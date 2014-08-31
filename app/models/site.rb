@@ -46,6 +46,7 @@ class Site < ActiveRecord::Base
   validates :auto_open_timeout, numericality: {greater_than_or_equal_to: 0}
   validates :offline_welcome_message, length: 6..254, on: :update
   validates :sales_welcome_message, length: 6..254, if: :auto_open
+  validates :sales_interval_day, length: 1..30, if: :auto_open
   validates :btn_title_online, length: 6..20, on: :update
   validates :btn_title_offline, length: 6..20, on: :update
   validates :title_online, length: 0..50
