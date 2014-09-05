@@ -97,7 +97,7 @@ class ChatFrame
       self.send_message()
     jQuery('.shf_textarea_answer textarea').on 'keyup', (e) ->
       e.stopPropagation()
-      if e.keyCode is 13
+      if (e.keyCode is 13 || e.keyCode is 10) && !e.ctrlKey # skip send message when Control+Enter
         jQuery('.shf_textarea_answer .shf_enter_ico').click()
   show_widget: ->
     @reconnect = true
