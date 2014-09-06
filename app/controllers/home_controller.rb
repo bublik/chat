@@ -16,6 +16,7 @@ class HomeController < ApplicationController
   end
 
   def price
+    @plans = Plan.order("price")
   end
 
   def about
