@@ -11,7 +11,7 @@ class ManagementController < ApplicationController
   end
 
   def domain_stats
-    @agents = Agent.order(created_at: :desc).page params[:page]
+    @agents = Agent.joins(:plan).order(created_at: :desc).page params[:page]
   end
 
   private

@@ -1,19 +1,21 @@
-%table.table
-  %tr
+%table.table.table-striped
+  %thead
     %th Агент
+    %th План
     %th Домен
+    %th Создан
     %th Состояние
-  - @agents.each do |agent|
-    %tr
-      %td{rowspan: agent.sites.count+1} #{agent.email}
-      - if agent.sites.empty?
-        %td
-        %td
-      - else
-        - agent.sites.each do |site|  
-          %tr
-            %td= link_to(site.domain, 'http://'+site.domain)
-            %td
-              - if site.enabled?
-                %i.icon-ok.text-success
+  %tbody
+    - @agents.each do |agent|
+      %tr
+        %td{rowspan: agent.sites.count+1} #{agent.email}
+        %td{colspan: 4} #{agent.plan.name}
+      - agent.sites.each do |site|
+        %tr
+          %td
+          %td= link_to(site.domain, 'http://'+site.domain)
+          %td= site.created_at.to_s(:db)
+          %td
+            - if site.enabled?
+              %i.icon-ok.text-success
 = paginate @agents
