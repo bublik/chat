@@ -45,7 +45,7 @@ drawChart = ->
 
 
   return
-google.load "visualization", "1.0",
-  packages: ["corechart"]
 
-google.setOnLoadCallback drawChart
+if $('#graph-agent').length > 0 or $('#graph-users').length > 0
+  google.load "visualization", "1.0", packages: ["corechart"]
+  google.setOnLoadCallback drawChart
