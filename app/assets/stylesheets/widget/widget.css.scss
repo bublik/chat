@@ -639,8 +639,12 @@ textarea {
 .shf_btn_right_center .shf_title_text, .shf_btn_left_center .shf_title_text{
   -webkit-transform: rotate(-90deg);
   -moz-transform: rotate(-90deg);
-  height: 135px;
-  width: 155px;
+//  height: 135px;
+//  width: 155px;
+  height: 24px;
+  width: 143px;
+  margin-left: -50px;
+  margin-top: 65px;
 }
 
 .shf_btn_left_center .shf_title_text {
