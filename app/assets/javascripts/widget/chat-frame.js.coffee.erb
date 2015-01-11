@@ -87,6 +87,7 @@ class ChatFrame
       self.hide_widget()
       if jQuery.xmpp.connected
         jQuery.xmpp.setPresence('away')
+        jQuery.xmpp.sendMessage({ type: 'chat', to: window.ChatFrame.site_config.agent.email, body: 'Client Offline' })
     jQuery('.shf_textarea_answer textarea').on 'focus', (e) ->
       if jQuery.xmpp.connected
         jQuery.xmpp.setPresence(null)
@@ -317,3 +318,9 @@ class ChatFrame
 
 window.ChatFrame = new ChatFrame(window._chcfg)
 window.ChatFrame.load_site_config()
+window.onunload = ->
+  if jQuery.xmpp.connected
+    jQuery.xmpp.setPresence('away')
+    jQuery.xmpp.sendMessage({ type: 'chat', to: window.ChatFrame.site_config.agent.email, body: 'Client Offline' })
+  window.ChatFrame.close_widget()
+  return
