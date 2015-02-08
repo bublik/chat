@@ -1,5 +1,6 @@
 = div_for user, class: "alert #{user.enabled ? 'alert-info' : 'alert-error'}" do
-  .row.handle{'title' => 'Drag for ordering', 'data-toggle' => 'tooltip'}
+  .handle{'title' => 'Drag for ordering', 'data-toggle' => 'tooltip'} &nbsp;
+  .row
     .span2= t('.your_j_acc')
     .span2
       %span.label.label-info= user.jabber_account
